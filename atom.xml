@@ -4,7 +4,7 @@
   <title><![CDATA[My Octopress Blog]]></title>
   <link href="http://xuguoxing.github.io/atom.xml" rel="self"/>
   <link href="http://xuguoxing.github.io/"/>
-  <updated>2014-03-20T21:15:38+08:00</updated>
+  <updated>2014-03-20T21:32:43+08:00</updated>
   <id>http://xuguoxing.github.io/</id>
   <author>
     <name><![CDATA[Your Name]]></name>
@@ -12,5 +12,93 @@
   </author>
   <generator uri="http://octopress.org/">Octopress</generator>
 
+  
+  <entry>
+    <title type="html"><![CDATA[Octopress建站流程]]></title>
+    <link href="http://xuguoxing.github.io/blog/2014/03/20/octopressjian-zhan-liu-cheng/"/>
+    <updated>2014-03-20T21:20:35+08:00</updated>
+    <id>http://xuguoxing.github.io/blog/2014/03/20/octopressjian-zhan-liu-cheng</id>
+    <content type="html"><![CDATA[<h2>一.<a href="http://octopress.org/docs/setup/">设置Octopress</a></h2>
+
+<ol>
+<li><p>检查Ruby环境</p>
+
+<p>确保Ruby环境为1.9.3,若不是，则下载RVM,安装1.9.3版本</p>
+
+<pre><code> curl -L https://get.rvm.io | bash -s stable --ruby
+ rvm install 1.9.3
+ rvm use 1.9.3
+ rvm rubygems latest
+</code></pre></li>
+<li><p>clone Octopress</p>
+
+<pre><code> git clone git://github.com/imathis/octopress.git octopress
+ cd octopress
+</code></pre></li>
+<li><p>安装依赖(dependencies)</p>
+
+<pre><code> sudo gem install bundler
+ sudo bundle install
+</code></pre></li>
+<li><p>安装默认主题</p>
+
+<pre><code> rake install
+</code></pre></li>
+</ol>
+
+
+<h2><a href="http://octopress.org/docs/deploying/github/">二.部署到Github Pages</a></h2>
+
+<ol>
+<li><p>若本机无SSH Key,则<a href="https://help.github.com/articles/generating-ssh-keys">生成Github SSH Key</a></p>
+
+<ol>
+<li><p>生成SSH key</p>
+
+<pre><code> $ ssh-keygen -t rsa -C "your_email@example.com"
+ $ ssh-add id_rsa
+</code></pre></li>
+<li><p>添加SSH Key到GitHub</p>
+
+<pre><code> $ pbcopy &lt; ~/.ssh/id_rsa.pub #拷贝到clipboard
+</code></pre>
+
+<p> 在github的<a href="https://github.com/settings">Account Settings</a>添加SSH Key</p></li>
+<li><p>测试环境输出</p>
+
+<pre><code> $ ssh -T git@github.com
+</code></pre></li>
+</ol>
+</li>
+<li><p><a href="https://github.com/repositories/new">创建Github Repository</a></p>
+
+<ul>
+<li><p>名字格式为username.github.io,username需要是github的用户名。即xuguoxing.github.io</p></li>
+<li><p>Initialize this repository with a README 项不勾选</p></li>
+</ul>
+</li>
+<li><p>设置 github pages</p>
+
+<pre><code> rake setup_github_pages
+</code></pre>
+
+<p> 该命令会询问repo地址，并在_deploy目录下设置master branch</p>
+
+<pre><code> rake generate
+ rake deploy
+</code></pre>
+
+<p> 生成blog,拷贝生成的文件到_deploy/,添加到git,commit并push到master branch.
+等待大约10分钟</p></li>
+<li><p>source上传到Github</p>
+
+<pre><code> git add .
+ git commit -m 'your message'
+ git push origin source
+</code></pre></li>
+</ol>
+
+]]></content>
+  </entry>
   
 </feed>
