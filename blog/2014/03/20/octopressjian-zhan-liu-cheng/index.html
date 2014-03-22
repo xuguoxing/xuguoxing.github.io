@@ -357,11 +357,21 @@ page_asides:        # Optional sidebar config for page layout
 </code></pre>
 
 <p>  只能设置一个定制域名,如果需要设置多个定制域名,则需要使用其他服务将域名重定向到github pages的域名</p></li>
-<li><p>在域名中创建一条CNAME record</p></li>
+<li><p>deploy 生效</p>
+
+<pre><code>  rake generate
+  rake deploy
+</code></pre></li>
+<li><p>使用DNSPod管理域名</p>
+
+<p> 新建<a href="https://www.dnspod.cn">DNSPod</a>账号，添加域名<code>iosapp.me</code>,在godaddy账号中将域名的DNS设置DNSPod的DNS， <code>f1g1ns1.dnspod.net</code>和<code>f1g1ns2.dnspod.net</code></p></li>
+<li><p>DNSPod DNS生效后,在其中添加CNAME记录，指向<code>xuguoxing.github.io</code></p></li>
+<li><p>查找域名解析路径</p>
+
+<pre><code> $ dig www.example.com +nostats +nocomments +nocmd
+</code></pre></li>
 </ul>
 
-
-<h2>八.DNSPod</h2>
 
 <h2>参考:</h2>
 
