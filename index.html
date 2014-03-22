@@ -50,7 +50,7 @@
   <header role="banner"><hgroup>
   <h1><a href="/">iOS App</a></h1>
   
-    <h2>iOS App For MySelf.</h2>
+    <h2>iOS App For Myself.</h2>
   
 </hgroup>
 
@@ -356,7 +356,14 @@ page_asides:        # Optional sidebar config for page layout
 <ul>
 <li><p>在<code>source</code>目录下，新建文件<code>CNAME</code>,将域名添加到此文件中。</p>
 
+<p>  可设置顶级域名，如</p>
+
 <pre><code>  echo 'iosapp.me' &gt;&gt; source/CNAME
+</code></pre>
+
+<p>  或者子域名</p>
+
+<pre><code>  echo 'www.iosapp.me' &gt;&gt; source/CNAME
 </code></pre>
 
 <p>  只能设置一个定制域名,如果需要设置多个定制域名,则需要使用其他服务将域名重定向到github pages的域名</p></li>
@@ -368,10 +375,23 @@ page_asides:        # Optional sidebar config for page layout
 <li><p>使用DNSPod管理域名</p>
 
 <p> 新建<a href="https://www.dnspod.cn">DNSPod</a>账号，添加域名<code>iosapp.me</code>,在godaddy账号中将域名的DNS设置DNSPod的DNS， <code>f1g1ns1.dnspod.net</code>和<code>f1g1ns2.dnspod.net</code></p></li>
-<li><p>DNSPod DNS生效后,在其中添加CNAME记录，指向<code>xuguoxing.github.io</code></p></li>
-<li><p>查找域名解析路径</p>
+<li><p>DNSPod DNS生效后,在其中添加A或者CNAME记录</p>
 
-<pre><code> $ dig www.example.com +nostats +nocomments +nocmd
+<ul>
+<li><p>若第一步设置的顶级域名<code>iosapp.me</code>,则需要添加一条A记录，将<code>iosapp.me</code>指向固定IP地址，IP地址可通过dig命令获得</p>
+
+<pre><code>  $ dig xuguoxing.github.io +nostats +nocomments +nocmd
+  xuguoxing.github.io.    898 IN  CNAME           github.map.fastly.net.
+  github.map.fastly.net.  8   IN  A   199.27.79.133
+</code></pre></li>
+<li>若第一步设置的子域名<code>www.iosapp.me</code>,则需要添加一条CNAME域名,将<code>www.iosapp.me</code>指向<code>xuguoxing.github.io</code></li>
+</ul>
+</li>
+<li><p>待github设置域名和DNS解析都生效后，即可以通过<code>iosapp.me</code>或者<code>www.iosapp.me</code>访问blog;</p>
+
+<p>  可通过dig命令查询解析流程:</p>
+
+<pre><code>  $ dig iosapp.me +nostats +nocomments +nocmd
 </code></pre></li>
 </ul>
 
@@ -385,6 +405,7 @@ page_asides:        # Optional sidebar config for page layout
 <li><a href="http://octopress.org/docs/configuring/">Configuring Octopress</a></li>
 <li><a href="http://octopress.org/docs/blogging/">Start blogging with Octopress</a></li>
 <li><a href="https://help.github.com/articles/setting-up-a-custom-domain-with-pages">Setting up a custom domain with Pages</a></li>
+<li><a href="https://support.dnspod.cn/Kb/showarticle/tsid/42/">Godaddy注册商域名修改DNS地址</a></li>
 </ul>
 
 </div>
