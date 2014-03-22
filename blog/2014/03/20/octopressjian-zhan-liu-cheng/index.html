@@ -5,8 +5,8 @@
 <!--[if (gt IE 8)|(gt IEMobile 7)|!(IEMobile)|!(IE)]><!--><html class="no-js" lang="en"><!--<![endif]-->
 <head>
   <meta charset="utf-8">
-  <title>Octopress建站流程 - My Octopress Blog</title>
-  <meta name="author" content="Your Name">
+  <title>Octopress建站流程 - iOS App</title>
+  <meta name="author" content="xuguoxing">
 
   
   <meta name="description" content="一.设置Octopress 检查Ruby环境 确保Ruby环境为1.9.3,若不是，则下载RVM,安装1.9.3版本 curl -L https://get.rvm.io | bash -s stable --ruby rvm install 1.9.3 rvm use 1.9.3 rvm &hellip;">
@@ -21,7 +21,7 @@
   <link rel="canonical" href="http://xuguoxing.github.io/blog/2014/03/20/octopressjian-zhan-liu-cheng">
   <link href="/favicon.png" rel="icon">
   <link href="/stylesheets/screen.css" media="screen, projection" rel="stylesheet" type="text/css">
-  <link href="/atom.xml" rel="alternate" title="My Octopress Blog" type="application/atom+xml">
+  <link href="/atom.xml" rel="alternate" title="iOS App" type="application/atom+xml">
   <script src="/javascripts/modernizr-2.0.js"></script>
   <script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
   <script>!window.jQuery && document.write(unescape('%3Cscript src="./javascripts/libs/jquery.min.js"%3E%3C/script%3E'))</script>
@@ -31,14 +31,26 @@
 <link href="//fonts.googleapis.com/css?family=PT+Sans:regular,italic,bold,bolditalic" rel="stylesheet" type="text/css">
 
   
+  <script type="text/javascript">
+    var _gaq = _gaq || [];
+    _gaq.push(['_setAccount', 'UA-36079321-1']);
+    _gaq.push(['_trackPageview']);
+
+    (function() {
+      var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+      ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+      var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+    })();
+  </script>
+
 
 </head>
 
 <body   >
   <header role="banner"><hgroup>
-  <h1><a href="/">My Octopress Blog</a></h1>
+  <h1><a href="/">iOS App</a></h1>
   
-    <h2>A blogging framework for hackers.</h2>
+    <h2>iOS App For MySelf.</h2>
   
 </hgroup>
 
@@ -91,7 +103,7 @@
   </header>
 
 
-<div class="entry-content"><h2>一.<a href="http://octopress.org/docs/setup/">设置Octopress</a></h2>
+<div class="entry-content"><h2>一.设置Octopress</h2>
 
 <ol>
 <li><p>检查Ruby环境</p>
@@ -120,10 +132,10 @@
 </ol>
 
 
-<h2><a href="http://octopress.org/docs/deploying/github/">二.部署到Github Pages</a></h2>
+<h2>二.部署到Github Pages</h2>
 
 <ol>
-<li><p>若本机无SSH Key,则<a href="https://help.github.com/articles/generating-ssh-keys">生成Github SSH Key</a></p>
+<li><p>若本机无SSH Key,则生成Github SSH Key并上传</p>
 
 <ol>
 <li><p>生成SSH key</p>
@@ -171,6 +183,197 @@
 </code></pre></li>
 </ol>
 
+
+<h2>三.新增Posts</h2>
+
+<p>  Blog Post需用存储到<code>source/_posts</code>目录中，命名需符合Jekyll的命名规范:<code>YYYY-MM-DD-post-title.markdown</code></p>
+
+<p>  Octopress提供rake task创建新的post，自动符合命名规范的文件，并包含yaml元数据</p>
+
+<pre><code>rake new_post["title"]
+</code></pre>
+
+<p>  示例：</p>
+
+<pre><code>rake new_post["Zombie Ninjas Attack: A survivor's retrospective"]
+</code></pre>
+
+<p>  会生成文件<code>source/_posts/2011-07-03-zombie-ninjas-attack-a-survivors-retrospective.markdown</code>;url访问地址为<code>http://site.com/blog/2011/07/03/zombie-ninjas-attack-a-survivors-retrospective/index.html</code></p>
+
+<p>  生成的文件头部包含<a href="http://jekyllrb.com/docs/frontmatter/">yaml front matter</a>告诉Jekyll如何处理Posts和Pages</p>
+
+<pre><code>---
+layout: post
+title: "Zombie Ninjas Attack: A survivor's retrospective"
+date: 2011-07-03 5:59
+comments: true
+external-url:
+categories:
+---
+</code></pre>
+
+<p>可能存在的数据有</p>
+
+<ul>
+<li>layout:指定使用的layout文件(不带.Layout扩展名),Layout文件必须放置在_layouts目录下</li>
+<li>title:标题</li>
+<li>date: 发布日期</li>
+<li>comments: true或false,是否允许评论</li>
+<li>author: 对于多作者blog,可设置文章作者</li>
+<li>published: true或false,是否发布，如果在写草稿，可设为false</li>
+<li>external-url: 发布<a href="http://octopress.org/docs/blogging/linklog">linklog</a>样式post,填写指向的外部链接</li>
+<li><p>categories:可设置单个category或者多个category,格式件下面</p>
+
+<pre><code>  # One category
+  categories: Sass
+
+  # Multiple categories example 1
+  categories: [CSS3, Sass, Media Queries]
+
+  # Multiple categories example 2
+  categories:
+  - CSS3
+  - Sass
+  - Media Queries
+</code></pre></li>
+<li><p>permalink: 代替blog post中的<code>/year/month/day/title.html</code>作为最终url</p></li>
+<li>tags: 文字的tag标注，用法和categories相同</li>
+</ul>
+
+
+<h2>四.新增Pages</h2>
+
+<p>可以在blog source目录下的任意位置增加pages,对应的URL会指向对应路径，如<code>about.markdown</code>会生成链接<code>site.com/about.html</code>,<code>about/index.markdown</code>会生成链接<code>site.com/about/index.html</code></p>
+
+<p>生成新pages的rake task为:</p>
+
+<pre><code>rake new_page[super-awesome]
+rake new_page[super-awesome/page.html]
+</code></pre>
+
+<ul>
+<li>第一种方式生成markdown文件<code>/source/super-awesome/index.markdown</code></li>
+<li>第二种方式生成html文件<code>/source/super-awesome/page.html</code></li>
+</ul>
+
+
+<p>生成markdown文件的yaml头样式为:</p>
+
+<pre><code>---
+layout: page
+title: "Super Awesome"
+date: 2011-07-03 5:59
+comments: true
+sharing: true
+footer: true
+---
+</code></pre>
+
+<p>和post很相似,但不包括<code>categories</code>, sharing和footer是做什么用的；如果不需要显示日期<code>date</code>可删除</p>
+
+<h2>五.生成和预览</h2>
+
+<pre><code>rake generate   # Generates posts and pages into the public directory
+rake watch      # Watches source/ and sass/ for changes and regenerates
+rake preview    # Watches, and mounts a webserver at http://localhost:4000
+</code></pre>
+
+<p>使用<code>rake preview</code>可在本地<code>http://localhost:4000</code>预览生成效果。</p>
+
+<h2>六.配置Octopress</h2>
+
+<p>配置文件包括</p>
+
+<pre><code>_config.yml       # Main config (Jekyll's settings)
+Rakefile          # Configs for deployment
+config.rb         # Compass config
+config.ru         # Rack config
+</code></pre>
+
+<p>一般情况下只需要配置<code>_config.yml</code>;<code>Rakefile</code>是关于部署的,如果需要使用rsync同步,则需要设置;另外两个文件一般不用。</p>
+
+<p>_config.yml配置包包括三部分</p>
+
+<h3>Main Configs</h3>
+
+<pre><code>url:                # For rewriting urls for RSS, etc
+title:              # Used in the header and title tags
+subtitle:           # A description used in the header
+author:             # Your name, for RSS, Copyright, Metadata
+simple_search:      # Search engine for simple site search
+description:        # A default meta description for your site
+date_format:        # Format dates using Ruby's date strftime syntax
+subscribe_rss:      # Url for your blog's feed, defauts to /atom.xml
+subscribe_email:    # Url to subscribe by email (service required)
+category_feeds:     # Enable per category RSS feeds (defaults to false in 2.1)
+email:              # Email address for the RSS feed if you want it.
+</code></pre>
+
+<h3>Jekyll &amp; Plugins</h3>
+
+<p>关于Jekyll和插件的配置，可参考<a href="https://github.com/mojombo/jekyll/wiki/Configuration">configuration docs</a></p>
+
+<pre><code>root:               # Mapping for relative urls (default: /)
+permalink:          # Permalink structure for blog posts
+source:             # Directory for site source files
+destination:        # Directory for generated site files
+plugins:            # Directory for Jekyll plugins
+code_dir:           # Directory for code snippets (for include_code plugin)
+category_dir:       # Directory for generated blog category pages
+
+pygments:           # Toggle python pygments syntax highlighting
+paginate:           # Posts per page on the blog index
+pagination_dir:     # Directory base for pagination URLs eg. /blog/page/2/
+recent_posts:       # Number of recent posts to appear in the sidebar
+
+default_asides:     # Configure what shows up in the sidebar and in what order
+blog_index_asides:  # Optional sidebar config for blog index page
+post_asides:        # Optional sidebar config for post layout
+page_asides:        # Optional sidebar config for page layout
+</code></pre>
+
+<h3>第三方设置</h3>
+
+<ul>
+<li>Github &ndash; 在侧边栏列出 github repositories</li>
+<li>Twitter &ndash; 设置twitter用户名(不带@),添加Twitter分享按钮</li>
+<li>Google Plus One &ndash; Setup sharing for posts and pages on Google&rsquo;s plus one network.</li>
+<li>Pinboard &ndash; Share your recent Pinboard bookmarks in the sidebar.</li>
+<li>Delicious &ndash; Share your recent Delicious bookmarks in the sidebar.</li>
+<li>Disqus Comments &ndash; Add your disqus short name to enable disqus comments on your site.</li>
+<li>Google Analytics &ndash; 添加Google Analytics的tracking id分析页面访问.</li>
+<li>Facebook &ndash; 添加Facebook like按钮</li>
+</ul>
+
+
+<p>Google Analytics的tracking id在Google Analytics页面的 管理->媒体资源->跟踪代码中可以找到</p>
+
+<h2>七.设置自定义域名</h2>
+
+<ul>
+<li><p>在<code>source</code>目录下，新建文件<code>CNAME</code>,将域名添加到此文件中。</p>
+
+<pre><code>  echo 'iosapp.me' &gt;&gt; source/CNAME
+</code></pre>
+
+<p>  只能设置一个定制域名,如果需要设置多个定制域名,则需要使用其他服务将域名重定向到github pages的域名</p></li>
+<li><p>在域名中创建一条CNAME record</p></li>
+</ul>
+
+
+<h2>八.DNSPod</h2>
+
+<h2>参考:</h2>
+
+<ul>
+<li><a href="http://octopress.org/docs/setup/">Octopress Setup</a></li>
+<li><a href="http://octopress.org/docs/deploying/github/">Deploying to Github Pages</a></li>
+<li><a href="https://help.github.com/articles/generating-ssh-keys">GitHub Generating SSH Keys</a></li>
+<li><a href="http://octopress.org/docs/configuring/">Configuring Octopress</a></li>
+<li><a href="http://octopress.org/docs/blogging/">Start blogging with Octopress</a></li>
+<li><a href="https://help.github.com/articles/setting-up-a-custom-domain-with-pages">Setting up a custom domain with Pages</a></li>
+</ul>
+
 </div>
 
 
@@ -179,7 +382,7 @@
       
   
 
-<span class="byline author vcard">Posted by <span class="fn">Your Name</span></span>
+<span class="byline author vcard">Posted by <span class="fn">xuguoxing</span></span>
 
       
 
@@ -201,9 +404,11 @@
     
       <div class="sharing">
   
-  <a href="//twitter.com/share" class="twitter-share-button" data-url="http://xuguoxing.github.io/blog/2014/03/20/octopressjian-zhan-liu-cheng/" data-via="" data-counturl="http://xuguoxing.github.io/blog/2014/03/20/octopressjian-zhan-liu-cheng/" >Tweet</a>
+  <a href="//twitter.com/share" class="twitter-share-button" data-url="http://xuguoxing.github.io/blog/2014/03/20/octopressjian-zhan-liu-cheng/" data-via="xuguoxing" data-counturl="http://xuguoxing.github.io/blog/2014/03/20/octopressjian-zhan-liu-cheng/" >Tweet</a>
   
   
+  
+    <div class="fb-like" data-send="true" data-width="450" data-show-faces="false"></div>
   
 </div>
 
@@ -241,7 +446,7 @@
     </div>
   </div>
   <footer role="contentinfo"><p>
-  Copyright &copy; 2014 - Your Name -
+  Copyright &copy; 2014 - xuguoxing -
   <span class="credit">Powered by <a href="http://octopress.org">Octopress</a></span>
 </p>
 
@@ -249,6 +454,15 @@
   
 
 
+
+<div id="fb-root"></div>
+<script>(function(d, s, id) {
+  var js, fjs = d.getElementsByTagName(s)[0];
+  if (d.getElementById(id)) {return;}
+  js = d.createElement(s); js.id = id; js.async = true;
+  js.src = "//connect.facebook.net/en_US/all.js#appId=212934732101925&xfbml=1";
+  fjs.parentNode.insertBefore(js, fjs);
+}(document, 'script', 'facebook-jssdk'));</script>
 
 
 
