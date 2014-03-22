@@ -4,7 +4,7 @@
   <title><![CDATA[iOS App]]></title>
   <link href="http://xuguoxing.github.io/atom.xml" rel="self"/>
   <link href="http://xuguoxing.github.io/"/>
-  <updated>2014-03-22T21:59:15+08:00</updated>
+  <updated>2014-03-23T00:45:52+08:00</updated>
   <id>http://xuguoxing.github.io/</id>
   <author>
     <name><![CDATA[xuguoxing]]></name>
@@ -272,7 +272,7 @@ page_asides:        # Optional sidebar config for page layout
 </code></pre>
 
 <p>  只能设置一个定制域名,如果需要设置多个定制域名,则需要使用其他服务将域名重定向到github pages的域名</p></li>
-<li><p>deploy 生效</p>
+<li><p>部署发布至master</p>
 
 <pre><code>  rake generate
   rake deploy
