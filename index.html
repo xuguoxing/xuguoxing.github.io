@@ -9,7 +9,13 @@
   <meta name="author" content="xuguoxing">
 
   
-  <meta name="description" content="一.设置Octopress 检查Ruby环境 确保Ruby环境为1.9.3,若不是，则下载RVM,安装1.9.3版本 curl -L https://get.rvm.io | bash -s stable --ruby rvm install 1.9.3 rvm use 1.9.3 rvm &hellip;">
+  <meta name="description" content="一.设置Octopress 检查Ruby环境 确保Ruby环境为1.9.3,若不是，则下载RVM,安装1.9.3版本 1
+2
+3
+4
+$ url -L https://get.rvm.io | bash -s stable --ruby
+$ rvm install 1.9.3
+$ rvm use &hellip;">
   
 
   <!-- http://t.co/dKP3o1e -->
@@ -108,102 +114,122 @@
 
   <div class="entry-content"><h2>一.设置Octopress</h2>
 
-<ol>
-<li><p>检查Ruby环境</p>
+<h3>检查Ruby环境</h3>
 
 <p>确保Ruby环境为1.9.3,若不是，则下载RVM,安装1.9.3版本</p>
 
-<pre><code> curl -L https://get.rvm.io | bash -s stable --ruby
- rvm install 1.9.3
- rvm use 1.9.3
- rvm rubygems latest
-</code></pre></li>
-<li><p>clone Octopress</p>
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>$ url -L https://get.rvm.io | bash -s stable --ruby
+</span><span class='line'>$ rvm install 1.9.3
+</span><span class='line'>$ rvm use 1.9.3
+</span><span class='line'>$ rvm rubygems latest</span></code></pre></td></tr></table></div></figure>
 
-<pre><code> git clone git://github.com/imathis/octopress.git octopress
- cd octopress
-</code></pre></li>
-<li><p>安装依赖(dependencies)</p>
 
-<pre><code> sudo gem install bundler
- sudo bundle install
-</code></pre></li>
-<li><p>安装默认主题</p>
+<p>Clone Octopress</p>
 
-<pre><code> rake install
-</code></pre></li>
-</ol>
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>$ git clone git://github.com/imathis/octopress.git octopress
+</span><span class='line'>$ cd octopress</span></code></pre></td></tr></table></div></figure>
+
+
+<p>安装依赖(dependencies)</p>
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>$ sudo gem install bundler
+</span><span class='line'>$ sudo bundle install</span></code></pre></td></tr></table></div></figure>
+
+
+<p>安装默认主题</p>
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>rake install</span></code></pre></td></tr></table></div></figure>
 
 
 <h2>二.部署到Github Pages</h2>
 
-<ol>
-<li><p>若本机无SSH Key,则生成Github SSH Key并上传</p>
+<h3>若本机无SSH Key,则生成Github SSH Key并上传</h3>
 
-<ol>
-<li><p>生成SSH key</p>
+<p>生成SSH key</p>
 
-<pre><code> $ ssh-keygen -t rsa -C "your_email@example.com"
- $ ssh-add id_rsa
-</code></pre></li>
-<li><p>添加SSH Key到GitHub</p>
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>$ ssh-keygen -t rsa -C "your_email@example.com"
+</span><span class='line'>$ ssh-add id_rsa</span></code></pre></td></tr></table></div></figure>
 
-<pre><code> $ pbcopy &lt; ~/.ssh/id_rsa.pub #拷贝到clipboard
-</code></pre>
 
-<p> 在github的<a href="https://github.com/settings">Account Settings</a>添加SSH Key</p></li>
-<li><p>测试环境输出</p>
+<p>添加SSH Key到GitHub</p>
 
-<pre><code> $ ssh -T git@github.com
-</code></pre></li>
-</ol>
-</li>
-<li><p><a href="https://github.com/repositories/new">创建Github Repository</a></p>
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>$ pbcopy &lt; ~/.ssh/id_rsa.pub #拷贝到clipboard</span></code></pre></td></tr></table></div></figure>
+
+
+<p>在github的<a href="https://github.com/settings">Account Settings</a>添加SSH Key</p>
+
+<p>测试环境输出</p>
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>$ ssh -T git@github.com</span></code></pre></td></tr></table></div></figure>
+
+
+<h3><a href="https://github.com/repositories/new">创建Github Repository</a></h3>
 
 <ul>
-<li><p>名字格式为username.github.io,username需要是github的用户名。即xuguoxing.github.io</p></li>
+<li><p>创建名字格式为username.github.io,username必须为github的用户名。即xuguoxing.github.io</p></li>
 <li><p>Initialize this repository with a README 项不勾选</p></li>
 </ul>
-</li>
-<li><p>设置 github pages</p>
 
-<pre><code> rake setup_github_pages
-</code></pre>
 
-<p> 该命令会询问repo地址，并在_deploy目录下设置master branch</p>
+<h3>设置 github pages</h3>
 
-<pre><code> rake generate
- rake deploy
-</code></pre>
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>$ rake setup_github_pages</span></code></pre></td></tr></table></div></figure>
 
-<p> 生成blog,拷贝生成的文件到_deploy/,添加到git,commit并push到master branch.
-等待大约10分钟</p></li>
-<li><p>source上传到Github</p>
 
-<pre><code> git add .
- git commit -m 'your message'
- git push origin source
-</code></pre></li>
-</ol>
+<p>该命令会询问repo地址，并在_deploy目录下设置master branch</p>
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>$ rake generate
+</span><span class='line'>$ rake deploy</span></code></pre></td></tr></table></div></figure>
+
+
+<p>生成blog,拷贝生成的文件到_deploy/,添加到git,commit并push到master branch.
+  等待大约10分钟</p>
+
+<h3>source上传到Github</h3>
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>$ git add .
+</span><span class='line'>$ git commit -m 'your message'
+</span><span class='line'>$ git push origin source</span></code></pre></td></tr></table></div></figure>
 
 
 <h2>三.新增Posts</h2>
 
-<p>  Blog Post需用存储到<code>source/_posts</code>目录中，命名需符合Jekyll的命名规范:<code>YYYY-MM-DD-post-title.markdown</code></p>
+<p>Blog Post需用存储到<code>source/_posts</code>目录中，命名需符合Jekyll的命名规范:<code>YYYY-MM-DD-post-title.markdown</code></p>
 
-<p>  Octopress提供rake task创建新的post，自动符合命名规范的文件，并包含yaml元数据</p>
+<p>Octopress提供rake task创建新的post，自动符合命名规范的文件，并包含yaml元数据</p>
 
-<pre><code>rake new_post["title"]
-</code></pre>
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>rake new_post["title"]</span></code></pre></td></tr></table></div></figure>
 
-<p>  示例：</p>
 
-<pre><code>rake new_post["Zombie Ninjas Attack: A survivor's retrospective"]
-</code></pre>
+<p>示例：</p>
 
-<p>  会生成文件<code>source/_posts/2011-07-03-zombie-ninjas-attack-a-survivors-retrospective.markdown</code>;url访问地址为<code>http://site.com/blog/2011/07/03/zombie-ninjas-attack-a-survivors-retrospective/index.html</code></p>
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>rake new_post["Zombie Ninjas Attack: A survivor's retrospective"]</span></code></pre></td></tr></table></div></figure>
 
-<p>  生成的文件头部包含<a href="http://jekyllrb.com/docs/frontmatter/">yaml front matter</a>告诉Jekyll如何处理Posts和Pages</p>
+
+<p>会生成文件<code>source/_posts/2011-07-03-zombie-ninjas-attack-a-survivors-retrospective.markdown</code>;url访问地址为<code>http://site.com/blog/2011/07/03/zombie-ninjas-attack-a-survivors-retrospective/index.html</code></p>
+
+<p>生成的文件头部包含<a href="http://jekyllrb.com/docs/frontmatter/">yaml front matter</a>告诉Jekyll如何处理Posts和Pages</p>
 
 <pre><code>---
 layout: post
@@ -250,9 +276,11 @@ categories:
 
 <p>生成新pages的rake task为:</p>
 
-<pre><code>rake new_page[super-awesome]
-rake new_page[super-awesome/page.html]
-</code></pre>
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>rake new_page[super-awesome]
+</span><span class='line'>rake new_page[super-awesome/page.html]</span></code></pre></td></tr></table></div></figure>
+
 
 <ul>
 <li>第一种方式生成markdown文件<code>/source/super-awesome/index.markdown</code></li>
@@ -276,10 +304,13 @@ footer: true
 
 <h2>五.生成和预览</h2>
 
-<pre><code>rake generate   # Generates posts and pages into the public directory
-rake watch      # Watches source/ and sass/ for changes and regenerates
-rake preview    # Watches, and mounts a webserver at http://localhost:4000
-</code></pre>
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>rake generate   # Generates posts and pages into the public directory
+</span><span class='line'>rake watch      # Watches source/ and sass/ for changes and regenerates
+</span><span class='line'>rake preview    # Watches, and mounts a webserver at http://localhost:4000</span></code></pre></td></tr></table></div></figure>
+
 
 <p>使用<code>rake preview</code>可在本地<code>http://localhost:4000</code>预览生成效果。</p>
 
@@ -353,28 +384,35 @@ page_asides:        # Optional sidebar config for page layout
 
 <h2>七.设置自定义域名</h2>
 
+<p>在<code>source</code>目录下，新建文件<code>CNAME</code>,将域名添加到此文件中。</p>
+
+<p>可设置顶级域名，如</p>
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>echo 'iosapp.me' &gt;&gt; source/CNAME</span></code></pre></td></tr></table></div></figure>
+
+
+<p>或者子域名</p>
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>echo 'www.iosapp.me' &gt;&gt; source/CNAME</span></code></pre></td></tr></table></div></figure>
+
+
+<p>只能设置一个定制域名,如果需要设置多个定制域名,则需要使用其他服务将域名重定向到github pages的域名</p>
+
+<p>部署发布至master</p>
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>$ rake generate
+</span><span class='line'>$ rake deploy</span></code></pre></td></tr></table></div></figure>
+
+
+<p>使用DNSPod管理域名</p>
+
+<p>新建<a href="https://www.dnspod.cn">DNSPod</a>账号，添加域名<code>iosapp.me</code>,在godaddy账号中将域名的DNS设置DNSPod的DNS， <code>f1g1ns1.dnspod.net</code>和<code>f1g1ns2.dnspod.net</code></p>
+
 <ul>
-<li><p>在<code>source</code>目录下，新建文件<code>CNAME</code>,将域名添加到此文件中。</p>
-
-<p>  可设置顶级域名，如</p>
-
-<pre><code>  echo 'iosapp.me' &gt;&gt; source/CNAME
-</code></pre>
-
-<p>  或者子域名</p>
-
-<pre><code>  echo 'www.iosapp.me' &gt;&gt; source/CNAME
-</code></pre>
-
-<p>  只能设置一个定制域名,如果需要设置多个定制域名,则需要使用其他服务将域名重定向到github pages的域名</p></li>
-<li><p>部署发布至master</p>
-
-<pre><code>  rake generate
-  rake deploy
-</code></pre></li>
-<li><p>使用DNSPod管理域名</p>
-
-<p> 新建<a href="https://www.dnspod.cn">DNSPod</a>账号，添加域名<code>iosapp.me</code>,在godaddy账号中将域名的DNS设置DNSPod的DNS， <code>f1g1ns1.dnspod.net</code>和<code>f1g1ns2.dnspod.net</code></p></li>
 <li><p>DNSPod DNS生效后,在其中添加A或者CNAME记录</p>
 
 <ul>
@@ -387,12 +425,50 @@ page_asides:        # Optional sidebar config for page layout
 <li>若第一步设置的子域名<code>www.iosapp.me</code>,则需要添加一条CNAME域名,将<code>www.iosapp.me</code>指向<code>xuguoxing.github.io</code></li>
 </ul>
 </li>
-<li><p>待github设置域名和DNS解析都生效后，即可以通过<code>iosapp.me</code>或者<code>www.iosapp.me</code>访问blog;</p>
+<li><p>待github设置域名和DNS解析都生效后，即可以通过<code>iosapp.me</code>或者<code>www.iosapp.me</code>访问blog;</p></li>
+</ul>
 
-<p>  可通过dig命令查询解析流程:</p>
 
-<pre><code>  $ dig iosapp.me +nostats +nocomments +nocmd
-</code></pre></li>
+<p>可通过dig命令查询解析流程:</p>
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>$ dig iosapp.me +nostats +nocomments +nocmd</span></code></pre></td></tr></table></div></figure>
+
+
+<h2>八.插件</h2>
+
+<h3><a href="http://octopress.org/docs/plugins/image-tag/">Image Tag</a>图片</h3>
+
+<p><img src="http://placekitten.com/890/280">
+<img class="left" src="http://placekitten.com/320/250" title="Place Kitten #2" >
+<img class="right" src="http://placekitten.com/300/500" width="150" height="250" title="Place Kitten #3" >
+<img class="right" src="http://placekitten.com/300/500" width="150" height="250" title="Place Kitten #4" alt="An image of a very cute kitten">
+<img src="http://placekitten.com/890/280"></p>
+
+<h3><a href="http://octopress.org/docs/plugins/blockquote/">Blockquote</a>引用</h3>
+
+<blockquote><p>Last night I lay in bed looking up at the stars in the sky and I thought to myself, where the heck is the ceiling.</p></blockquote>
+
+
+<p>从Twitter引用</p>
+
+<blockquote><p>Over the past 24 hours I&#8217;ve been reflecting on my life & I&#8217;ve realized only one thing. I need a medieval battle axe.</p><footer><strong>@allanbranch</strong> <cite><a href='https://twitter.com/allanbranch/status/90766146063712256'>twitter.com/allanbranch/status/&hellip;</a></cite></footer></blockquote>
+
+
+<p>从Web引用</p>
+
+<blockquote><p>Every interaction is both precious and an opportunity to delight.</p><footer><strong>Seth Godin</strong> <cite><a href='http://sethgodin.typepad.com/seths_blog/2009/07/welcome-to-island-marketing.html'>Welcome to Island Marketing</a></cite></footer></blockquote>
+
+
+<h3>代码块</h3>
+
+<p>关于代码的引用参见</p>
+
+<ul>
+<li><a href="http://octopress.org/docs/plugins/codeblock/">Codeblock</a></li>
+<li><a href="http://octopress.org/docs/plugins/backtick-codeblock/">Backtick Code Blocks</a></li>
+<li><a href="http://octopress.org/docs/plugins/include-code/">Include Code</a></li>
+<li><a href="http://octopress.org/docs/plugins/gist-tag/">Gist Tag</a></li>
 </ul>
 
 
@@ -406,6 +482,11 @@ page_asides:        # Optional sidebar config for page layout
 <li><a href="http://octopress.org/docs/blogging/">Start blogging with Octopress</a></li>
 <li><a href="https://help.github.com/articles/setting-up-a-custom-domain-with-pages">Setting up a custom domain with Pages</a></li>
 <li><a href="https://support.dnspod.cn/Kb/showarticle/tsid/42/">Godaddy注册商域名修改DNS地址</a></li>
+<li><a href="http://octopress.org/docs/blogging/plugins/">Plugins</a></li>
+<li><a href="http://octopress.org/docs/plugins/image-tag/">Image Tag</a></li>
+<li><a href="http://octopress.org/docs/plugins/blockquote/">Blockquote</a></li>
+<li><a href="http://octopress.org/docs/plugins/codeblock/">Codeblock</a></li>
+<li><a href="http://octopress.org/docs/plugins/backtick-codeblock/">Backtick Code Blocks</a></li>
 </ul>
 
 </div>
