@@ -5,15 +5,13 @@
 <!--[if (gt IE 8)|(gt IEMobile 7)|!(IEMobile)|!(IE)]><!--><html class="no-js" lang="en"><!--<![endif]-->
 <head>
   <meta charset="utf-8">
-  <title>Blog Archive - iOS App</title>
+  <title>Homebrew - iOS App</title>
   <meta name="author" content="xuguoxing">
 
   
-  <meta name="description" content="Blog Archive 2014 Rvm
-Mar 27 2014 Homebrew
-Mar 27 2014 ImageOptim
-Mar 27 2014 Octopress建站流程
-Mar 20 2014 Recent Posts Rvm Homebrew ImageOptim &hellip;">
+  <meta name="description" content="Homebrew是OS X上的包管理器 安装Homebrew 1
+ruby -e "$(curl -fsSL https://raw.github.com/Homebrew/homebrew/go/install)" 使用Homebrew安装包 1
+$ brew install wget &hellip;">
   
 
   <!-- http://t.co/dKP3o1e -->
@@ -22,7 +20,7 @@ Mar 20 2014 Recent Posts Rvm Homebrew ImageOptim &hellip;">
   <meta name="viewport" content="width=device-width, initial-scale=1">
 
   
-  <link rel="canonical" href="http://xuguoxing.github.io/blog/archives">
+  <link rel="canonical" href="http://xuguoxing.github.io/blog/2014/03/27/homebrew">
   <link href="/favicon.png" rel="icon">
   <link href="/stylesheets/screen.css" media="screen, projection" rel="stylesheet" type="text/css">
   <link href="/atom.xml" rel="alternate" title="iOS App" type="application/atom+xml">
@@ -80,61 +78,151 @@ Mar 20 2014 Recent Posts Rvm Homebrew ImageOptim &hellip;">
   <div id="main">
     <div id="content">
       <div>
-<article role="article">
+<article class="hentry" role="article">
   
   <header>
-    <h1 class="entry-title">Blog Archive</h1>
+    
+      <h1 class="entry-title">Homebrew</h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2014-03-27T17:13:23+08:00" pubdate data-updated="true">Mar 27<span>th</span>, 2014</time>
+        
+      </p>
     
   </header>
-  
-  <div id="blog-archives">
 
 
+<div class="entry-content"><p><a href="http://brew.sh/index.html">Homebrew</a>是OS X上的包管理器</p>
 
-  
-  <h2>2014</h2>
+<p>安装Homebrew</p>
 
-<article>
-  
-<h1><a href="/blog/2014/03/27/rvm/">Rvm</a></h1>
-<time datetime="2014-03-27T17:27:57+08:00" pubdate><span class='month'>Mar</span> <span class='day'>27</span> <span class='year'>2014</span></time>
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>ruby -e "$(curl -fsSL https://raw.github.com/Homebrew/homebrew/go/install)"</span></code></pre></td></tr></table></div></figure>
 
 
-</article>
+<p>使用Homebrew安装包</p>
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>$ brew install wget</span></code></pre></td></tr></table></div></figure>
 
 
+<p>Homebrew会将包安装到/usr/local下自己的目录中，然后在/usr/local/bin中创建符号链接指向实际的执行文件</p>
 
-<article>
-  
-<h1><a href="/blog/2014/03/27/homebrew/">Homebrew</a></h1>
-<time datetime="2014-03-27T17:13:23+08:00" pubdate><span class='month'>Mar</span> <span class='day'>27</span> <span class='year'>2014</span></time>
-
-
-</article>
-
-
-
-<article>
-  
-<h1><a href="/blog/2014/03/27/imageoptim/">ImageOptim</a></h1>
-<time datetime="2014-03-27T09:40:59+08:00" pubdate><span class='month'>Mar</span> <span class='day'>27</span> <span class='year'>2014</span></time>
-
-
-</article>
-
-
-
-<article>
-  
-<h1><a href="/blog/2014/03/20/octopressjian-zhan-liu-cheng/">Octopress建站流程</a></h1>
-<time datetime="2014-03-20T21:20:35+08:00" pubdate><span class='month'>Mar</span> <span class='day'>20</span> <span class='year'>2014</span></time>
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+<span class='line-number'>8</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>$ pwd
+</span><span class='line'>/usr/local/Cellar
+</span><span class='line'>$ ls
+</span><span class='line'>openssl   wget
+</span><span class='line'>$ pwd
+</span><span class='line'>/usr/local/bin
+</span><span class='line'>$ ls -l wget
+</span><span class='line'>wget -&gt; ../Cellar/wget/1.15/bin/wget</span></code></pre></td></tr></table></div></figure>
 
 
-</article>
+<p>卸载Homebrew</p>
+
+<p>使用以下脚本卸载</p>
+
+<div><script src='https://gist.github.com/1173223.js'></script>
+<noscript><pre><code>#!/bin/sh
+# Just copy and paste the lines below (all at once, it won't work line by line!)
+# MAKE SURE YOU ARE HAPPY WITH WHAT IT DOES FIRST! THERE IS NO WARRANTY!
+
+function abort {
+  echo &quot;$1&quot;
+  exit 1
+}
+
+set -e
+
+/usr/bin/which -s git || abort &quot;brew install git first!&quot;
+test -d /usr/local/.git || abort &quot;brew update first!&quot;
+
+cd `brew --prefix`
+git checkout master
+git ls-files -z | pbcopy
+rm -rf Cellar
+bin/brew prune
+pbpaste | xargs -0 rm
+rm -r Library/Homebrew Library/Aliases Library/Formula Library/Contributions 
+test -d Library/LinkedKegs &amp;&amp; rm -r Library/LinkedKegs
+rmdir -p bin Library share/man/man1 2&gt; /dev/null
+rm -rf .git
+rm -rf ~/Library/Caches/Homebrew
+rm -rf ~/Library/Logs/Homebrew
+rm -rf /Library/Caches/Homebrew
+</code></pre></noscript></div>
+
+
 
 </div>
 
+
+  <footer>
+    <p class="meta">
+      
   
+
+<span class="byline author vcard">Posted by <span class="fn">xuguoxing</span></span>
+
+      
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2014-03-27T17:13:23+08:00" pubdate data-updated="true">Mar 27<span>th</span>, 2014</time>
+      
+
+
+    </p>
+    
+      <div class="sharing">
+  
+  <a href="//twitter.com/share" class="twitter-share-button" data-url="http://xuguoxing.github.io/blog/2014/03/27/homebrew/" data-via="xuguoxing" data-counturl="http://xuguoxing.github.io/blog/2014/03/27/homebrew/" >Tweet</a>
+  
+  
+  
+    <div class="fb-like" data-send="true" data-width="450" data-show-faces="false"></div>
+  
+</div>
+
+    
+    <p class="meta">
+      
+        <a class="basic-alignment left" href="/blog/2014/03/27/imageoptim/" title="Previous Post: ImageOptim">&laquo; ImageOptim</a>
+      
+      
+        <a class="basic-alignment right" href="/blog/2014/03/27/rvm/" title="Next Post: rvm">rvm &raquo;</a>
+      
+    </p>
+  </footer>
 </article>
 
 </div>
