@@ -4,7 +4,7 @@
   <title><![CDATA[iOS App]]></title>
   <link href="http://xuguoxing.github.io/atom.xml" rel="self"/>
   <link href="http://xuguoxing.github.io/"/>
-  <updated>2014-03-27T17:36:20+08:00</updated>
+  <updated>2014-04-01T15:45:41+08:00</updated>
   <id>http://xuguoxing.github.io/</id>
   <author>
     <name><![CDATA[xuguoxing]]></name>
@@ -12,6 +12,147 @@
   </author>
   <generator uri="http://octopress.org/">Octopress</generator>
 
+  
+  <entry>
+    <title type="html"><![CDATA[UDID]]></title>
+    <link href="http://xuguoxing.github.io/blog/2014/03/31/udid/"/>
+    <updated>2014-03-31T15:58:49+08:00</updated>
+    <id>http://xuguoxing.github.io/blog/2014/03/31/udid</id>
+    <content type="html"><![CDATA[<p>用于标识iOS设备的各种方法。</p>
+
+<h3>UDID(Unique Device Identifier)</h3>
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>[[UIDevice CurrentDevice] uniqueIdentifier];</span></code></pre></td></tr></table></div></figure>
+
+
+<ul>
+<li>UDID是可以唯一标识iOS设备的由40个16进制字符组成的序列。</li>
+<li>Available in iOS 2.0 &ndash; iOS 6.1；Deprecated in iOS 5.0.</li>
+<li>自<a href="https://developer.apple.com/news/?id=3212013a">2013.5.1</a>起，App Store不允许访问<code>UDID</code>的新应用提交。</li>
+</ul>
+
+
+<h3>IDFV(identifierForVendor) 开发商ID</h3>
+
+<p>用于应用的开发商(Vendor)唯一标识一台设备的ID。</p>
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>NSUUID *vendorId = [[UIDevice CurrentDevice] identifierForVendor];</span></code></pre></td></tr></table></div></figure>
+
+
+<blockquote><p>The value of this property is the same for apps that come from the same vendor running on the same device. A different value is returned for apps on the same device that come from different vendors, and for apps on different devices regardless of vendor. Normally, the vendor is determined by data provided by the App Store. If the app was not installed from the app store (such as when the app is still in development), the vendor is determined based on the app’s bundle ID. The bundle ID is assumed to be in reverse-DNS format, and the first two components are used to generate a vendor ID. For example, com.example.app1 and com.example.app2 would appear to have the same vendor ID.</p><p>If the value is nil, wait and get the value again later. This happens, for example, after the device has been restarted but before the user has unlocked the device.</p><p>The value in this property remains the same while the app (or another app from the same vendor) is installed on the iOS device. The value changes when the user deletes all of that vendor’s apps from the device and subsequently reinstalls one or more of them. The value can also when installing test builds using Xcode or when installing an app on a device using ad-hoc distribution. Therefore, if your app stores the value of this property anywhere, you should gracefully handle situations where the identifier changes.</p></blockquote>
+
+
+<ul>
+<li>Available in iOS 6.0 and later.</li>
+<li>对运行在同一台设备上的同一个开发商(Vendor)的所有App都返回同一个值。</li>
+<li>对运行在同一台设备上的不同开发商(Vendor)的App返回不同的值。</li>
+<li>对运行在不同设备上的App,不论开发商(Vendor)，都返回不同的值。</li>
+<li>从AppStore上下载的App,Vendor信息由AppStore中的数据决定。</li>
+<li>不是从AppStore上下载的应用(例如开发中的应用),Vendor信息由app的bundle ID决定;bundle ID的前两部分用于
+生成vendor ID，例如com.example.app1和com.example.app2会返回相同的vendor ID。</li>
+<li>设备重启后、解锁前,vendor ID可能返回nil。</li>
+<li>当同一个vendor的任意一个App在设备上存在时，vendor ID保持不变。当用户删除此vendor的所有App后，然后再次安装时vendor ID会
+发生变化。</li>
+</ul>
+
+
+<h3>IDFA(Identifier for Advertisers)</h3>
+
+<p>用于广告统计的设备标识符。</p>
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>NSUUID *adId = [[ASIdentifierManager sharedManager] advertisingIdentifier];</span></code></pre></td></tr></table></div></figure>
+
+
+<ul>
+<li>Available in iOS 6.0 and later.</li>
+<li><a href="https://developer.apple.com/library/ios/documentation/AdSupport/Reference/ASIdentifierManager_Ref/ASIdentifierManager.html#//apple_ref/occ/instp/ASIdentifierManager/advertisingIdentifier">advertisingIdentifier</a>
+是<code>AdSupport.framework</code>框架的一部分。</li>
+<li><p>几种情况下IDFA会变化</p>
+
+<ul>
+<li>系统Reset(iOS7:Settings.app &ndash;> General &ndash;> Reset &ndash;> Reset All Content and Settings)</li>
+<li><p>Reset Advertising Identifier(iOS7:Settings.app &ndash;> Privacy &ndash;> Advertising &ndash;> Reset Advertising Identifier)</p>
+
+<p>Reset Advertising Identifier后，如果应用已经运行在后台，则返回应用后调用<code>advertisingIdentifier</code>并不会返回新的值，只有应用终止再启动才会返回新的值。</p></li>
+</ul>
+</li>
+<li><p><code>Limit Ad Tracking</code>设为<code>ON</code>状态不影响<code>advertisingIdentifier</code>的访问.</p></li>
+<li>访问了<code>advertisingIdentifier</code>但没有显示任何广告的App会被拒掉,见<a href="http://blog.tapstream.com/post/75322632058/apple-rejecting-apps-for-not-showing-ads">tapstream的blog</a>。</li>
+</ul>
+
+
+<h4>Limit Ad Tracking</h4>
+
+<p>在<code>Settings.app -&gt; Privacy -&gt; Advertising</code>设置有一项<code>Limit Ad Tracking</code>,是否限制广告跟踪，目前这一选项没有实质性作用。
+在开发文档中对<code>advertisingTrackingEnabled</code>这样描述</p>
+
+<blockquote><p>Check the value of this property before performing any advertising tracking. If the value is NO, use the advertising identifier only for the following purposes: frequency capping, conversion events, estimating the number of unique users, security and fraud detection, and debugging.</p></blockquote>
+
+
+<p><code>advertisingTrackingEnabled</code>为NO,即<code>Limit Ad Tracking</code>为&#8217;ON&#8217;状态；这只是设置一个标识告诉广告商(advertisers)不要使用
+Advertising ID对用户进行针对性的广告匹配；但没有任何强制措施来保证这一点,对访问<code>advertisingIdentifier</code>也没有任何限制。</p>
+
+<h3>Mac Address</h3>
+
+<p>在iOS之前可以获取设备的Mac地址做个MD5作为设备的唯一标识，但自<a href="https://developer.apple.com/library/prerelease/ios/releasenotes/General/WhatsNewIniOS/Articles/iOS7.html">iOS7</a>起，获取Mac Address总是返回&#8221;02:00:00:00:00:00&#8221;</p>
+
+<blockquote><p>In iOS 7 and later, if you ask for the MAC address of an iOS device, the system returns the value02:00:00:00:00:00. If you need to identify the device, use the identifierForVendor property ofUIDevice instead. (Apps that need an identifier for their own advertising purposes should consider using the advertisingIdentifier property of ASIdentifierManager instead.)</p></blockquote>
+
+
+<h3>UUID(Universally Unique Identifiers)</h3>
+
+<p>UUID是可以在空间和时间范围内保证唯一性的128bit序列，由<a href="http://www.ietf.org/rfc/rfc4122.txt">RFC 4122</a>定义，微软的一个实现也叫做GUID(Globally Unique Identifier).</p>
+
+<blockquote><p>UUIDs (Universally Unique Identifiers), also known as GUIDs (Globally Unique Identifiers) or IIDs (Interface Identifiers), are 128-bit values A UUID is made unique over both space and time by combining a value unique to the computer on which it was generated and a value representing the number of 100-nanosecond intervals since October 15, 1582 at 00:00:00.</p></blockquote>
+
+
+<p>在iOS6中有<a href="https://developer.apple.com/library/ios/documentation/Foundation/Reference/NSUUID_Class/Reference/Reference.html">NSUUID</a>类来表示UUID,上面介绍的<code>identifierForVendor</code>和<code>advertisingIdentifier</code>返回值类型都是NSUUID。</p>
+
+<p>也可以直接使用<code>NSUUID</code>生成一个新的UUID,使用<code>UUIDString</code>方法获取其字符串表示;</p>
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>NSUUID *uuid = [NSUUID UUID];
+</span><span class='line'>NSString *uuidString = [uuid UUIDString];</span></code></pre></td></tr></table></div></figure>
+
+
+<p><code>NSUUID</code>与Core Fundation的<a href="https://developer.apple.com/library/ios/documentation/CoreFoundation/Reference/CFUUIDRef/Reference/reference.html#//apple_ref/c/tdef/CFUUIDRef">CFUUIDRef</a>不是toll-free bridged的，不能直接进行转换。
+需要使用UUID string在<code>NSUUID</code>与<code>CFUUID</code>间中转。</p>
+
+<p><code>CFUUID</code>可在iOS5及之前的版本使用</p>
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>CFUUIDRef uuid = CFUUIDCreate(NULL);
+</span><span class='line'>NSString *UUID = CFUUIDCreateString(NULL, uuid);</span></code></pre></td></tr></table></div></figure>
+
+
+<h3><a href="https://github.com/ylechelle/OpenUDID">OpenUDID</a></h3>
+
+<p>一个用于替换UDID的开源方案，<a href="http://blog.appsfire.com/udid-is-dead-openudid-is-deprecated-long-live-advertisingidentifier/">不推荐使用</a></p>
+
+<h3><a href="https://github.com/crashlytics/secureudid">SecureUDID Deprecated</a></h3>
+
+<p><a href="http://try.crashlytics.com/">Crashlytics</a>发布的开源沙盒UDID方案，现已<a href="http://www.secureudid.org/">废弃</a>。</p>
+
+<h3>参考</h3>
+
+<ul>
+<li><a href="http://nshipster.com/uuid-udid-unique-identifier/">NSUUID CFUUIDRef UIDevice -unique​Identifier -identifier​For​Vendor</a></li>
+<li><a href="http://oleb.net/blog/2012/09/udid-apis-in-ios-6/">UDID Replacement APIs in iOS 6</a></li>
+<li><a href="http://www.doubleencore.com/2013/04/unique-identifiers/">The Developer’s Guide to Unique Identifiers</a></li>
+<li><a href="http://oleb.net/blog/2011/09/how-to-replace-the-udid/">How to Replace the UDID</a></li>
+<li><a href="http://www.doubleencore.com/2013/04/what-apples-limit-ad-tracking-feature-actually-means-to-users/">What Apple’s ‘Limit Ad Tracking’ Means to Users</a></li>
+<li><a href="http://blog.tapstream.com/post/75322632058/apple-rejecting-apps-for-not-showing-ads">Apple Rejecting Apps For Not Showing Ads</a></li>
+<li><a href="https://developer.apple.com/library/ios/releasenotes/General/WhatsNewIniOS/Articles/iOS7.html">What&rsquo;s New in iOS7</a>
+*</li>
+</ul>
+
+]]></content>
+  </entry>
   
   <entry>
     <title type="html"><![CDATA[Rvm]]></title>
