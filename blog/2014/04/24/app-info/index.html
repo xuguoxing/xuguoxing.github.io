@@ -1,0 +1,667 @@
+
+<!DOCTYPE html>
+<!--[if IEMobile 7 ]><html class="no-js iem7"><![endif]-->
+<!--[if lt IE 9]><html class="no-js lte-ie8"><![endif]-->
+<!--[if (gt IE 8)|(gt IEMobile 7)|!(IEMobile)|!(IE)]><!--><html class="no-js" lang="en"><!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  <title>App Info - iOS App</title>
+  <meta name="author" content="xuguoxing">
+
+  
+  <meta name="description" content="Device信息 硬件设备类型 硬件类型字符串，格式为&#8221;iPhone5,1&#8221;、&#8221;iPod5,1&#8221;、&#8221;iPad3,2&#8221;、&#8221;x86_64&#8221;等 1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+-(NSString &hellip;">
+  
+
+  <!-- http://t.co/dKP3o1e -->
+  <meta name="HandheldFriendly" content="True">
+  <meta name="MobileOptimized" content="320">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  
+  <link rel="canonical" href="http://xuguoxing.github.io/blog/2014/04/24/app-info">
+  <link href="/favicon.png" rel="icon">
+  <link href="/stylesheets/screen.css" media="screen, projection" rel="stylesheet" type="text/css">
+  <link href="/atom.xml" rel="alternate" title="iOS App" type="application/atom+xml">
+  <script src="/javascripts/modernizr-2.0.js"></script>
+  <script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+  <script>!window.jQuery && document.write(unescape('%3Cscript src="./javascripts/libs/jquery.min.js"%3E%3C/script%3E'))</script>
+  <script src="/javascripts/octopress.js" type="text/javascript"></script>
+  <!--Fonts from Google"s Web font directory at http://google.com/webfonts -->
+<link href="//fonts.googleapis.com/css?family=PT+Serif:regular,italic,bold,bolditalic" rel="stylesheet" type="text/css">
+<link href="//fonts.googleapis.com/css?family=PT+Sans:regular,italic,bold,bolditalic" rel="stylesheet" type="text/css">
+
+  
+  <script type="text/javascript">
+    var _gaq = _gaq || [];
+    _gaq.push(['_setAccount', 'UA-36079321-1']);
+    _gaq.push(['_trackPageview']);
+
+    (function() {
+      var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+      ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+      var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+    })();
+  </script>
+
+
+</head>
+
+<body   >
+  <header role="banner"><hgroup>
+  <h1><a href="/">iOS App</a></h1>
+  
+    <h2>iOS App For Myself.</h2>
+  
+</hgroup>
+
+</header>
+  <nav role="navigation"><ul class="subscription" data-subscription="rss">
+  <li><a href="/atom.xml" rel="subscribe-rss" title="subscribe via RSS">RSS</a></li>
+  
+</ul>
+  
+<form action="https://www.google.com/search" method="get">
+  <fieldset role="search">
+    <input type="hidden" name="q" value="site:xuguoxing.github.io" />
+    <input class="search" type="text" name="q" results="0" placeholder="Search"/>
+  </fieldset>
+</form>
+  
+<ul class="main-navigation">
+  <li><a href="/">Blog</a></li>
+  <li><a href="/blog/archives">Archives</a></li>
+</ul>
+
+</nav>
+  <div id="main">
+    <div id="content">
+      <div>
+<article class="hentry" role="article">
+  
+  <header>
+    
+      <h1 class="entry-title">App Info</h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2014-04-24T14:47:06+08:00" pubdate data-updated="true">Apr 24<span>th</span>, 2014</time>
+        
+      </p>
+    
+  </header>
+
+
+<div class="entry-content"><h2>Device信息</h2>
+
+<h3>硬件设备类型</h3>
+
+<p>硬件类型字符串，格式为&#8221;iPhone5,1&#8221;、&#8221;iPod5,1&#8221;、&#8221;iPad3,2&#8221;、&#8221;x86_64&#8221;等</p>
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+<span class='line-number'>8</span>
+<span class='line-number'>9</span>
+<span class='line-number'>10</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>-(NSString *)platform
+</span><span class='line'>{
+</span><span class='line'>    size_t size;
+</span><span class='line'>    sysctlbyname("hw.machine", NULL, &size, NULL, 0);
+</span><span class='line'>    char *machine = malloc(size);
+</span><span class='line'>    sysctlbyname("hw.machine", machine, &size, NULL, 0);
+</span><span class='line'>    NSString *platform = [NSString stringWithUTF8String:machine];
+</span><span class='line'>    free(machine);
+</span><span class='line'>    return platform;
+</span><span class='line'>}</span></code></pre></td></tr></table></div></figure>
+
+
+<p>或者</p>
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>-(NSString *)platform{
+</span><span class='line'>    struct utsname systemInfo;
+</span><span class='line'>    uname(&systemInfo);
+</span><span class='line'>    NSString *machine =  [NSString stringWithCString:systemInfo.machine
+</span><span class='line'>                                            encoding:NSUTF8StringEncoding];
+</span><span class='line'>    return machine;
+</span><span class='line'>}</span></code></pre></td></tr></table></div></figure>
+
+
+<p>硬件类型和具体设备的对应关系见<a href="https://dl.dropboxusercontent.com/u/5927761/iOSDeviceModelMapping.plist">iOSDeviceModelMapping.plist</a>。</p>
+
+<h3>MAC地址</h3>
+
+<p>自<a href="https://developer.apple.com/library/prerelease/ios/releasenotes/General/WhatsNewIniOS/Articles/iOS7.html">iOS7</a>后，
+获取Mac地址总会返回&#8221;02:00:00:00:00:00&#8221;。</p>
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+<span class='line-number'>8</span>
+<span class='line-number'>9</span>
+<span class='line-number'>10</span>
+<span class='line-number'>11</span>
+<span class='line-number'>12</span>
+<span class='line-number'>13</span>
+<span class='line-number'>14</span>
+<span class='line-number'>15</span>
+<span class='line-number'>16</span>
+<span class='line-number'>17</span>
+<span class='line-number'>18</span>
+<span class='line-number'>19</span>
+<span class='line-number'>20</span>
+<span class='line-number'>21</span>
+<span class='line-number'>22</span>
+<span class='line-number'>23</span>
+<span class='line-number'>24</span>
+<span class='line-number'>25</span>
+<span class='line-number'>26</span>
+<span class='line-number'>27</span>
+<span class='line-number'>28</span>
+<span class='line-number'>29</span>
+<span class='line-number'>30</span>
+<span class='line-number'>31</span>
+<span class='line-number'>32</span>
+<span class='line-number'>33</span>
+<span class='line-number'>34</span>
+<span class='line-number'>35</span>
+<span class='line-number'>36</span>
+<span class='line-number'>37</span>
+<span class='line-number'>38</span>
+<span class='line-number'>39</span>
+<span class='line-number'>40</span>
+<span class='line-number'>41</span>
+<span class='line-number'>42</span>
+<span class='line-number'>43</span>
+<span class='line-number'>44</span>
+<span class='line-number'>45</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>- (NSString *) macaddress{
+</span><span class='line'>
+</span><span class='line'>    int                 mib[6];
+</span><span class='line'>    size_t              len;
+</span><span class='line'>    char                *buf;
+</span><span class='line'>    unsigned char       *ptr;
+</span><span class='line'>    struct if_msghdr    *ifm;
+</span><span class='line'>    struct sockaddr_dl  *sdl;
+</span><span class='line'>
+</span><span class='line'>    mib[0] = CTL_NET;
+</span><span class='line'>    mib[1] = AF_ROUTE;
+</span><span class='line'>    mib[2] = 0;
+</span><span class='line'>    mib[3] = AF_LINK;
+</span><span class='line'>    mib[4] = NET_RT_IFLIST;
+</span><span class='line'>
+</span><span class='line'>    if ((mib[5] = if_nametoindex("en0")) == 0) {
+</span><span class='line'>        printf("Error: if_nametoindex error\n");
+</span><span class='line'>        return NULL;
+</span><span class='line'>    }
+</span><span class='line'>
+</span><span class='line'>    if (sysctl(mib, 6, NULL, &len, NULL, 0) &lt; 0) {
+</span><span class='line'>        printf("Error: sysctl, take 1\n");
+</span><span class='line'>        return NULL;
+</span><span class='line'>    }
+</span><span class='line'>
+</span><span class='line'>    if ((buf = malloc(len)) == NULL) {
+</span><span class='line'>        printf("Could not allocate memory. error!\n");
+</span><span class='line'>        return NULL;
+</span><span class='line'>    }
+</span><span class='line'>
+</span><span class='line'>    if (sysctl(mib, 6, buf, &len, NULL, 0) &lt; 0) {
+</span><span class='line'>        printf("Error: sysctl, take 2");
+</span><span class='line'>        free(buf);
+</span><span class='line'>        return NULL;
+</span><span class='line'>    }
+</span><span class='line'>
+</span><span class='line'>    ifm = (struct if_msghdr *)buf;
+</span><span class='line'>    sdl = (struct sockaddr_dl *)(ifm + 1);
+</span><span class='line'>    ptr = (unsigned char *)LLADDR(sdl);
+</span><span class='line'>    NSString *outstring = [NSString stringWithFormat:@"%02X:%02X:%02X:%02X:%02X:%02X",
+</span><span class='line'>                           *ptr, *(ptr+1), *(ptr+2), *(ptr+3), *(ptr+4), *(ptr+5)];
+</span><span class='line'>    free(buf);
+</span><span class='line'>
+</span><span class='line'>    return outstring;
+</span><span class='line'>}</span></code></pre></td></tr></table></div></figure>
+
+
+<h3>操作系统名</h3>
+
+<p>如&#8221;iPhone OS&#8221;</p>
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>[[UIDevice currentDevice] systemName];</span></code></pre></td></tr></table></div></figure>
+
+
+<h3>操作系统版本号</h3>
+
+<p>例如：7.1.1</p>
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>[[UIDevice currentDevice] systemVersion];</span></code></pre></td></tr></table></div></figure>
+
+
+<h3>Model</h3>
+
+<p>例如&#8221;iPhone&#8221;,&ldquo;iPod touch&rdquo;,&ldquo;iPhone Simulator&rdquo;</p>
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>[[UIDevice currentDevice] model];</span></code></pre></td></tr></table></div></figure>
+
+
+<h3>IDFV(Vendor ID)</h3>
+
+<p>厂商ID,具体见<a href="http://iosapp.me/blog/2014/03/31/udid/">UDID</a></p>
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>[[[UIDevice currentDevice] identifierForVendor] UUIDString];</span></code></pre></td></tr></table></div></figure>
+
+
+<h3>设备方向(orientation)</h3>
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>UIDeviceOrientation orientation = [[UIDevice currentDevice] orientation];</span></code></pre></td></tr></table></div></figure>
+
+
+<p>注:<code>UIDeviceOrientation</code>与<code>UIInterfaceOrientation</code>定义有差别。</p>
+
+<h3>物理内存</h3>
+
+<p>获取设备物理内存大小,以字节为单位</p>
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+<span class='line-number'>8</span>
+<span class='line-number'>9</span>
+<span class='line-number'>10</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>#include &lt;sys/sysctl.h&gt;
+</span><span class='line'>
+</span><span class='line'>- (uint64_t)physicalMemory
+</span><span class='line'>{
+</span><span class='line'>    size_t size = sizeof(uint64_t);
+</span><span class='line'>    uint64_t physicalMemorySize;
+</span><span class='line'>    int mib[2] = {CTL_HW, HW_MEMSIZE};
+</span><span class='line'>    sysctl(mib, 2, &physicalMemorySize, &size, NULL, 0);
+</span><span class='line'>    return physicalMemorySize;
+</span><span class='line'>}</span></code></pre></td></tr></table></div></figure>
+
+
+<h3>用户空间内存大小</h3>
+
+<p>获取用户空间可用的内存大小(去除内核、Video等内存占用)，以字节为单位</p>
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+<span class='line-number'>8</span>
+<span class='line-number'>9</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>#include &lt;sys/sysctl.h&gt;
+</span><span class='line'>- (uint64_t)userMemory
+</span><span class='line'>{
+</span><span class='line'>    size_t size = sizeof(uint64_t);
+</span><span class='line'>    uint64_t userMemorySize;
+</span><span class='line'>    int mib[2] = {CTL_HW, HW_USERMEM};
+</span><span class='line'>    sysctl(mib, 2, &userMemorySize, &size, NULL, 0);
+</span><span class='line'>    return userMemorySize;
+</span><span class='line'>}</span></code></pre></td></tr></table></div></figure>
+
+
+<h3>当前应用所占内存</h3>
+
+<p>目前没有很好的方法获取App当前所占内存,有一种方法是使用<code>vm_statistics_data_t</code>获取虚拟内存信息，仅供参考
+<a href="http://landonf.bikemonkey.org/code/iphone/Determining_Available_Memory.20081203.html">Determining Available Memory</a></p>
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+<span class='line-number'>8</span>
+<span class='line-number'>9</span>
+<span class='line-number'>10</span>
+<span class='line-number'>11</span>
+<span class='line-number'>12</span>
+<span class='line-number'>13</span>
+<span class='line-number'>14</span>
+<span class='line-number'>15</span>
+<span class='line-number'>16</span>
+<span class='line-number'>17</span>
+<span class='line-number'>18</span>
+<span class='line-number'>19</span>
+<span class='line-number'>20</span>
+<span class='line-number'>21</span>
+<span class='line-number'>22</span>
+<span class='line-number'>23</span>
+<span class='line-number'>24</span>
+<span class='line-number'>25</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>#import &lt;mach/mach.h&gt;
+</span><span class='line'>#import &lt;mach/mach_host.h&gt;
+</span><span class='line'>
+</span><span class='line'>static void print_free_memory () {
+</span><span class='line'>    mach_port_t host_port;
+</span><span class='line'>    mach_msg_type_number_t host_size;
+</span><span class='line'>    vm_size_t pagesize;
+</span><span class='line'>
+</span><span class='line'>    host_port = mach_host_self();
+</span><span class='line'>    host_size = sizeof(vm_statistics_data_t) / sizeof(integer_t);
+</span><span class='line'>    host_page_size(host_port, &pagesize);
+</span><span class='line'>
+</span><span class='line'>    vm_statistics_data_t vm_stat;
+</span><span class='line'>
+</span><span class='line'>    if (host_statistics(host_port, HOST_VM_INFO, (host_info_t)&vm_stat, &host_size) != KERN_SUCCESS)
+</span><span class='line'>        NSLog(@"Failed to fetch vm statistics");
+</span><span class='line'>
+</span><span class='line'>    /* Stats in bytes */
+</span><span class='line'>    natural_t mem_used = (vm_stat.active_count +
+</span><span class='line'>                          vm_stat.inactive_count +
+</span><span class='line'>                          vm_stat.wire_count) * pagesize;
+</span><span class='line'>    natural_t mem_free = vm_stat.free_count * pagesize;
+</span><span class='line'>    natural_t mem_total = mem_used + mem_free;
+</span><span class='line'>    NSLog(@"used: %u free: %u total: %u", mem_used, mem_free, mem_total);
+</span><span class='line'>}</span></code></pre></td></tr></table></div></figure>
+
+
+<p><a href="https://github.com/Split82/iOSMemoryBudgetTest">iOSMemoryBudgetTest</a>通过不断alloc内存来记录应用crash时总的内存分配量，
+但记录的alloc的内存数量和使用上面方法获取的mem_used数据对不上。</p>
+
+<h2>Application信息</h2>
+
+<h3>当前应用状态(<code>UIApplicationState</code>)</h3>
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'> [[UIApplication sharedApplication] applicationState];</span></code></pre></td></tr></table></div></figure>
+
+
+<p><code>UIApplicationState</code>状态有:</p>
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>typedef enum : NSInteger {
+</span><span class='line'>   UIApplicationStateActive,
+</span><span class='line'>   UIApplicationStateInactive,
+</span><span class='line'>   UIApplicationStateBackground
+</span><span class='line'>} UIApplicationState;</span></code></pre></td></tr></table></div></figure>
+
+
+<h3>应用注册的推送类型(<code>UIRemoteNotificationType</code>)</h3>
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>[[UIApplication sharedApplication] enabledRemoteNotificationTypes];</span></code></pre></td></tr></table></div></figure>
+
+
+<p><code>UIRemoteNotificationType</code>定义的类型有</p>
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>typedef enum : NSUInteger {
+</span><span class='line'>   UIRemoteNotificationTypeNone    = 0,
+</span><span class='line'>   UIRemoteNotificationTypeBadge   = 1 &lt;&lt; 0,
+</span><span class='line'>   UIRemoteNotificationTypeSound   = 1 &lt;&lt; 1,
+</span><span class='line'>   UIRemoteNotificationTypeAlert   = 1 &lt;&lt; 2,
+</span><span class='line'>   UIRemoteNotificationTypeNewsstandContentAvailability = 1 &lt;&lt; 3
+</span><span class='line'>} UIRemoteNotificationType;</span></code></pre></td></tr></table></div></figure>
+
+
+<h2>Screen信息</h2>
+
+<h3>分辨率scale</h3>
+
+<p>1.0为普通分辨率，2.0为2倍分辨率，即为Retina屏幕</p>
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>[[UIScreen mainScreen] scale];</span></code></pre></td></tr></table></div></figure>
+
+
+<h2>Bundle信息</h2>
+
+<h3>发布版本号(Version/ Bundle versions string, short)</h3>
+
+<p>一般格式为三段.分隔的整数，如3.24.1等</p>
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>[[[NSBundle mainBundle] infoDictionary] objectForKey:@"CFBundleShortVersionString"];</span></code></pre></td></tr></table></div></figure>
+
+
+<p>使用NSString的<code>compare</code>方法，指定<code>NSNumbericSearch</code>选项，可比较版本号</p>
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>-(BOOL)version:(NSString*)_oldver lessthan:(NSString*)_newver
+</span><span class='line'>{
+</span><span class='line'>    if([_oldver compare:_newver options:NSNumericSearch] == NSOrderedAscending){
+</span><span class='line'>        return YES;
+</span><span class='line'>    }
+</span><span class='line'>    return NO;
+</span><span class='line'>}</span></code></pre></td></tr></table></div></figure>
+
+
+<h3>内部版本号(build/Bundle version)</h3>
+
+<p>内部构建版本号，格式也一般为三段.分隔的整数，也可以使用单一整数递增</p>
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>[[[NSBundle mainBundle] infoDictionary] objectForKey:(NSString *)kCFBundleVersionKey];</span></code></pre></td></tr></table></div></figure>
+
+
+<p><code>kCFBundleVersionKey</code>定义即为字符串&#8221;CFBundleVersion&#8221;</p>
+
+<h3>Bundle identifier</h3>
+
+<p>每个应用的唯一bundle id</p>
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>[[[NSBundle mainBundle] infoDictionary] objectForKey:(NSString *)kCFBundleIdentifierKey];</span></code></pre></td></tr></table></div></figure>
+
+
+<p><code>kCFBundleIdentifierKey</code>定义为&#8221;CFBundleIdentifier&#8221;</p>
+
+<h2>其他</h2>
+
+<h3>广告ID(IDFA)</h3>
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>[[[ASIdentifierManager sharedManager] advertisingIdentifier] UUIDString];</span></code></pre></td></tr></table></div></figure>
+
+
+<h2>参考</h2>
+
+<ul>
+<li><a href="https://github.com/erica/uidevice-extension/">uidevice-extension</a></li>
+<li><a href="http://iosapp.me/blog/2014/03/31/udid/">UDID</a></li>
+<li><a href="http://gamesfromwithin.com/whered-that-memory-go">Where’d That Memory Go?</a></li>
+<li><a href="http://landonf.bikemonkey.org/code/iphone/Determining_Available_Memory.20081203.html">iPhone: Determining Available Memory</a></li>
+<li><a href="https://forrst.com/posts/Get_current_Memory_usage-hzw">Get current Memory usage</a></li>
+<li><a href="https://github.com/Split82/iOSMemoryBudgetTest">iOSMemoryBudgetTest</a></li>
+<li><a href="https://developer.apple.com/library/ios/documentation/General/Reference/InfoPlistKeyReference/Articles/CoreFoundationKeys.html">Information Property List Key Reference</a></li>
+<li><a href="https://developer.apple.com/library/ios/documentation/CoreFoundation/Reference/CFBundleRef/Reference/reference.html">CFBundle Reference</a></li>
+</ul>
+
+</div>
+
+
+  <footer>
+    <p class="meta">
+      
+  
+
+<span class="byline author vcard">Posted by <span class="fn">xuguoxing</span></span>
+
+      
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2014-04-24T14:47:06+08:00" pubdate data-updated="true">Apr 24<span>th</span>, 2014</time>
+      
+
+
+    </p>
+    
+      <div class="sharing">
+  
+  <a href="//twitter.com/share" class="twitter-share-button" data-url="http://xuguoxing.github.io/blog/2014/04/24/app-info/" data-via="xuguoxing" data-counturl="http://xuguoxing.github.io/blog/2014/04/24/app-info/" >Tweet</a>
+  
+  
+  
+    <div class="fb-like" data-send="true" data-width="450" data-show-faces="false"></div>
+  
+</div>
+
+    
+    <p class="meta">
+      
+        <a class="basic-alignment left" href="/blog/2014/03/31/udid/" title="Previous Post: UDID">&laquo; UDID</a>
+      
+      
+    </p>
+  </footer>
+</article>
+
+</div>
+
+<aside class="sidebar">
+  
+    <section>
+  <h1>Recent Posts</h1>
+  <ul id="recent_posts">
+    
+      <li class="post">
+        <a href="/blog/2014/04/24/app-info/">App Info</a>
+      </li>
+    
+      <li class="post">
+        <a href="/blog/2014/03/31/udid/">UDID</a>
+      </li>
+    
+      <li class="post">
+        <a href="/blog/2014/03/27/rvm/">Rvm</a>
+      </li>
+    
+      <li class="post">
+        <a href="/blog/2014/03/27/homebrew/">Homebrew</a>
+      </li>
+    
+      <li class="post">
+        <a href="/blog/2014/03/27/imageoptim/">ImageOptim</a>
+      </li>
+    
+      <li class="post">
+        <a href="/blog/2014/03/20/octopressjian-zhan-liu-cheng/">Octopress建站流程</a>
+      </li>
+    
+  </ul>
+</section>
+
+
+
+
+
+  
+</aside>
+
+
+    </div>
+  </div>
+  <footer role="contentinfo"><p>
+  Copyright &copy; 2014 - xuguoxing -
+  <span class="credit">Powered by <a href="http://octopress.org">Octopress</a></span>
+</p>
+
+</footer>
+  
+
+
+
+<div id="fb-root"></div>
+<script>(function(d, s, id) {
+  var js, fjs = d.getElementsByTagName(s)[0];
+  if (d.getElementById(id)) {return;}
+  js = d.createElement(s); js.id = id; js.async = true;
+  js.src = "//connect.facebook.net/en_US/all.js#appId=212934732101925&xfbml=1";
+  fjs.parentNode.insertBefore(js, fjs);
+}(document, 'script', 'facebook-jssdk'));</script>
+
+
+
+
+
+  <script type="text/javascript">
+    (function(){
+      var twitterWidgets = document.createElement('script');
+      twitterWidgets.type = 'text/javascript';
+      twitterWidgets.async = true;
+      twitterWidgets.src = '//platform.twitter.com/widgets.js';
+      document.getElementsByTagName('head')[0].appendChild(twitterWidgets);
+    })();
+  </script>
+
+
+
+
+
+</body>
+</html>
