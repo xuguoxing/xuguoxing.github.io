@@ -1,0 +1,40 @@
+---
+layout: post
+title: "Homebrew"
+date: 2014-03-27 17:13:23 +0800
+comments: true
+published: true
+categories:
+---
+
+[Homebrew](http://brew.sh/index.html)是OS X上的包管理器
+
+安装Homebrew
+
+```
+ruby -e "$(curl -fsSL https://raw.github.com/Homebrew/homebrew/go/install)"
+```
+
+使用Homebrew安装包
+
+```
+$ brew install wget
+```
+
+Homebrew会将包安装到/usr/local下自己的目录中，然后在/usr/local/bin中创建符号链接指向实际的执行文件
+
+```
+$ pwd
+/usr/local/Cellar
+$ ls
+openssl	wget
+$ pwd
+/usr/local/bin
+$ ls -l wget
+wget -> ../Cellar/wget/1.15/bin/wget
+```
+
+卸载Homebrew
+
+使用以下脚本卸载
+{% gist 1173223 %}

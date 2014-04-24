@@ -1,0 +1,30 @@
+---
+layout: post
+title: "rvm"
+date: 2014-03-27 17:27:57 +0800
+comments: true
+published: true
+categories:
+---
+
+[Ruby Version Manager(RVM)](https://rvm.io/)是用于管理和切换多个版本ruby环境的命令行工具。
+
+
+安装RVM
+
+```
+curl -L https://get.rvm.io | bash -s stable --ruby
+```
+
+安装完成有提示:
+
+    To start using RVM you need to run `source /Users/xuguoxing/.rvm/scripts/rvm`
+    in all your open shell windows, in rare cases you need to reopen all shell windows.
+
+安装Ruby 1.9.3(Octopress使用)
+
+```
+rvm install 1.9.3
+rvm use 1.9.3
+rvm rubygems latest
+```

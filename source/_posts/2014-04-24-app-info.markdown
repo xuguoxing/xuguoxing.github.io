@@ -1,0 +1,285 @@
+---
+layout: post
+title: "App Info"
+date: 2014-04-24 14:47:06 +0800
+comments: true
+published: true
+categories:
+---
+
+##Device信息
+
+###硬件设备类型
+
+硬件类型字符串，格式为"iPhone5,1"、"iPod5,1"、"iPad3,2"、"x86_64"等
+```
+-(NSString *)platform
+{
+    size_t size;
+    sysctlbyname("hw.machine", NULL, &size, NULL, 0);
+    char *machine = malloc(size);
+    sysctlbyname("hw.machine", machine, &size, NULL, 0);
+    NSString *platform = [NSString stringWithUTF8String:machine];
+    free(machine);
+    return platform;
+}
+```
+或者
+```
+-(NSString *)platform{
+    struct utsname systemInfo;
+    uname(&systemInfo);
+    NSString *machine =  [NSString stringWithCString:systemInfo.machine
+                                            encoding:NSUTF8StringEncoding];
+    return machine;
+}
+```
+硬件类型和具体设备的对应关系见[iOSDeviceModelMapping.plist](https://dl.dropboxusercontent.com/u/5927761/iOSDeviceModelMapping.plist)。
+
+###MAC地址
+
+自[iOS7](https://developer.apple.com/library/prerelease/ios/releasenotes/General/WhatsNewIniOS/Articles/iOS7.html)后，
+获取Mac地址总会返回"02:00:00:00:00:00"。
+```
+- (NSString *) macaddress{
+
+    int                 mib[6];
+    size_t              len;
+    char                *buf;
+    unsigned char       *ptr;
+    struct if_msghdr    *ifm;
+    struct sockaddr_dl  *sdl;
+
+    mib[0] = CTL_NET;
+    mib[1] = AF_ROUTE;
+    mib[2] = 0;
+    mib[3] = AF_LINK;
+    mib[4] = NET_RT_IFLIST;
+
+    if ((mib[5] = if_nametoindex("en0")) == 0) {
+        printf("Error: if_nametoindex error\n");
+        return NULL;
+    }
+
+    if (sysctl(mib, 6, NULL, &len, NULL, 0) < 0) {
+        printf("Error: sysctl, take 1\n");
+        return NULL;
+    }
+
+    if ((buf = malloc(len)) == NULL) {
+        printf("Could not allocate memory. error!\n");
+        return NULL;
+    }
+
+    if (sysctl(mib, 6, buf, &len, NULL, 0) < 0) {
+        printf("Error: sysctl, take 2");
+        free(buf);
+        return NULL;
+    }
+
+    ifm = (struct if_msghdr *)buf;
+    sdl = (struct sockaddr_dl *)(ifm + 1);
+    ptr = (unsigned char *)LLADDR(sdl);
+    NSString *outstring = [NSString stringWithFormat:@"%02X:%02X:%02X:%02X:%02X:%02X",
+                           *ptr, *(ptr+1), *(ptr+2), *(ptr+3), *(ptr+4), *(ptr+5)];
+    free(buf);
+
+    return outstring;
+}
+```
+###操作系统名
+
+如"iPhone OS"
+```
+[[UIDevice currentDevice] systemName];
+```
+###操作系统版本号
+
+例如：7.1.1
+```
+[[UIDevice currentDevice] systemVersion];
+```
+
+###Model
+
+例如"iPhone","iPod touch","iPhone Simulator"
+```
+[[UIDevice currentDevice] model];
+```
+###IDFV(Vendor ID)
+
+厂商ID,具体见[UDID](http://iosapp.me/blog/2014/03/31/udid/)
+
+```
+[[[UIDevice currentDevice] identifierForVendor] UUIDString];
+```
+
+###设备方向(orientation)
+
+```
+UIDeviceOrientation orientation = [[UIDevice currentDevice] orientation];
+```
+注:`UIDeviceOrientation`与`UIInterfaceOrientation`定义有差别。
+
+###物理内存
+
+获取设备物理内存大小,以字节为单位
+
+```
+#include <sys/sysctl.h>
+
+- (uint64_t)physicalMemory
+{
+    size_t size = sizeof(uint64_t);
+    uint64_t physicalMemorySize;
+    int mib[2] = {CTL_HW, HW_MEMSIZE};
+    sysctl(mib, 2, &physicalMemorySize, &size, NULL, 0);
+    return physicalMemorySize;
+}
+```
+
+###用户空间内存大小
+
+获取用户空间可用的内存大小(去除内核、Video等内存占用)，以字节为单位
+
+```
+#include <sys/sysctl.h>
+- (uint64_t)userMemory
+{
+    size_t size = sizeof(uint64_t);
+    uint64_t userMemorySize;
+    int mib[2] = {CTL_HW, HW_USERMEM};
+    sysctl(mib, 2, &userMemorySize, &size, NULL, 0);
+    return userMemorySize;
+}
+```
+###当前应用所占内存
+
+目前没有很好的方法获取App当前所占内存,有一种方法是使用`vm_statistics_data_t`获取虚拟内存信息，仅供参考
+[Determining Available Memory](http://landonf.bikemonkey.org/code/iphone/Determining_Available_Memory.20081203.html)
+
+```
+#import <mach/mach.h>
+#import <mach/mach_host.h>
+
+static void print_free_memory () {
+    mach_port_t host_port;
+    mach_msg_type_number_t host_size;
+    vm_size_t pagesize;
+
+    host_port = mach_host_self();
+    host_size = sizeof(vm_statistics_data_t) / sizeof(integer_t);
+    host_page_size(host_port, &pagesize);
+
+    vm_statistics_data_t vm_stat;
+
+    if (host_statistics(host_port, HOST_VM_INFO, (host_info_t)&vm_stat, &host_size) != KERN_SUCCESS)
+        NSLog(@"Failed to fetch vm statistics");
+
+    /* Stats in bytes */
+    natural_t mem_used = (vm_stat.active_count +
+                          vm_stat.inactive_count +
+                          vm_stat.wire_count) * pagesize;
+    natural_t mem_free = vm_stat.free_count * pagesize;
+    natural_t mem_total = mem_used + mem_free;
+    NSLog(@"used: %u free: %u total: %u", mem_used, mem_free, mem_total);
+}
+```
+[iOSMemoryBudgetTest](https://github.com/Split82/iOSMemoryBudgetTest)通过不断alloc内存来记录应用crash时总的内存分配量，
+但记录的alloc的内存数量和使用上面方法获取的mem_used数据对不上。
+
+##Application信息
+
+###当前应用状态(`UIApplicationState`)
+
+```
+ [[UIApplication sharedApplication] applicationState];
+```
+`UIApplicationState`状态有:
+```
+typedef enum : NSInteger {
+   UIApplicationStateActive,
+   UIApplicationStateInactive,
+   UIApplicationStateBackground
+} UIApplicationState;
+```
+
+###应用注册的推送类型(`UIRemoteNotificationType`)
+
+```
+[[UIApplication sharedApplication] enabledRemoteNotificationTypes];
+```
+`UIRemoteNotificationType`定义的类型有
+```
+typedef enum : NSUInteger {
+   UIRemoteNotificationTypeNone    = 0,
+   UIRemoteNotificationTypeBadge   = 1 << 0,
+   UIRemoteNotificationTypeSound   = 1 << 1,
+   UIRemoteNotificationTypeAlert   = 1 << 2,
+   UIRemoteNotificationTypeNewsstandContentAvailability = 1 << 3
+} UIRemoteNotificationType;
+```
+
+##Screen信息
+
+###分辨率scale
+
+1.0为普通分辨率，2.0为2倍分辨率，即为Retina屏幕
+
+```
+[[UIScreen mainScreen] scale];
+```
+
+##Bundle信息
+
+###发布版本号(Version/ Bundle versions string, short)
+
+一般格式为三段.分隔的整数，如3.24.1等
+```
+[[[NSBundle mainBundle] infoDictionary] objectForKey:@"CFBundleShortVersionString"];
+```
+使用NSString的`compare`方法，指定`NSNumbericSearch`选项，可比较版本号
+```
+-(BOOL)version:(NSString*)_oldver lessthan:(NSString*)_newver
+{
+    if([_oldver compare:_newver options:NSNumericSearch] == NSOrderedAscending){
+        return YES;
+    }
+    return NO;
+}
+```
+###内部版本号(build/Bundle version)
+
+内部构建版本号，格式也一般为三段.分隔的整数，也可以使用单一整数递增
+```
+[[[NSBundle mainBundle] infoDictionary] objectForKey:(NSString *)kCFBundleVersionKey];
+```
+`kCFBundleVersionKey`定义即为字符串"CFBundleVersion"
+
+###Bundle identifier
+
+每个应用的唯一bundle id
+```
+[[[NSBundle mainBundle] infoDictionary] objectForKey:(NSString *)kCFBundleIdentifierKey];
+```
+`kCFBundleIdentifierKey`定义为"CFBundleIdentifier"
+
+##其他
+
+###广告ID(IDFA)
+
+```
+[[[ASIdentifierManager sharedManager] advertisingIdentifier] UUIDString];
+```
+
+
+##参考
+
+* [uidevice-extension](https://github.com/erica/uidevice-extension/)
+* [UDID](http://iosapp.me/blog/2014/03/31/udid/)
+* [Where’d That Memory Go?](http://gamesfromwithin.com/whered-that-memory-go)
+* [iPhone: Determining Available Memory](http://landonf.bikemonkey.org/code/iphone/Determining_Available_Memory.20081203.html)
+* [Get current Memory usage](https://forrst.com/posts/Get_current_Memory_usage-hzw)
+* [iOSMemoryBudgetTest](https://github.com/Split82/iOSMemoryBudgetTest)
+* [Information Property List Key Reference](https://developer.apple.com/library/ios/documentation/General/Reference/InfoPlistKeyReference/Articles/CoreFoundationKeys.html)
+* [CFBundle Reference](https://developer.apple.com/library/ios/documentation/CoreFoundation/Reference/CFBundleRef/Reference/reference.html)
