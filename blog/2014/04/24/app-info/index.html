@@ -408,6 +408,22 @@
 <p><a href="https://github.com/Split82/iOSMemoryBudgetTest">iOSMemoryBudgetTest</a>通过不断alloc内存来记录应用crash时总的内存分配量，
 但记录的alloc的内存数量和使用上面方法获取的mem_used数据对不上。</p>
 
+<h2>进程信息(NSProcessInfo)</h2>
+
+<p><code>NSProcessInfo</code>中包含当前进程的信息,包括启动参数、环境变量、进程ID、进程名、操作系统名、操作系统版本、处理器个数、系统启动时间等。</p>
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>NSProcessInfo *processInfo = [NSProcessInfo processInfo];
+</span><span class='line'>NSDictionary *environment = [processInfo environment];
+</span><span class='line'>NSArray *arguments = [processInfo arguments];
+</span><span class='line'>NSUInteger numcore = [processInfo processorCount];</span></code></pre></td></tr></table></div></figure>
+
+
+<p>示例代码见<a href="https://github.com/markd2/SystemInfo">SystemInfo</a>。</p>
+
 <h2>Application信息</h2>
 
 <h3>当前应用状态(<code>UIApplicationState</code>)</h3>
@@ -531,6 +547,7 @@
 <li><a href="https://github.com/Split82/iOSMemoryBudgetTest">iOSMemoryBudgetTest</a></li>
 <li><a href="https://developer.apple.com/library/ios/documentation/General/Reference/InfoPlistKeyReference/Articles/CoreFoundationKeys.html">Information Property List Key Reference</a></li>
 <li><a href="https://developer.apple.com/library/ios/documentation/CoreFoundation/Reference/CFBundleRef/Reference/reference.html">CFBundle Reference</a></li>
+<li><a href="http://www.bignerdranch.com/blog/we-want-information-information/">We want information&hellip; Information&hellip;</a></li>
 </ul>
 
 </div>
