@@ -4,7 +4,7 @@
   <title><![CDATA[iOS App]]></title>
   <link href="http://xuguoxing.github.io/atom.xml" rel="self"/>
   <link href="http://xuguoxing.github.io/"/>
-  <updated>2014-05-23T20:26:26+08:00</updated>
+  <updated>2014-05-23T20:56:09+08:00</updated>
   <id>http://xuguoxing.github.io/</id>
   <author>
     <name><![CDATA[xuguoxing]]></name>
@@ -209,16 +209,28 @@
 
 <ol>
 <li>单元测试方法在异步任务完成前不能返回。</li>
-<li>在Cocoa中需要使用<code>main run loop</code>来处理网络和定时器，这样异步任务才能完成。</li>
+<li>在Cocoa中需要使用<code>run loop</code>来处理网络和定时器，这样异步任务才能完成。</li>
 </ol>
 
 
 <p>解决方案:</p>
 
 <ol>
-<li>在调用异步任务后，使用<code>CFRunLoopRun()</code>创建<code>main run loop</code>一直等待，且run loop去处理网络和定时器以完成异步任务。</li>
-<li>在异步任务完成后，使用<code>CFRunLoopStop(CFRunLoopGetCurrent())</code>终止当前的<code>main run loop</code>,以结束单元测试方法。</li>
+<li>在调用异步任务后，使用<code>CFRunLoopRun()</code>启用<code>run loop</code>一直等待，且run loop去处理网络和定时器以完成异步任务。</li>
+<li>在异步任务完成后，使用<code>CFRunLoopStop(CFRunLoopGetCurrent())</code>终止当前的<code>run loop</code>,以结束单元测试方法。</li>
 </ol>
+
+
+<p><code>CFRunLoopRun</code></p>
+
+<blockquote><p>The current thread’s run loop runs in the default mode (see “Default Run Loop Mode”) until the run loop is stopped with CFRunLoopStop or all the sources and timers are removed from the default run loop mode.</p><p>Run loops can be run recursively. You can call CFRunLoopRun from within any run loop callout and create nested run loop activations on the current thread’s call stack.</p></blockquote>
+
+
+<p><code>CFRunLoopStop</code></p>
+
+<blockquote><p>This function forces rl to stop running and return control to the function that called CFRunLoopRun or CFRunLoopRunInMode for the current run loop activation. If the run loop is nested with a callout from one activation starting another activation running, only the innermost activation is exited.</p></blockquote>
+
+
 
 
 <figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
@@ -239,8 +251,13 @@
 </span><span class='line'>}</span></code></pre></td></tr></table></div></figure>
 
 
-<p>github上有两个开源库对此方法进行了扩展，<a href="https://github.com/premosystems/XCAsyncTestCase">XCAsyncTestCase</a>和
-<a href="https://github.com/iheartradio/xctest-additions">xctest-additions</a>。</p>
+<p>github上有两个开源库使用<code>NSRunLoop</code>对此方法进行了扩展，增加了超时等机制。</p>
+
+<ul>
+<li><a href="https://github.com/premosystems/XCAsyncTestCase">XCAsyncTestCase</a></li>
+<li><a href="https://github.com/iheartradio/xctest-additions">xctest-additions</a></li>
+</ul>
+
 
 <h1>参考</h1>
 
