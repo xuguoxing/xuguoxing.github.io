@@ -436,11 +436,26 @@ page_asides:        # Optional sidebar config for page layout
 
 <h3><a href="http://octopress.org/docs/plugins/image-tag/">Image Tag</a>图片</h3>
 
-<p><img src="http://placekitten.com/890/280">
-<img class="left" src="http://placekitten.com/320/250" title="Place Kitten #2" >
-<img class="right" src="http://placekitten.com/300/500" width="150" height="250" title="Place Kitten #3" >
-<img class="right" src="http://placekitten.com/300/500" width="150" height="250" title="Place Kitten #4" alt="An image of a very cute kitten">
-<img src="http://placekitten.com/890/280"></p>
+<p>增加图片的语法为</p>
+
+<pre><code>&lt;img class="[position]" src="/path/to/image" title="[width] [height] [title text [alt text]]" &gt;
+</code></pre>
+
+<p>其中<code>/path/to/image</code>可以为网上的图片URL,也可是是本站的图片；如果自己站点的图片，
+通常放在source/images目录下，可以按照年和月建立两层目录，如2014/03。<code>rake generate</code>命令会自动生成博客，
+放在<code>source/images</code>目录下的图片也会被复制过去。</p>
+
+<p>图片代码示例</p>
+
+<pre><code>&lt;img src="/images/2014/03/picture.jpg"&gt;
+&lt;img src="http://placekitten.com/890/280"&gt;
+&lt;img class="left" src="http://placekitten.com/320/250" title="Place Kitten #2" &gt;
+&lt;img class="right" src="http://placekitten.com/300/500" width="150" height="250" title="Place Kitten #3" &gt;
+&lt;img class="right" src="http://placekitten.com/300/500" width="150" height="250" title="Place Kitten #4" alt="An image of a very cute kitten"&gt;
+&lt;img src="http://placekitten.com/890/280"&gt;
+</code></pre>
+
+<p><img src="http://placekitten.com/890/280"></p>
 
 <h3><a href="http://octopress.org/docs/plugins/blockquote/">Blockquote</a>引用</h3>
 
@@ -541,6 +556,10 @@ page_asides:        # Optional sidebar config for page layout
     <section>
   <h1>Recent Posts</h1>
   <ul id="recent_posts">
+    
+      <li class="post">
+        <a href="/blog/2014/05/23/xctest/">XCTest</a>
+      </li>
     
       <li class="post">
         <a href="/blog/2014/04/24/app-info/">App Info</a>

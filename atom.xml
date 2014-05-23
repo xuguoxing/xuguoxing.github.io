@@ -4,7 +4,7 @@
   <title><![CDATA[iOS App]]></title>
   <link href="http://xuguoxing.github.io/atom.xml" rel="self"/>
   <link href="http://xuguoxing.github.io/"/>
-  <updated>2014-05-09T18:09:04+08:00</updated>
+  <updated>2014-05-23T20:26:26+08:00</updated>
   <id>http://xuguoxing.github.io/</id>
   <author>
     <name><![CDATA[xuguoxing]]></name>
@@ -12,6 +12,247 @@
   </author>
   <generator uri="http://octopress.org/">Octopress</generator>
 
+  
+  <entry>
+    <title type="html"><![CDATA[XCTest]]></title>
+    <link href="http://xuguoxing.github.io/blog/2014/05/23/xctest/"/>
+    <updated>2014-05-23T10:19:20+08:00</updated>
+    <id>http://xuguoxing.github.io/blog/2014/05/23/xctest</id>
+    <content type="html"><![CDATA[<p><code>XCTest</code>是Xcode5引入的单元测试框架，替换了之前的<code>OCUnit</code>。<code>XCTest</code>中的测试用例类都继承自<code>XCTestCase</code>类，断言前缀为<code>XCT</code>。</p>
+
+<h1>项目中引入<code>XCTest</code>框架</h1>
+
+<h2>创建新项目</h2>
+
+<p>使用Xcode5新建项目，会自动创建名为<code>[ProjectName]Tests</code>的<code>Target</code>,
+自动生成<code>[ProjectName]Tests</code>目录，且包含一个测试失败的单元测试文件<code>[ProjectName]Tests.m</code>。</p>
+
+<h2>老项目中引入</h2>
+
+<p>在Xcode中选择菜单<code>File-&gt;New-&gt;Target...</code>,在弹出框中选择<code>iOS-&gt;Other-&gt;Cocoa Touch Unit Testing Bundle</code>,在弹出的设置页面中
+可根据需要修改，其中<code>Product Name</code>中的默认值为<code>[ProjectName] Tests</code>,中间包含一空格，推荐将空格去掉；其他项保持原状即可。</p>
+
+<p><img src="http://xuguoxing.github.io/images/2014/05/XCTest_newTarget.png"></p>
+
+<p>注:
+* XCTest框架在运行时自动注入(Inject) app的target，访问其中的符号信息(symbols),
+所以在XCTest Target的<code>Compile Sources</code>中只需要包含测试用例文件，不需要包含待测试的源文件。
+* 若运行单元测试时有找不到符号的提示，检查下app Target <code>Build Settings</code>中的<code>Symbols hidden by default</code>,应该设为<code>NO</code>。</p>
+
+<h1>运行单元测试</h1>
+
+<ol>
+<li>菜单<code>Product-&gt;Test</code>或者<code>Command+U</code>可运行全部测试用例。</li>
+<li>在Xcode5的导航区有<code>Test Navigator</code>,在其中可选择运行整个bundle的测试方法、运行某个测试类或运行某一个测试方法。</li>
+<li>使用<code>xcodebuild test</code>命令运行。</li>
+</ol>
+
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>xcodebuild test -scheme XCTestDemo -sdk iphonesimulator -destination 'platform=iOS Simulator,name=iPhone Retina (4-inch),OS=7.1'</span></code></pre></td></tr></table></div></figure>
+
+
+<p>注: <code>XCTest</code>只能在iOS7以上的模拟器或设备中运行,所以在使用方法1、2时，Xcode中的指定的运行设备需为7.0以上的；而使用<code>xcodebuild test</code>
+命令运行时需指定<code>destination</code>参数，选择7.0以上的模拟器或真实设备运行。否则会有错误提示:
+&ldquo;Library not loaded: /Developer/Library/Frameworks/XCTest.framework/XCTest&rdquo;</p>
+
+<p>执行完测试用例后，执行通过的测试用例左侧会有<code>绿色对勾</code>图标，执行失败的测试用例左侧会有<code>红色x图标</code>，且执行失败的行会红色高亮显示。</p>
+
+<p><img src="http://xuguoxing.github.io/images/2014/05/XCTest_Navigator.png"></p>
+
+<h1><code>XCTestCase</code>类结构</h1>
+
+<p>一个测试用例文件如下:</p>
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+<span class='line-number'>8</span>
+<span class='line-number'>9</span>
+<span class='line-number'>10</span>
+<span class='line-number'>11</span>
+<span class='line-number'>12</span>
+<span class='line-number'>13</span>
+<span class='line-number'>14</span>
+<span class='line-number'>15</span>
+<span class='line-number'>16</span>
+<span class='line-number'>17</span>
+<span class='line-number'>18</span>
+<span class='line-number'>19</span>
+<span class='line-number'>20</span>
+<span class='line-number'>21</span>
+<span class='line-number'>22</span>
+<span class='line-number'>23</span>
+<span class='line-number'>24</span>
+<span class='line-number'>25</span>
+<span class='line-number'>26</span>
+<span class='line-number'>27</span>
+<span class='line-number'>28</span>
+<span class='line-number'>29</span>
+<span class='line-number'>30</span>
+<span class='line-number'>31</span>
+<span class='line-number'>32</span>
+<span class='line-number'>33</span>
+<span class='line-number'>34</span>
+<span class='line-number'>35</span>
+<span class='line-number'>36</span>
+<span class='line-number'>37</span>
+<span class='line-number'>38</span>
+<span class='line-number'>39</span>
+<span class='line-number'>40</span>
+<span class='line-number'>41</span>
+<span class='line-number'>42</span>
+<span class='line-number'>43</span>
+<span class='line-number'>44</span>
+<span class='line-number'>45</span>
+<span class='line-number'>46</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>#import &lt;XCTest/XCTest.h&gt;
+</span><span class='line'>
+</span><span class='line'>@interface XCTestDemoTests : XCTestCase
+</span><span class='line'>
+</span><span class='line'>@end
+</span><span class='line'>
+</span><span class='line'>@implementation XCTestDemoTests
+</span><span class='line'>
+</span><span class='line'>+ (void)setUp
+</span><span class='line'>{
+</span><span class='line'>    NSLog(@"TestCase Class setUp");
+</span><span class='line'>}
+</span><span class='line'>
+</span><span class='line'>+ (void)tearDown
+</span><span class='line'>{
+</span><span class='line'>    NSLog(@"TestCase Class tearDown");
+</span><span class='line'>}
+</span><span class='line'>
+</span><span class='line'>- (void)setUp
+</span><span class='line'>{
+</span><span class='line'>    [super setUp];
+</span><span class='line'>
+</span><span class='line'>    NSLog(@"TestCase SetUp");
+</span><span class='line'>}
+</span><span class='line'>
+</span><span class='line'>- (void)tearDown
+</span><span class='line'>{
+</span><span class='line'>    [super tearDown];
+</span><span class='line'>    NSLog(@"TestCase tearDown");
+</span><span class='line'>}
+</span><span class='line'>
+</span><span class='line'>- (void)testExample1
+</span><span class='line'>{
+</span><span class='line'>    NSLog(@"testExample1");
+</span><span class='line'>    XCTAssertTrue(1, @"testExample1");
+</span><span class='line'>    //XCTFail(@"No implementation for \"%s\"", __PRETTY_FUNCTION__);
+</span><span class='line'>}
+</span><span class='line'>
+</span><span class='line'>- (void)testExample2
+</span><span class='line'>{
+</span><span class='line'>    NSLog(@"testExample2");
+</span><span class='line'>    XCTAssertTrue(1, @"testExample1");
+</span><span class='line'>    //XCTFail(@"No implementation for \"%s\"", __PRETTY_FUNCTION__);
+</span><span class='line'>}
+</span><span class='line'>
+</span><span class='line'>@end</span></code></pre></td></tr></table></div></figure>
+
+
+<p>在<code>XCTestCase</code>类中包含类方法<code>+ (void)setUp</code>、<code>+ (void)tearDown</code>,实例方法<code>- (void)setUp</code>、<code>- (void)tearDown</code>以及多个测试方法。
+这些方法的执行顺序为</p>
+
+<ol>
+<li><code>+ (void)setUp</code></li>
+<li><code>- (void)setUp</code></li>
+<li><code>- (void)testExample1</code></li>
+<li><code>- (void)tearDown</code></li>
+<li><code>- (void)setUp</code></li>
+<li><code>- (void)testExample2</code></li>
+<li><code>- (void)tearDown</code></li>
+<li><code>+ (void)tearDown</code></li>
+</ol>
+
+
+<p>即<code>setup</code>类方法会在类创建的调用一次，类销毁的时候调用<code>tearDown</code>类方法，在每个测试方法执行之前调用<code>setUp</code>实例方法,测试方法执行之后调用
+<code>tearDown</code>实例方法。</p>
+
+<h1>断言</h1>
+
+<p><code>XCTest</code>支持的断言有：</p>
+
+<ul>
+<li>XCTFail (format…)</li>
+<li>XCTAssertNil (a1, format…)</li>
+<li>XCTAssertNotNil (a1, format…)</li>
+<li>XCTAssert (a1, format…)</li>
+<li>XCTAssertTrue (a1, format…)</li>
+<li>XCTAssertFalse (a1, format…)</li>
+<li>XCTAssertEqualObjects (a1, a2, format…)</li>
+<li>XCTAssertEquals (a1, a2, format…)</li>
+<li>XCTAssertEqualsWithAccuracy (a1, a2, accuracy, format…)</li>
+<li>XCTAssertThrows (expression, format…)</li>
+<li>XCTAssertThrowsSpecific (expression, specificException, format…)</li>
+<li>XCTAssertThrowsSpecificNamed (expression, specificException, exceptionName, format…)</li>
+<li>XCTAssertNoThrow (expression, format…)</li>
+<li>XCTAssertNoThrowSpecific (expression, specificException, format…)</li>
+<li>XCTAssertNoThrowSpecificNamed (expression, specificExcepton, exceptionName, format…)</li>
+</ul>
+
+
+<p>具体可见<code>XCTestAssertions.h</code>文件</p>
+
+<h1>异步单元测试</h1>
+
+<p>正常情况下，单元测试方法执行完毕后立即返回，若测试的是异步任务，此时没有拿到异步任务的返回结果，测试就终止了。</p>
+
+<p>测试异步任务时，需要注意两个方法:</p>
+
+<ol>
+<li>单元测试方法在异步任务完成前不能返回。</li>
+<li>在Cocoa中需要使用<code>main run loop</code>来处理网络和定时器，这样异步任务才能完成。</li>
+</ol>
+
+
+<p>解决方案:</p>
+
+<ol>
+<li>在调用异步任务后，使用<code>CFRunLoopRun()</code>创建<code>main run loop</code>一直等待，且run loop去处理网络和定时器以完成异步任务。</li>
+<li>在异步任务完成后，使用<code>CFRunLoopStop(CFRunLoopGetCurrent())</code>终止当前的<code>main run loop</code>,以结束单元测试方法。</li>
+</ol>
+
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+<span class='line-number'>8</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>- (void)testAsyncTask
+</span><span class='line'>{
+</span><span class='line'>    [taskManager execAsyncTaskWithCompletion:^(NSError *error) {
+</span><span class='line'>        XCTAssertNil(error, @"Error should be nil");
+</span><span class='line'>         CFRunLoopStop(CFRunLoopGetCurrent());
+</span><span class='line'>    }];
+</span><span class='line'>    CFRunLoopRun();
+</span><span class='line'>}</span></code></pre></td></tr></table></div></figure>
+
+
+<p>github上有两个开源库对此方法进行了扩展，<a href="https://github.com/premosystems/XCAsyncTestCase">XCAsyncTestCase</a>和
+<a href="https://github.com/iheartradio/xctest-additions">xctest-additions</a>。</p>
+
+<h1>参考</h1>
+
+<ul>
+<li>iOS测试指南,作者:芈峮</li>
+<li><a href="http://hackazach.net/code/2014/02/24/slim-xctest-targets/">Slim XCTest Targets</a></li>
+<li><a href="http://mentalfaculty.tumblr.com/post/83814421929/unit-testing-asynchronous-cocoa">Unit Testing Asynchronous Cocoa</a></li>
+<li><a href="https://developer.apple.com/legacy/library/documentation/DeveloperTools/Conceptual/UnitTesting/00-About_Unit_Testing/about.html">Xcode Unit Testing Guide</a></li>
+</ul>
+
+]]></content>
+  </entry>
   
   <entry>
     <title type="html"><![CDATA[App Info]]></title>
@@ -1180,11 +1421,26 @@ page_asides:        # Optional sidebar config for page layout
 
 <h3><a href="http://octopress.org/docs/plugins/image-tag/">Image Tag</a>图片</h3>
 
-<p><img src="http://placekitten.com/890/280">
-<img class="left" src="http://placekitten.com/320/250" title="Place Kitten #2" >
-<img class="right" src="http://placekitten.com/300/500" width="150" height="250" title="Place Kitten #3" >
-<img class="right" src="http://placekitten.com/300/500" width="150" height="250" title="Place Kitten #4" alt="An image of a very cute kitten">
-<img src="http://placekitten.com/890/280"></p>
+<p>增加图片的语法为</p>
+
+<pre><code>&lt;img class="[position]" src="http://xuguoxing.github.io/path/to/image" title="[width] [height] [title text [alt text]]" &gt;
+</code></pre>
+
+<p>其中<code>/path/to/image</code>可以为网上的图片URL,也可是是本站的图片；如果自己站点的图片，
+通常放在source/images目录下，可以按照年和月建立两层目录，如2014/03。<code>rake generate</code>命令会自动生成博客，
+放在<code>source/images</code>目录下的图片也会被复制过去。</p>
+
+<p>图片代码示例</p>
+
+<pre><code>&lt;img src="http://xuguoxing.github.io/images/2014/03/picture.jpg"&gt;
+&lt;img src="http://placekitten.com/890/280"&gt;
+&lt;img class="left" src="http://placekitten.com/320/250" title="Place Kitten #2" &gt;
+&lt;img class="right" src="http://placekitten.com/300/500" width="150" height="250" title="Place Kitten #3" &gt;
+&lt;img class="right" src="http://placekitten.com/300/500" width="150" height="250" title="Place Kitten #4" alt="An image of a very cute kitten"&gt;
+&lt;img src="http://placekitten.com/890/280"&gt;
+</code></pre>
+
+<p><img src="http://placekitten.com/890/280"></p>
 
 <h3><a href="http://octopress.org/docs/plugins/blockquote/">Blockquote</a>引用</h3>
 
