@@ -1,0 +1,171 @@
+---
+layout: post
+title: "XCTest"
+date: 2014-05-23 10:19:20 +0800
+comments: true
+categories:
+published: true
+---
+
+`XCTest`是Xcode5引入的单元测试框架，替换了之前的`OCUnit`。`XCTest`中的测试用例类都继承自`XCTestCase`类，断言前缀为`XCT`。
+
+#项目中引入`XCTest`框架
+
+##创建新项目
+
+使用Xcode5新建项目，会自动创建名为`[ProjectName]Tests`的`Target`,
+自动生成`[ProjectName]Tests`目录，且包含一个测试失败的单元测试文件`[ProjectName]Tests.m`。
+
+##老项目中引入
+
+在Xcode中选择菜单`File->New->Target...`,在弹出框中选择`iOS->Other->Cocoa Touch Unit Testing Bundle`,在弹出的设置页面中
+可根据需要修改，其中`Product Name`中的默认值为`[ProjectName] Tests`,中间包含一空格，推荐将空格去掉；其他项保持原状即可。
+
+{% img /images/2014/05/XCTest_newTarget.png %}
+
+注:
+* XCTest框架在运行时自动注入(Inject) app的target，访问其中的符号信息(symbols),
+所以在XCTest Target的`Compile Sources`中只需要包含测试用例文件，不需要包含待测试的源文件。
+* 若运行单元测试时有找不到符号的提示，检查下app Target `Build Settings`中的`Symbols hidden by default`,应该设为`NO`。
+
+#运行单元测试
+
+1. 菜单`Product->Test`或者`Command+U`可运行全部测试用例。
+2. 在Xcode5的导航区有`Test Navigator`,在其中可选择运行整个bundle的测试方法、运行某个测试类或运行某一个测试方法。
+3. 使用`xcodebuild test`命令运行。
+
+```
+xcodebuild test -scheme XCTestDemo -sdk iphonesimulator -destination 'platform=iOS Simulator,name=iPhone Retina (4-inch),OS=7.1'
+```
+
+注: `XCTest`只能在iOS7以上的模拟器或设备中运行,所以在使用方法1、2时，Xcode中的指定的运行设备需为7.0以上的；而使用`xcodebuild test`
+命令运行时需指定`destination`参数，选择7.0以上的模拟器或真实设备运行。否则会有错误提示:
+"Library not loaded: /Developer/Library/Frameworks/XCTest.framework/XCTest"
+
+执行完测试用例后，执行通过的测试用例左侧会有`绿色对勾`图标，执行失败的测试用例左侧会有`红色x图标`，且执行失败的行会红色高亮显示。
+
+{% img /images/2014/05/XCTest_Navigator.png %}
+
+#`XCTestCase`类结构
+
+一个测试用例文件如下:
+
+```
+#import <XCTest/XCTest.h>
+
+@interface XCTestDemoTests : XCTestCase
+
+@end
+
+@implementation XCTestDemoTests
+
++ (void)setUp
+{
+    NSLog(@"TestCase Class setUp");
+}
+
++ (void)tearDown
+{
+    NSLog(@"TestCase Class tearDown");
+}
+
+- (void)setUp
+{
+    [super setUp];
+
+    NSLog(@"TestCase SetUp");
+}
+
+- (void)tearDown
+{
+    [super tearDown];
+    NSLog(@"TestCase tearDown");
+}
+
+- (void)testExample1
+{
+    NSLog(@"testExample1");
+    XCTAssertTrue(1, @"testExample1");
+    //XCTFail(@"No implementation for \"%s\"", __PRETTY_FUNCTION__);
+}
+
+- (void)testExample2
+{
+    NSLog(@"testExample2");
+    XCTAssertTrue(1, @"testExample1");
+    //XCTFail(@"No implementation for \"%s\"", __PRETTY_FUNCTION__);
+}
+
+@end
+```
+
+在`XCTestCase`类中包含类方法`+ (void)setUp`、`+ (void)tearDown`,实例方法`- (void)setUp`、`- (void)tearDown`以及多个测试方法。
+这些方法的执行顺序为
+
+1. `+ (void)setUp`
+2. `- (void)setUp`
+3. `- (void)testExample1`
+4. `- (void)tearDown`
+5. `- (void)setUp`
+6. `- (void)testExample2`
+7. `- (void)tearDown`
+8. `+ (void)tearDown`
+
+即`setup`类方法会在类创建的调用一次，类销毁的时候调用`tearDown`类方法，在每个测试方法执行之前调用`setUp`实例方法,测试方法执行之后调用
+`tearDown`实例方法。
+
+#断言
+
+`XCTest`支持的断言有：
+
+* XCTFail (format…)
+* XCTAssertNil (a1, format…)
+* XCTAssertNotNil (a1, format…)
+* XCTAssert (a1, format…)
+* XCTAssertTrue (a1, format…)
+* XCTAssertFalse (a1, format…)
+* XCTAssertEqualObjects (a1, a2, format…)
+* XCTAssertEquals (a1, a2, format…)
+* XCTAssertEqualsWithAccuracy (a1, a2, accuracy, format…)
+* XCTAssertThrows (expression, format…)
+* XCTAssertThrowsSpecific (expression, specificException, format…)
+* XCTAssertThrowsSpecificNamed (expression, specificException, exceptionName, format…)
+* XCTAssertNoThrow (expression, format…)
+* XCTAssertNoThrowSpecific (expression, specificException, format…)
+* XCTAssertNoThrowSpecificNamed (expression, specificExcepton, exceptionName, format…)
+
+具体可见`XCTestAssertions.h`文件
+
+#异步单元测试
+
+正常情况下，单元测试方法执行完毕后立即返回，若测试的是异步任务，此时没有拿到异步任务的返回结果，测试就终止了。
+
+测试异步任务时，需要注意两个方法:
+
+1. 单元测试方法在异步任务完成前不能返回。
+2. 在Cocoa中需要使用`main run loop`来处理网络和定时器，这样异步任务才能完成。
+
+解决方案:
+
+1. 在调用异步任务后，使用`CFRunLoopRun()`创建`main run loop`一直等待，且run loop去处理网络和定时器以完成异步任务。
+2. 在异步任务完成后，使用`CFRunLoopStop(CFRunLoopGetCurrent())`终止当前的`main run loop`,以结束单元测试方法。
+
+```
+- (void)testAsyncTask
+{
+    [taskManager execAsyncTaskWithCompletion:^(NSError *error) {
+        XCTAssertNil(error, @"Error should be nil");
+         CFRunLoopStop(CFRunLoopGetCurrent());
+    }];
+    CFRunLoopRun();
+}
+```
+
+github上有两个开源库对此方法进行了扩展，[XCAsyncTestCase](https://github.com/premosystems/XCAsyncTestCase)和
+[xctest-additions](https://github.com/iheartradio/xctest-additions)。
+
+#参考
+* iOS测试指南,作者:芈峮
+* [Slim XCTest Targets](http://hackazach.net/code/2014/02/24/slim-xctest-targets/)
+* [Unit Testing Asynchronous Cocoa](http://mentalfaculty.tumblr.com/post/83814421929/unit-testing-asynchronous-cocoa)
+* [Xcode Unit Testing Guide](https://developer.apple.com/legacy/library/documentation/DeveloperTools/Conceptual/UnitTesting/00-About_Unit_Testing/about.html)

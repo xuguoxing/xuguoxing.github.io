@@ -188,6 +188,19 @@ static void print_free_memory () {
 [iOSMemoryBudgetTest](https://github.com/Split82/iOSMemoryBudgetTest)通过不断alloc内存来记录应用crash时总的内存分配量，
 但记录的alloc的内存数量和使用上面方法获取的mem_used数据对不上。
 
+##进程信息(NSProcessInfo)
+
+`NSProcessInfo`中包含当前进程的信息,包括启动参数、环境变量、进程ID、进程名、操作系统名、操作系统版本、处理器个数、系统启动时间等。
+
+```
+NSProcessInfo *processInfo = [NSProcessInfo processInfo];
+NSDictionary *environment = [processInfo environment];
+NSArray *arguments = [processInfo arguments];
+NSUInteger numcore = [processInfo processorCount];
+```
+
+示例代码见[SystemInfo](https://github.com/markd2/SystemInfo)。
+
 ##Application信息
 
 ###当前应用状态(`UIApplicationState`)
@@ -283,3 +296,4 @@ typedef enum : NSUInteger {
 * [iOSMemoryBudgetTest](https://github.com/Split82/iOSMemoryBudgetTest)
 * [Information Property List Key Reference](https://developer.apple.com/library/ios/documentation/General/Reference/InfoPlistKeyReference/Articles/CoreFoundationKeys.html)
 * [CFBundle Reference](https://developer.apple.com/library/ios/documentation/CoreFoundation/Reference/CFBundleRef/Reference/reference.html)
+* [We want information... Information...](http://www.bignerdranch.com/blog/we-want-information-information/)

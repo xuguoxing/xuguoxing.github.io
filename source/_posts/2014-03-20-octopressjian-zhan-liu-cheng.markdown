@@ -299,10 +299,23 @@ $ dig iosapp.me +nostats +nocomments +nocmd
 
 ###[Image Tag](http://octopress.org/docs/plugins/image-tag/)图片
 
-{% img http://placekitten.com/890/280 %}
-{% img left http://placekitten.com/320/250 Place Kitten #2 %}
-{% img right http://placekitten.com/300/500 150 250 Place Kitten #3 %}
-{% img right http://placekitten.com/300/500 150 250 'Place Kitten #4' 'An image of a very cute kitten' %}
+增加图片的语法为
+
+    {% img [position] /path/to/image [width] [height] [title text [alt text]] %}
+
+其中`/path/to/image`可以为网上的图片URL,也可是是本站的图片；如果自己站点的图片，
+通常放在source/images目录下，可以按照年和月建立两层目录，如2014/03。`rake generate`命令会自动生成博客，
+放在`source/images`目录下的图片也会被复制过去。
+
+图片代码示例
+
+    {% img /images/2014/03/picture.jpg %}
+    {% img http://placekitten.com/890/280 %}
+    {% img left http://placekitten.com/320/250 Place Kitten #2 %}
+    {% img right http://placekitten.com/300/500 150 250 Place Kitten #3 %}
+    {% img right http://placekitten.com/300/500 150 250 'Place Kitten #4' 'An image of a very cute kitten' %}
+    {% img http://placekitten.com/890/280 %}
+
 {% img http://placekitten.com/890/280 %}
 
 ###[Blockquote](http://octopress.org/docs/plugins/blockquote/)引用
