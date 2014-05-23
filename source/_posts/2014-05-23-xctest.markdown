@@ -143,12 +143,26 @@ xcodebuild test -scheme XCTestDemo -sdk iphonesimulator -destination 'platform=i
 测试异步任务时，需要注意两个方法:
 
 1. 单元测试方法在异步任务完成前不能返回。
-2. 在Cocoa中需要使用`main run loop`来处理网络和定时器，这样异步任务才能完成。
+2. 在Cocoa中需要使用`run loop`来处理网络和定时器，这样异步任务才能完成。
 
 解决方案:
 
-1. 在调用异步任务后，使用`CFRunLoopRun()`创建`main run loop`一直等待，且run loop去处理网络和定时器以完成异步任务。
-2. 在异步任务完成后，使用`CFRunLoopStop(CFRunLoopGetCurrent())`终止当前的`main run loop`,以结束单元测试方法。
+1. 在调用异步任务后，使用`CFRunLoopRun()`启用`run loop`一直等待，且run loop去处理网络和定时器以完成异步任务。
+2. 在异步任务完成后，使用`CFRunLoopStop(CFRunLoopGetCurrent())`终止当前的`run loop`,以结束单元测试方法。
+
+
+`CFRunLoopRun`
+{% blockquote %}
+The current thread’s run loop runs in the default mode (see “Default Run Loop Mode”) until the run loop is stopped with CFRunLoopStop or all the sources and timers are removed from the default run loop mode.
+
+Run loops can be run recursively. You can call CFRunLoopRun from within any run loop callout and create nested run loop activations on the current thread’s call stack.
+{% endblockquote %}
+
+`CFRunLoopStop`
+{% blockquote %}
+This function forces rl to stop running and return control to the function that called CFRunLoopRun or CFRunLoopRunInMode for the current run loop activation. If the run loop is nested with a callout from one activation starting another activation running, only the innermost activation is exited.
+{% endblockquote %}
+
 
 ```
 - (void)testAsyncTask
@@ -161,8 +175,10 @@ xcodebuild test -scheme XCTestDemo -sdk iphonesimulator -destination 'platform=i
 }
 ```
 
-github上有两个开源库对此方法进行了扩展，[XCAsyncTestCase](https://github.com/premosystems/XCAsyncTestCase)和
-[xctest-additions](https://github.com/iheartradio/xctest-additions)。
+github上有两个开源库使用`NSRunLoop`对此方法进行了扩展，增加了超时等机制。
+
+* [XCAsyncTestCase](https://github.com/premosystems/XCAsyncTestCase)
+* [xctest-additions](https://github.com/iheartradio/xctest-additions)
 
 #参考
 * iOS测试指南,作者:芈峮
