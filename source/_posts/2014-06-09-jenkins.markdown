@@ -1,0 +1,181 @@
+---
+layout: post
+title: "Jenkins"
+date: 2014-06-09 16:20:42 +0800
+comments: true
+categories:
+published: true
+---
+
+#持续集成(CI)介绍
+
+持续集成自动从代码服务器拉取代码，完成自动编译、测试、分发和部署等工作；出现错误时及时通知开发人员，使问题可以立即得到解决，降低项目风险。
+
+[Jenkins](http://jenkins-ci.org/)是一款很流行的持续集成工具，配置简单，结合一些插件和命令行工具可以完成很多工作。
+
+Mac系统同样有一款持续集成工具`OS X Server`，配置简单，但功能无法扩展，其只能自动完成编译构建、静态代码分享、运行单元测试和打包归档四个工作。
+
+#Jenkins安装与配置
+
+##安装
+
+1. 从[官网](http://jenkins-ci.org/)下载Mac OS X的安装包
+2. 执行安装程序后会创建`jenkins`用户，主目录位于`/Users/Shared/Jenkins`；Jenkins以系统守护进程方式运行,可查看
+`/Library/LaunchDaemons/org.jenkins-ci.plist`配置文件了解详细信息。
+3. `Jenkins`默认无密码，可使用“sudo passwd jenkins”命令设置密码
+4. 打开Jenkins管理页面 `http://localhost:8080/`，端口默认为8080，可在管理页面修改。
+
+##安全设置
+
+`系统管理`->`Configure Global Security`，默认`启用安全`没有勾选。
+
+1. 勾选`启用安全`
+2. `安全域`中选择`Jenkins专有项目数据库`，并勾选`允许用户注册`。
+3. `授权策略`中选择`项目矩阵授权策略`; 设置`匿名用户`为`Read`权限;添加一个用户名，给予全部权限(该用户稍后创建)。
+4. 重启Jenkins, http://localhost:8080/restart
+5. 重启后使用`Login->create an account`使用之前输入的用户名创建账号。
+
+<img src="images/2014/06/jenkins_security.png">
+
+在错误的设置安全域、授权策略时，会无法登录到Jenkins管理页面修改配置，可通过下面的方法修复。
+
+1. 停止Jenkins(杀进程)
+2. 在`$JENKINS_HOME`目录(通常为`/Users/Shared/Jenkins/Home`)中找到config.xml文件
+3. 打开此文件，将`<useSecurity>true</useSecurity>`的true修改为false
+4. 删除`authorizationStrategy`、`securityRealm`节点
+5. 重启Jenkins，这时会恢复到没有`启用安全`的情况。
+
+##安装插件
+
+在`系统管理->管理插件`中可安装必要的插件。
+
+我们需要安装git插件`Git Client Plugin`、`Git Server Plugin`，
+Xcode插件`Xcode integration`。
+
+##启动、关闭与重启
+
+对于登录用户，可以直接使用Jenkins的管理url。
+
+    http://localhost:8080/exit
+    http://localhost:8080/restart
+    http://localhost:8080/reload
+
+杀掉jenkins进程
+
+    ps -e | grep jenkins
+      53 ?? 0:02.51 /usr/bin/java -jar /Applications/Jenkins/jenkins.war
+      392 ttys000 0:00.00 grep jenkins
+    sudo kill 53
+
+使用`launchctl`
+
+    sudo launchctl load /Library/LaunchDaemons/org.jenkins-ci.plist
+    sudo launchctl unload /Library/LaunchDaemons/org.jenkins-ci.plist
+
+#自动化构建
+
+在Jenkins中，任务是以`Job`为单位的，在管理页面点击`新建`，输入Item名称，
+并选择项目类型为`构建一个自由风格的软件项目`，点击OK后就进入了Job设置页面。
+
+##源码管理
+
+可以根据需要设置从`svn`或者`git`获取源码。
+
+对于git需要设置
+
+* Repository URL: 仓库URL
+* Credentials: 用户名、密码
+* Branches to build:需要构建的分支
+* Additional Behaviours:其它需要执行的git操作,在必要的时候可以设置。
+
+对于svn需要设置
+
+* Repository URL: 仓库URL
+* Credentials: 用户名、密码
+* Check-out Strategy: check-out的策略，可以直接`svn update`、在update之前执行`svn revert`或者获取一份全新的拷贝。
+
+##构建触发器
+
+设置构建触发条件,其中`Build periodically`可以在指定的时间触发构建，在进行每日构建时可以设置，构建时间使用类cron的语法。
+
+也可以不设置触发器，手工触发构建任务。
+
+##构建
+
+在构建步骤中可以使用`Exeute shell`执行任意构建任务，对于iOS项目，我们可以使用`Xcode`插件简化构建流程。
+
+###Xcode
+
+####General build settings
+
+指定需要构建的target，不指定会构建所有的targets；在`Setting`中还有一系列构建的设置。
+
+* `Clean before build?` 在build前是否先clean
+* `Generate Archive?` 是否生成`xcarchive`文件
+* `Configuration` 构建使用的配置
+* `Pack application and build .ipa?` 是否打包ipa文件.
+
+  若选择打包ipa文件，则还需要设置ipa文件名pattern，在名称中可使用:
+
+    * 版本号 `${SHORT_VERSION}`,
+    * build号 `${VERSION}`
+    * 构建日期 `${BUILD_DATE}`,日期格式为`yyyy.MM.dd`
+
+    比如可设置为`MyApp_${SHORT_VERSION}_build${VERSION}_${BUILD_DATE}`，那么生成的文件名格式为`MyApp_v1.0_build10_2014.05.17.ipa`。
+
+* `Output directory` 相对于`build`目录的ipa文件生成目录。
+
+####Code signing & OS X keychain options
+
+代码签名及KeyChain设置
+
+* `Code Signing Identity` 用于签名的开发者标识，可以在keychain中查看,名称格式为"iPhone Developer: your_name (XXXXXXX)"
+
+* `Unlock Keychain?` 解锁keychain，设置`Keychain path`与`Keychain password`，`Keychain path`设置为
+`${HOME}/Library/Keychains/login.keychain`。
+
+注:Jenkins以`jenkins`用户运行，其用户目录在`/Users/Shared/Jenkins`，若Jenkins在开发电脑上安装，实际上Xcode编译所需要的
+keychain、Provisioning Profiles等信息都在原登录用户下，自动构建时就会报代码签名错误。可通过以下步骤解决:
+
+1. 在"Keychain Access"应用中将开发者证书从"login"拷贝到"sysmtem"。
+
+   在"Keychain Access"中的login tab中，右键点击证书“iPhone Developer: your_name (XXXXXXX)”,选择“拷贝xxxx”；然后在system tab中右键点击，选择"粘贴2项"。
+
+2. 将主用户目录下的`KeyChains`目录拷贝到jenkins用户目录下
+
+  `/Users/YourName/Library/Keychains`->`/Users/Shared/Jenkins/Library/Keychains`
+
+3. 将主用户目录下的`MobileDevice`目录拷贝到jenkins用户目录下，`MobileDevice`中有`Devices`和`Provisioning Profiles`两个子目录。
+
+  `/Users/YourName/Library/MobileDevice`->`/Users/Shared/Jenkins/Library/MobileDevice`
+
+###Execute shell
+
+可以在构建步骤中的任意位置执行脚本，比如在Xcode插件之前执行脚本设置必要的编译环境，执行单元测试，在Xcode插件打包ipa文件后，
+将文件上传到后台服务部署分发等。
+
+比如，可增加"Execute shell"将打包文件上传后台服务器。
+
+```
+#!/bin/sh
+
+buildDate=`date +%Y.%m.%d`
+version=`/usr/libexec/PlistBuddy -c "Print CFBundleVersion" ./MyApp-Info.plist`
+shortVersion=`/usr/libexec/PlistBuddy -c "Print CFBundleShortVersionString" "./MyApp-Info.plist"`
+ipaFileName="MyApp_v"${shortVersion}"_build"${version}"_"${buildDate}".ipa"
+
+curl --form "reporter=@./build/Release-iphoneos/"${ipaFileName} http://host/cgi-bin/up.cgi
+```
+
+##构建后操作
+
+增加设置构建完成后进行的步骤，可发布测试报告、邮件通知等。
+
+#参考
+
+* [Jenkins homepage](http://jenkins-ci.org/)
+* [Jenkins Standard Security Setup](https://wiki.jenkins-ci.org/display/JENKINS/Standard+Security+Setup)
+* [Jenkins Disable security](https://wiki.jenkins-ci.org/display/JENKINS/Disable+security)
+* [HOW TO: Start, Stop, Restart or Reload Jenkins – Mac OSx](http://damien.co/general/how-to-start-stop-restart-or-reload-jenkins-mac-osx-8022)
+* [使用Jenkins搭建iOS开发的CI服务器](http://webfrogs.me/2013/12/31/jenkins-ios-ci/)
+* [Fix the iOS code signing issue when using Jenkins](http://code-dojo.blogspot.co.uk/2012/09/fix-ios-code-signing-issue-when-using.html)

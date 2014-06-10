@@ -1,0 +1,217 @@
+---
+layout: post
+title: "OCMock"
+date: 2014-06-09 09:47:57 +0800
+comments: true
+categories:
+published: true
+---
+
+在面向对象的系统中，所有的对象之间都有一定的联系。在单元测试中，当需要对某一个对象进行测试时，其可能依赖其他对象的返回值或者调用
+其他对象的某些方法。其依赖的对象有可能行为不确定或者很难触发(各种错误场景)或者该对象还不存在。这种情况下需要使用`Mock Object`来模拟
+依赖对象的行为，返回特定的值、实现特定的方法，来保证对测试对象的单元测试能有个可预期的结果来判断单元测试是否通过。
+
+#OCMock
+
+`OCMock`是个mock object的Objective-C实现，其使用Objective-C的动态特性可以快速创建mock object,并且使用Objective-C方法调用的语法来定义`expectations`和`stubs`。
+
+`OCMock`提供了三种mock功能
+
+* `stub`(桩) :对特定的方法返回预定义的值。
+* `dynamic mock`(动态Mock):验证某个方法是否被调用。
+* `partial mock`(部分Mock):重写已存在对象的方法。
+
+##添加OCMock框架
+
+1. 在[下载页面](http://ocmock.org/download/)下载预编译的dmg文件,在其中的iOS目录下包含静态库`libOCMock.a`和`OCMock`头文件目录。
+也可从GitHub [https://github.com/erikdoe/ocmock](https://github.com/erikdoe/ocmock)下载源码自行编译。
+
+2. 在单元测试目录下，建立如下目录结构，并添加到项目中。
+
+  <img src="/images/2014/06/ocmockfile.png" width="668" height="404">
+
+  * 在测试Target的`Build Phases->Link Binary With Libraries`中应该会自动包含`libOCMock.a`库，若没有，需手动添加一下。
+
+  * 头文件搜索路径设置,在测试Target的`Build Settings->Search Paths->Header Search Paths`中添加路径`$(PROJECT_DIR)/NeteaseLotteryTests/usr/include`
+
+  * link设置,测试Target的`Build Settings->Linking->Other Linker Flags`设置`-Objc`,`-force_load $(PROJECT_DIR)/NeteaseLotteryTests/usr/lib/libOCMock.a`
+
+##创建Mock对象
+
+`OCMockObject`类有几个工厂方法创建mock对象
+
+  * `+mockForClass:`  基于给定类创建mock对象
+  * `+mockForProtocol:` 基于给定协议创建mock对象
+  * `+niceMockForClass:` 基于给定类创建"nice"mock对象
+  * `+niceMockForProtocol:` 基于给定协议创建"nice"mock对象
+  * `+partialMockForObject:` 基于给定对象创建"partical"mock对象
+  * `+observerMock:` 创建通知观察者(notification observer)mock对象
+
+三种mock对象类型
+
+1. 普通mock对象
+
+   使用`+mockForClass:`、`+mockForProtocol:`创建的mock对象在接收到未定义的方法调用时产生`NSException`异常。
+
+2. nick mock对象
+
+   使用`+niceMockForClass:`、`+niceMockForProtocol:`创建的mock对象在接收到未定义的方法调用时简单忽略。
+
+3. partical mock对象
+
+   partical mock对象基于一个真实对象，而不是一个类或协议,其将一个已存在对象转换成mock,可重写其中的方法。
+
+##Mock使用方法
+
+[OCMock Tutorials](http://ocmock.org/tutorials/)
+
+###stub
+
+```
+id jalopy = [OCMock mockForClass[Car class]];
+[[[jalopy stub] andReturn:@"75kph"] goFaster:[OCMArg any] units:@"kph"];
+[[[[jalopy stub] classMethod] andReturn:@"expired"] checkWarrany];
+```
+
+###expect
+
+```
+id niceMockThing = [OCMock niceMockForClass[Thing class]];
+[[niceMockThing expect] greeting:@"hello"];
+
+// verify the method was called as expected
+[niceMocking verify];
+```
+###参数(`OCMArg`)
+
+* `+any` 任意参数
+* `+anyPointer` 任意指针参数
+* `+isNil`  nil参数
+* `+isNotNil` 非nil参数
+* `+isNotEqual:` 不与某个对象相等的参数
+* `+checkWithSelector:onObject:`  使用指定的target/action对检查通过的参数
+* `+checkWithBlock:` 使用block检查通过的参数
+
+###返回值
+
+使用`-expect`或`-stub`返回的对象可使用下列方法设置返回值或者执行某种行为
+
+* `-andReturn:` 返回指定对象
+* `-andReturnValue:` 返回指定值(NSValue)
+* `-andThrow:` 抛出指定异常
+* `-andPost:`  post指定通知
+* `-andCall:onObject:` 在指定object上调用指定selector
+* `-andDo:` 调用指定block
+
+可以指定`-andDo:`对block回调进行模拟,假设有这样的一个方法
+```
+- (void)downloadWeatherDataForZip:(NSString *)zip
+              callback:(void (^)(NSDictionary *response))callback;
+```
+则使用以下方法进行模拟
+```
+// 1. stub using OCMock andDo: operator.
+
+[[[groupModelMock stub] andDo:^(NSInvocation *invoke) {
+        //2. declare a block with same signature
+        void (^weatherStubResponse)(NSDictionary *dict);
+
+        //3. link argument 3 with with our block callback
+        [invoke getArgument:&weatherStubResponse atIndex:3];
+
+        //4. invoke block with pre-defined input
+        NSDictionary *testResponse = @{@"high": 43 , @"low": 12};
+        weatherStubResponse(groupMemberMock);
+
+    }]downloadWeatherDataForZip@"80304" callback:[OCMArg any] ];
+```
+andDo中的`invoke`参数即模拟的方法调用本身，使用`getArgument:atIndex:`可读取方法调用的参数，
+对于本例，第四个参数((索引3))即为callback参数(前两个参数分别为`self`和`_cmd`),执行callback实参，传递预定义的参数即可。
+
+
+#依赖注入（Dependency Injection）
+
+依赖注入是一种软件设计模式，使某一模块所依赖的其他模块或服务，在该模块创建时以注入的方式引入。
+
+在单元测试中需要使用此模式设计类，以方便使用Mock对象来替换待测试对象所依赖的其他对象。
+
+举例:
+
+某类内部需要使用`NSNotificationCenter`，原始做法是直接使用`NSNotificationCenter defaultCenter`。
+
+```
+@implementation ExampleObject : NSObject
+-(void)postNotification
+{
+    [[NSNotificationCenter defaultCenter] postNotificationName:@"SomethingCompletedNotification" object:self userInfo:userInfo];
+}
+@end
+```
+在做单元测试时，我们只需要知道`ExampleObject`对象的`-postNotification`方法确实调用了`NSNotificationCenter`的`postNotificationName:`方法，
+并不需要实际去发送通知，实际发送通知会引起其他模块的反应，不是此单元测试的目的。
+
+所以我们需要使用`NSNotificationCenter`的mock对象来代替真实的`NSNotificationCenter`对象；而上面的方法无法进行mock，需要进行重构。
+
+```
+
+@interface ExampleObject : NSObject
+
+
+@property (nonatomic, readonly) NSNotificationCenter *notificationCenter;
+
+- (instancetype)initWithNotificationCenter:(NSNotificationCenter *)center;
+    //...
+@end
+
+@interface BNRCodeHostFetcher ()
+
+@property (nonatomic, strong, readwrite) NSNotificationCenter *notificationCenter;
+
+@end
+
+@implementation ExampleObject : NSObject
+
+- (instancetype)initWithNotificationCenter:(NSNotificationCenter *)center
+{
+  self = [super init];
+  if (self)
+  {
+      self.notificationCenter = center;
+  }
+  return self;
+}
+
+- (instancetype)init
+{
+    return [self initWithNotificationCenter:[NSNotificationCenter defaultCenter]];
+}
+
+-(void)postNotification
+{
+    [[self notificationCenter] postNotificationName:@"SomethingCompletedNotification" object:self userInfo:userInfo];
+}
+@end
+```
+这样，在正常使用时我们可以直接使用`-init`方法，会传递系统的`NSNotificationCenter`对象；在做单元测试时，可以使用`-initWithNotificationCenter:`
+方法传递mock的`NSNotificationCenter`对象作为参数。
+
+```
+id notificationCenter = [OCMock mockForClass[NSNotificationCenter class]];
+[[notificationCenter expect] postNotificationName:[OCMArg any] object:[OCMArg any] userInfo:[OCMArg any]];
+
+ExampleObject *exampleObject = [[ExampleObject alloc]initWithNotificationCenter:notificationCenter];
+[exampleObject postNotification];
+[notificationCenter verify];
+
+```
+
+#参考
+
+* [Mock object](http://en.wikipedia.org/wiki/Mock_object)
+* [OCMock](http://ocmock.org/)
+* [OCMock Tutorials](http://ocmock.org/tutorials/)
+* [Making a Mockery with Mock Objects](http://www.bignerdranch.com/blog/making-mockery-mock-objects/)
+* [OCMock Test Origami](http://hackazach.net/code/2014/03/03/effective-testing-with-ocmock/)
+* [Making Fun of Things with OCMock](http://alexvollmer.com/posts/2010/06/28/making-fun-of-things-with-ocmock/)
+* [Dependency injection](http://en.wikipedia.org/wiki/Dependency_injection)
+* [Dependency Injection, iOS and You](http://www.bignerdranch.com/blog/dependency-injection-ios/)
