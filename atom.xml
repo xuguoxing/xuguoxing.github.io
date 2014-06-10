@@ -4,7 +4,7 @@
   <title><![CDATA[iOS App]]></title>
   <link href="http://xuguoxing.github.io/atom.xml" rel="self"/>
   <link href="http://xuguoxing.github.io/"/>
-  <updated>2014-06-09T16:17:36+08:00</updated>
+  <updated>2014-06-10T20:58:06+08:00</updated>
   <id>http://xuguoxing.github.io/</id>
   <author>
     <name><![CDATA[xuguoxing]]></name>
@@ -12,6 +12,226 @@
   </author>
   <generator uri="http://octopress.org/">Octopress</generator>
 
+  
+  <entry>
+    <title type="html"><![CDATA[Jenkins]]></title>
+    <link href="http://xuguoxing.github.io/blog/2014/06/09/jenkins/"/>
+    <updated>2014-06-09T16:20:42+08:00</updated>
+    <id>http://xuguoxing.github.io/blog/2014/06/09/jenkins</id>
+    <content type="html"><![CDATA[<h1>持续集成(CI)介绍</h1>
+
+<p>持续集成自动从代码服务器拉取代码，完成自动编译、测试、分发和部署等工作；出现错误时及时通知开发人员，使问题可以立即得到解决，降低项目风险。</p>
+
+<p><a href="http://jenkins-ci.org/">Jenkins</a>是一款很流行的持续集成工具，配置简单，结合一些插件和命令行工具可以完成很多工作。</p>
+
+<p>Mac系统同样有一款持续集成工具<code>OS X Server</code>，配置简单，但功能无法扩展，其只能自动完成编译构建、静态代码分享、运行单元测试和打包归档四个工作。</p>
+
+<h1>Jenkins安装与配置</h1>
+
+<h2>安装</h2>
+
+<ol>
+<li>从<a href="http://jenkins-ci.org/">官网</a>下载Mac OS X的安装包</li>
+<li>执行安装程序后会创建<code>jenkins</code>用户，主目录位于<code>/Users/Shared/Jenkins</code>；Jenkins以系统守护进程方式运行,可查看
+<code>/Library/LaunchDaemons/org.jenkins-ci.plist</code>配置文件了解详细信息。</li>
+<li><code>Jenkins</code>默认无密码，可使用“sudo passwd jenkins”命令设置密码</li>
+<li>打开Jenkins管理页面 <code>http://localhost:8080/</code>，端口默认为8080，可在管理页面修改。</li>
+</ol>
+
+
+<h2>安全设置</h2>
+
+<p><code>系统管理</code>&ndash;><code>Configure Global Security</code>，默认<code>启用安全</code>没有勾选。</p>
+
+<ol>
+<li>勾选<code>启用安全</code></li>
+<li><code>安全域</code>中选择<code>Jenkins专有项目数据库</code>，并勾选<code>允许用户注册</code>。</li>
+<li><code>授权策略</code>中选择<code>项目矩阵授权策略</code>; 设置<code>匿名用户</code>为<code>Read</code>权限;添加一个用户名，给予全部权限(该用户稍后创建)。</li>
+<li>重启Jenkins, <a href="http://localhost:8080/restart">http://localhost:8080/restart</a></li>
+<li>重启后使用<code>Login-&gt;create an account</code>使用之前输入的用户名创建账号。</li>
+</ol>
+
+
+<p><img src="images/2014/06/jenkins_security.png"></p>
+
+<p>在错误的设置安全域、授权策略时，会无法登录到Jenkins管理页面修改配置，可通过下面的方法修复。</p>
+
+<ol>
+<li>停止Jenkins(杀进程)</li>
+<li>在<code>$JENKINS_HOME</code>目录(通常为<code>/Users/Shared/Jenkins/Home</code>)中找到config.xml文件</li>
+<li>打开此文件，将<code>&lt;useSecurity&gt;true&lt;/useSecurity&gt;</code>的true修改为false</li>
+<li>删除<code>authorizationStrategy</code>、<code>securityRealm</code>节点</li>
+<li>重启Jenkins，这时会恢复到没有<code>启用安全</code>的情况。</li>
+</ol>
+
+
+<h2>安装插件</h2>
+
+<p>在<code>系统管理-&gt;管理插件</code>中可安装必要的插件。</p>
+
+<p>我们需要安装git插件<code>Git Client Plugin</code>、<code>Git Server Plugin</code>，
+Xcode插件<code>Xcode integration</code>。</p>
+
+<h2>启动、关闭与重启</h2>
+
+<p>对于登录用户，可以直接使用Jenkins的管理url。</p>
+
+<pre><code>http://localhost:8080/exit
+http://localhost:8080/restart
+http://localhost:8080/reload
+</code></pre>
+
+<p>杀掉jenkins进程</p>
+
+<pre><code>ps -e | grep jenkins
+  53 ?? 0:02.51 /usr/bin/java -jar /Applications/Jenkins/jenkins.war
+  392 ttys000 0:00.00 grep jenkins
+sudo kill 53
+</code></pre>
+
+<p>使用<code>launchctl</code></p>
+
+<pre><code>sudo launchctl load /Library/LaunchDaemons/org.jenkins-ci.plist
+sudo launchctl unload /Library/LaunchDaemons/org.jenkins-ci.plist
+</code></pre>
+
+<h1>自动化构建</h1>
+
+<p>在Jenkins中，任务是以<code>Job</code>为单位的，在管理页面点击<code>新建</code>，输入Item名称，
+并选择项目类型为<code>构建一个自由风格的软件项目</code>，点击OK后就进入了Job设置页面。</p>
+
+<h2>源码管理</h2>
+
+<p>可以根据需要设置从<code>svn</code>或者<code>git</code>获取源码。</p>
+
+<p>对于git需要设置</p>
+
+<ul>
+<li>Repository URL: 仓库URL</li>
+<li>Credentials: 用户名、密码</li>
+<li>Branches to build:需要构建的分支</li>
+<li>Additional Behaviours:其它需要执行的git操作,在必要的时候可以设置。</li>
+</ul>
+
+
+<p>对于svn需要设置</p>
+
+<ul>
+<li>Repository URL: 仓库URL</li>
+<li>Credentials: 用户名、密码</li>
+<li>Check-out Strategy: check-out的策略，可以直接<code>svn update</code>、在update之前执行<code>svn revert</code>或者获取一份全新的拷贝。</li>
+</ul>
+
+
+<h2>构建触发器</h2>
+
+<p>设置构建触发条件,其中<code>Build periodically</code>可以在指定的时间触发构建，在进行每日构建时可以设置，构建时间使用类cron的语法。</p>
+
+<p>也可以不设置触发器，手工触发构建任务。</p>
+
+<h2>构建</h2>
+
+<p>在构建步骤中可以使用<code>Exeute shell</code>执行任意构建任务，对于iOS项目，我们可以使用<code>Xcode</code>插件简化构建流程。</p>
+
+<h3>Xcode</h3>
+
+<h4>General build settings</h4>
+
+<p>指定需要构建的target，不指定会构建所有的targets；在<code>Setting</code>中还有一系列构建的设置。</p>
+
+<ul>
+<li><code>Clean before build?</code> 在build前是否先clean</li>
+<li><code>Generate Archive?</code> 是否生成<code>xcarchive</code>文件</li>
+<li><code>Configuration</code> 构建使用的配置</li>
+<li><p><code>Pack application and build .ipa?</code> 是否打包ipa文件.</p>
+
+<p>若选择打包ipa文件，则还需要设置ipa文件名pattern，在名称中可使用:</p>
+
+<ul>
+<li>版本号 <code>${SHORT_VERSION}</code>,</li>
+<li>build号 <code>${VERSION}</code></li>
+<li>构建日期 <code>${BUILD_DATE}</code>,日期格式为<code>yyyy.MM.dd</code></li>
+</ul>
+
+
+<p>  比如可设置为<code>MyApp_${SHORT_VERSION}_build${VERSION}_${BUILD_DATE}</code>，那么生成的文件名格式为<code>MyApp_v1.0_build10_2014.05.17.ipa</code>。</p></li>
+<li><p><code>Output directory</code> 相对于<code>build</code>目录的ipa文件生成目录。</p></li>
+</ul>
+
+
+<h4>Code signing &amp; OS X keychain options</h4>
+
+<p>代码签名及KeyChain设置</p>
+
+<ul>
+<li><p><code>Code Signing Identity</code> 用于签名的开发者标识，可以在keychain中查看,名称格式为&#8221;iPhone Developer: your_name (XXXXXXX)&#8221;</p></li>
+<li><p><code>Unlock Keychain?</code> 解锁keychain，设置<code>Keychain path</code>与<code>Keychain password</code>，<code>Keychain path</code>设置为
+<code>${HOME}/Library/Keychains/login.keychain</code>。</p></li>
+</ul>
+
+
+<p>注:Jenkins以<code>jenkins</code>用户运行，其用户目录在<code>/Users/Shared/Jenkins</code>，若Jenkins在开发电脑上安装，实际上Xcode编译所需要的
+keychain、Provisioning Profiles等信息都在原登录用户下，自动构建时就会报代码签名错误。可通过以下步骤解决:</p>
+
+<ol>
+<li><p>在&#8221;Keychain Access&#8221;应用中将开发者证书从&#8221;login&#8221;拷贝到&#8221;sysmtem&#8221;。</p>
+
+<p>在&#8221;Keychain Access&#8221;中的login tab中，右键点击证书“iPhone Developer: your_name (XXXXXXX)”,选择“拷贝xxxx”；然后在system tab中右键点击，选择&#8221;粘贴2项&#8221;。</p></li>
+<li><p>将主用户目录下的<code>KeyChains</code>目录拷贝到jenkins用户目录下</p></li>
+</ol>
+
+
+<p>  <code>/Users/YourName/Library/Keychains</code>&ndash;><code>/Users/Shared/Jenkins/Library/Keychains</code></p>
+
+<ol>
+<li>将主用户目录下的<code>MobileDevice</code>目录拷贝到jenkins用户目录下，<code>MobileDevice</code>中有<code>Devices</code>和<code>Provisioning Profiles</code>两个子目录。</li>
+</ol>
+
+
+<p>  <code>/Users/YourName/Library/MobileDevice</code>&ndash;><code>/Users/Shared/Jenkins/Library/MobileDevice</code></p>
+
+<h3>Execute shell</h3>
+
+<p>可以在构建步骤中的任意位置执行脚本，比如在Xcode插件之前执行脚本设置必要的编译环境，执行单元测试，在Xcode插件打包ipa文件后，
+将文件上传到后台服务部署分发等。</p>
+
+<p>比如，可增加&#8221;Execute shell&#8221;将打包文件上传后台服务器。</p>
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+<span class='line-number'>8</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>#!/bin/sh
+</span><span class='line'>
+</span><span class='line'>buildDate=`date +%Y.%m.%d`
+</span><span class='line'>version=`/usr/libexec/PlistBuddy -c "Print CFBundleVersion" ./MyApp-Info.plist`
+</span><span class='line'>shortVersion=`/usr/libexec/PlistBuddy -c "Print CFBundleShortVersionString" "./MyApp-Info.plist"`
+</span><span class='line'>ipaFileName="MyApp_v"${shortVersion}"_build"${version}"_"${buildDate}".ipa"
+</span><span class='line'>
+</span><span class='line'>curl --form "reporter=@./build/Release-iphoneos/"${ipaFileName} http://host/cgi-bin/up.cgi</span></code></pre></td></tr></table></div></figure>
+
+
+<h2>构建后操作</h2>
+
+<p>增加设置构建完成后进行的步骤，可发布测试报告、邮件通知等。</p>
+
+<h1>参考</h1>
+
+<ul>
+<li><a href="http://jenkins-ci.org/">Jenkins homepage</a></li>
+<li><a href="https://wiki.jenkins-ci.org/display/JENKINS/Standard+Security+Setup">Jenkins Standard Security Setup</a></li>
+<li><a href="https://wiki.jenkins-ci.org/display/JENKINS/Disable+security">Jenkins Disable security</a></li>
+<li><a href="http://damien.co/general/how-to-start-stop-restart-or-reload-jenkins-mac-osx-8022">HOW TO: Start, Stop, Restart or Reload Jenkins – Mac OSx</a></li>
+<li><a href="http://webfrogs.me/2013/12/31/jenkins-ios-ci/">使用Jenkins搭建iOS开发的CI服务器</a></li>
+<li><a href="http://code-dojo.blogspot.co.uk/2012/09/fix-ios-code-signing-issue-when-using.html">Fix the iOS code signing issue when using Jenkins</a></li>
+</ul>
+
+]]></content>
+  </entry>
   
   <entry>
     <title type="html"><![CDATA[OCMock]]></title>
