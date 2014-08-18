@@ -1,0 +1,152 @@
+---
+layout: post
+title: "Hosts"
+date: 2014-08-18 16:08:24 +0800
+comments: true
+categories:
+---
+
+在开发过程中，经常需要修改Hosts访问测试环境，而对于非越狱iOS设备，无法修改设备Host文件`/etc/hosts`;如果在代码中直接将域名修改为ip地址，存在两个问题：
+
+1. 破坏了网络代码的结构。
+2. HTTP Header中的"Host"字段也被修改为了ip地址，而后台对"Host"字段有校验,会导致请求出错。
+
+可以通过对`NSURLRequest`的`initWithURL:cachePolicy:timeoutInterval:`方法和`NSMutableURLRequest`的`setURL:`方法进行
+method swizzle来动态的将URL中的host修改为ip,并保持HTTP Header中的"Host"字段不变来解决。
+
+## 使用NLHosts类来保存host到ip的转换
+
+```
+interface NLHosts : NSObject
+
++(NSString*)ipByHost:(NSString*)host;
+
+@end
+
+```
+
+`+ipByHost:`方法接收host参数，如果对应host有匹配的ip地址,则返回ip地址，否则返回nil。
+
+
+## `NSURLRequest`、`NSMutableURLRequest`的method swizzle处理
+
+```
+@interface NSURLRequest (Swizzle)
+
+@end
+
+
+@interface NSMutableURLRequest (Swizzle)
+
+@end
+```
+
+```
+#import "NSURLRequest+Swizzle.h"
+
+#import <objc/runtime.h>
+#import "NLHosts.h"
+
+@implementation NSURLRequest (Swizzle)
+
++(void)load
+{
+    static dispatch_once_t onceToken;
+    dispatch_once(&onceToken, ^{
+        Class clazz = NSClassFromString(@"NSURLRequest");
+        Method origMethod = class_getInstanceMethod(clazz, @selector(initWithURL:cachePolicy:timeoutInterval:));
+        Method newMethod = class_getInstanceMethod(clazz, @selector(initWithNewURL:cachePolicy:timeoutInterval:));
+
+        if (origMethod && newMethod) {
+            method_exchangeImplementations(origMethod, newMethod);
+        }else{
+            //NSLog(@"origMethod:%@ newMethod:%@",origMethod,newMethod);
+        }
+    });
+}
+
+-(id)initWithNewURL:(NSURL *)URL cachePolicy:(NSURLRequestCachePolicy)cachePolicy timeoutInterval:(NSTimeInterval)timeoutInterval
+{
+    NSString *scheme = URL.scheme;
+
+    if ([scheme compare:@"http" options:NSCaseInsensitiveSearch] == NSOrderedSame || [scheme compare:@"https" options:NSCaseInsensitiveSearch] == NSOrderedSame) {
+        NSString *host = URL.host;
+        NSString *ip = [NLHosts ipByHost:host];
+        if (ip) {
+            //NSLog(@"NSURLRequest: host:%@->ip:%@",host,ip);
+            NSString *absoluteString = [URL absoluteString];
+            NSRange hostRange = [absoluteString rangeOfString:host];
+            if (hostRange.location != NSNotFound) {
+                absoluteString = [absoluteString stringByReplacingCharactersInRange:hostRange withString:ip];
+                NSURL *newURL = [NSURL URLWithString:absoluteString];
+                NSMutableURLRequest *newRequest = [[NSMutableURLRequest alloc]initWithURL:newURL cachePolicy:cachePolicy timeoutInterval:timeoutInterval];
+                [newRequest setValue:host forHTTPHeaderField:@"Host"];
+                self = newRequest;
+                return self;
+            }
+        }
+    }
+    return [self initWithNewURL:URL cachePolicy:cachePolicy timeoutInterval:timeoutInterval];
+}
+
+@end
+
+
+@implementation NSMutableURLRequest (Swizzle)
+
++(void)load
+{
+    static dispatch_once_t onceToken;
+    dispatch_once(&onceToken, ^{
+        Class clazz = NSClassFromString(@"NSMutableURLRequest");
+        Method origMethod = class_getInstanceMethod(clazz, @selector(setURL:));
+        Method newMethod = class_getInstanceMethod(clazz, @selector(setNewURL:));
+
+        if (origMethod && newMethod) {
+            method_exchangeImplementations(origMethod, newMethod);
+        }else{
+            NSLog(@"origMethod:%@ newMethod:%@",origMethod,newMethod);
+        }
+    });
+}
+
+-(void)setNewURL:(NSURL *)URL
+{
+    NSString *scheme = URL.scheme;
+
+    if ([scheme compare:@"http" options:NSCaseInsensitiveSearch] == NSOrderedSame || [scheme compare:@"https" options:NSCaseInsensitiveSearch] == NSOrderedSame) {
+        NSString *host = URL.host;
+        NSString *ip = [NLHosts ipByHost:host];
+        if (ip) {
+            //NSLog(@"NSMutableURLRequest setURL: host:%@->ip:%@",host,ip);
+            NSString *absoluteString = [URL absoluteString];
+            NSRange hostRange = [absoluteString rangeOfString:host];
+            if (hostRange.location != NSNotFound) {
+                absoluteString = [absoluteString stringByReplacingCharactersInRange:hostRange withString:ip];
+                NSURL *newURL = [NSURL URLWithString:absoluteString];
+                [self setNewURL:newURL];
+                [self setValue:host forHTTPHeaderField:@"Host"];
+                return;
+            }
+        }
+    }
+
+    return [self setNewURL:URL];
+
+}
+
+
+@end
+
+```
+
+在`NSURLRequest`类的`+load`方法中将`-initWithURL:cachePolicy:timeoutInterval:`替换为`initWithNewURL:cachePolicy:timeoutInterval:`;
+
+在`initWithNewURL:cachePolicy:timeoutInterval:`方法中，如果初始化URL中的host需要转换为ip地址，则使用ip地址替换host生成新的URL,使用新URL生成新的
+`NSMutableURLRequest`,并设置其HTTP Header的"Host"字段为原始值，将此`NSMutableURLRequest`返回进行后续网络请求。
+
+`NSMutableURLRequest`是`NSURLRequest`的子类，所以初始化方法在`NSURLRequest`中进行method swizzle替换后，同样可适用在`NSMutableURLRequest`。
+这样在`initWithNewURL:cachePolicy:timeoutInterval:`中生成新的`NSMutableURLRequest`时同样也会调用swizzle过的初始化方法，但此时的
+host已经是ip地址了，不需要再次进行转换，会直接调用原方法返回。
+
+对`NSMutableURLRequest`类的`-setURL:`方法也需要进行类似的处理,具体见代码。
