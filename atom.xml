@@ -4,7 +4,7 @@
   <title><![CDATA[iOS App]]></title>
   <link href="http://xuguoxing.github.io/atom.xml" rel="self"/>
   <link href="http://xuguoxing.github.io/"/>
-  <updated>2014-08-16T15:12:10+08:00</updated>
+  <updated>2014-08-18T17:18:19+08:00</updated>
   <id>http://xuguoxing.github.io/</id>
   <author>
     <name><![CDATA[xuguoxing]]></name>
@@ -12,6 +12,267 @@
   </author>
   <generator uri="http://octopress.org/">Octopress</generator>
 
+  
+  <entry>
+    <title type="html"><![CDATA[Hosts]]></title>
+    <link href="http://xuguoxing.github.io/blog/2014/08/18/hosts/"/>
+    <updated>2014-08-18T16:08:24+08:00</updated>
+    <id>http://xuguoxing.github.io/blog/2014/08/18/hosts</id>
+    <content type="html"><![CDATA[<p>在开发过程中，经常需要修改Hosts访问测试环境，而对于非越狱iOS设备，无法修改设备Host文件<code>/etc/hosts</code>;如果在代码中直接将域名修改为ip地址，存在两个问题：</p>
+
+<ol>
+<li>破坏了网络代码的结构。</li>
+<li>HTTP Header中的&#8221;Host&#8221;字段也被修改为了ip地址，而后台对&#8221;Host&#8221;字段有校验,会导致请求出错。</li>
+</ol>
+
+
+<p>可以通过对<code>NSURLRequest</code>的<code>initWithURL:cachePolicy:timeoutInterval:</code>方法和<code>NSMutableURLRequest</code>的<code>setURL:</code>方法进行
+method swizzle来动态的将URL中的host修改为ip,并保持HTTP Header中的&#8221;Host&#8221;字段不变来解决。</p>
+
+<h2>使用NLHosts类来保存host到ip的转换</h2>
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>interface NLHosts : NSObject
+</span><span class='line'>
+</span><span class='line'>+(NSString*)ipByHost:(NSString*)host;
+</span><span class='line'>
+</span><span class='line'>@end
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p><code>+ipByHost:</code>方法接收host参数，如果对应host有匹配的ip地址,则返回ip地址，否则返回nil。</p>
+
+<h2><code>NSURLRequest</code>、<code>NSMutableURLRequest</code>的method swizzle处理</h2>
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+<span class='line-number'>8</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>@interface NSURLRequest (Swizzle)
+</span><span class='line'>
+</span><span class='line'>@end
+</span><span class='line'>
+</span><span class='line'>
+</span><span class='line'>@interface NSMutableURLRequest (Swizzle)
+</span><span class='line'>
+</span><span class='line'>@end</span></code></pre></td></tr></table></div></figure>
+
+
+
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+<span class='line-number'>8</span>
+<span class='line-number'>9</span>
+<span class='line-number'>10</span>
+<span class='line-number'>11</span>
+<span class='line-number'>12</span>
+<span class='line-number'>13</span>
+<span class='line-number'>14</span>
+<span class='line-number'>15</span>
+<span class='line-number'>16</span>
+<span class='line-number'>17</span>
+<span class='line-number'>18</span>
+<span class='line-number'>19</span>
+<span class='line-number'>20</span>
+<span class='line-number'>21</span>
+<span class='line-number'>22</span>
+<span class='line-number'>23</span>
+<span class='line-number'>24</span>
+<span class='line-number'>25</span>
+<span class='line-number'>26</span>
+<span class='line-number'>27</span>
+<span class='line-number'>28</span>
+<span class='line-number'>29</span>
+<span class='line-number'>30</span>
+<span class='line-number'>31</span>
+<span class='line-number'>32</span>
+<span class='line-number'>33</span>
+<span class='line-number'>34</span>
+<span class='line-number'>35</span>
+<span class='line-number'>36</span>
+<span class='line-number'>37</span>
+<span class='line-number'>38</span>
+<span class='line-number'>39</span>
+<span class='line-number'>40</span>
+<span class='line-number'>41</span>
+<span class='line-number'>42</span>
+<span class='line-number'>43</span>
+<span class='line-number'>44</span>
+<span class='line-number'>45</span>
+<span class='line-number'>46</span>
+<span class='line-number'>47</span>
+<span class='line-number'>48</span>
+<span class='line-number'>49</span>
+<span class='line-number'>50</span>
+<span class='line-number'>51</span>
+<span class='line-number'>52</span>
+<span class='line-number'>53</span>
+<span class='line-number'>54</span>
+<span class='line-number'>55</span>
+<span class='line-number'>56</span>
+<span class='line-number'>57</span>
+<span class='line-number'>58</span>
+<span class='line-number'>59</span>
+<span class='line-number'>60</span>
+<span class='line-number'>61</span>
+<span class='line-number'>62</span>
+<span class='line-number'>63</span>
+<span class='line-number'>64</span>
+<span class='line-number'>65</span>
+<span class='line-number'>66</span>
+<span class='line-number'>67</span>
+<span class='line-number'>68</span>
+<span class='line-number'>69</span>
+<span class='line-number'>70</span>
+<span class='line-number'>71</span>
+<span class='line-number'>72</span>
+<span class='line-number'>73</span>
+<span class='line-number'>74</span>
+<span class='line-number'>75</span>
+<span class='line-number'>76</span>
+<span class='line-number'>77</span>
+<span class='line-number'>78</span>
+<span class='line-number'>79</span>
+<span class='line-number'>80</span>
+<span class='line-number'>81</span>
+<span class='line-number'>82</span>
+<span class='line-number'>83</span>
+<span class='line-number'>84</span>
+<span class='line-number'>85</span>
+<span class='line-number'>86</span>
+<span class='line-number'>87</span>
+<span class='line-number'>88</span>
+<span class='line-number'>89</span>
+<span class='line-number'>90</span>
+<span class='line-number'>91</span>
+<span class='line-number'>92</span>
+<span class='line-number'>93</span>
+<span class='line-number'>94</span>
+<span class='line-number'>95</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>#import "NSURLRequest+Swizzle.h"
+</span><span class='line'>
+</span><span class='line'>#import &lt;objc/runtime.h&gt;
+</span><span class='line'>#import "NLHosts.h"
+</span><span class='line'>
+</span><span class='line'>@implementation NSURLRequest (Swizzle)
+</span><span class='line'>
+</span><span class='line'>+(void)load
+</span><span class='line'>{
+</span><span class='line'>    static dispatch_once_t onceToken;
+</span><span class='line'>    dispatch_once(&onceToken, ^{
+</span><span class='line'>        Class clazz = NSClassFromString(@"NSURLRequest");
+</span><span class='line'>        Method origMethod = class_getInstanceMethod(clazz, @selector(initWithURL:cachePolicy:timeoutInterval:));
+</span><span class='line'>        Method newMethod = class_getInstanceMethod(clazz, @selector(initWithNewURL:cachePolicy:timeoutInterval:));
+</span><span class='line'>
+</span><span class='line'>        if (origMethod && newMethod) {
+</span><span class='line'>            method_exchangeImplementations(origMethod, newMethod);
+</span><span class='line'>        }else{
+</span><span class='line'>            //NSLog(@"origMethod:%@ newMethod:%@",origMethod,newMethod);
+</span><span class='line'>        }
+</span><span class='line'>    });
+</span><span class='line'>}
+</span><span class='line'>
+</span><span class='line'>-(id)initWithNewURL:(NSURL *)URL cachePolicy:(NSURLRequestCachePolicy)cachePolicy timeoutInterval:(NSTimeInterval)timeoutInterval
+</span><span class='line'>{
+</span><span class='line'>    NSString *scheme = URL.scheme;
+</span><span class='line'>
+</span><span class='line'>    if ([scheme compare:@"http" options:NSCaseInsensitiveSearch] == NSOrderedSame || [scheme compare:@"https" options:NSCaseInsensitiveSearch] == NSOrderedSame) {
+</span><span class='line'>        NSString *host = URL.host;
+</span><span class='line'>        NSString *ip = [NLHosts ipByHost:host];
+</span><span class='line'>        if (ip) {
+</span><span class='line'>            //NSLog(@"NSURLRequest: host:%@-&gt;ip:%@",host,ip);
+</span><span class='line'>            NSString *absoluteString = [URL absoluteString];
+</span><span class='line'>            NSRange hostRange = [absoluteString rangeOfString:host];
+</span><span class='line'>            if (hostRange.location != NSNotFound) {
+</span><span class='line'>                absoluteString = [absoluteString stringByReplacingCharactersInRange:hostRange withString:ip];
+</span><span class='line'>                NSURL *newURL = [NSURL URLWithString:absoluteString];
+</span><span class='line'>                NSMutableURLRequest *newRequest = [[NSMutableURLRequest alloc]initWithURL:newURL cachePolicy:cachePolicy timeoutInterval:timeoutInterval];
+</span><span class='line'>                [newRequest setValue:host forHTTPHeaderField:@"Host"];
+</span><span class='line'>                self = newRequest;
+</span><span class='line'>                return self;
+</span><span class='line'>            }
+</span><span class='line'>        }
+</span><span class='line'>    }
+</span><span class='line'>    return [self initWithNewURL:URL cachePolicy:cachePolicy timeoutInterval:timeoutInterval];
+</span><span class='line'>}
+</span><span class='line'>
+</span><span class='line'>@end
+</span><span class='line'>
+</span><span class='line'>
+</span><span class='line'>@implementation NSMutableURLRequest (Swizzle)
+</span><span class='line'>
+</span><span class='line'>+(void)load
+</span><span class='line'>{
+</span><span class='line'>    static dispatch_once_t onceToken;
+</span><span class='line'>    dispatch_once(&onceToken, ^{
+</span><span class='line'>        Class clazz = NSClassFromString(@"NSMutableURLRequest");
+</span><span class='line'>        Method origMethod = class_getInstanceMethod(clazz, @selector(setURL:));
+</span><span class='line'>        Method newMethod = class_getInstanceMethod(clazz, @selector(setNewURL:));
+</span><span class='line'>
+</span><span class='line'>        if (origMethod && newMethod) {
+</span><span class='line'>            method_exchangeImplementations(origMethod, newMethod);
+</span><span class='line'>        }else{
+</span><span class='line'>            NSLog(@"origMethod:%@ newMethod:%@",origMethod,newMethod);
+</span><span class='line'>        }
+</span><span class='line'>    });
+</span><span class='line'>}
+</span><span class='line'>
+</span><span class='line'>-(void)setNewURL:(NSURL *)URL
+</span><span class='line'>{
+</span><span class='line'>    NSString *scheme = URL.scheme;
+</span><span class='line'>
+</span><span class='line'>    if ([scheme compare:@"http" options:NSCaseInsensitiveSearch] == NSOrderedSame || [scheme compare:@"https" options:NSCaseInsensitiveSearch] == NSOrderedSame) {
+</span><span class='line'>        NSString *host = URL.host;
+</span><span class='line'>        NSString *ip = [NLHosts ipByHost:host];
+</span><span class='line'>        if (ip) {
+</span><span class='line'>            //NSLog(@"NSMutableURLRequest setURL: host:%@-&gt;ip:%@",host,ip);
+</span><span class='line'>            NSString *absoluteString = [URL absoluteString];
+</span><span class='line'>            NSRange hostRange = [absoluteString rangeOfString:host];
+</span><span class='line'>            if (hostRange.location != NSNotFound) {
+</span><span class='line'>                absoluteString = [absoluteString stringByReplacingCharactersInRange:hostRange withString:ip];
+</span><span class='line'>                NSURL *newURL = [NSURL URLWithString:absoluteString];
+</span><span class='line'>                [self setNewURL:newURL];
+</span><span class='line'>                [self setValue:host forHTTPHeaderField:@"Host"];
+</span><span class='line'>                return;
+</span><span class='line'>            }
+</span><span class='line'>        }
+</span><span class='line'>    }
+</span><span class='line'>
+</span><span class='line'>    return [self setNewURL:URL];
+</span><span class='line'>
+</span><span class='line'>}
+</span><span class='line'>
+</span><span class='line'>
+</span><span class='line'>@end
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p>在<code>NSURLRequest</code>类的<code>+load</code>方法中将<code>-initWithURL:cachePolicy:timeoutInterval:</code>替换为<code>initWithNewURL:cachePolicy:timeoutInterval:</code>;</p>
+
+<p>在<code>initWithNewURL:cachePolicy:timeoutInterval:</code>方法中，如果初始化URL中的host需要转换为ip地址，则使用ip地址替换host生成新的URL,使用新URL生成新的
+<code>NSMutableURLRequest</code>,并设置其HTTP Header的&#8221;Host&#8221;字段为原始值，将此<code>NSMutableURLRequest</code>返回进行后续网络请求。</p>
+
+<p><code>NSMutableURLRequest</code>是<code>NSURLRequest</code>的子类，所以初始化方法在<code>NSURLRequest</code>中进行method swizzle替换后，同样可适用在<code>NSMutableURLRequest</code>。
+这样在<code>initWithNewURL:cachePolicy:timeoutInterval:</code>中生成新的<code>NSMutableURLRequest</code>时同样也会调用swizzle过的初始化方法，但此时的
+host已经是ip地址了，不需要再次进行转换，会直接调用原方法返回。</p>
+
+<p>对<code>NSMutableURLRequest</code>类的<code>-setURL:</code>方法也需要进行类似的处理,具体见代码。</p>
+]]></content>
+  </entry>
   
   <entry>
     <title type="html"><![CDATA[EXCLUDED_SOURCE_FILE_NAMES]]></title>

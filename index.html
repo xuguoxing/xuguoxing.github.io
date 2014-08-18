@@ -9,8 +9,8 @@
   <meta name="author" content="xuguoxing">
 
   
-  <meta name="description" content="在Xcode中可以通过名为EXCLUDED_SOURCE_FILE_NAMES的用户自定义(User-Defined) build setting来配置在某些Configurations下进行构建
-不包含的文件。 比如，在Debug环境下会包含用于测试的桩文件， &hellip;">
+  <meta name="description" content="在开发过程中，经常需要修改Hosts访问测试环境，而对于非越狱iOS设备，无法修改设备Host文件/etc/hosts;如果在代码中直接将域名修改为ip地址，存在两个问题： 破坏了网络代码的结构。
+HTTP Header中的&#8221;Host&#8221;字段也被修改为了ip地址，而后台对&# &hellip;">
   
 
   <!-- http://t.co/dKP3o1e -->
@@ -78,6 +78,294 @@
     <div id="content">
       <div class="blog-index">
   
+  
+  
+    <article>
+      
+  <header>
+    
+      <h1 class="entry-title"><a href="/blog/2014/08/18/hosts/">Hosts</a></h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2014-08-18T16:08:24+08:00" pubdate data-updated="true">Aug 18<span>th</span>, 2014</time>
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><p>在开发过程中，经常需要修改Hosts访问测试环境，而对于非越狱iOS设备，无法修改设备Host文件<code>/etc/hosts</code>;如果在代码中直接将域名修改为ip地址，存在两个问题：</p>
+
+<ol>
+<li>破坏了网络代码的结构。</li>
+<li>HTTP Header中的&#8221;Host&#8221;字段也被修改为了ip地址，而后台对&#8221;Host&#8221;字段有校验,会导致请求出错。</li>
+</ol>
+
+
+<p>可以通过对<code>NSURLRequest</code>的<code>initWithURL:cachePolicy:timeoutInterval:</code>方法和<code>NSMutableURLRequest</code>的<code>setURL:</code>方法进行
+method swizzle来动态的将URL中的host修改为ip,并保持HTTP Header中的&#8221;Host&#8221;字段不变来解决。</p>
+
+<h2>使用NLHosts类来保存host到ip的转换</h2>
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>interface NLHosts : NSObject
+</span><span class='line'>
+</span><span class='line'>+(NSString*)ipByHost:(NSString*)host;
+</span><span class='line'>
+</span><span class='line'>@end
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p><code>+ipByHost:</code>方法接收host参数，如果对应host有匹配的ip地址,则返回ip地址，否则返回nil。</p>
+
+<h2><code>NSURLRequest</code>、<code>NSMutableURLRequest</code>的method swizzle处理</h2>
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+<span class='line-number'>8</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>@interface NSURLRequest (Swizzle)
+</span><span class='line'>
+</span><span class='line'>@end
+</span><span class='line'>
+</span><span class='line'>
+</span><span class='line'>@interface NSMutableURLRequest (Swizzle)
+</span><span class='line'>
+</span><span class='line'>@end</span></code></pre></td></tr></table></div></figure>
+
+
+
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+<span class='line-number'>8</span>
+<span class='line-number'>9</span>
+<span class='line-number'>10</span>
+<span class='line-number'>11</span>
+<span class='line-number'>12</span>
+<span class='line-number'>13</span>
+<span class='line-number'>14</span>
+<span class='line-number'>15</span>
+<span class='line-number'>16</span>
+<span class='line-number'>17</span>
+<span class='line-number'>18</span>
+<span class='line-number'>19</span>
+<span class='line-number'>20</span>
+<span class='line-number'>21</span>
+<span class='line-number'>22</span>
+<span class='line-number'>23</span>
+<span class='line-number'>24</span>
+<span class='line-number'>25</span>
+<span class='line-number'>26</span>
+<span class='line-number'>27</span>
+<span class='line-number'>28</span>
+<span class='line-number'>29</span>
+<span class='line-number'>30</span>
+<span class='line-number'>31</span>
+<span class='line-number'>32</span>
+<span class='line-number'>33</span>
+<span class='line-number'>34</span>
+<span class='line-number'>35</span>
+<span class='line-number'>36</span>
+<span class='line-number'>37</span>
+<span class='line-number'>38</span>
+<span class='line-number'>39</span>
+<span class='line-number'>40</span>
+<span class='line-number'>41</span>
+<span class='line-number'>42</span>
+<span class='line-number'>43</span>
+<span class='line-number'>44</span>
+<span class='line-number'>45</span>
+<span class='line-number'>46</span>
+<span class='line-number'>47</span>
+<span class='line-number'>48</span>
+<span class='line-number'>49</span>
+<span class='line-number'>50</span>
+<span class='line-number'>51</span>
+<span class='line-number'>52</span>
+<span class='line-number'>53</span>
+<span class='line-number'>54</span>
+<span class='line-number'>55</span>
+<span class='line-number'>56</span>
+<span class='line-number'>57</span>
+<span class='line-number'>58</span>
+<span class='line-number'>59</span>
+<span class='line-number'>60</span>
+<span class='line-number'>61</span>
+<span class='line-number'>62</span>
+<span class='line-number'>63</span>
+<span class='line-number'>64</span>
+<span class='line-number'>65</span>
+<span class='line-number'>66</span>
+<span class='line-number'>67</span>
+<span class='line-number'>68</span>
+<span class='line-number'>69</span>
+<span class='line-number'>70</span>
+<span class='line-number'>71</span>
+<span class='line-number'>72</span>
+<span class='line-number'>73</span>
+<span class='line-number'>74</span>
+<span class='line-number'>75</span>
+<span class='line-number'>76</span>
+<span class='line-number'>77</span>
+<span class='line-number'>78</span>
+<span class='line-number'>79</span>
+<span class='line-number'>80</span>
+<span class='line-number'>81</span>
+<span class='line-number'>82</span>
+<span class='line-number'>83</span>
+<span class='line-number'>84</span>
+<span class='line-number'>85</span>
+<span class='line-number'>86</span>
+<span class='line-number'>87</span>
+<span class='line-number'>88</span>
+<span class='line-number'>89</span>
+<span class='line-number'>90</span>
+<span class='line-number'>91</span>
+<span class='line-number'>92</span>
+<span class='line-number'>93</span>
+<span class='line-number'>94</span>
+<span class='line-number'>95</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>#import "NSURLRequest+Swizzle.h"
+</span><span class='line'>
+</span><span class='line'>#import &lt;objc/runtime.h&gt;
+</span><span class='line'>#import "NLHosts.h"
+</span><span class='line'>
+</span><span class='line'>@implementation NSURLRequest (Swizzle)
+</span><span class='line'>
+</span><span class='line'>+(void)load
+</span><span class='line'>{
+</span><span class='line'>    static dispatch_once_t onceToken;
+</span><span class='line'>    dispatch_once(&onceToken, ^{
+</span><span class='line'>        Class clazz = NSClassFromString(@"NSURLRequest");
+</span><span class='line'>        Method origMethod = class_getInstanceMethod(clazz, @selector(initWithURL:cachePolicy:timeoutInterval:));
+</span><span class='line'>        Method newMethod = class_getInstanceMethod(clazz, @selector(initWithNewURL:cachePolicy:timeoutInterval:));
+</span><span class='line'>
+</span><span class='line'>        if (origMethod && newMethod) {
+</span><span class='line'>            method_exchangeImplementations(origMethod, newMethod);
+</span><span class='line'>        }else{
+</span><span class='line'>            //NSLog(@"origMethod:%@ newMethod:%@",origMethod,newMethod);
+</span><span class='line'>        }
+</span><span class='line'>    });
+</span><span class='line'>}
+</span><span class='line'>
+</span><span class='line'>-(id)initWithNewURL:(NSURL *)URL cachePolicy:(NSURLRequestCachePolicy)cachePolicy timeoutInterval:(NSTimeInterval)timeoutInterval
+</span><span class='line'>{
+</span><span class='line'>    NSString *scheme = URL.scheme;
+</span><span class='line'>
+</span><span class='line'>    if ([scheme compare:@"http" options:NSCaseInsensitiveSearch] == NSOrderedSame || [scheme compare:@"https" options:NSCaseInsensitiveSearch] == NSOrderedSame) {
+</span><span class='line'>        NSString *host = URL.host;
+</span><span class='line'>        NSString *ip = [NLHosts ipByHost:host];
+</span><span class='line'>        if (ip) {
+</span><span class='line'>            //NSLog(@"NSURLRequest: host:%@-&gt;ip:%@",host,ip);
+</span><span class='line'>            NSString *absoluteString = [URL absoluteString];
+</span><span class='line'>            NSRange hostRange = [absoluteString rangeOfString:host];
+</span><span class='line'>            if (hostRange.location != NSNotFound) {
+</span><span class='line'>                absoluteString = [absoluteString stringByReplacingCharactersInRange:hostRange withString:ip];
+</span><span class='line'>                NSURL *newURL = [NSURL URLWithString:absoluteString];
+</span><span class='line'>                NSMutableURLRequest *newRequest = [[NSMutableURLRequest alloc]initWithURL:newURL cachePolicy:cachePolicy timeoutInterval:timeoutInterval];
+</span><span class='line'>                [newRequest setValue:host forHTTPHeaderField:@"Host"];
+</span><span class='line'>                self = newRequest;
+</span><span class='line'>                return self;
+</span><span class='line'>            }
+</span><span class='line'>        }
+</span><span class='line'>    }
+</span><span class='line'>    return [self initWithNewURL:URL cachePolicy:cachePolicy timeoutInterval:timeoutInterval];
+</span><span class='line'>}
+</span><span class='line'>
+</span><span class='line'>@end
+</span><span class='line'>
+</span><span class='line'>
+</span><span class='line'>@implementation NSMutableURLRequest (Swizzle)
+</span><span class='line'>
+</span><span class='line'>+(void)load
+</span><span class='line'>{
+</span><span class='line'>    static dispatch_once_t onceToken;
+</span><span class='line'>    dispatch_once(&onceToken, ^{
+</span><span class='line'>        Class clazz = NSClassFromString(@"NSMutableURLRequest");
+</span><span class='line'>        Method origMethod = class_getInstanceMethod(clazz, @selector(setURL:));
+</span><span class='line'>        Method newMethod = class_getInstanceMethod(clazz, @selector(setNewURL:));
+</span><span class='line'>
+</span><span class='line'>        if (origMethod && newMethod) {
+</span><span class='line'>            method_exchangeImplementations(origMethod, newMethod);
+</span><span class='line'>        }else{
+</span><span class='line'>            NSLog(@"origMethod:%@ newMethod:%@",origMethod,newMethod);
+</span><span class='line'>        }
+</span><span class='line'>    });
+</span><span class='line'>}
+</span><span class='line'>
+</span><span class='line'>-(void)setNewURL:(NSURL *)URL
+</span><span class='line'>{
+</span><span class='line'>    NSString *scheme = URL.scheme;
+</span><span class='line'>
+</span><span class='line'>    if ([scheme compare:@"http" options:NSCaseInsensitiveSearch] == NSOrderedSame || [scheme compare:@"https" options:NSCaseInsensitiveSearch] == NSOrderedSame) {
+</span><span class='line'>        NSString *host = URL.host;
+</span><span class='line'>        NSString *ip = [NLHosts ipByHost:host];
+</span><span class='line'>        if (ip) {
+</span><span class='line'>            //NSLog(@"NSMutableURLRequest setURL: host:%@-&gt;ip:%@",host,ip);
+</span><span class='line'>            NSString *absoluteString = [URL absoluteString];
+</span><span class='line'>            NSRange hostRange = [absoluteString rangeOfString:host];
+</span><span class='line'>            if (hostRange.location != NSNotFound) {
+</span><span class='line'>                absoluteString = [absoluteString stringByReplacingCharactersInRange:hostRange withString:ip];
+</span><span class='line'>                NSURL *newURL = [NSURL URLWithString:absoluteString];
+</span><span class='line'>                [self setNewURL:newURL];
+</span><span class='line'>                [self setValue:host forHTTPHeaderField:@"Host"];
+</span><span class='line'>                return;
+</span><span class='line'>            }
+</span><span class='line'>        }
+</span><span class='line'>    }
+</span><span class='line'>
+</span><span class='line'>    return [self setNewURL:URL];
+</span><span class='line'>
+</span><span class='line'>}
+</span><span class='line'>
+</span><span class='line'>
+</span><span class='line'>@end
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p>在<code>NSURLRequest</code>类的<code>+load</code>方法中将<code>-initWithURL:cachePolicy:timeoutInterval:</code>替换为<code>initWithNewURL:cachePolicy:timeoutInterval:</code>;</p>
+
+<p>在<code>initWithNewURL:cachePolicy:timeoutInterval:</code>方法中，如果初始化URL中的host需要转换为ip地址，则使用ip地址替换host生成新的URL,使用新URL生成新的
+<code>NSMutableURLRequest</code>,并设置其HTTP Header的&#8221;Host&#8221;字段为原始值，将此<code>NSMutableURLRequest</code>返回进行后续网络请求。</p>
+
+<p><code>NSMutableURLRequest</code>是<code>NSURLRequest</code>的子类，所以初始化方法在<code>NSURLRequest</code>中进行method swizzle替换后，同样可适用在<code>NSMutableURLRequest</code>。
+这样在<code>initWithNewURL:cachePolicy:timeoutInterval:</code>中生成新的<code>NSMutableURLRequest</code>时同样也会调用swizzle过的初始化方法，但此时的
+host已经是ip地址了，不需要再次进行转换，会直接调用原方法返回。</p>
+
+<p>对<code>NSMutableURLRequest</code>类的<code>-setURL:</code>方法也需要进行类似的处理,具体见代码。</p>
+</div>
+  
+  
+
+
+    </article>
   
   
     <article>
@@ -1976,434 +2264,9 @@ PNG文件(包括alpha透明度)的大小。其生成的图片兼容iOS,所有的
 
     </article>
   
-  
-    <article>
-      
-  <header>
-    
-      <h1 class="entry-title"><a href="/blog/2014/03/20/octopressjian-zhan-liu-cheng/">Octopress建站流程</a></h1>
-    
-    
-      <p class="meta">
-        
-
-
-
-
-
-
-
-
-  
-
-
-<time datetime="2014-03-20T21:20:35+08:00" pubdate data-updated="true">Mar 20<span>th</span>, 2014</time>
-        
-      </p>
-    
-  </header>
-
-
-  <div class="entry-content"><h2>一.设置Octopress</h2>
-
-<h3>检查Ruby环境</h3>
-
-<p>确保Ruby环境为1.9.3,若不是，则下载RVM,安装1.9.3版本</p>
-
-<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-<span class='line-number'>2</span>
-<span class='line-number'>3</span>
-<span class='line-number'>4</span>
-</pre></td><td class='code'><pre><code class=''><span class='line'>$ url -L https://get.rvm.io | bash -s stable --ruby
-</span><span class='line'>$ rvm install 1.9.3
-</span><span class='line'>$ rvm use 1.9.3
-</span><span class='line'>$ rvm rubygems latest</span></code></pre></td></tr></table></div></figure>
-
-
-<p>Clone Octopress</p>
-
-<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-<span class='line-number'>2</span>
-</pre></td><td class='code'><pre><code class=''><span class='line'>$ git clone git://github.com/imathis/octopress.git octopress
-</span><span class='line'>$ cd octopress</span></code></pre></td></tr></table></div></figure>
-
-
-<p>安装依赖(dependencies)</p>
-
-<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-<span class='line-number'>2</span>
-</pre></td><td class='code'><pre><code class=''><span class='line'>$ sudo gem install bundler
-</span><span class='line'>$ sudo bundle install</span></code></pre></td></tr></table></div></figure>
-
-
-<p>安装默认主题</p>
-
-<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-</pre></td><td class='code'><pre><code class=''><span class='line'>rake install</span></code></pre></td></tr></table></div></figure>
-
-
-<h2>二.部署到Github Pages</h2>
-
-<h3>若本机无SSH Key,则生成Github SSH Key并上传</h3>
-
-<p>生成SSH key</p>
-
-<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-<span class='line-number'>2</span>
-</pre></td><td class='code'><pre><code class=''><span class='line'>$ ssh-keygen -t rsa -C "your_email@example.com"
-</span><span class='line'>$ ssh-add id_rsa</span></code></pre></td></tr></table></div></figure>
-
-
-<p>添加SSH Key到GitHub</p>
-
-<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-</pre></td><td class='code'><pre><code class=''><span class='line'>$ pbcopy &lt; ~/.ssh/id_rsa.pub #拷贝到clipboard</span></code></pre></td></tr></table></div></figure>
-
-
-<p>在github的<a href="https://github.com/settings">Account Settings</a>添加SSH Key</p>
-
-<p>测试环境输出</p>
-
-<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-</pre></td><td class='code'><pre><code class=''><span class='line'>$ ssh -T git@github.com</span></code></pre></td></tr></table></div></figure>
-
-
-<h3><a href="https://github.com/repositories/new">创建Github Repository</a></h3>
-
-<ul>
-<li><p>创建名字格式为username.github.io,username必须为github的用户名。即xuguoxing.github.io</p></li>
-<li><p>Initialize this repository with a README 项不勾选</p></li>
-</ul>
-
-
-<h3>设置 github pages</h3>
-
-<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-</pre></td><td class='code'><pre><code class=''><span class='line'>$ rake setup_github_pages</span></code></pre></td></tr></table></div></figure>
-
-
-<p>该命令会询问repo地址，并在_deploy目录下设置master branch</p>
-
-<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-<span class='line-number'>2</span>
-</pre></td><td class='code'><pre><code class=''><span class='line'>$ rake generate
-</span><span class='line'>$ rake deploy</span></code></pre></td></tr></table></div></figure>
-
-
-<p>生成blog,拷贝生成的文件到_deploy/,添加到git,commit并push到master branch.
-  等待大约10分钟</p>
-
-<h3>source上传到Github</h3>
-
-<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-<span class='line-number'>2</span>
-<span class='line-number'>3</span>
-</pre></td><td class='code'><pre><code class=''><span class='line'>$ git add .
-</span><span class='line'>$ git commit -m 'your message'
-</span><span class='line'>$ git push origin source</span></code></pre></td></tr></table></div></figure>
-
-
-<h2>三.新增Posts</h2>
-
-<p>Blog Post需用存储到<code>source/_posts</code>目录中，命名需符合Jekyll的命名规范:<code>YYYY-MM-DD-post-title.markdown</code></p>
-
-<p>Octopress提供rake task创建新的post，自动符合命名规范的文件，并包含yaml元数据</p>
-
-<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-</pre></td><td class='code'><pre><code class=''><span class='line'>rake new_post["title"]</span></code></pre></td></tr></table></div></figure>
-
-
-<p>示例：</p>
-
-<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-</pre></td><td class='code'><pre><code class=''><span class='line'>rake new_post["Zombie Ninjas Attack: A survivor's retrospective"]</span></code></pre></td></tr></table></div></figure>
-
-
-<p>会生成文件<code>source/_posts/2011-07-03-zombie-ninjas-attack-a-survivors-retrospective.markdown</code>;url访问地址为<code>http://site.com/blog/2011/07/03/zombie-ninjas-attack-a-survivors-retrospective/index.html</code></p>
-
-<p>生成的文件头部包含<a href="http://jekyllrb.com/docs/frontmatter/">yaml front matter</a>告诉Jekyll如何处理Posts和Pages</p>
-
-<pre><code>---
-layout: post
-title: "Zombie Ninjas Attack: A survivor's retrospective"
-date: 2011-07-03 5:59
-comments: true
-external-url:
-categories:
----
-</code></pre>
-
-<p>可能存在的数据有</p>
-
-<ul>
-<li>layout:指定使用的layout文件(不带.Layout扩展名),Layout文件必须放置在_layouts目录下</li>
-<li>title:标题</li>
-<li>date: 发布日期</li>
-<li>comments: true或false,是否允许评论</li>
-<li>author: 对于多作者blog,可设置文章作者</li>
-<li>published: true或false,是否发布，如果在写草稿，可设为false</li>
-<li>external-url: 发布<a href="http://octopress.org/docs/blogging/linklog">linklog</a>样式post,填写指向的外部链接</li>
-<li><p>categories:可设置单个category或者多个category,格式件下面</p>
-
-<pre><code>  # One category
-  categories: Sass
-
-  # Multiple categories example 1
-  categories: [CSS3, Sass, Media Queries]
-
-  # Multiple categories example 2
-  categories:
-  - CSS3
-  - Sass
-  - Media Queries
-</code></pre></li>
-<li><p>permalink: 代替blog post中的<code>/year/month/day/title.html</code>作为最终url</p></li>
-<li>tags: 文字的tag标注，用法和categories相同</li>
-</ul>
-
-
-<h2>四.新增Pages</h2>
-
-<p>可以在blog source目录下的任意位置增加pages,对应的URL会指向对应路径，如<code>about.markdown</code>会生成链接<code>site.com/about.html</code>,<code>about/index.markdown</code>会生成链接<code>site.com/about/index.html</code></p>
-
-<p>生成新pages的rake task为:</p>
-
-<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-<span class='line-number'>2</span>
-</pre></td><td class='code'><pre><code class=''><span class='line'>rake new_page[super-awesome]
-</span><span class='line'>rake new_page[super-awesome/page.html]</span></code></pre></td></tr></table></div></figure>
-
-
-<ul>
-<li>第一种方式生成markdown文件<code>/source/super-awesome/index.markdown</code></li>
-<li>第二种方式生成html文件<code>/source/super-awesome/page.html</code></li>
-</ul>
-
-
-<p>生成markdown文件的yaml头样式为:</p>
-
-<pre><code>---
-layout: page
-title: "Super Awesome"
-date: 2011-07-03 5:59
-comments: true
-sharing: true
-footer: true
----
-</code></pre>
-
-<p>和post很相似,但不包括<code>categories</code>, sharing和footer是做什么用的；如果不需要显示日期<code>date</code>可删除</p>
-
-<h2>五.生成和预览</h2>
-
-<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-<span class='line-number'>2</span>
-<span class='line-number'>3</span>
-</pre></td><td class='code'><pre><code class=''><span class='line'>rake generate   # Generates posts and pages into the public directory
-</span><span class='line'>rake watch      # Watches source/ and sass/ for changes and regenerates
-</span><span class='line'>rake preview    # Watches, and mounts a webserver at http://localhost:4000</span></code></pre></td></tr></table></div></figure>
-
-
-<p>使用<code>rake preview</code>可在本地<code>http://localhost:4000</code>预览生成效果。</p>
-
-<h2>六.配置Octopress</h2>
-
-<p>配置文件包括</p>
-
-<pre><code>_config.yml       # Main config (Jekyll's settings)
-Rakefile          # Configs for deployment
-config.rb         # Compass config
-config.ru         # Rack config
-</code></pre>
-
-<p>一般情况下只需要配置<code>_config.yml</code>;<code>Rakefile</code>是关于部署的,如果需要使用rsync同步,则需要设置;另外两个文件一般不用。</p>
-
-<p>_config.yml配置包包括三部分</p>
-
-<h3>Main Configs</h3>
-
-<pre><code>url:                # For rewriting urls for RSS, etc
-title:              # Used in the header and title tags
-subtitle:           # A description used in the header
-author:             # Your name, for RSS, Copyright, Metadata
-simple_search:      # Search engine for simple site search
-description:        # A default meta description for your site
-date_format:        # Format dates using Ruby's date strftime syntax
-subscribe_rss:      # Url for your blog's feed, defauts to /atom.xml
-subscribe_email:    # Url to subscribe by email (service required)
-category_feeds:     # Enable per category RSS feeds (defaults to false in 2.1)
-email:              # Email address for the RSS feed if you want it.
-</code></pre>
-
-<h3>Jekyll &amp; Plugins</h3>
-
-<p>关于Jekyll和插件的配置，可参考<a href="https://github.com/mojombo/jekyll/wiki/Configuration">configuration docs</a></p>
-
-<pre><code>root:               # Mapping for relative urls (default: /)
-permalink:          # Permalink structure for blog posts
-source:             # Directory for site source files
-destination:        # Directory for generated site files
-plugins:            # Directory for Jekyll plugins
-code_dir:           # Directory for code snippets (for include_code plugin)
-category_dir:       # Directory for generated blog category pages
-
-pygments:           # Toggle python pygments syntax highlighting
-paginate:           # Posts per page on the blog index
-pagination_dir:     # Directory base for pagination URLs eg. /blog/page/2/
-recent_posts:       # Number of recent posts to appear in the sidebar
-
-default_asides:     # Configure what shows up in the sidebar and in what order
-blog_index_asides:  # Optional sidebar config for blog index page
-post_asides:        # Optional sidebar config for post layout
-page_asides:        # Optional sidebar config for page layout
-</code></pre>
-
-<h3>第三方设置</h3>
-
-<ul>
-<li>Github &ndash; 在侧边栏列出 github repositories</li>
-<li>Twitter &ndash; 设置twitter用户名(不带@),添加Twitter分享按钮</li>
-<li>Google Plus One &ndash; Setup sharing for posts and pages on Google&rsquo;s plus one network.</li>
-<li>Pinboard &ndash; Share your recent Pinboard bookmarks in the sidebar.</li>
-<li>Delicious &ndash; Share your recent Delicious bookmarks in the sidebar.</li>
-<li>Disqus Comments &ndash; Add your disqus short name to enable disqus comments on your site.</li>
-<li>Google Analytics &ndash; 添加Google Analytics的tracking id分析页面访问.</li>
-<li>Facebook &ndash; 添加Facebook like按钮</li>
-</ul>
-
-
-<p>Google Analytics的tracking id在Google Analytics页面的 管理->媒体资源->跟踪代码中可以找到</p>
-
-<h2>七.设置自定义域名</h2>
-
-<p>在<code>source</code>目录下，新建文件<code>CNAME</code>,将域名添加到此文件中。</p>
-
-<p>可设置顶级域名，如</p>
-
-<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-</pre></td><td class='code'><pre><code class=''><span class='line'>echo 'iosapp.me' &gt;&gt; source/CNAME</span></code></pre></td></tr></table></div></figure>
-
-
-<p>或者子域名</p>
-
-<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-</pre></td><td class='code'><pre><code class=''><span class='line'>echo 'www.iosapp.me' &gt;&gt; source/CNAME</span></code></pre></td></tr></table></div></figure>
-
-
-<p>只能设置一个定制域名,如果需要设置多个定制域名,则需要使用其他服务将域名重定向到github pages的域名</p>
-
-<p>部署发布至master</p>
-
-<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-<span class='line-number'>2</span>
-</pre></td><td class='code'><pre><code class=''><span class='line'>$ rake generate
-</span><span class='line'>$ rake deploy</span></code></pre></td></tr></table></div></figure>
-
-
-<p>使用DNSPod管理域名</p>
-
-<p>新建<a href="https://www.dnspod.cn">DNSPod</a>账号，添加域名<code>iosapp.me</code>,在godaddy账号中将域名的DNS设置DNSPod的DNS， <code>f1g1ns1.dnspod.net</code>和<code>f1g1ns2.dnspod.net</code></p>
-
-<ul>
-<li><p>DNSPod DNS生效后,在其中添加A或者CNAME记录</p>
-
-<ul>
-<li><p>若第一步设置的顶级域名<code>iosapp.me</code>,则需要添加一条A记录，将<code>iosapp.me</code>指向固定IP地址，IP地址可通过dig命令获得</p>
-
-<pre><code>  $ dig xuguoxing.github.io +nostats +nocomments +nocmd
-  xuguoxing.github.io.    898 IN  CNAME           github.map.fastly.net.
-  github.map.fastly.net.  8   IN  A   199.27.79.133
-</code></pre></li>
-<li>若第一步设置的子域名<code>www.iosapp.me</code>,则需要添加一条CNAME域名,将<code>www.iosapp.me</code>指向<code>xuguoxing.github.io</code></li>
-</ul>
-</li>
-<li><p>待github设置域名和DNS解析都生效后，即可以通过<code>iosapp.me</code>或者<code>www.iosapp.me</code>访问blog;</p></li>
-</ul>
-
-
-<p>可通过dig命令查询解析流程:</p>
-
-<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-</pre></td><td class='code'><pre><code class=''><span class='line'>$ dig iosapp.me +nostats +nocomments +nocmd</span></code></pre></td></tr></table></div></figure>
-
-
-<h2>八.插件</h2>
-
-<h3><a href="http://octopress.org/docs/plugins/image-tag/">Image Tag</a>图片</h3>
-
-<p>增加图片的语法为</p>
-
-<pre><code>&lt;img class="[position]" src="/path/to/image" title="[width] [height] [title text [alt text]]" &gt;
-</code></pre>
-
-<p>其中<code>/path/to/image</code>可以为网上的图片URL,也可是是本站的图片；如果自己站点的图片，
-通常放在source/images目录下，可以按照年和月建立两层目录，如2014/03。<code>rake generate</code>命令会自动生成博客，
-放在<code>source/images</code>目录下的图片也会被复制过去。</p>
-
-<p>图片代码示例</p>
-
-<pre><code>&lt;img src="/images/2014/03/picture.jpg"&gt;
-&lt;img src="http://placekitten.com/890/280"&gt;
-&lt;img class="left" src="http://placekitten.com/320/250" title="Place Kitten #2" &gt;
-&lt;img class="right" src="http://placekitten.com/300/500" width="150" height="250" title="Place Kitten #3" &gt;
-&lt;img class="right" src="http://placekitten.com/300/500" width="150" height="250" title="Place Kitten #4" alt="An image of a very cute kitten"&gt;
-&lt;img src="http://placekitten.com/890/280"&gt;
-</code></pre>
-
-<p><img src="http://placekitten.com/890/280"></p>
-
-<h3><a href="http://octopress.org/docs/plugins/blockquote/">Blockquote</a>引用</h3>
-
-<blockquote><p>Last night I lay in bed looking up at the stars in the sky and I thought to myself, where the heck is the ceiling.</p></blockquote>
-
-
-<p>从Twitter引用</p>
-
-<blockquote><p>Over the past 24 hours I&#8217;ve been reflecting on my life & I&#8217;ve realized only one thing. I need a medieval battle axe.</p><footer><strong>@allanbranch</strong> <cite><a href='https://twitter.com/allanbranch/status/90766146063712256'>twitter.com/allanbranch/status/&hellip;</a></cite></footer></blockquote>
-
-
-<p>从Web引用</p>
-
-<blockquote><p>Every interaction is both precious and an opportunity to delight.</p><footer><strong>Seth Godin</strong> <cite><a href='http://sethgodin.typepad.com/seths_blog/2009/07/welcome-to-island-marketing.html'>Welcome to Island Marketing</a></cite></footer></blockquote>
-
-
-<h3>代码块</h3>
-
-<p>关于代码的引用参见</p>
-
-<ul>
-<li><a href="http://octopress.org/docs/plugins/codeblock/">Codeblock</a></li>
-<li><a href="http://octopress.org/docs/plugins/backtick-codeblock/">Backtick Code Blocks</a></li>
-<li><a href="http://octopress.org/docs/plugins/include-code/">Include Code</a></li>
-<li><a href="http://octopress.org/docs/plugins/gist-tag/">Gist Tag</a></li>
-</ul>
-
-
-<h2>参考:</h2>
-
-<ul>
-<li><a href="http://octopress.org/docs/setup/">Octopress Setup</a></li>
-<li><a href="http://octopress.org/docs/deploying/github/">Deploying to Github Pages</a></li>
-<li><a href="https://help.github.com/articles/generating-ssh-keys">GitHub Generating SSH Keys</a></li>
-<li><a href="http://octopress.org/docs/configuring/">Configuring Octopress</a></li>
-<li><a href="http://octopress.org/docs/blogging/">Start blogging with Octopress</a></li>
-<li><a href="https://help.github.com/articles/setting-up-a-custom-domain-with-pages">Setting up a custom domain with Pages</a></li>
-<li><a href="https://support.dnspod.cn/Kb/showarticle/tsid/42/">Godaddy注册商域名修改DNS地址</a></li>
-<li><a href="http://octopress.org/docs/blogging/plugins/">Plugins</a></li>
-<li><a href="http://octopress.org/docs/plugins/image-tag/">Image Tag</a></li>
-<li><a href="http://octopress.org/docs/plugins/blockquote/">Blockquote</a></li>
-<li><a href="http://octopress.org/docs/plugins/codeblock/">Codeblock</a></li>
-<li><a href="http://octopress.org/docs/plugins/backtick-codeblock/">Backtick Code Blocks</a></li>
-</ul>
-
-</div>
-  
-  
-
-
-    </article>
-  
   <div class="pagination">
+    
+      <a class="prev" href="/blog/page/2/">&larr; Older</a>
     
     <a href="/blog/archives">Blog Archives</a>
     
@@ -2414,6 +2277,10 @@ page_asides:        # Optional sidebar config for page layout
     <section>
   <h1>Recent Posts</h1>
   <ul id="recent_posts">
+    
+      <li class="post">
+        <a href="/blog/2014/08/18/hosts/">Hosts</a>
+      </li>
     
       <li class="post">
         <a href="/blog/2014/08/16/excluded-source-file-names/">EXCLUDED_SOURCE_FILE_NAMES</a>
@@ -2449,10 +2316,6 @@ page_asides:        # Optional sidebar config for page layout
     
       <li class="post">
         <a href="/blog/2014/03/27/imageoptim/">ImageOptim</a>
-      </li>
-    
-      <li class="post">
-        <a href="/blog/2014/03/20/octopressjian-zhan-liu-cheng/">Octopress建站流程</a>
       </li>
     
   </ul>
