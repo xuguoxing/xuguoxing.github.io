@@ -4,7 +4,7 @@
   <title><![CDATA[iOS App]]></title>
   <link href="http://xuguoxing.github.io/atom.xml" rel="self"/>
   <link href="http://xuguoxing.github.io/"/>
-  <updated>2015-01-22T11:18:22+08:00</updated>
+  <updated>2015-01-22T11:19:52+08:00</updated>
   <id>http://xuguoxing.github.io/</id>
   <author>
     <name><![CDATA[xuguoxing]]></name>
@@ -18,7 +18,7 @@
     <link href="http://xuguoxing.github.io/blog/2015/01/22/symbolicatecrash/"/>
     <updated>2015-01-22T10:47:18+08:00</updated>
     <id>http://xuguoxing.github.io/blog/2015/01/22/symbolicatecrash</id>
-    <content type="html"><![CDATA[<p><code>symbolicatecrash</code>是Xcode自带的分析工具，使用crash log文件和.dSYM文件划将crash log中的地址替换为代码位置。</p>
+    <content type="html"><![CDATA[<p><code>symbolicatecrash</code>是Xcode自带的分析工具，使用crash log文件和.dSYM文件可将crash log中的地址替换为代码位置。</p>
 
 <h2>查找<code>symbolicatecrash</code></h2>
 
