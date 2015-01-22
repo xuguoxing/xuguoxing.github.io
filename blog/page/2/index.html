@@ -9,13 +9,8 @@
   <meta name="author" content="xuguoxing">
 
   
-  <meta name="description" content="一.设置Octopress 检查Ruby环境 确保Ruby环境为1.9.3,若不是，则下载RVM,安装1.9.3版本 1
-2
-3
-4
-$ url -L https://get.rvm.io | bash -s stable --ruby
-$ rvm install 1.9.3
-$ rvm use &hellip;">
+  <meta name="description" content="Ruby Version Manager(RVM)是用于管理和切换多个版本ruby环境的命令行工具。 安装RVM 1
+curl -L https://get.rvm.io | bash -s stable --ruby 安装完成有提示: To start using RVM you need to &hellip;">
   
 
   <!-- http://t.co/dKP3o1e -->
@@ -83,6 +78,336 @@ $ rvm use &hellip;">
     <div id="content">
       <div class="blog-index">
   
+  
+  
+    <article>
+      
+  <header>
+    
+      <h1 class="entry-title"><a href="/blog/2014/03/27/rvm/">Rvm</a></h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2014-03-27T17:27:57+08:00" pubdate data-updated="true">Mar 27<span>th</span>, 2014</time>
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><p><a href="https://rvm.io/">Ruby Version Manager(RVM)</a>是用于管理和切换多个版本ruby环境的命令行工具。</p>
+
+<p>安装RVM</p>
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>curl -L https://get.rvm.io | bash -s stable --ruby</span></code></pre></td></tr></table></div></figure>
+
+
+<p>安装完成有提示:</p>
+
+<pre><code>To start using RVM you need to run `source /Users/xuguoxing/.rvm/scripts/rvm`
+in all your open shell windows, in rare cases you need to reopen all shell windows.
+</code></pre>
+
+<p>安装Ruby 1.9.3(Octopress使用)</p>
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>rvm install 1.9.3
+</span><span class='line'>rvm use 1.9.3
+</span><span class='line'>rvm rubygems latest</span></code></pre></td></tr></table></div></figure>
+
+</div>
+  
+  
+
+
+    </article>
+  
+  
+    <article>
+      
+  <header>
+    
+      <h1 class="entry-title"><a href="/blog/2014/03/27/homebrew/">Homebrew</a></h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2014-03-27T17:13:23+08:00" pubdate data-updated="true">Mar 27<span>th</span>, 2014</time>
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><p><a href="http://brew.sh/index.html">Homebrew</a>是OS X上的包管理器</p>
+
+<p>安装Homebrew</p>
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>ruby -e "$(curl -fsSL https://raw.github.com/Homebrew/homebrew/go/install)"</span></code></pre></td></tr></table></div></figure>
+
+
+<p>使用Homebrew安装包</p>
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>$ brew install wget</span></code></pre></td></tr></table></div></figure>
+
+
+<p>Homebrew会将包安装到/usr/local下自己的目录中，然后在/usr/local/bin中创建符号链接指向实际的执行文件</p>
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+<span class='line-number'>8</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>$ pwd
+</span><span class='line'>/usr/local/Cellar
+</span><span class='line'>$ ls
+</span><span class='line'>openssl   wget
+</span><span class='line'>$ pwd
+</span><span class='line'>/usr/local/bin
+</span><span class='line'>$ ls -l wget
+</span><span class='line'>wget -&gt; ../Cellar/wget/1.15/bin/wget</span></code></pre></td></tr></table></div></figure>
+
+
+<p>卸载Homebrew</p>
+
+<p>使用以下脚本卸载</p>
+
+<div><script src='https://gist.github.com/1173223.js'></script>
+<noscript><pre><code>#!/bin/sh
+# Just copy and paste the lines below (all at once, it won't work line by line!)
+# MAKE SURE YOU ARE HAPPY WITH WHAT IT DOES FIRST! THERE IS NO WARRANTY!
+
+function abort {
+  echo &quot;$1&quot;
+  exit 1
+}
+
+set -e
+
+/usr/bin/which -s git || abort &quot;brew install git first!&quot;
+test -d /usr/local/.git || abort &quot;brew update first!&quot;
+
+cd `brew --prefix`
+git checkout master
+git ls-files -z | pbcopy
+rm -rf Cellar
+bin/brew prune
+pbpaste | xargs -0 rm
+rm -r Library/Homebrew Library/Aliases Library/Formula Library/Contributions 
+test -d Library/LinkedKegs &amp;&amp; rm -r Library/LinkedKegs
+rmdir -p bin Library share/man/man1 2&gt; /dev/null
+rm -rf .git
+rm -rf ~/Library/Caches/Homebrew
+rm -rf ~/Library/Logs/Homebrew
+rm -rf /Library/Caches/Homebrew
+</code></pre></noscript></div>
+
+
+
+</div>
+  
+  
+
+
+    </article>
+  
+  
+    <article>
+      
+  <header>
+    
+      <h1 class="entry-title"><a href="/blog/2014/03/27/imageoptim/">ImageOptim</a></h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2014-03-27T09:40:59+08:00" pubdate data-updated="true">Mar 27<span>th</span>, 2014</time>
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><h2><a href="http://imageoptim.com/">ImageOptim</a></h2>
+
+<p>ImageOptim通过寻找最好的压缩参数和移除不必要的<code>comments</code>和<code>color profiles</code>来减少图片大小，提高加载速度。</p>
+
+<p>ImageOptim可以处理PNG,JPEG和GIF动画。</p>
+
+<p>ImageOptim无缝集成以下优化工具:</p>
+
+<ul>
+<li><a href="http://www.advsys.net/ken/util/pngout.htm">PNGOUT</a></li>
+<li><a href="http://googledevelopers.blogspot.co.uk/2013/02/compress-data-more-densely-with-zopfli.html">Zopfli</a></li>
+<li><a href="http://pmt.sourceforge.net/pngcrush/">Pngcrush</a></li>
+<li><a href="http://advancemame.sourceforge.net/doc-advpng.html">AdvPNG</a></li>
+<li><a href="http://optipng.sourceforge.net/">OptiPNG</a></li>
+<li><a href="http://www.kokkonen.net/tjko/projects.html">JpegOptim</a></li>
+<li>jpegrescan</li>
+<li>jpegtran</li>
+<li><a href="http://www.lcdf.org/gifsicle/">Gifsicle</a></li>
+</ul>
+
+
+<p>ImageOptim代码是开源的，其<a href="https://github.com/pornel/ImageOptim">源代码</a>在GitHub上。</p>
+
+<p><a href="http://calendar.perfplanet.com/2010/png-that-works/">PNG that works</a>文章中解释了为什么ImageOptim移除gamma信息，和怎么在
+保留透明度的情况下获取更小的png图片。</p>
+
+<h2>Xcode内置的图片优化 <a href="http://pmt.sourceforge.net/pngcrush/index.html">pngcrush</a></h2>
+
+<p>Xcode默认会将所有的PNG图片转换成一个非标准的iOS特定的PNG格式<a href="http://iphonedevwiki.net/index.php/CgBI_file_format">CgBI file format</a>。</p>
+
+<p>这种格式使用<code>premultiplied BGRA</code>代替了<code>RGBA</code>颜色空间，会在<code>loading</code>阶段节省一点点转换时间，但完全不影响
+图片渲染(Rendering)速度。</p>
+
+<p>Xcode的这种转换有时会使图片增大，会抵消<code>ImageOptim</code>的优化。</p>
+
+<p>可以在<code>Build Settings</code>中将<code>Compress PNG Files</code>设为<code>NO</code>来禁止这种转换。</p>
+
+<p>Apple的PNG变体，在iOS外无法使用，也无法使用<code>Preview</code>工具查看，可以使用<code>pngcrush</code>工具进行逆向转换成正常的png图片。</p>
+
+<p><code>pngcrush</code>在Xcode的安装目录中存在，路径类似为<code>/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/usr/bin/pngcrush</code></p>
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>$ /Applications/Xcode.app/Contents/Developer\/Platforms/iPhoneOS.platform/Developer/usr/bin/pngcrush \-revert-iphone-optimizations -q Local.png Local-standard.png</span></code></pre></td></tr></table></div></figure>
+
+
+<p>可将Local.png 恢复成正常的Local-standard.png</p>
+
+<h2><a href="http://pngmini.com/">Image Alpha</a></h2>
+
+<p>ImageAlpha通过<a href="http://pngmini.com/lossypng.html">有损压缩</a>和转换为更有效率的<code>PNG8+alpha</code>格式，可以有效的减小24-bit
+PNG文件(包括alpha透明度)的大小。其生成的图片兼容iOS,所有的浏览器设置IE6。</p>
+
+<p>ImageAlpha通过使用最新的<a href="http://pngquant.org/">pngquant</a>,<a href="http://sourceforge.net/projects/pngnqs9/">pngnq-s9</a>和<code>alpha-channel-aware</code>的<a href="https://github.com/pornel/mediancut-posterizer">posterizer</a>
+能达到比Adobe Fireworks中类似功能更好的图片质量。</p>
+
+<p>ImageAlpha基于<a href="http://pngquant.org/">pngquant</a>,在<code>ImageAlpha.app/Contents/Resources</code>目录下会有<code>pngquant</code>执行文件，可以用于批量处理。<a href="http://jamiemason.github.io/ImageOptim-CLI/">ImageOptim-CLI</a>也会使用此文件。</p>
+
+<p>ImageAlpha是开源的，其代码是python的。<a href="https://github.com/pornel/ImageAlpha">source code</a>在github上。</p>
+
+<h2><a href="http://jpegmini.com/mac">JPEGmini for Mac</a></h2>
+
+<p>JPEGmini Mac版本可以对JPEG图片最高进行5倍的压缩，并保持原始的质量和JPEG格式。</p>
+
+<p>JPEGmini是收费软件,在appstore有一个免费版本<a href="http://itunes.apple.com/us/app/jpegmini-lite/id525742250?mt=12">JPEGmini Lite下载</a>，免费版本每天只能压缩20张图片。</p>
+
+<h2><a href="https://github.com/JamieMason/ImageOptim-CLI">ImageOptim-CLI</a></h2>
+
+<p>ImageOptim-CLI命令行工具使用<a href="http://imageoptim.com/">ImageOptim</a>,<a href="http://pngmini.com/">ImageAlpha</a>,<a href="http://jpegmini.com/mac">JPEGmini for Mac</a>
+对图片进行批量优化。</p>
+
+<p>从目前的<a href="http://jamiemason.github.io/ImageOptim-CLI/">benchmarks</a>可看出ImageOptim,ImageAlpha和JPEGmini的优化效果比其他替代品要好。</p>
+
+<p>下载最新的zip包，解压并将ImageOptim-CLI的路径添加到$PATH中。</p>
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>$ curl --output imageoptim-cli.zip https://codeload.github.com/JamieMason/ImageOptim-CLI/zip/1.7.11
+</span><span class='line'>$ unzip imageoptim-cli.zip
+</span><span class='line'>$ export PATH=$PATH:imageoptim-cli/bin</span></code></pre></td></tr></table></div></figure>
+
+
+<p>使用方法</p>
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+<span class='line-number'>8</span>
+<span class='line-number'>9</span>
+<span class='line-number'>10</span>
+<span class='line-number'>11</span>
+<span class='line-number'>12</span>
+<span class='line-number'>13</span>
+<span class='line-number'>14</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>  Usage: imageOptim [options]
+</span><span class='line'>
+</span><span class='line'>  Options:
+</span><span class='line'>
+</span><span class='line'>  -d, --directory     directory of images to process
+</span><span class='line'>  -a, --image-alpha   pre-process PNGs with ImageAlpha.app *
+</span><span class='line'>  -j, --jpeg-mini     pre-process JPGs with JPEGmini.app **
+</span><span class='line'>  -q, --quit          quit all apps when complete
+</span><span class='line'>  -h, --help          display this usage information
+</span><span class='line'>  -e, --examples      display some example commands and uses
+</span><span class='line'>  -v, --version       display the version number
+</span><span class='line'>
+</span><span class='line'>*  http://pngmini.com
+</span><span class='line'>** https://itunes.apple.com/us/app/jpegmini/id498944723</span></code></pre></td></tr></table></div></figure>
+
+
+<ul>
+<li><code>-d</code>指定要优化的图片文件目录;</li>
+<li><code>-a</code>,<code>-j</code>指定预先使用<code>ImageAlpha</code>优化PNG图片和使用<code>JPEGmini</code>优化JPEG图片，因为JPEGmini为收费的，如果没有
+安装，不指定<code>-j</code>即可;</li>
+</ul>
+
+
+<p>一些示例命令</p>
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>imageOptim --directory ~/Sites/Awesome # [options]
+</span><span class='line'>find ~/Sites/Awesome -name '*.jpg' | imageOptim # [options]
+</span><span class='line'>imageOptim --jpeg-mini --image-alpha --quit --directory path/to/images
+</span><span class='line'>imageOptim -j -a -q -d path/to/images</span></code></pre></td></tr></table></div></figure>
+
+</div>
+  
+  
+
+
+    </article>
   
   
     <article>
@@ -526,6 +851,18 @@ page_asides:        # Optional sidebar config for page layout
   <ul id="recent_posts">
     
       <li class="post">
+        <a href="/blog/2015/01/22/symbolicatecrash/">Symbolicatecrash</a>
+      </li>
+    
+      <li class="post">
+        <a href="/blog/2014/10/23/mymoney-privacy-policy/">MyMoney Privacy Policy</a>
+      </li>
+    
+      <li class="post">
+        <a href="/blog/2014/10/23/cocoapods/">CocoaPods</a>
+      </li>
+    
+      <li class="post">
         <a href="/blog/2014/08/18/hosts/">Hosts</a>
       </li>
     
@@ -553,18 +890,6 @@ page_asides:        # Optional sidebar config for page layout
         <a href="/blog/2014/03/31/udid/">UDID</a>
       </li>
     
-      <li class="post">
-        <a href="/blog/2014/03/27/rvm/">Rvm</a>
-      </li>
-    
-      <li class="post">
-        <a href="/blog/2014/03/27/homebrew/">Homebrew</a>
-      </li>
-    
-      <li class="post">
-        <a href="/blog/2014/03/27/imageoptim/">ImageOptim</a>
-      </li>
-    
   </ul>
 </section>
 
@@ -578,7 +903,7 @@ page_asides:        # Optional sidebar config for page layout
     </div>
   </div>
   <footer role="contentinfo"><p>
-  Copyright &copy; 2014 - xuguoxing -
+  Copyright &copy; 2015 - xuguoxing -
   <span class="credit">Powered by <a href="http://octopress.org">Octopress</a></span>
 </p>
 

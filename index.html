@@ -9,8 +9,8 @@
   <meta name="author" content="xuguoxing">
 
   
-  <meta name="description" content="在开发过程中，经常需要修改Hosts访问测试环境，而对于非越狱iOS设备，无法修改设备Host文件/etc/hosts;如果在代码中直接将域名修改为ip地址，存在两个问题： 破坏了网络代码的结构。
-HTTP Header中的&#8221;Host&#8221;字段也被修改为了ip地址，而后台对&# &hellip;">
+  <meta name="description" content="symbolicatecrash是Xcode自带的分析工具，使用crash log文件和.dSYM文件划将crash log中的地址替换为代码位置。 查找symbolicatecrash 查找Xcode安装路径 $ xcode-select -p
+/Applications/Xcode.app/ &hellip;">
   
 
   <!-- http://t.co/dKP3o1e -->
@@ -78,6 +78,229 @@ HTTP Header中的&#8221;Host&#8221;字段也被修改为了ip地址，而后台�
     <div id="content">
       <div class="blog-index">
   
+  
+  
+    <article>
+      
+  <header>
+    
+      <h1 class="entry-title"><a href="/blog/2015/01/22/symbolicatecrash/">Symbolicatecrash</a></h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2015-01-22T10:47:18+08:00" pubdate data-updated="true">Jan 22<span>nd</span>, 2015</time>
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><p><code>symbolicatecrash</code>是Xcode自带的分析工具，使用crash log文件和.dSYM文件划将crash log中的地址替换为代码位置。</p>
+
+<h2>查找<code>symbolicatecrash</code></h2>
+
+<p>查找Xcode安装路径</p>
+
+<pre><code>$ xcode-select -p
+/Applications/Xcode.app/Contents/Developer
+</code></pre>
+
+<p>搜索<code>symbolicatecrash</code></p>
+
+<pre><code>$ find /Applications/Xcode.app -name "symbolicatecrash"
+/Applications/Xcode.app/Contents/SharedFrameworks/DTDeviceKitBase.framework/Versions/A/Resources/symbolicatecrash
+</code></pre>
+
+<h2>解析crash log</h2>
+
+<p>将symbolicatecrash、crash log、.dSYM文件拷贝到同一目录，命令行执行</p>
+
+<pre><code>./Symbolicatecrash aa.crash bb.dSYM &gt; cc.log
+</code></pre>
+
+<p>将解析后的crash log输出到cc.log文件中</p>
+
+<p>注:若有提示&#8221;Error: &ldquo;DEVELOPER_DIR&rdquo; is not defined&#8221;,则设置</p>
+
+<pre><code>$ export DEVELOPER_DIR=/Applications/Xcode.app/Contents/Developer
+</code></pre>
+
+<h2>检查.app文件、.dSYM文件和crash log是否对应的方法</h2>
+
+<pre><code>$ dwarfdump --uuid MyApp.app/MyApp
+UUID: CC67C4BF-16E7-3512-8E03-10FCFEB5AE5A (armv7) MyApp.app/MyApp
+$ dwarfdump --uuid MyApp.app.dSYM/
+UUID: CC67C4BF-16E7-3512-8E03-10FCFEB5AE5A (armv7) MyApp.app.dSYM/Contents/Resources/DWARF/MyApp
+</code></pre>
+
+<p>检查上述两个UUID与crash log中的&#8221;slice_uuid&#8221;字段是否一致。</p>
+
+<h2>参考</h2>
+
+<ul>
+<li><a href="http://www.cnblogs.com/ydhliphonedev/archive/2012/12/07/2806866.html">iphone崩溃日志分析工具symbolicatecrash用法</a></li>
+<li><a href="http://ios-iphone.diandian.com/post/2012-05-18/19440182">iOS系统Crash文件分析方法</a></li>
+</ul>
+
+</div>
+  
+  
+
+
+    </article>
+  
+  
+    <article>
+      
+  <header>
+    
+      <h1 class="entry-title"><a href="/blog/2014/10/23/mymoney-privacy-policy/">MyMoney Privacy Policy</a></h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2014-10-23T14:57:53+08:00" pubdate data-updated="true">Oct 23<span>rd</span>, 2014</time>
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><p>欢迎使用资产管家，这是一款面向个人用户的投资理财管理应用。</p>
+
+<p>资产管家认可并重视用户的隐私。因此，资产管家致力于确保用户了解其个人信息的使用方式，并且保证这些信息的安全。此隐私策略适用于资产管家通过显示此隐私策略的网站、移动应用、产品和服务收集的信息。此隐私策略适用于资产管家当前提供的所有产品和服务。
+使用或购买资产管家提供的产品和服务，即表示您接受此隐私策略所述惯例，并同意资产管家按照此隐私策略所述方式使用您的信息。</p>
+
+<h2>1.资产管家收集的信息</h2>
+
+<p>  资产管家可能会采用多种不同方式来接收和收集您的个人信息。这些方式可能包括：</p>
+
+<ul>
+<li><p>产品注册</p>
+
+<p>注册资产管家产品时，系统会要求您提供信息，以便我们将您记录为资产管家产品的所有者，从而有助于我们为您提供服务和信息。</p></li>
+<li><p>来自您的信件</p>
+
+<p>您给我们发送电子邮件或写信时，可能会在邮件中提供您的姓名、联系详细信息以及其他个人信息。</p></li>
+<li><p>用户支持</p>
+
+<p>您在打电话或发电子邮件给我们请求产品方面的技术帮助或索取有关我们产品的信息时，可能向我们提供个人信息。</p></li>
+</ul>
+
+
+<h2>2.资产管家收集信息的用途</h2>
+
+<p>  资产管家可能将您的个人信息用于以下用途：</p>
+
+<ul>
+<li><p>产品注册</p>
+
+<p>您注册时所提供的信息将用于创建您的资产管家账户，并且在您联系资产管家用户服务部门时， 这些信息还将协助资产管家为您提供支持。资产管家还将使用这些信息来通知您有关您可能感兴趣的任何升级、新产品、促销或其他信息。</p></li>
+<li><p>产品的使用</p>
+
+<p>资产管家可能将产品使用中收集的信息用于：定期验证您对产品的使用权利； 向您发送新产品/新功能升级的通知前，确认您是否正在使用该产品/功能的较早版本或者是否会对您使用资产管家有所帮助。</p></li>
+<li><p>内部分析</p>
+
+<p>我们可能会使用您提供给我们的信息进行内部统计和分析，从而评估并增强您对资产管家产品的体验。</p></li>
+</ul>
+
+
+<h2>3.用户数据</h2>
+
+<p>  资产管家允许您存储、编辑、同步、在资产管家上储存的用户数据，否则未经您同意，资产管家绝不会与第三方共享您的任何用户数据。</p>
+</div>
+  
+  
+
+
+    </article>
+  
+  
+    <article>
+      
+  <header>
+    
+      <h1 class="entry-title"><a href="/blog/2014/10/23/cocoapods/">CocoaPods</a></h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2014-10-23T10:58:20+08:00" pubdate data-updated="true">Oct 23<span>rd</span>, 2014</time>
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><p>CocoaPods是个针对iOS和OS X应用的类库依赖管理工具。在CocoaPods架构中有三种角色: 类库(Pods), 类库描述仓库(Pod Repo),项目。</p>
+
+<h2>下载cocoapods命令行工具</h2>
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>gem install cocoapods //下载最新版
+</span><span class='line'>gem install cocoapods —version 0.33.1  //下载指定版本</span></code></pre></td></tr></table></div></figure>
+
+
+<p>如果ruby官方库下载不下来，可以切换成淘宝的源</p>
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>gem sources --remove https://rubygems.org/
+</span><span class='line'>gem sources -a http://ruby.taobao.org/
+</span><span class='line'>gem sources -l</span></code></pre></td></tr></table></div></figure>
+
+
+<h2>Pod Repo库</h2>
+
+<h2>参考</h2>
+
+<ul>
+<li><a href="http://www.objc.io/issue-6/cocoapods-under-the-hood.html">CocoaPods Under The Hood</a></li>
+<li><a href="http://nshipster.com/cocoapods/">Cocoa​Pods</a></li>
+</ul>
+
+</div>
+  
+  
+
+
+    </article>
   
   
     <article>
@@ -1934,336 +2157,6 @@ Advertising ID对用户进行针对性的广告匹配；但没有任何强制措
 
     </article>
   
-  
-    <article>
-      
-  <header>
-    
-      <h1 class="entry-title"><a href="/blog/2014/03/27/rvm/">Rvm</a></h1>
-    
-    
-      <p class="meta">
-        
-
-
-
-
-
-
-
-
-  
-
-
-<time datetime="2014-03-27T17:27:57+08:00" pubdate data-updated="true">Mar 27<span>th</span>, 2014</time>
-        
-      </p>
-    
-  </header>
-
-
-  <div class="entry-content"><p><a href="https://rvm.io/">Ruby Version Manager(RVM)</a>是用于管理和切换多个版本ruby环境的命令行工具。</p>
-
-<p>安装RVM</p>
-
-<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-</pre></td><td class='code'><pre><code class=''><span class='line'>curl -L https://get.rvm.io | bash -s stable --ruby</span></code></pre></td></tr></table></div></figure>
-
-
-<p>安装完成有提示:</p>
-
-<pre><code>To start using RVM you need to run `source /Users/xuguoxing/.rvm/scripts/rvm`
-in all your open shell windows, in rare cases you need to reopen all shell windows.
-</code></pre>
-
-<p>安装Ruby 1.9.3(Octopress使用)</p>
-
-<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-<span class='line-number'>2</span>
-<span class='line-number'>3</span>
-</pre></td><td class='code'><pre><code class=''><span class='line'>rvm install 1.9.3
-</span><span class='line'>rvm use 1.9.3
-</span><span class='line'>rvm rubygems latest</span></code></pre></td></tr></table></div></figure>
-
-</div>
-  
-  
-
-
-    </article>
-  
-  
-    <article>
-      
-  <header>
-    
-      <h1 class="entry-title"><a href="/blog/2014/03/27/homebrew/">Homebrew</a></h1>
-    
-    
-      <p class="meta">
-        
-
-
-
-
-
-
-
-
-  
-
-
-<time datetime="2014-03-27T17:13:23+08:00" pubdate data-updated="true">Mar 27<span>th</span>, 2014</time>
-        
-      </p>
-    
-  </header>
-
-
-  <div class="entry-content"><p><a href="http://brew.sh/index.html">Homebrew</a>是OS X上的包管理器</p>
-
-<p>安装Homebrew</p>
-
-<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-</pre></td><td class='code'><pre><code class=''><span class='line'>ruby -e "$(curl -fsSL https://raw.github.com/Homebrew/homebrew/go/install)"</span></code></pre></td></tr></table></div></figure>
-
-
-<p>使用Homebrew安装包</p>
-
-<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-</pre></td><td class='code'><pre><code class=''><span class='line'>$ brew install wget</span></code></pre></td></tr></table></div></figure>
-
-
-<p>Homebrew会将包安装到/usr/local下自己的目录中，然后在/usr/local/bin中创建符号链接指向实际的执行文件</p>
-
-<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-<span class='line-number'>2</span>
-<span class='line-number'>3</span>
-<span class='line-number'>4</span>
-<span class='line-number'>5</span>
-<span class='line-number'>6</span>
-<span class='line-number'>7</span>
-<span class='line-number'>8</span>
-</pre></td><td class='code'><pre><code class=''><span class='line'>$ pwd
-</span><span class='line'>/usr/local/Cellar
-</span><span class='line'>$ ls
-</span><span class='line'>openssl   wget
-</span><span class='line'>$ pwd
-</span><span class='line'>/usr/local/bin
-</span><span class='line'>$ ls -l wget
-</span><span class='line'>wget -&gt; ../Cellar/wget/1.15/bin/wget</span></code></pre></td></tr></table></div></figure>
-
-
-<p>卸载Homebrew</p>
-
-<p>使用以下脚本卸载</p>
-
-<div><script src='https://gist.github.com/1173223.js'></script>
-<noscript><pre><code>#!/bin/sh
-# Just copy and paste the lines below (all at once, it won't work line by line!)
-# MAKE SURE YOU ARE HAPPY WITH WHAT IT DOES FIRST! THERE IS NO WARRANTY!
-
-function abort {
-  echo &quot;$1&quot;
-  exit 1
-}
-
-set -e
-
-/usr/bin/which -s git || abort &quot;brew install git first!&quot;
-test -d /usr/local/.git || abort &quot;brew update first!&quot;
-
-cd `brew --prefix`
-git checkout master
-git ls-files -z | pbcopy
-rm -rf Cellar
-bin/brew prune
-pbpaste | xargs -0 rm
-rm -r Library/Homebrew Library/Aliases Library/Formula Library/Contributions 
-test -d Library/LinkedKegs &amp;&amp; rm -r Library/LinkedKegs
-rmdir -p bin Library share/man/man1 2&gt; /dev/null
-rm -rf .git
-rm -rf ~/Library/Caches/Homebrew
-rm -rf ~/Library/Logs/Homebrew
-rm -rf /Library/Caches/Homebrew
-</code></pre></noscript></div>
-
-
-
-</div>
-  
-  
-
-
-    </article>
-  
-  
-    <article>
-      
-  <header>
-    
-      <h1 class="entry-title"><a href="/blog/2014/03/27/imageoptim/">ImageOptim</a></h1>
-    
-    
-      <p class="meta">
-        
-
-
-
-
-
-
-
-
-  
-
-
-<time datetime="2014-03-27T09:40:59+08:00" pubdate data-updated="true">Mar 27<span>th</span>, 2014</time>
-        
-      </p>
-    
-  </header>
-
-
-  <div class="entry-content"><h2><a href="http://imageoptim.com/">ImageOptim</a></h2>
-
-<p>ImageOptim通过寻找最好的压缩参数和移除不必要的<code>comments</code>和<code>color profiles</code>来减少图片大小，提高加载速度。</p>
-
-<p>ImageOptim可以处理PNG,JPEG和GIF动画。</p>
-
-<p>ImageOptim无缝集成以下优化工具:</p>
-
-<ul>
-<li><a href="http://www.advsys.net/ken/util/pngout.htm">PNGOUT</a></li>
-<li><a href="http://googledevelopers.blogspot.co.uk/2013/02/compress-data-more-densely-with-zopfli.html">Zopfli</a></li>
-<li><a href="http://pmt.sourceforge.net/pngcrush/">Pngcrush</a></li>
-<li><a href="http://advancemame.sourceforge.net/doc-advpng.html">AdvPNG</a></li>
-<li><a href="http://optipng.sourceforge.net/">OptiPNG</a></li>
-<li><a href="http://www.kokkonen.net/tjko/projects.html">JpegOptim</a></li>
-<li>jpegrescan</li>
-<li>jpegtran</li>
-<li><a href="http://www.lcdf.org/gifsicle/">Gifsicle</a></li>
-</ul>
-
-
-<p>ImageOptim代码是开源的，其<a href="https://github.com/pornel/ImageOptim">源代码</a>在GitHub上。</p>
-
-<p><a href="http://calendar.perfplanet.com/2010/png-that-works/">PNG that works</a>文章中解释了为什么ImageOptim移除gamma信息，和怎么在
-保留透明度的情况下获取更小的png图片。</p>
-
-<h2>Xcode内置的图片优化 <a href="http://pmt.sourceforge.net/pngcrush/index.html">pngcrush</a></h2>
-
-<p>Xcode默认会将所有的PNG图片转换成一个非标准的iOS特定的PNG格式<a href="http://iphonedevwiki.net/index.php/CgBI_file_format">CgBI file format</a>。</p>
-
-<p>这种格式使用<code>premultiplied BGRA</code>代替了<code>RGBA</code>颜色空间，会在<code>loading</code>阶段节省一点点转换时间，但完全不影响
-图片渲染(Rendering)速度。</p>
-
-<p>Xcode的这种转换有时会使图片增大，会抵消<code>ImageOptim</code>的优化。</p>
-
-<p>可以在<code>Build Settings</code>中将<code>Compress PNG Files</code>设为<code>NO</code>来禁止这种转换。</p>
-
-<p>Apple的PNG变体，在iOS外无法使用，也无法使用<code>Preview</code>工具查看，可以使用<code>pngcrush</code>工具进行逆向转换成正常的png图片。</p>
-
-<p><code>pngcrush</code>在Xcode的安装目录中存在，路径类似为<code>/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/usr/bin/pngcrush</code></p>
-
-<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-</pre></td><td class='code'><pre><code class=''><span class='line'>$ /Applications/Xcode.app/Contents/Developer\/Platforms/iPhoneOS.platform/Developer/usr/bin/pngcrush \-revert-iphone-optimizations -q Local.png Local-standard.png</span></code></pre></td></tr></table></div></figure>
-
-
-<p>可将Local.png 恢复成正常的Local-standard.png</p>
-
-<h2><a href="http://pngmini.com/">Image Alpha</a></h2>
-
-<p>ImageAlpha通过<a href="http://pngmini.com/lossypng.html">有损压缩</a>和转换为更有效率的<code>PNG8+alpha</code>格式，可以有效的减小24-bit
-PNG文件(包括alpha透明度)的大小。其生成的图片兼容iOS,所有的浏览器设置IE6。</p>
-
-<p>ImageAlpha通过使用最新的<a href="http://pngquant.org/">pngquant</a>,<a href="http://sourceforge.net/projects/pngnqs9/">pngnq-s9</a>和<code>alpha-channel-aware</code>的<a href="https://github.com/pornel/mediancut-posterizer">posterizer</a>
-能达到比Adobe Fireworks中类似功能更好的图片质量。</p>
-
-<p>ImageAlpha基于<a href="http://pngquant.org/">pngquant</a>,在<code>ImageAlpha.app/Contents/Resources</code>目录下会有<code>pngquant</code>执行文件，可以用于批量处理。<a href="http://jamiemason.github.io/ImageOptim-CLI/">ImageOptim-CLI</a>也会使用此文件。</p>
-
-<p>ImageAlpha是开源的，其代码是python的。<a href="https://github.com/pornel/ImageAlpha">source code</a>在github上。</p>
-
-<h2><a href="http://jpegmini.com/mac">JPEGmini for Mac</a></h2>
-
-<p>JPEGmini Mac版本可以对JPEG图片最高进行5倍的压缩，并保持原始的质量和JPEG格式。</p>
-
-<p>JPEGmini是收费软件,在appstore有一个免费版本<a href="http://itunes.apple.com/us/app/jpegmini-lite/id525742250?mt=12">JPEGmini Lite下载</a>，免费版本每天只能压缩20张图片。</p>
-
-<h2><a href="https://github.com/JamieMason/ImageOptim-CLI">ImageOptim-CLI</a></h2>
-
-<p>ImageOptim-CLI命令行工具使用<a href="http://imageoptim.com/">ImageOptim</a>,<a href="http://pngmini.com/">ImageAlpha</a>,<a href="http://jpegmini.com/mac">JPEGmini for Mac</a>
-对图片进行批量优化。</p>
-
-<p>从目前的<a href="http://jamiemason.github.io/ImageOptim-CLI/">benchmarks</a>可看出ImageOptim,ImageAlpha和JPEGmini的优化效果比其他替代品要好。</p>
-
-<p>下载最新的zip包，解压并将ImageOptim-CLI的路径添加到$PATH中。</p>
-
-<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-<span class='line-number'>2</span>
-<span class='line-number'>3</span>
-</pre></td><td class='code'><pre><code class=''><span class='line'>$ curl --output imageoptim-cli.zip https://codeload.github.com/JamieMason/ImageOptim-CLI/zip/1.7.11
-</span><span class='line'>$ unzip imageoptim-cli.zip
-</span><span class='line'>$ export PATH=$PATH:imageoptim-cli/bin</span></code></pre></td></tr></table></div></figure>
-
-
-<p>使用方法</p>
-
-<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-<span class='line-number'>2</span>
-<span class='line-number'>3</span>
-<span class='line-number'>4</span>
-<span class='line-number'>5</span>
-<span class='line-number'>6</span>
-<span class='line-number'>7</span>
-<span class='line-number'>8</span>
-<span class='line-number'>9</span>
-<span class='line-number'>10</span>
-<span class='line-number'>11</span>
-<span class='line-number'>12</span>
-<span class='line-number'>13</span>
-<span class='line-number'>14</span>
-</pre></td><td class='code'><pre><code class=''><span class='line'>  Usage: imageOptim [options]
-</span><span class='line'>
-</span><span class='line'>  Options:
-</span><span class='line'>
-</span><span class='line'>  -d, --directory     directory of images to process
-</span><span class='line'>  -a, --image-alpha   pre-process PNGs with ImageAlpha.app *
-</span><span class='line'>  -j, --jpeg-mini     pre-process JPGs with JPEGmini.app **
-</span><span class='line'>  -q, --quit          quit all apps when complete
-</span><span class='line'>  -h, --help          display this usage information
-</span><span class='line'>  -e, --examples      display some example commands and uses
-</span><span class='line'>  -v, --version       display the version number
-</span><span class='line'>
-</span><span class='line'>*  http://pngmini.com
-</span><span class='line'>** https://itunes.apple.com/us/app/jpegmini/id498944723</span></code></pre></td></tr></table></div></figure>
-
-
-<ul>
-<li><code>-d</code>指定要优化的图片文件目录;</li>
-<li><code>-a</code>,<code>-j</code>指定预先使用<code>ImageAlpha</code>优化PNG图片和使用<code>JPEGmini</code>优化JPEG图片，因为JPEGmini为收费的，如果没有
-安装，不指定<code>-j</code>即可;</li>
-</ul>
-
-
-<p>一些示例命令</p>
-
-<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-<span class='line-number'>2</span>
-<span class='line-number'>3</span>
-<span class='line-number'>4</span>
-</pre></td><td class='code'><pre><code class=''><span class='line'>imageOptim --directory ~/Sites/Awesome # [options]
-</span><span class='line'>find ~/Sites/Awesome -name '*.jpg' | imageOptim # [options]
-</span><span class='line'>imageOptim --jpeg-mini --image-alpha --quit --directory path/to/images
-</span><span class='line'>imageOptim -j -a -q -d path/to/images</span></code></pre></td></tr></table></div></figure>
-
-</div>
-  
-  
-
-
-    </article>
-  
   <div class="pagination">
     
       <a class="prev" href="/blog/page/2/">&larr; Older</a>
@@ -2277,6 +2170,18 @@ PNG文件(包括alpha透明度)的大小。其生成的图片兼容iOS,所有的
     <section>
   <h1>Recent Posts</h1>
   <ul id="recent_posts">
+    
+      <li class="post">
+        <a href="/blog/2015/01/22/symbolicatecrash/">Symbolicatecrash</a>
+      </li>
+    
+      <li class="post">
+        <a href="/blog/2014/10/23/mymoney-privacy-policy/">MyMoney Privacy Policy</a>
+      </li>
+    
+      <li class="post">
+        <a href="/blog/2014/10/23/cocoapods/">CocoaPods</a>
+      </li>
     
       <li class="post">
         <a href="/blog/2014/08/18/hosts/">Hosts</a>
@@ -2306,18 +2211,6 @@ PNG文件(包括alpha透明度)的大小。其生成的图片兼容iOS,所有的
         <a href="/blog/2014/03/31/udid/">UDID</a>
       </li>
     
-      <li class="post">
-        <a href="/blog/2014/03/27/rvm/">Rvm</a>
-      </li>
-    
-      <li class="post">
-        <a href="/blog/2014/03/27/homebrew/">Homebrew</a>
-      </li>
-    
-      <li class="post">
-        <a href="/blog/2014/03/27/imageoptim/">ImageOptim</a>
-      </li>
-    
   </ul>
 </section>
 
@@ -2331,7 +2224,7 @@ PNG文件(包括alpha透明度)的大小。其生成的图片兼容iOS,所有的
     </div>
   </div>
   <footer role="contentinfo"><p>
-  Copyright &copy; 2014 - xuguoxing -
+  Copyright &copy; 2015 - xuguoxing -
   <span class="credit">Powered by <a href="http://octopress.org">Octopress</a></span>
 </p>
 

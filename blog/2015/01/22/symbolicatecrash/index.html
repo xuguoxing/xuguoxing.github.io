@@ -5,15 +5,12 @@
 <!--[if (gt IE 8)|(gt IEMobile 7)|!(IEMobile)|!(IE)]><!--><html class="no-js" lang="en"><!--<![endif]-->
 <head>
   <meta charset="utf-8">
-  <title>Blog Archive - iOS App</title>
+  <title>Symbolicatecrash - iOS App</title>
   <meta name="author" content="xuguoxing">
 
   
-  <meta name="description" content="Blog Archive 2015 Symbolicatecrash
-Jan 22 2015 2014 MyMoney Privacy Policy
-Oct 23 2014 CocoaPods
-Oct 23 2014 Hosts
-Aug 18 2014 &hellip;">
+  <meta name="description" content="symbolicatecrash是Xcode自带的分析工具，使用crash log文件和.dSYM文件划将crash log中的地址替换为代码位置。 查找symbolicatecrash 查找Xcode安装路径 $ xcode-select -p
+/Applications/Xcode.app/ &hellip;">
   
 
   <!-- http://t.co/dKP3o1e -->
@@ -22,7 +19,7 @@ Aug 18 2014 &hellip;">
   <meta name="viewport" content="width=device-width, initial-scale=1">
 
   
-  <link rel="canonical" href="http://xuguoxing.github.io/blog/archives">
+  <link rel="canonical" href="http://xuguoxing.github.io/blog/2015/01/22/symbolicatecrash">
   <link href="/favicon.png" rel="icon">
   <link href="/stylesheets/screen.css" media="screen, projection" rel="stylesheet" type="text/css">
   <link href="/atom.xml" rel="alternate" title="iOS App" type="application/atom+xml">
@@ -80,164 +77,126 @@ Aug 18 2014 &hellip;">
   <div id="main">
     <div id="content">
       <div>
-<article role="article">
+<article class="hentry" role="article">
   
   <header>
-    <h1 class="entry-title">Blog Archive</h1>
+    
+      <h1 class="entry-title">Symbolicatecrash</h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2015-01-22T10:47:18+08:00" pubdate data-updated="true">Jan 22<span>nd</span>, 2015</time>
+        
+      </p>
     
   </header>
-  
-  <div id="blog-archives">
 
 
+<div class="entry-content"><p><code>symbolicatecrash</code>是Xcode自带的分析工具，使用crash log文件和.dSYM文件划将crash log中的地址替换为代码位置。</p>
 
-  
-  <h2>2015</h2>
+<h2>查找<code>symbolicatecrash</code></h2>
 
-<article>
-  
-<h1><a href="/blog/2015/01/22/symbolicatecrash/">Symbolicatecrash</a></h1>
-<time datetime="2015-01-22T10:47:18+08:00" pubdate><span class='month'>Jan</span> <span class='day'>22</span> <span class='year'>2015</span></time>
+<p>查找Xcode安装路径</p>
 
+<pre><code>$ xcode-select -p
+/Applications/Xcode.app/Contents/Developer
+</code></pre>
 
-</article>
+<p>搜索<code>symbolicatecrash</code></p>
 
+<pre><code>$ find /Applications/Xcode.app -name "symbolicatecrash"
+/Applications/Xcode.app/Contents/SharedFrameworks/DTDeviceKitBase.framework/Versions/A/Resources/symbolicatecrash
+</code></pre>
 
+<h2>解析crash log</h2>
 
-  
-  <h2>2014</h2>
+<p>将symbolicatecrash、crash log、.dSYM文件拷贝到同一目录，命令行执行</p>
 
-<article>
-  
-<h1><a href="/blog/2014/10/23/mymoney-privacy-policy/">MyMoney Privacy Policy</a></h1>
-<time datetime="2014-10-23T14:57:53+08:00" pubdate><span class='month'>Oct</span> <span class='day'>23</span> <span class='year'>2014</span></time>
+<pre><code>./Symbolicatecrash aa.crash bb.dSYM &gt; cc.log
+</code></pre>
 
+<p>将解析后的crash log输出到cc.log文件中</p>
 
-</article>
+<p>注:若有提示&#8221;Error: &ldquo;DEVELOPER_DIR&rdquo; is not defined&#8221;,则设置</p>
 
+<pre><code>$ export DEVELOPER_DIR=/Applications/Xcode.app/Contents/Developer
+</code></pre>
 
+<h2>检查.app文件、.dSYM文件和crash log是否对应的方法</h2>
 
-<article>
-  
-<h1><a href="/blog/2014/10/23/cocoapods/">CocoaPods</a></h1>
-<time datetime="2014-10-23T10:58:20+08:00" pubdate><span class='month'>Oct</span> <span class='day'>23</span> <span class='year'>2014</span></time>
+<pre><code>$ dwarfdump --uuid MyApp.app/MyApp
+UUID: CC67C4BF-16E7-3512-8E03-10FCFEB5AE5A (armv7) MyApp.app/MyApp
+$ dwarfdump --uuid MyApp.app.dSYM/
+UUID: CC67C4BF-16E7-3512-8E03-10FCFEB5AE5A (armv7) MyApp.app.dSYM/Contents/Resources/DWARF/MyApp
+</code></pre>
 
+<p>检查上述两个UUID与crash log中的&#8221;slice_uuid&#8221;字段是否一致。</p>
 
-</article>
+<h2>参考</h2>
 
-
-
-<article>
-  
-<h1><a href="/blog/2014/08/18/hosts/">Hosts</a></h1>
-<time datetime="2014-08-18T16:08:24+08:00" pubdate><span class='month'>Aug</span> <span class='day'>18</span> <span class='year'>2014</span></time>
-
-
-</article>
-
-
-
-<article>
-  
-<h1><a href="/blog/2014/08/16/excluded-source-file-names/">EXCLUDED_SOURCE_FILE_NAMES</a></h1>
-<time datetime="2014-08-16T14:03:01+08:00" pubdate><span class='month'>Aug</span> <span class='day'>16</span> <span class='year'>2014</span></time>
-
-
-</article>
-
-
-
-<article>
-  
-<h1><a href="/blog/2014/06/09/jenkins/">Jenkins</a></h1>
-<time datetime="2014-06-09T16:20:42+08:00" pubdate><span class='month'>Jun</span> <span class='day'>09</span> <span class='year'>2014</span></time>
-
-
-</article>
-
-
-
-<article>
-  
-<h1><a href="/blog/2014/06/09/ocmock/">OCMock</a></h1>
-<time datetime="2014-06-09T09:47:57+08:00" pubdate><span class='month'>Jun</span> <span class='day'>09</span> <span class='year'>2014</span></time>
-
-
-</article>
-
-
-
-<article>
-  
-<h1><a href="/blog/2014/05/23/xctest/">XCTest</a></h1>
-<time datetime="2014-05-23T10:19:20+08:00" pubdate><span class='month'>May</span> <span class='day'>23</span> <span class='year'>2014</span></time>
-
-
-</article>
-
-
-
-<article>
-  
-<h1><a href="/blog/2014/04/24/app-info/">App Info</a></h1>
-<time datetime="2014-04-24T14:47:06+08:00" pubdate><span class='month'>Apr</span> <span class='day'>24</span> <span class='year'>2014</span></time>
-
-
-</article>
-
-
-
-<article>
-  
-<h1><a href="/blog/2014/03/31/udid/">UDID</a></h1>
-<time datetime="2014-03-31T15:58:49+08:00" pubdate><span class='month'>Mar</span> <span class='day'>31</span> <span class='year'>2014</span></time>
-
-
-</article>
-
-
-
-<article>
-  
-<h1><a href="/blog/2014/03/27/rvm/">Rvm</a></h1>
-<time datetime="2014-03-27T17:27:57+08:00" pubdate><span class='month'>Mar</span> <span class='day'>27</span> <span class='year'>2014</span></time>
-
-
-</article>
-
-
-
-<article>
-  
-<h1><a href="/blog/2014/03/27/homebrew/">Homebrew</a></h1>
-<time datetime="2014-03-27T17:13:23+08:00" pubdate><span class='month'>Mar</span> <span class='day'>27</span> <span class='year'>2014</span></time>
-
-
-</article>
-
-
-
-<article>
-  
-<h1><a href="/blog/2014/03/27/imageoptim/">ImageOptim</a></h1>
-<time datetime="2014-03-27T09:40:59+08:00" pubdate><span class='month'>Mar</span> <span class='day'>27</span> <span class='year'>2014</span></time>
-
-
-</article>
-
-
-
-<article>
-  
-<h1><a href="/blog/2014/03/20/octopressjian-zhan-liu-cheng/">Octopress建站流程</a></h1>
-<time datetime="2014-03-20T21:20:35+08:00" pubdate><span class='month'>Mar</span> <span class='day'>20</span> <span class='year'>2014</span></time>
-
-
-</article>
+<ul>
+<li><a href="http://www.cnblogs.com/ydhliphonedev/archive/2012/12/07/2806866.html">iphone崩溃日志分析工具symbolicatecrash用法</a></li>
+<li><a href="http://ios-iphone.diandian.com/post/2012-05-18/19440182">iOS系统Crash文件分析方法</a></li>
+</ul>
 
 </div>
 
+
+  <footer>
+    <p class="meta">
+      
   
+
+<span class="byline author vcard">Posted by <span class="fn">xuguoxing</span></span>
+
+      
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2015-01-22T10:47:18+08:00" pubdate data-updated="true">Jan 22<span>nd</span>, 2015</time>
+      
+
+
+    </p>
+    
+      <div class="sharing">
+  
+  <a href="//twitter.com/share" class="twitter-share-button" data-url="http://xuguoxing.github.io/blog/2015/01/22/symbolicatecrash/" data-via="xuguoxing" data-counturl="http://xuguoxing.github.io/blog/2015/01/22/symbolicatecrash/" >Tweet</a>
+  
+  
+  
+    <div class="fb-like" data-send="true" data-width="450" data-show-faces="false"></div>
+  
+</div>
+
+    
+    <p class="meta">
+      
+        <a class="basic-alignment left" href="/blog/2014/10/23/mymoney-privacy-policy/" title="Previous Post: MyMoney privacy policy">&laquo; MyMoney privacy policy</a>
+      
+      
+    </p>
+  </footer>
 </article>
 
 </div>
