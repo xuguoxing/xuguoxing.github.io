@@ -1,0 +1,479 @@
+/*
+ * UBEE APP - Landing v1.0
+ * Mar/2014
+ * Copyright 2011-2014 Ubee, Inc.
+ *
+ */
+
+/* Use with Bootstrap v3.1.1 */
+
+
+body {
+    margin: 0 auto;
+}
+
+
+/* Type */
+
+h1, h2, h3, h4, h5, h6 {
+    font-family: "Raleway";
+    font-weight: normal;
+}
+
+.other_language {
+    float: left;
+    margin-left: 10px;
+}
+
+.frame {
+    width: 100%;
+}
+
+.top {
+    height: 670px;
+    padding-top: 90px;
+    background-image: url('../images/bg_app_top.jpg');
+    background-repeat: no-repeat;
+    background-position: center;
+    color: white;
+    z-index: 1;
+    position: relative;
+}
+
+.save_your_time {
+    position: relative;
+    padding-top: 50px;
+    color: #FFD600;
+    text-align: center;
+    height: 540px;
+    background-color: black;
+    z-index: 2;
+}
+
+.cel_tutorial {
+    height: 921px;
+    background-color: #F2F2F2;
+    text-align: center;
+}
+
+.contact {
+    height: 500px;
+    background-color: #FFD600;
+}
+
+.download {
+    height: 300px;
+    background-color: #FFD600;
+    text-align: center;
+}
+
+.footer {
+    height: 205px;
+    background-color: black;
+}
+
+/* .top elements */
+
+
+.top h1, .top h3 {
+    margin-left: 10px;
+}
+
+.icon_mymoney {
+    color: white;
+}
+
+.icon_mymoney img {
+    width: 290px;
+    height: 277px;
+    margin-bottom: 10px;
+}
+
+.img_top_cel {
+    position: absolute;
+    right: 0;
+    padding-top: 5px;
+    text-align: right;
+}
+
+.img_top_cel img {
+    width: 375px;
+}
+
+.top_download_icons {
+    width: 100%;
+}
+
+.icon_download_android, .icon_download_ios {
+    margin: 40px 7px 0 0;
+    float: left;
+    width: 165px;
+}
+
+.icon_download_android img, .icon_download_ios img {
+    width: auto;
+    height: 48px;
+}
+
+
+
+
+/* .save_your_time  elements */
+
+.save_your_time h3 {
+    color: white;
+}
+
+.save_your_time .row h3 {
+    color: #FFD600;
+}
+
+
+.save_your_time .row .item {
+    margin-top: 30px;
+}
+
+.symbol_ubee {
+    position: absolute;
+    bottom: -50px;
+    right: 50%;
+    width:100px;
+    height:100px;
+}
+
+.symbol_ubee img {
+    position: absolute;
+    right: -50%;
+    width:100px;
+    height:100px;
+    border-radius:50px;	
+    background-color: #FFD600;
+}
+
+
+
+/* .cel_tutorial  elements */
+
+.cel_tutorial .container {
+    padding-top: 80px;
+}
+
+.cel_tutorial_img {
+    text-align: center;
+    padding-top: 30px;
+}
+
+.cel_tutorial_img img {
+    width: 940px;
+}
+
+
+
+
+/* .contact  elements */
+
+.contact .container {
+    padding-top: 40px;
+}	
+
+.contact h1 {
+    text-align: center;
+}
+
+.contact form {
+    padding-top: 30px;
+}
+
+.contact input {
+    height: 40px;
+}
+
+.contact button {
+    margin-top: 20px;
+}
+
+
+
+
+/* .download  elements */
+
+.download .container {
+    padding-top: 40px;
+}
+
+.download-frame {
+    text-align: center;	
+}
+
+.download-android {
+    margin-top: 40px;
+}
+
+.download-ios {
+    text-align: left;
+    padding: 20px 0 0 10px;
+    width: 50%;
+    float: left;
+}
+
+
+
+/* .footer  elements */
+
+
+
+.footer .container {
+    padding-top: 30px;
+    text-align: center;
+}
+
+
+.footer_col {
+       float: left;
+       width: 65px;
+       margin-left: 28px;
+       margin-bottom: 15px;
+       height: 70px;
+       text-align: center;
+}
+
+
+.land_txt {
+    color: white;
+    font-size: 10px;
+    text-decoration: underline;
+}
+.land_txt img {
+    margin-right: 6px;
+}
+
+.flag {
+    width: 20px;
+}
+
+.ubee_footer_logo {
+    width: 100%;
+}
+
+.ubee_footer_logo p {
+    color: white;
+    font-size: 10px;
+}
+
+.ubee_logo {
+    margin-right: 3px;
+}
+
+.ubee_logo img {
+    width: 50px;
+}
+
+.ubee_footer_txt {
+    padding-top: 10px;
+}
+
+.arrow_down {
+    display: none;
+}
+
+.arrow_down img {
+    display: none;
+}
+
+/* MEDIA QUERIES */
+
+
+@media (min-width: 1200px) {
+    .container {
+	width: 940px;
+    }
+}
+
+
+@media (max-width: 991px) {}
+
+
+@media (min-width: 768px) and (max-width: 991px) {
+    .save_your_time {
+	height: 990px;
+	background-color: black;
+    }
+
+    .cel_tutorial {
+	height: 820px;
+    }	
+
+    .cel_tutorial_img {
+	text-align: center;
+	padding-top: 30px;
+    }
+
+    .cel_tutorial_img img {
+	width: 700px;
+    }	
+
+    .contact {
+	height: 560px;
+	background-color: #FFD600;
+    }
+
+    
+}
+
+
+@media (max-width: 768px) {
+    .top {
+        padding-top: 30px;
+        height: 600px;
+    }
+    
+    .contact {
+	height: 560px;
+	background-color: #FFD600;
+    }
+
+    .icon_mymoney {
+	text-align: center;
+	color: white;
+    }	
+
+    .icon_download_android {
+        text-align: center;
+        margin: 15px 0 0 0;
+        width: 100%;
+    }        		
+
+    .cel_tutorial {
+	height: 700px;
+    }	
+
+    .cel_tutorial_img img {
+	width: 550px;
+    }
+
+    .arrow_down {
+        display: inline;
+        position: absolute;
+        bottom: -88px;
+        right: 50%;
+        width:100px;
+        height:100px;
+        z-index: 10;
+    }
+
+    .arrow_down img {
+        display: inline;
+        position: absolute;
+        right: -30%;
+        width:60px;
+        height:60px;
+        /* border-radius:50px;         */
+        /* background-color:rgba(255, 255, 255, 0.15); */
+        /* /background-color: white;/ */
+    }        
+
+    .save_your_time {
+        position: relative;
+        padding-top: 50px;
+        color: #FFD600;
+        text-align: center;
+        height: 990px;
+        background-color: black;
+        z-index: 0;
+    }	
+
+}
+
+
+@media (max-width: 600px) {
+    
+    .cel_tutorial_img img {
+	width: 450px;
+    }		
+
+
+}
+
+
+@media (max-width: 548px) {
+
+}
+
+
+@media (max-width: 500px) {
+
+    .download-android img, .download-ios img {
+	height: 48px;
+    }
+
+    .cel_tutorial {
+	height: 600px;
+    }		
+    .cel_tutorial_img img {
+	width: 370px;
+    }
+
+}
+
+@media (max-width: 400px) {
+
+    .cel_tutorial {
+	height: 600px;
+    }		
+
+    .cel_tutorial_img img {
+	width: 360px;
+    }	
+
+    .cel_tutorial_img img {
+        width: 300px;
+    }
+
+    .icon_mymoney img {
+        width: 200px;
+        height: auto;
+    }
+
+    .top {
+        height: 480px;
+    }
+
+}
+
+
+.icon_footer {
+  display: inline-block;
+  margin: 5px 1px 0 0;
+  line-height: 1em; 
+}
+.icon_footer a {
+    padding: 6px 8px 6px 9px;
+    display: block;
+    position: relative;
+    border-color: #FFF;
+    color: #FFF;
+    opacity: .8; 
+}
+
+.icon_footer a .label {
+    display: none; 
+}
+
+.icon_footer a:hover 
+{
+      color: #FFF;
+      border-color: #FFF;
+      opacity: 1; 
+}
+
+i {
+  font-family: 'entypo';
+  font-weight: normal;
+  font-style: normal;
+  font-size: 18px; 
+}
+
+.social {
+  font-size: 24px; 
+}
+
