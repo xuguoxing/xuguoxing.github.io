@@ -9,9 +9,8 @@
   <meta name="author" content="xuguoxing">
 
   
-  <meta name="description" content="Homebrew是OS X上的包管理器 安装Homebrew 1
-ruby -e "$(curl -fsSL https://raw.github.com/Homebrew/homebrew/go/install)" 使用Homebrew安装包 1
-$ brew install wget &hellip;">
+  <meta name="description" content="Ruby Version Manager(RVM)是用于管理和切换多个版本ruby环境的命令行工具。 安装RVM 1
+curl -L https://get.rvm.io | bash -s stable --ruby 安装完成有提示: To start using RVM you need to &hellip;">
   
 
   <!-- http://t.co/dKP3o1e -->
@@ -80,6 +79,64 @@ $ brew install wget &hellip;">
     <div id="content">
       <div class="blog-index">
   
+  
+  
+    <article>
+      
+  <header>
+    
+      <h1 class="entry-title"><a href="/blog/2014/03/27/rvm/">Rvm</a></h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2014-03-27T17:27:57+08:00" pubdate data-updated="true">Mar 27<span>th</span>, 2014</time>
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><p><a href="https://rvm.io/">Ruby Version Manager(RVM)</a>是用于管理和切换多个版本ruby环境的命令行工具。</p>
+
+<p>安装RVM</p>
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>curl -L https://get.rvm.io | bash -s stable --ruby</span></code></pre></td></tr></table></div></figure>
+
+
+<p>安装完成有提示:</p>
+
+<pre><code>To start using RVM you need to run `source /Users/xuguoxing/.rvm/scripts/rvm`
+in all your open shell windows, in rare cases you need to reopen all shell windows.
+</code></pre>
+
+<p>安装Ruby 1.9.3(Octopress使用)</p>
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>rvm install 1.9.3
+</span><span class='line'>rvm use 1.9.3
+</span><span class='line'>rvm rubygems latest</span></code></pre></td></tr></table></div></figure>
+
+</div>
+  
+  
+
+
+    </article>
   
   
     <article>
@@ -795,6 +852,10 @@ page_asides:        # Optional sidebar config for page layout
   <ul id="recent_posts">
     
       <li class="post">
+        <a href="/blog/2015/04/18/vocabulary/">Vocabulary</a>
+      </li>
+    
+      <li class="post">
         <a href="/blog/2015/01/22/symbolicatecrash/">Symbolicatecrash</a>
       </li>
     
@@ -828,10 +889,6 @@ page_asides:        # Optional sidebar config for page layout
     
       <li class="post">
         <a href="/blog/2014/03/31/udid/">UDID</a>
-      </li>
-    
-      <li class="post">
-        <a href="/blog/2014/03/27/rvm/">Rvm</a>
       </li>
     
   </ul>
