@@ -5,12 +5,13 @@
 <!--[if (gt IE 8)|(gt IEMobile 7)|!(IEMobile)|!(IE)]><!--><html class="no-js" lang="en"><!--<![endif]-->
 <head>
   <meta charset="utf-8">
-  <title>Symbolicatecrash - iOS App</title>
+  <title>Sentence - iOS App</title>
   <meta name="author" content="xuguoxing">
 
   
-  <meta name="description" content="symbolicatecrash是Xcode自带的分析工具，使用crash log文件和.dSYM文件可将crash log中的地址替换为代码位置。 查找symbolicatecrash 查找Xcode安装路径 $ xcode-select -p
-/Applications/Xcode.app/ &hellip;">
+  <meta name="description" content="Some will tackle questions head on, while others will dodge them entirely. 有些人会直面问题，而有些人则会完全的闪避问题。
+Only the paranoid survive. 只有偏执狂才能生存
+The greater &hellip;">
   
 
   <!-- http://t.co/dKP3o1e -->
@@ -19,7 +20,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
 
   
-  <link rel="canonical" href="http://xuguoxing.github.io/blog/2015/01/22/symbolicatecrash">
+  <link rel="canonical" href="http://xuguoxing.github.io/blog/2015/05/01/sentence">
   <link href="/favicon.png" rel="icon">
   <link href="/stylesheets/screen.css" media="screen, projection" rel="stylesheet" type="text/css">
   <link href="/atom.xml" rel="alternate" title="iOS App" type="application/atom+xml">
@@ -82,7 +83,7 @@
   
   <header>
     
-      <h1 class="entry-title">Symbolicatecrash</h1>
+      <h1 class="entry-title">Sentence</h1>
     
     
       <p class="meta">
@@ -98,58 +99,21 @@
   
 
 
-<time datetime="2015-01-22T10:47:18+08:00" pubdate data-updated="true">Jan 22<span>nd</span>, 2015</time>
+<time datetime="2015-05-01T12:10:52+08:00" pubdate data-updated="true">May 1<span>st</span>, 2015</time>
         
       </p>
     
   </header>
 
 
-<div class="entry-content"><p><code>symbolicatecrash</code>是Xcode自带的分析工具，使用crash log文件和.dSYM文件可将crash log中的地址替换为代码位置。</p>
-
-<h2>查找<code>symbolicatecrash</code></h2>
-
-<p>查找Xcode安装路径</p>
-
-<pre><code>$ xcode-select -p
-/Applications/Xcode.app/Contents/Developer
-</code></pre>
-
-<p>搜索<code>symbolicatecrash</code></p>
-
-<pre><code>$ find /Applications/Xcode.app -name "symbolicatecrash"
-/Applications/Xcode.app/Contents/SharedFrameworks/DTDeviceKitBase.framework/Versions/A/Resources/symbolicatecrash
-</code></pre>
-
-<h2>解析crash log</h2>
-
-<p>将symbolicatecrash、crash log、.dSYM文件拷贝到同一目录，命令行执行</p>
-
-<pre><code>./Symbolicatecrash aa.crash bb.dSYM &gt; cc.log
-</code></pre>
-
-<p>将解析后的crash log输出到cc.log文件中</p>
-
-<p>注:若有提示&#8221;Error: &ldquo;DEVELOPER_DIR&rdquo; is not defined&#8221;,则设置</p>
-
-<pre><code>$ export DEVELOPER_DIR=/Applications/Xcode.app/Contents/Developer
-</code></pre>
-
-<h2>检查.app文件、.dSYM文件和crash log是否对应的方法</h2>
-
-<pre><code>$ dwarfdump --uuid MyApp.app/MyApp
-UUID: CC67C4BF-16E7-3512-8E03-10FCFEB5AE5A (armv7) MyApp.app/MyApp
-$ dwarfdump --uuid MyApp.app.dSYM/
-UUID: CC67C4BF-16E7-3512-8E03-10FCFEB5AE5A (armv7) MyApp.app.dSYM/Contents/Resources/DWARF/MyApp
-</code></pre>
-
-<p>检查上述两个UUID与crash log中的&#8221;slice_uuid&#8221;字段是否一致。</p>
-
-<h2>参考</h2>
-
-<ul>
-<li><a href="http://www.cnblogs.com/ydhliphonedev/archive/2012/12/07/2806866.html">iphone崩溃日志分析工具symbolicatecrash用法</a></li>
-<li><a href="http://ios-iphone.diandian.com/post/2012-05-18/19440182">iOS系统Crash文件分析方法</a></li>
+<div class="entry-content"><ul>
+<li>Some will tackle questions head on, while others will dodge them entirely. 有些人会直面问题，而有些人则会完全的闪避问题。</li>
+<li>Only the paranoid survive. 只有偏执狂才能生存</li>
+<li>The greater fool is someone with the perfect blend of self-delusion and ego to think that he can succeed where others have failed. 大傻瓜身上完美的融合了自欺与自负，他自认为能在他人失败之处获得成功。</li>
+<li>Don&rsquo;t tamper with my business. 别干预我的事。</li>
+<li>A stumble may prevent a fall. 小疾防大病</li>
+<li>What stumble you? 什么让你这么犹豫不决？</li>
+<li>The invaders brazened their way into our motherland. 侵略者肆无忌惮地闯入了我们的祖国。</li>
 </ul>
 
 </div>
@@ -174,7 +138,7 @@ UUID: CC67C4BF-16E7-3512-8E03-10FCFEB5AE5A (armv7) MyApp.app.dSYM/Contents/Resou
   
 
 
-<time datetime="2015-01-22T10:47:18+08:00" pubdate data-updated="true">Jan 22<span>nd</span>, 2015</time>
+<time datetime="2015-05-01T12:10:52+08:00" pubdate data-updated="true">May 1<span>st</span>, 2015</time>
       
 
 
@@ -182,7 +146,7 @@ UUID: CC67C4BF-16E7-3512-8E03-10FCFEB5AE5A (armv7) MyApp.app.dSYM/Contents/Resou
     
       <div class="sharing">
   
-  <a href="//twitter.com/share" class="twitter-share-button" data-url="http://xuguoxing.github.io/blog/2015/01/22/symbolicatecrash/" data-via="xuguoxing" data-counturl="http://xuguoxing.github.io/blog/2015/01/22/symbolicatecrash/" >Tweet</a>
+  <a href="//twitter.com/share" class="twitter-share-button" data-url="http://xuguoxing.github.io/blog/2015/05/01/sentence/" data-via="xuguoxing" data-counturl="http://xuguoxing.github.io/blog/2015/05/01/sentence/" >Tweet</a>
   
   
   
@@ -193,10 +157,8 @@ UUID: CC67C4BF-16E7-3512-8E03-10FCFEB5AE5A (armv7) MyApp.app.dSYM/Contents/Resou
     
     <p class="meta">
       
-        <a class="basic-alignment left" href="/blog/2014/10/23/cocoapods/" title="Previous Post: CocoaPods">&laquo; CocoaPods</a>
+        <a class="basic-alignment left" href="/blog/2015/04/18/vocabulary/" title="Previous Post: vocabulary">&laquo; vocabulary</a>
       
-      
-        <a class="basic-alignment right" href="/blog/2015/04/18/vocabulary/" title="Next Post: vocabulary">vocabulary &raquo;</a>
       
     </p>
   </footer>
