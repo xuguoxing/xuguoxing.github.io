@@ -1,0 +1,1732 @@
+
+<!DOCTYPE html>
+<!--[if IEMobile 7 ]><html class="no-js iem7"><![endif]-->
+<!--[if lt IE 9]><html class="no-js lte-ie8"><![endif]-->
+<!--[if (gt IE 8)|(gt IEMobile 7)|!(IEMobile)|!(IE)]><!--><html class="no-js" lang="en"><!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  <title>Build iOS Apps From Scratch - iOS App</title>
+  <meta name="author" content="xuguoxing">
+
+  
+  <meta name="description" content="Design Color BrandColors Official color codes for the world&rsquo;s biggest brands.
+sketch resources Service Backend Parse Focus on creating amazing &hellip;">
+  
+
+  <!-- http://t.co/dKP3o1e -->
+  <meta name="HandheldFriendly" content="True">
+  <meta name="MobileOptimized" content="320">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  
+  <link rel="canonical" href="http://xuguoxing.github.io/blog/2015/04/23/build-ios-apps-from-scratch">
+  <link href="/favicon.png" rel="icon">
+  <link href="/stylesheets/screen.css" media="screen, projection" rel="stylesheet" type="text/css">
+  <link href="/atom.xml" rel="alternate" title="iOS App" type="application/atom+xml">
+  <script src="/javascripts/modernizr-2.0.js"></script>
+  <script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+  <script>!window.jQuery && document.write(unescape('%3Cscript src="./javascripts/libs/jquery.min.js"%3E%3C/script%3E'))</script>
+  <script src="/javascripts/octopress.js" type="text/javascript"></script>
+  <!--Fonts from Google"s Web font directory at http://google.com/webfonts -->
+<link href="//fonts.googleapis.com/css?family=PT+Serif:regular,italic,bold,bolditalic" rel="stylesheet" type="text/css">
+<link href="//fonts.googleapis.com/css?family=PT+Sans:regular,italic,bold,bolditalic" rel="stylesheet" type="text/css">
+
+  
+  <script type="text/javascript">
+    var _gaq = _gaq || [];
+    _gaq.push(['_setAccount', 'UA-36079321-1']);
+    _gaq.push(['_trackPageview']);
+
+    (function() {
+      var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+      ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+      var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+    })();
+  </script>
+
+
+</head>
+
+<body   >
+  <header role="banner"><hgroup>
+  <h1><a href="/">iOS App</a></h1>
+  
+    <h2>iOS App For Myself.</h2>
+  
+</hgroup>
+
+</header>
+  <nav role="navigation"><ul class="subscription" data-subscription="rss">
+  <li><a href="/atom.xml" rel="subscribe-rss" title="subscribe via RSS">RSS</a></li>
+  
+</ul>
+  
+<form action="https://www.google.com/search" method="get">
+  <fieldset role="search">
+    <input type="hidden" name="q" value="site:xuguoxing.github.io" />
+    <input class="search" type="text" name="q" results="0" placeholder="Search"/>
+  </fieldset>
+</form>
+  
+<ul class="main-navigation">
+  <li><a href="/">Blog</a></li>
+  <li><a href="/blog/archives">Archives</a></li>
+  <li><a href="/mymoney">资产管家</a></li>
+</ul>
+
+</nav>
+  <div id="main">
+    <div id="content">
+      <div>
+<article class="hentry" role="article">
+  
+  <header>
+    
+      <h1 class="entry-title">Build iOS Apps From Scratch</h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2015-04-23T11:00:21+08:00" pubdate data-updated="true">Apr 23<span>rd</span>, 2015</time>
+        
+      </p>
+    
+  </header>
+
+
+<div class="entry-content"><h1>Design</h1>
+
+<h3>Color</h3>
+
+<ol>
+<li><p><a href="http://brandcolors.net/">BrandColors</a></p>
+
+<p> Official color codes for the world&rsquo;s biggest brands.</p></li>
+<li><p><a href="http://www.sketchappsources.com">sketch resources</a></p></li>
+</ol>
+
+
+<h1>Service</h1>
+
+<h2>Backend</h2>
+
+<ol>
+<li><p><a href="https://parse.com/">Parse</a></p>
+
+<p> Focus on creating amazing user experiences and forget complex infrastructure. Instantly add a powerful cloud database, push notification services, and analytics tracking to your app. Choose from over thirteen native SDKs for mobile, desktop, and IoT devices and discover all that Parse has to offer.</p></li>
+<li><p><a href="https://leancloud.cn/">LeanCloud</a></p>
+
+<p> LeanCloud（aka. AVOS Cloud）是加速应用开发的一站式解决方案，专注于为应用开发者提供一流的工具、平台和服务。
+我们提供 数据存储 、实时消息、消息推送 以及 统计分析 服务，全面涵盖应用开发的需求；全面支持 iOS、Android、web 等多个平台。我们努力帮助开发者摆脱繁重的后端开发负担，最大限度地缩短开发周期和加快迭代速度，在激烈的市场竞争中胜出。</p></li>
+</ol>
+
+
+<h2>Analytics</h2>
+
+<ol>
+<li><p><a href="https://developer.yahoo.com/analytics/">Flurry</a></p>
+
+<p> Get the most widely used app analytics that’s quick to integrate, easy to use and free. Get a deep understanding of app performance metrics and everything your users are doing. Track your user acquisition campaigns and tie them back to analytics to maximize ROI.</p></li>
+<li><p><a href="http://www.umeng.com/">友盟</a></p>
+
+<p> 友盟是中国最专业、最有数据凝聚力的移动开发者服务平台。友盟以移动应用统计分析为产品起点，发展成为综合性的移动开发者服务平台。推出“一站式“解决方案，为移动开发者提供了从开发到运营的系列服务,包含移动应用统计分析以及细分行业的移动游戏统计分析、社会化分享、消息推送等产品和服务。</p></li>
+</ol>
+
+
+<h2>Crash Analytics</h2>
+
+<ol>
+<li><a href="crashlytics.com">Crashlytics</a></li>
+</ol>
+
+
+<h2>Project Host</h2>
+
+<ol>
+<li><p><a href="https://github.com">github</a></p>
+
+<p> GitHub is the best place to share code with friends, co-workers, classmates, and complete strangers. Over eight million people use GitHub to build amazing things together.</p></li>
+<li><p><a href="https://bitbucket.org/">bitbucket</a></p></li>
+</ol>
+
+
+<h1>Library</h1>
+
+<h2>Network</h2>
+
+<ol>
+<li><p><a href="https://github.com/AFNetworking/AFNetworking">AFNetworking</a></p>
+
+<p> AFNetworking is a delightful networking library for iOS and Mac OS X. It&rsquo;s built on top of the Foundation URL Loading System, extending the powerful high-level networking abstractions built into Cocoa. It has a modular architecture with well-designed, feature-rich APIs that are a joy to use.</p>
+
+<p> Perhaps the most important feature of all, however, is the amazing community of developers who use and contribute to AFNetworking every day. AFNetworking powers some of the most popular and critically-acclaimed apps on the iPhone, iPad, and Mac.</p></li>
+<li><p><a href="https://github.com/Alamofire/Alamofire">Alamofire</a></p>
+
+<p> Alamofire is an HTTP networking library written in Swift, from the creator of AFNetworking.</p>
+
+<p> Features</p>
+
+<ul>
+<li>Chainable Request / Response methods</li>
+<li>URL / JSON / plist Parameter Encoding</li>
+<li>Upload File / Data / Stream</li>
+<li>Download using Request or Resume data</li>
+<li>Authentication with NSURLCredential</li>
+<li>HTTP Response Validation</li>
+<li>Progress Closure &amp; NSProgress</li>
+<li>cURL Debug Output</li>
+<li>Comprehensive Unit Test Coverage</li>
+<li>Complete Documentation</li>
+</ul>
+</li>
+<li><p><a href="https://github.com/marcelofabri/BigBrother">BigBrother</a></p>
+
+<p>BigBrother is a Swift library made for iOS that automatically watches for any performed request and sets the <a href="https://developer.apple.com/library/ios/documentation/UserExperience/Conceptual/MobileHIG/Controls.html#//apple_ref/doc/uid/TP40006556-CH15-SW44">network activity indicator</a>.</p></li>
+</ol>
+
+
+<h2>Persistent Storage</h2>
+
+<ol>
+<li><p><a href="https://github.com/magicalpanda/MagicalRecord">MagicalRecord</a></p>
+
+<p> MagicalRecord was inspired by the ease of Ruby on Rails&#8217; Active Record fetching. The goals of this code are:</p>
+
+<ul>
+<li>Clean up my Core Data related code</li>
+<li>Allow for clear, simple, one-line fetches</li>
+<li>Still allow the modification of the NSFetchRequest when request optimizations are needed</li>
+</ul>
+</li>
+<li><p><a href="https://github.com/ccgus/fmdb">FMDB</a></p>
+
+<p> This is an Objective-C wrapper around SQLite: <a href="http://sqlite.org/">http://sqlite.org/</a></p></li>
+</ol>
+
+
+<h2>Analytics</h2>
+
+<ol>
+<li><p><a href="https://github.com/orta/ARAnalytics">ARAnalytics</a></p>
+
+<p> ARAnalytics is to iOS what <a href="https://github.com/jkrall/analytical">Analytical</a> is to ruby, or <a href="http://segmentio.github.com/analytics.js/">Analytics.js</a> is to javascript.</p>
+
+<p> ARAnalytics is a analytics abstraction library offering a sane API for tracking events and user data. It currently supports on iOS: <code>TestFlight, Mixpanel, Localytics, Flurry, GoogleAnalytics, KISSmetrics, Crittercism, Crashlytics, Bugsnag, Countly, Helpshift, Tapstream, NewRelic, Amplitude, HockeyApp, ParseAnalytics, HeapAnalytics, Chartbeat, Yandex Mobile Metrica, and Branch</code>. And for OS X: <code>KISSmetrics and Mixpanel</code>. It does this by using CocoaPods subspecs to let you decide which libraries you&rsquo;d like to use. You are free to also use the official API for any provider too. Also, comes with an amazing DSL to clear up your methods.</p>
+
+<p> ARAnalytics provides a common API between lots of providers, so it will try to map most of the functionality between providers, but if you&rsquo;re doing complex things, expect to also use your provider&rsquo;s SDK.</p></li>
+</ol>
+
+
+<h2>Image Cache</h2>
+
+<ol>
+<li><p><a href="https://github.com/rs/SDWebImage">SDWebImage</a></p>
+
+<p> This library provides a category for UIImageView with support for remote images coming from the web.</p>
+
+<p> It provides:</p>
+
+<ul>
+<li>An UIImageView category adding web image and cache management to the Cocoa Touch framework</li>
+<li>An asynchronous image downloader</li>
+<li>An asynchronous memory + disk image caching with automatic cache expiration handling</li>
+<li>Animated GIF support</li>
+<li>WebP format support</li>
+<li>A background image decompression</li>
+<li>A guarantee that the same URL won&rsquo;t be downloaded several times</li>
+<li>A guarantee that bogus URLs won&rsquo;t be retried again and again</li>
+<li>A guarantee that main thread will never be blocked</li>
+<li>Performances!</li>
+<li>Use GCD and ARC</li>
+<li>Arm64 support</li>
+</ul>
+</li>
+<li><p><a href="https://github.com/onevcat/Kingfisher?">Kingfisher</a></p>
+
+<p> Kingfisher is a lightweight and pure Swift implemented library for downloading and caching image from the web. This project is heavily inspired by the popular SDWebImage. And it provides you a chance to use pure Swift alternation in your next app.</p>
+
+<p> Features</p>
+
+<ul>
+<li>Everything in Kingfisher goes asynchronously, not only downloading, but also caching. That means you will never worry about blocking your UI thread.</li>
+<li>Multiple-layer cache. Downloaded images will be cached in both memory and disk. So there is no need to download again and this could boost your app dramatically.</li>
+<li>Cache management. You can set the max duration or size the cache could take. And the cache will also be cleaned automatically to prevent taking too much resource.</li>
+<li>Modern framework. Kingfisher uses NSURLSession and the latest technology of GCD, which makes it a strong and swift framework. It also provides you easy APIs to use.</li>
+<li>Cancellable processing task. You can cancel the downloading or image retriving process if it is not needed anymore.</li>
+<li>Independent components. You can use the downloader or caching system separately. Or even create your own cache based on Kingfisher&rsquo;s code.</li>
+<li>Options to decompress the image in background before rendering it, which could improve the UI performance.</li>
+<li>A category over UIImageView for setting image from an URL directly.</li>
+</ul>
+</li>
+<li><p><a href="https://github.com/path/FastImageCache">FastImageCache</a></p>
+
+<p> Fast Image Cache is an efficient, persistent, and—above all—fast way to store and retrieve images in your iOS application. Part of any good iOS application&rsquo;s user experience is fast, smooth scrolling, and Fast Image Cache helps make this easier.</p>
+
+<p> A significant burden on performance for graphics-rich applications like Path is image loading. The traditional method of loading individual images from disk is just too slow, especially while scrolling. Fast Image Cache was created specifically to solve this problem.</p></li>
+<li><p><a href="https://github.com/nicklockwood/AsyncImageView">AsyncImageView</a></p>
+
+<p> AsyncImageView includes both a simple category on UIImageView for loading and displaying images asynchronously on iOS so that they do not lock up the UI, and a UIImageView subclass for more advanced features. AsyncImageView works with URLs so it can be used with either local or remote files.</p>
+
+<p> Loaded/downloaded images are cached in memory and are automatically cleaned up in the event of a memory warning. The AsyncImageView operates independently of the UIImage cache, but by default any images located in the root of the application bundle will be stored in the UIImage cache instead, avoiding any duplication of cached images.</p>
+
+<p> The library can also be used to load and cache images independently of a UIImageView as it provides direct access to the underlying loading and caching classes.</p></li>
+</ol>
+
+
+<h2>DataParse</h2>
+
+<ol>
+<li><p><a href="https://github.com/krzysztofzablocki/KZPropertyMapper">KZPropertyMapper</a></p>
+
+<p> There are libraries helping with that like Mantle, RESTKit and many more… But I wanted something that&rsquo;s self contained, easy to change / remove and requires minimal amount of code.</p>
+
+<p> I&rsquo;ve created Property Mapper as part of working on <a href="http://foldifyapp.com/">Foldify</a>, a simple self contained solution that allows you to specify mapping between data you receive and data representation you have in your application&hellip; with some additional features, like type boxing, validation.</p>
+
+<p> I don&rsquo;t like passing around JSON so I write parsing on top of native objects like NSDictionary/NSArray. If you get data as JSON just write a simple category that transforms JSON to native objects using NSJSONSerialization.</p></li>
+<li><p><a href="https://github.com/CoderMJLee/MJExtension">MJExtensions</a></p>
+
+<p> The fastest, most convenient and most nonintrusive conversion between JSON and model. Your model class don&rsquo;t need to extend another base class. You don&rsquo;t need to modify any model file. Nonintrusive, convenient.
+ Features</p>
+
+<ul>
+<li>JSON &mdash;> Model、Core Data Model</li>
+<li>JSONString &mdash;> Model、Core Data Model</li>
+<li>Model、Core Data Model &mdash;> JSON</li>
+<li>JSON Array &mdash;> Model Array、Core Data Model Array</li>
+<li>JSONString &mdash;> Model Array、Core Data Model Array</li>
+<li>Model Array、Core Data Model Array &mdash;> JSON Array</li>
+<li>Coding all properties of model in one line code.</li>
+</ul>
+</li>
+<li><p><a href="https://github.com/topfunky/hpple">Hpple</a></p>
+
+<p> Hpple: A nice Objective-C wrapper on the XPathQuery library for parsing HTML.</p>
+
+<ul>
+<li>Easy searching by XPath (CSS selectors are planned)</li>
+<li>Parses HTML (XML coming soon)</li>
+<li>Easy access to tag content, name, and attributes.</li>
+</ul>
+</li>
+<li><p><a href="https://github.com/amarcadet/XMLReader">XMLReader</a></p>
+
+<p> Objective-C XML reader based on NSXMLParser</p>
+
+<p> This project comes from a component developed by Troy Brant and published on his website : <a href="http://troybrant.net/blog/2010/09/simple-xml-to-nsdictionary-converter/">http://troybrant.net/blog/2010/09/simple-xml-to-nsdictionary-converter/</a></p></li>
+<li><p><a href="https://github.com/indragiek/CocoaMarkdown">CocoaMarkdown</a></p>
+
+<p> CocoaMarkdown is a cross-platform framework for parsing and rendering Markdown, built on top of the <a href="https://github.com/jgm/CommonMark">C reference implementation</a> of <a href="http://commonmark.org/">CommonMark</a>.</p>
+
+<p> This is currently beta-quality code.</p>
+
+<p> CocoaMarkdown aims to solve two primary problems better than existing libraries:</p>
+
+<ul>
+<li>More flexibility. CocoaMarkdown allows you to define custom parsing hooks or even traverse the Markdown AST using the low-level API.</li>
+<li>Efficient <code>NSAttributedString</code> creation for easy rendering on iOS and OS X. Most existing libraries just generate HTML from the Markdown, which is not a convenient representation to work with in native apps.</li>
+</ul>
+</li>
+</ol>
+
+
+<h2>DataSync</h2>
+
+<ol>
+<li><p><a href="https://github.com/drewmccormack/ensembles">ensembles</a></p>
+
+<p> Ensembles 2 is now available for purchase at <a href="http://www.ensembles.io/">ensembles.io</a>. It has performance improvements, extra backends (eg CloudKit, Dropbox Sync), and other features. This version of Ensembles continues to be maintained and supported.</p>
+
+<p> There is a <a href="https://groups.google.com/forum/#!forum/ensembles">Google Group</a> for discussing best practices with other developers.</p>
+
+<p> Ensembles extends Apple&rsquo;s Core Data framework to add peer-to-peer synchronization for Mac OS and iOS. Multiple SQLite persistent stores can be coupled together via a file synchronization platform like iCloud or Dropbox. The framework can be readily extended to support any service capable of moving files between devices, including custom servers.</p></li>
+<li><p><a href="https://github.com/nothirst/TICoreDataSync">TICoreDataSync</a></p>
+
+<p> TICoreDataSync is a collection of classes to enable synchronization via the Cloud (including Dropbox) of Core Data-based applications (including document-based apps) between any number of clients running under Mac OS X or iOS. It&rsquo;s designed to be easy to extend if you need to synchronize via an option that isn&rsquo;t already supported.</p></li>
+<li><p><a href="https://github.com/melke/CloudKitDictionarySyncer/">CloudKitDictionarySyncer</a></p>
+
+<p> CloudKitDictionarySyncer is a utility that you can use in your app to save an NSDictionary to both a local plist file and remotely in the user&rsquo;s CloudKit private database. If CloudKit is not available, because the user is offline, not logged in or whatever , the NSDictionary will be saved to the local plist only. CloudKitDictionarySyncer is written in Swift.</p>
+
+<p> At app startup, when you load the dictionary, CloudKitDictionarySyncer will return a single dictionary if the plist and iCloud version are identical. If not, a Conflict tuple containing both dictionaries will be returned. Handle the conflict in a way appropriate for your app, for example by merging the data in both dictionaries or by simply choosing the last saved dictionary (last method not recommended). After the conflict is solved, you should save the dictionary immediately. This will resync the local plist dictionary and the iCloud dictionary.</p></li>
+</ol>
+
+
+<h2>Hook</h2>
+
+<ol>
+<li><p><a href="https://github.com/steipete/Aspects">Aspects</a></p>
+
+<p> Delightful, simple library for aspect oriented programming by <a href="http://twitter.com/steipete">@steipete</a>.</p>
+
+<p> Think of Aspects as method swizzling on steroids. It allows you to add code to existing methods per class or per instance, whilst thinking of the insertion point e.g. before/instead/after. Aspects automatically deals with calling super and is easier to use than regular method swizzling.</p>
+
+<p> This is stable and used in hundreds of apps since it&rsquo;s part of <a href="http://pspdfkit.com/">PSPDFKit, an iOS PDF framework that ships with apps like Dropbox or Evernote</a>, and now I finally made it open source.</p>
+
+<p> Adding aspects returns an opaque token of type <code>AspectToken</code> which can be used to deregister again. All calls are thread-safe.</p>
+
+<p> Aspects uses Objective-C message forwarding to hook into messages. This will create some overhead. Don&rsquo;t add aspects to methods that are called a lot. Aspects is meant for view/controller code that is not called 1000 times per second.</p>
+
+<p> Aspects calls and matches block arguments. Blocks without arguments are supported as well. The first block argument will be of type <code>id&lt;AspectInfo&gt;</code>.</p></li>
+</ol>
+
+
+<h2>Route</h2>
+
+<ol>
+<li><p><a href="https://github.com/joeldev/JLRoutes">JLRoute</a></p>
+
+<p> JLRoutes is advanced URL parsing with a block-based callback API. It is designed to make it very easy to handle complex URL schemes in your application without having to do any URL or string parsing of any kind.</p>
+
+<p> Features</p>
+
+<ul>
+<li>Simple API with minimal impact to existing codebases</li>
+<li>Parse any number of parameters interleaved throughout the URL</li>
+<li>Wildcard parameter support</li>
+<li>Seamlessly parses out query string and fragment parameters and passes them along as part of the parameters dictionary</li>
+<li>Route prioritization</li>
+<li>Scheme namespaces to easily segment routes and block handlers for multiple schemes</li>
+<li>Return NO from a handler block for JLRoutes to look for the next matching route</li>
+<li>Optional verbose logging</li>
+<li>Pretty-print the whole routing table</li>
+<li>No dependencies other than Foundation</li>
+</ul>
+</li>
+</ol>
+
+
+<h2>Map</h2>
+
+<ol>
+<li><p><a href="https://github.com/choefele/CCHMapClusterController">CCHMapClusterController</a></p>
+
+<p> High-performance map clustering with MapKit for iOS and OS X. Integrate with 4 lines of code.
+ CCHMapClusterController solves the problem of displaying many annotations on an MKMapView and is available under the MIT license.</p></li>
+<li><p><a href="https://github.com/OrbJapan/ResizableMKCircleOverlay">ResizableMKCircleOverlay</a></p>
+
+<p> A resizable map circle overlay.</p></li>
+<li><p><a href="https://github.com/fernandospr/CoreLocationUtils">CoreLocationUtils</a></p>
+
+<p> A category with convenient methods for CLLocation, based on <a href="http://www.movable-type.co.uk/scripts/latlong.html">http://www.movable-type.co.uk/scripts/latlong.html</a></p>
+
+<p> Features</p>
+
+<ul>
+<li>Convenient CLLocation initializers:
+
+<ul>
+<li>initialize with latitude and longitude in radians</li>
+<li>initialize with a pretty string format (e.g. latitude = @&ldquo;34° 36&#8217; 12\&rdquo; N&#8221; longitude = @&ldquo;35° 12&#8217; 24\&rdquo; W&#8221;)</li>
+</ul>
+</li>
+<li>Obtain coordinates in a pretty format</li>
+<li>Distance between coordinates using:
+
+<ul>
+<li>Haversine formula</li>
+<li>Spherical Law of cosines formula</li>
+<li>Pythagoras formula</li>
+<li>Rhumb line formula</li>
+</ul>
+</li>
+<li>Midpoint along a great circle path between coordinates</li>
+<li>Initial/final bearings to target location from source location</li>
+<li>Calculate target location with a given distance and bearing from source location</li>
+</ul>
+</li>
+<li><p><a href="https://github.com/100grams/CoreLocationUtils">CoreLocationUtils</a></p>
+
+<p> An Objective-C library with tools and extensions for iOS CoreLocation.</p>
+
+<p> Features</p>
+
+<ul>
+<li>Dispatching CoreLocation updates to multiple listeners.</li>
+<li>Archive/Unarchive location data (play log file)</li>
+<li>Calculate Direction and distance between locations and routes.</li>
+<li>Dead Reckoning</li>
+</ul>
+</li>
+</ol>
+
+
+<h2>Photo</h2>
+
+<ol>
+<li><p><a href="https://github.com/mwaterfall/MWPhotoBrowser">MWPhotoBrowser</a></p>
+
+<p> A simple iOS photo browser with optional grid view, captions and selections.
+ MWPhotoBrowser can display one or more images by providing either UIImage objects, or URLs to files, web images or library assets. The photo browser handles the downloading and caching of photos from the web seamlessly. Photos can be zoomed and panned, and optional (customisable) captions can be displayed.
+ The browser can also be used to allow the user to select one or more photos using either the grid or main image view.</p></li>
+<li><p><a href="https://github.com/EddyBorja/EBPhotoPages">EBPhotoPages</a></p>
+
+<p> A photo gallery for iOS with a modern feature set. Similar features as the Facebook photo browser.</p>
+
+<p> EBPhotoPages is a photo gallery library for displaying pages of photos and their meta data in a scrollview. Users are able to zoom photos in and out, as well as create, edit or delete comments and tags, share or delete a photo, and report inappropriate photos. All photos and content are loaded asynchronously. User permissions for a photo are controlled through a delegate protocol. No graphic files are required for the gallery as icons are drawn in code.</p>
+
+<p> The library was designed using a state pattern to control the behavior of the gallery, so that other developers can easily modify or add new states without having to understand too much of the original code.</p>
+
+<p> Quick Feature list:</p>
+
+<ul>
+<li>Photo Tagging: Create/Edit/Delete</li>
+<li>Photo Commenting: Create/Edit/Delete</li>
+<li>Photo Sharing:</li>
+<li>Photo Reporting:</li>
+<li>Speficy User Permissions per Photo for commenting, tagging, deletion, reporting, etc.</li>
+<li>Page Based Scrolling</li>
+<li>Photos give immediate bounce feedback when single tapped, for a juicy interface feel.</li>
+<li>Toggle Tags On/Off</li>
+<li>Pinch, Zoom, Pan Photos with gestures.</li>
+<li>Scrollable captions, variable lengths with auto-dimming background</li>
+<li>Show/Hide UI elements with a single tap gesture</li>
+<li>Asynchronous loading of data (through NSOperationQueue)</li>
+<li>Activity Indicator per Photo.</li>
+<li>Content Mode AspectFit/Center auto detection (prevent photos smaller than the screen from blowing up)</li>
+<li>Full landscape/portrait orientation support</li>
+<li>Resolution independent support (iPad/iPhone)</li>
+<li>Touch and hold comments to copy or delete</li>
+<li>Flat UI Design</li>
+<li>Comments icon shows the number of comments posted (if there are any)</li>
+<li>Other stuff</li>
+</ul>
+</li>
+<li><p><a href="https://github.com/mariohahn/MHVideoPhotoGallery">MHVideoPhotoGallery</a></p>
+
+<p> A Photo and Video Gallery designed for iOS 7 and iOS 8</p></li>
+<li><p><a href="https://github.com/danielebogo/DBCamera">DBCamera</a></p>
+
+<p> DBCamera is a simple custom camera with AVFoundation</p></li>
+<li><p>[NYTPhotoViewer] (<a href="https://github.com/NYTimes/NYTPhotoViewer">https://github.com/NYTimes/NYTPhotoViewer</a>)</p>
+
+<p> NYTPhotoViewer is a slideshow and image viewer that includes double tap to zoom, captions, support for multiple images, interactive flick to dismiss, animated zooming presentation, and more.</p>
+
+<p> NYTPhotoViewer draws feature inspiration from Facebook and Tweetbot&rsquo;s image viewers. If this implementation isn&rsquo;t to your liking, you may want to consider <a href="https://github.com/jaredsinclair/JTSImageViewController">JTSImageViewController</a> or <a href="https://github.com/ideaismobile/IDMPhotoBrowser">IDMPhotoBrowser</a>.</p>
+
+<p> TODO</p>
+
+<ul>
+<li>Animate bounds changes like Tweetbot and Facebook.</li>
+<li>Publicly expose the data source property.</li>
+<li><a href="https://github.com/Carthage/Carthage">Carthage</a> support.</li>
+<li>An additional sample project written in Swift (currently in pull request).</li>
+</ul>
+</li>
+<li><p><a href="https://github.com/jaredsinclair/JTSImageViewController">JTSImageViewController</a></p>
+
+<p> An interactive iOS image viewer that does it all: double tap to zoom, flick to dismiss, et cetera.</p>
+
+<p> JTSImageViewController is like a &ldquo;light box&rdquo; for iOS. It&rsquo;s similar to image viewers you may have seen in apps like Twitter, Tweetbot, and others. It presents an image in a full-screen interactive view. Users can pan and zoom, and use Tweetbot-style dynamic gestures to dismiss it with a fun flick.</p></li>
+<li><p><a href="https://github.com/ideaismobile/IDMPhotoBrowser">IDMPhotoBrowser</a></p>
+
+<p> Photo Browser / Viewer inspired by Facebook&rsquo;s and Tweetbot&rsquo;s with ARC support, swipe-to-dismiss, image progress and more</p>
+
+<p> IDMPhotoBrowser is a new implementation based on <a href="https://github.com/mwaterfall/MWPhotoBrowser">MWPhotoBrowser</a>.</p>
+
+<p> We&rsquo;ve added both user experience and technical features inspired by Facebook&rsquo;s and Tweetbot&rsquo;s photo browsers.</p>
+
+<p> New features:</p>
+
+<ul>
+<li>Uses ARC</li>
+<li>Uses AFNetworking for image loading</li>
+<li>Image progress shown</li>
+<li>Minimalistic Facebook-like interface, swipe up/down to dismiss</li>
+<li>Ability to add custom actions on the action sheet</li>
+</ul>
+
+
+<p> Features</p>
+
+<ul>
+<li>Can display one or more images by providing either <code>UIImage</code> objects, file paths to images on the device, or URLs to images online</li>
+<li>Handles the downloading and caching of photos from the web seamlessly</li>
+<li>Photos can be zoomed and panned, and optional captions can be displayed</li>
+</ul>
+</li>
+</ol>
+
+
+<h2>Share</h2>
+
+<ol>
+<li><p><a href="https://github.com/overshare/overshare-kit">overshare-kit</a></p>
+
+<p> Sharing is far too cumbersome to implement on iOS. UIActivityViewController is too limiting, and rolling your own library is too time-consuming. Most devs end up settling for underwhelming sharing options for lack of the time or inclination to make something better.</p>
+
+<p> OvershareKit makes it trivial to add rich sharing options to your iOS apps. In a word, OvershareKit has everything:</p>
+
+<ul>
+<li>Beautiful share sheets with pixel-perfect, full-color icons in a simple layout.</li>
+<li>Lots of tweakable options, including a gorgeous dark mode.</li>
+<li>Built-in integration with iOS Twitter and Facebook accounts.</li>
+<li>Built-in integration with popular third-party services like App.net, Instapaper, and more.</li>
+<li>Complete multi-account management, including authentication and storing credentials securely in the Keychain.</li>
+<li>Killer text editing views with as-you-type Twitter syntax highlighting, Riposte-style swipe gesture cursor navigation, and automatic smart quotes.</li>
+</ul>
+</li>
+</ol>
+
+
+<h2>Algorithems</h2>
+
+<ol>
+<li><p><a href="https://github.com/EvgenyKarkan/EKAlgorithms">EKAlgorithms</a></p>
+
+<p> EKAlgorithms is a set of computer exercises implemented in Objective-C. Data structures, well known algorithms, CS curiosities, you name it!</p>
+
+<ul>
+<li>Arrays and Lists</li>
+<li>Search Algorithms</li>
+<li>Sorting Algorithms</li>
+<li>Selection Algorithms</li>
+<li>Strings</li>
+<li>Numeric Algorithms</li>
+<li>Data Structures</li>
+<li>Problems</li>
+<li>Geometry</li>
+<li>Recursion</li>
+</ul>
+</li>
+<li><p><a href="https://github.com/waynewbishop/SwiftStructures">SwiftStructures</a></p>
+
+<p> This project provides a framework for commonly used data structures and algorithms written in a new iOS development language called Swift. While details of many algorithms exists on Wikipedia, these implementations are often written as pseudocode, or are expressed in C or C++. With Swift now officially released, its general syntax should be familiar enough for most programmers to understand.
+ As a developer, you should already be familiar with the basics of programming. Beyond algorithms, this project also aims to provide an alternative for learning the basics of Swift. This includes implementations of many Swift-specific features such as optionals, extensions and generics. Beyond Swift, audiences should be familiar with Singleton and Factory design patterns along with sets, arrays and dictionaries.
+ The project features code-level examples for the following items:</p>
+
+<ul>
+<li>Linked Lists</li>
+<li>Binary Search</li>
+<li>Insertion Sort</li>
+<li>Bubble Sort</li>
+<li>Quick Sort</li>
+<li>Merge Sort</li>
+<li>Generics</li>
+<li>Hash Tables</li>
+<li>Binary Search Trees</li>
+<li>Tree Balancing (Rotations)</li>
+<li>Tries</li>
+<li>Stacks &amp; Queues</li>
+<li>Graphs</li>
+<li>Dijkstra&rsquo;s Shortest Path</li>
+<li>Heaps &amp; Heapsort Operations</li>
+<li>Depth-First Search</li>
+<li>Breath-First Search</li>
+</ul>
+</li>
+</ol>
+
+
+<h2>IAP</h2>
+
+<ol>
+<li><p><a href="https://github.com/robotmedia/RMStore#receipt-verification">RMStore</a></p>
+
+<p> A lightweight iOS library for In-App Purchases.</p>
+
+<p> RMStore adds <code>blocks</code> and <code>notifications</code> to StoreKit, plus <code>receipt verification</code>, <code>content downloads</code> and <code>transaction persistence</code>. All in one class without external dependencies.</p></li>
+<li><p><a href="https://github.com/rmaddy/VerifyStoreReceiptiOS">VerifyStoreReceiptiOS</a></p>
+
+<p> These files are based off of the <a href="https://github.com/roddi/ValidateStoreReceipt">roddi/ValidateStoreReceipt</a> project.</p>
+
+<p> For details on iOS receipt validation from Apple, see <a href="https://developer.apple.com/library/ios/releasenotes/General/ValidateAppStoreReceipt/Introduction.html">Receipt Validation Programming Guide</a> (Developer membership needed).</p>
+
+<p> Unfortunately this document doesn&rsquo;t tell you how to process this receipt in detail, quote:</p>
+
+<pre><code> The payload of the PKCS7 container is encoded using ASN.1, as described by ITU-T X.690.
+ This validator parses and validates the payload and the PKCS7 container itself.
+</code></pre>
+
+<p> Missing from this project:</p>
+
+<ul>
+<li>Apple&rsquo;s root certificate. This may be obtained from <a href="http://www.apple.com/certificateauthority/">http://www.apple.com/certificateauthority/</a></li>
+<li>Any measures to make your app cracker proof.</li>
+</ul>
+</li>
+</ol>
+
+
+<h2>Debug</h2>
+
+<ol>
+<li><p><a href="https://github.com/Flipboard/FLEX">FLEX</a></p>
+
+<p> FLEX (Flipboard Explorer) is a set of in-app debugging and exploration tools for iOS development. When presented, FLEX shows a toolbar that lives in a window above your application. From this toolbar, you can view and modify nearly every piece of state in your running application.</p>
+
+<ul>
+<li>Inspect and modify views in the hierarchy.</li>
+<li>See the properties and ivars on any object.</li>
+<li>Dynamically modify many properties and ivars.</li>
+<li>Dynamically call instance and class methods.</li>
+<li>Observe detailed network request history with timing, headers, and full responses.</li>
+<li>View system log messages (e.g. from NSLog).</li>
+<li>Access any live object via a scan of the heap.</li>
+<li>View the file system within your app&rsquo;s sandbox.</li>
+<li>Explore all classes in your app and linked systems frameworks (public and private).</li>
+<li>Quickly access useful objects such as [UIApplication sharedApplication], the app delegate, the root view controller on the key window, and more.</li>
+<li>Dynamically view and modify NSUserDefaults values.</li>
+</ul>
+
+
+<p> Unlike many other debugging tools, FLEX runs entirely inside your app, so you don&rsquo;t need to be connected to LLDB/Xcode or a different remote debugging server. It works well in the simulator and on physical devices.</p></li>
+<li><p><a href="https://github.com/AliSoftware/OHHTTPStubs">OHHTTPStubs</a></p>
+
+<p> OHHTTPStubs is a library designed to stub your network requests very easily. It can help you:</p>
+
+<ul>
+<li>test your apps with fake network data (stubbed from file) and simulate slow networks, to check your application behavior in bad network conditions</li>
+<li>write Unit Tests that use fake network data from your fixtures.</li>
+</ul>
+
+
+<p> It works with NSURLConnection, new iOS7/OSX.9&rsquo;s NSURLSession, AFNetworking (both 1.x and 2.x), or any networking framework that use Cocoa&rsquo;s URL Loading System.</p></li>
+<li><p><a href="https://github.com/facebook/tweaks">Tweaks</a></p>
+
+<p> An easy way to fine-tune, and adjust parameters for iOS apps in development.</p>
+
+<p> The best way to improve an app is to use it every day. Even when ideas can be tested out in advance — for example, with <a href="http://origami.facebook.com/">Origami</a> — it can still take some time with the app to see how it works in practice.</p>
+
+<p> Occasionally, it&rsquo;s perfect the first try. Sometimes, the idea doesn&rsquo;t work at all. But often, it just needs a few minor adjustments. That last case is where Tweaks fits in. Tweaks makes those small adjustments easy: with no code changes and no computer, you can try out different options and decide which works best.</p>
+
+<p> Some of the most useful parameters to adjust are animation timings, velocity thresholds, colors, and physics constants. At Facebook, we also use tweaks to temporarily disable new features during development. That way, the designers and engineers involved can enable it on just their devices, without getting in the way of others testing the app.</p>
+
+<p> Tweaks was invaluable for building <a href="http://www.facebook.com/paper">Paper</a>. We hope it can be useful for your app too.</p></li>
+</ol>
+
+
+<h2>Animation</h2>
+
+<ol>
+<li><p><a href="https://github.com/facebook/pop">pop</a></p>
+
+<p> Pop is an extensible animation engine for iOS and OS X. In addition to basic static animations, it supports spring and decay dynamic animations, making it useful for building realistic, physics-based interactions. The API allows quick integration with existing Objective-C codebases and enables the animation of any property on any object. It&rsquo;s a mature and well-tested framework that drives all the animations and transitions in <a href="http://www.facebook.com/paper">Paper</a>.</p></li>
+<li><p><a href="https://github.com/facebook/Shimmer">Shimmer</a></p>
+
+<p> Shimmer is an easy way to add a shimmering effect to any view in your app. It&rsquo;s useful as an unobtrusive loading indicator.</p>
+
+<p> Shimmer was originally developed to show loading status in <a href="http://facebook.com/paper">Paper</a>.</p></li>
+</ol>
+
+
+<h2>iCloud</h2>
+
+<ol>
+<li><p><a href="https://github.com/drewmccormack/icloudaccess">icloudaccess</a></p>
+
+<p> iCloud Access is a simple class that makes it easier to work with iCloud, hiding details such as file coordination and metadata queries. It is much more like accessing a web service with a Cocoa networking class, which most developers are more used to.</p>
+
+<p> The class was originally developed as part of the <a href="https://github.com/drewmccormack/ensembles">Ensembles</a> Core Data Sync framework, and has been extracted for easier integration in projects not using Ensembles.</p></li>
+</ol>
+
+
+<h2>Security</h2>
+
+<ol>
+<li><p><a href="https://github.com/mattt/Navajo">Navajo</a></p>
+
+<p> Password Validator &amp; Strength Evaluator</p>
+
+<p> Available Validation Rules</p>
+
+<ul>
+<li>Allowed Characters</li>
+<li>Required Characters (e.g. lowercase, uppercase, decimal, symbol)</li>
+<li>Non-Dictionary Word</li>
+<li>Minimum / Maximum Length</li>
+<li>Predicate Match</li>
+<li>Regular Expression Match</li>
+<li>Block Evaluation</li>
+</ul>
+</li>
+<li><p><a href="https://github.com/arpi6/validateIt">validateIt</a></p>
+
+<p> Validation Library for IOS apps</p>
+
+<p> Validation for:</p>
+
+<ul>
+<li>email address,</li>
+<li>required text field,</li>
+<li>minimum length,</li>
+<li>maximum length,</li>
+<li>letters and space only.</li>
+</ul>
+</li>
+</ol>
+
+
+<h2>KVO</h2>
+
+<ol>
+<li><p><a href="https://github.com/facebook/KVOController">KVOController</a></p>
+
+<p> Key-value observing is a particularly useful technique for communicating between layers in a Model-View-Controller application. KVOController builds on Cocoa&rsquo;s time-tested key-value observing implementation. It offers a simple, modern API, that is also thread safe. Benefits include:</p>
+
+<ul>
+<li>Notification using blocks, custom actions, or NSKeyValueObserving callback.</li>
+<li>No exceptions on observer removal.</li>
+<li>Implicit observer removal on controller dealloc.</li>
+<li>Thread-safety with special guards against observer resurrection – <a href="http://openradar.appspot.com/radar?id=5305010728468480">rdar://15985376</a>.</li>
+<li>For more information on KVO, see <a href="https://developer.apple.com/library/mac/documentation/Cocoa/Conceptual/KeyValueObserving/KeyValueObserving.html">Apple&rsquo;s Introduction to Key-Value Observing</a>.</li>
+</ul>
+</li>
+</ol>
+
+
+<h2>API</h2>
+
+<ol>
+<li><p><a href="https://github.com/bjornsallarp/YahooFinance">YahooFinance</a></p>
+
+<p> iOS API for Yahoo finance. Stock symbol search, stock details and currency conversion. <a href="http://blog.sallarp.com/yahoo-finance-api-for-ios/">http://blog.sallarp.com/yahoo-finance-api-for-ios/</a></p>
+
+<p> The YahooFinance framework is an iOS Objective-C framework for Yahoo Finance.</p>
+
+<p> Features</p>
+
+<ul>
+<li>Search for stock symbols from major global stock exchanges list</li>
+<li>Retrieve stock details such as quotes, volumes etc.</li>
+<li>Currency conversion for all major world currencies.</li>
+</ul>
+</li>
+<li><p><a href="https://github.com/danielbierwirth/DropboxBrowser">DropboxBrowser</a></p>
+
+<p> Dropbox Browser provides a simple and effective way to browse, view, and download files using the iOS Dropbox SDK. Follow the simple setup steps and in under ten minutes you&rsquo;ll have a working Dropbox File Browser in your app that lets users browse and download their Dropbox files and folders.</p></li>
+<li><p><a href="https://github.com/shyambhat/InstagramKit">InstagramKit</a></p>
+
+<p> An extensive Objective C wrapper for the Instagram API.</p>
+
+<p> This framework is built atop AFNetworking’s blocks-based architecture and additionally parses the JSON response asynchronously so there’s absolutely no parsing on the main thread. It’s neat, fast and works like a charm providing an easy interface to interacting with Instagram’s model objects.</p></li>
+</ol>
+
+
+<h2>UI</h2>
+
+<h3>Container</h3>
+
+<ol>
+<li><p><a href="https://github.com/ECSlidingViewController/ECSlidingViewController">ECSlidingViewController</a></p>
+
+<p> ECSlidingViewController is a view controller container that manages a layered interface. The top layer anchors to the left or right side of the container while revealing the layer underneath it. This is most commonly known as the &ldquo;Side Menu&rdquo;, &ldquo;Slide Out&rdquo;, &ldquo;Hamburger Menu/Drawer/Sidebar&rdquo;, etc&hellip;</p></li>
+<li><p><a href="https://github.com/romaonthego/RESideMenu">RESideMenu</a></p>
+
+<p> iOS 7/8 style side menu with parallax effect inspired by Dribbble shots (<a href="http://dribbble.com/shots/1116265-Instasave-iPhone-App">first</a> and <a href="http://dribbble.com/shots/1114754-Social-Feed-iOS7">second</a>).</p>
+
+<p> Since version 4.0 you can add menu view controllers on both left and right sides of your content view controller.</p></li>
+<li><p><a href="https://github.com/ipup/PPRevealSideViewController">PPRevealSideViewController</a></p>
+
+<p> This is a new controller container, showing views on the side like the Facebook or Path app. It is as easy to use as a navigation controller. Sometimes, you need to push a new controller to show some options, but a small controller would be enough … PPRevealSideViewController is THE controller you need.</p></li>
+</ol>
+
+
+<h3>Layout</h3>
+
+<ol>
+<li><p><a href="https://github.com/smileyborg/PureLayout">PureLayout</a></p>
+
+<p> The ultimate API for iOS &amp; OS X Auto Layout — impressively simple, immensely powerful. PureLayout extends UIView/NSView, NSArray, and NSLayoutConstraint with a comprehensive Auto Layout API that is modeled after Apple&rsquo;s own frameworks. PureLayout is an Objective-C library that also works (and looks!) great with Swift using a bridging header.</p>
+
+<p> Writing Auto Layout code from scratch isn&rsquo;t easy. PureLayout provides a fully capable and developer-friendly interface for Auto Layout. It is designed for clarity and simplicity, and takes inspiration from the AutoLayout UI options available in Interface Builder while delivering far more flexibility. The API is also highly efficient, as it adds only a thin layer of third party code and is engineered for maximum performance.</p></li>
+<li><p><a href="https://github.com/SnapKit/Masonry">Masonry</a></p>
+
+<p> Masonry is being deprecated into a bugfix only state as more developers will be moving to Swift. Going forward we recommend using <a href="https://github.com/SnapKit/SnapKit">SnapKit</a> as it supports Swift and provides better type safety with a simpler API.</p></li>
+</ol>
+
+
+<p>Masonry is a light-weight layout framework which wraps AutoLayout with a nicer syntax. Masonry has its own layout DSL which provides a chainable way of describing your NSLayoutConstraints which results in layout code that is more concise and readable. Masonry supports iOS and Mac OS X.</p>
+
+<ol>
+<li><p><a href="https://github.com/SnapKit/SnapKit">SnapKit</a></p>
+
+<p> A Swift Autolayout DSL for iOS &amp; OS X <a href="http://snapkit.io">http://snapkit.io</a></p></li>
+</ol>
+
+
+<h3>HUD</h3>
+
+<ol>
+<li><p><a href="https://github.com/TransitApp/SVProgressHUD">SVProgressHUD</a></p>
+
+<p> SVProgressHUD is a clean and easy-to-use HUD meant to display the progress of an ongoing task.</p></li>
+<li><p><a href="https://github.com/jdg/MBProgressHUD">MBProgressHUD</a></p>
+
+<p> MBProgressHUD is an iOS drop-in class that displays a translucent HUD with an indicator and/or labels while work is being done in a background thread. The HUD is meant as a replacement for the undocumented, private UIKit UIProgressHUD with some additional features.</p></li>
+<li><p><a href="https://github.com/martinezdelariva/MRCircularProgressView">MRCircularProgressView</a></p>
+
+<p> Custom circular <code>UIView</code> that allow set progress similar to AppStore control.</p>
+
+<ul>
+<li>Custom animation duration.</li>
+<li>Custom color.</li>
+<li>Custom progress width.</li>
+</ul>
+</li>
+<li><p><a href="https://github.com/GabrielAlva/Swift-Prompts">Swift-Prompts</a></p>
+
+<p> A Swift library to design custom prompts with a great scope of options to choose from.</p></li>
+<li><p><a href="https://github.com/danielamitay/DACircularProgress">DACircularProgress</a></p>
+
+<p> DACircularProgress is a UIView subclass with circular UIProgressView properties.</p>
+
+<p> It was originally built to be an imitation of Facebook&rsquo;s photo progress indicator.</p></li>
+</ol>
+
+
+<h3>SegmentControl</h3>
+
+<ol>
+<li><p><a href="https://github.com/HeshamMegid/HMSegmentedControl">HMSegmentedControl</a></p>
+
+<p> A drop-in replacement for UISegmentedControl mimicking the style of the segmented control used in Google Currents and various other Google products.</p>
+
+<p> Features</p>
+
+<ul>
+<li>Supports both text and images</li>
+<li>Support horizontal scrolling</li>
+<li>Supports advanced title styling with text attributes for font, color, kerning, shadow, etc.</li>
+<li>Supports selection indicator both on top and bottom</li>
+<li>Supports blocks</li>
+<li>Works with ARC and iOS >= 7</li>
+</ul>
+</li>
+</ol>
+
+
+<h3>Settings</h3>
+
+<ol>
+<li><p><a href="https://github.com/futuretap/InAppSettingsKit">InAppSettingsKit</a></p>
+
+<p> InAppSettingsKit is an open source solution to to easily add in-app settings to your iPhone apps. It uses a hybrid approach by maintaining the Settings.app pane. So the user has the choice where to change the settings.</p></li>
+<li><p><a href="https://github.com/nicklockwood/FXForms">FXForms</a></p>
+
+<p> FXForms is an Objective-C library for easily creating table-based forms on iOS. It is ideal for settings pages or data-entry tasks.</p>
+
+<p> Unlike other solutions, FXForms works directly with strongly-typed data models that you supply (instead of dictionaries or complicated dataSource protocols), and infers as much information as possible from your models using introspection, to avoid the need for tedious duplication of type information.</p></li>
+</ol>
+
+
+<h3>Remind</h3>
+
+<ol>
+<li><p><a href="https://github.com/arashpayan/appirater">appirater</a></p>
+
+<p> Appirater is a class that you can drop into any iPhone app (iOS 4.0 or later) that will help remind your users to review your app on the App Store.</p></li>
+<li><p><a href="https://github.com/nicklockwood/iRate">iRate</a></p>
+
+<p> A handy class that prompts users of your iPhone or Mac App Store app to rate your application after using it for a while. Similar to Appirater, but with a simpler, cleaner interface and automatic support for iOS fast application switching.</p>
+
+<p> iRate is a library to help you promote your iPhone and Mac App Store apps by prompting users to rate the app after using it for a few days. This approach is one of the best ways to get positive app reviews by targeting only regular users (who presumably like the app or they wouldn&rsquo;t keep using it!).</p></li>
+<li><p><a href="https://github.com/ArtSabintsev/Harpy">Harpy</a></p>
+
+<p> Harpy checks a user&rsquo;s currently installed version of your iOS app against the version that is currently available in the App Store. If a new version is available, an alert can be presented to the user informing them of the newer version, and giving them the option to update the application.</p>
+
+<p> This library is built to work with the <a href="http://semver.org/">Semantic Versioning</a> system.</p></li>
+<li><p><a href="https://github.com/ArtSabintsev/Siren">Siren</a></p>
+
+<p> Siren checks a user&rsquo;s currently installed version of your iOS app against the version that is currently available in the App Store.</p>
+
+<p> If a new version is available, an alert can be presented to the user informing them of the newer version, and giving them the option to update the application. Alternatively, Siren can notify your app programmatically, enabling you to inform the user through alternative means, such as a custom interface.</p>
+
+<ul>
+<li>Siren is built to work with the <a href="http://semver.org/">Semantic Versioning</a> system.</li>
+<li>Siren is a Swift language port of <a href="http://github.com/ArtSabintsev/Harpy">Harpy</a>, an Objective-C library that achieves the same functionality.</li>
+<li>Siren is actively maintained by <a href="http://github.com/ArtSabintsev">Arthur Sabintsev</a> and <a href="http://twitter.com/getaaron">Aaron Brager</a>.</li>
+</ul>
+</li>
+<li><p><a href="https://github.com/venmo/DryDock-iOS">DryDock-iOS</a></p>
+
+<p> An internal installer app for iOS.</p>
+
+<p> DryDock is an iOS application that we built at Venmo to manage and install all of our internal builds, allow employees to download new experimental apps at any time and to easily share builds designed for a broader audience with their friends.</p>
+
+<p> DryDock also allows our customer support team to install any version of the App that we&rsquo;ve ever released to the store.</p></li>
+<li><p><a href="https://github.com/thoughtbot/MultiProductViewer">MultiProductViewer</a></p>
+
+<p> MultiProductViewer implements a GUI for displaying multiple App Store products in a scrolling list. By tapping on a product, the user is taken to a page where they can see more info about the app and purchase it, using SKStoreProductViewController.</p></li>
+</ol>
+
+
+<h3>PullToRefresh</h3>
+
+<ol>
+<li><p><a href="https://github.com/samvermette/SVPullToRefresh">SVPullToRefresh</a></p>
+
+<p> Give pull-to-refresh &amp; infinite scrolling to any UIScrollView with 1 line of code. <a href="http://samvermette.com/314">http://samvermette.com/314</a></p>
+
+<p> These UIScrollView categories makes it super easy to add pull-to-refresh and infinite scrolling fonctionalities to any UIScrollView (or any of its subclass). Instead of relying on delegates and/or subclassing UIViewController, SVPullToRefresh uses the Objective-C runtime to add the following 3 methods to UIScrollView:</p>
+
+<pre><code> - (void)addPullToRefreshWithActionHandler:(void (^)(void))actionHandler;
+ - (void)addPullToRefreshWithActionHandler:(void (^)(void))actionHandler position:(SVPullToRefreshPosition)position;
+ - (void)addInfiniteScrollingWithActionHandler:(void (^)(void))actionHandler;
+</code></pre></li>
+<li><p><a href="https://github.com/CoderMJLee/MJRefresh">MJRefresh</a></p>
+
+<ul>
+<li>The easiest way to use pull-to-refresh</li>
+<li>用法最简单的下拉刷新框架：一行代码搞定</li>
+<li>支持 UIScrollView、UITableView、UICollectionView、UIWebView</li>
+</ul>
+</li>
+<li><p><a href="https://github.com/dasdom/BreakOutToRefresh">BreakOutToRefresh</a></p>
+
+<p> Play BreakOut while loading &ndash; A playable pull to refresh view using SpriteKit</p></li>
+</ol>
+
+
+<h3>Lock</h3>
+
+<ol>
+<li><p><a href="https://github.com/freesuraj/PatternLock">PatternLock</a></p>
+
+<p> A simple but fully functional pattern lock sdk for iOS (similar to the android pattern lock)</p></li>
+<li><p><a href="https://github.com/kejinlu/KKGestureLockView">KKGestureLockView</a></p>
+
+<p> KKGestureLockView是一个非常方便使用的Gesture Lock控件，只需要简单的几步便可以在你的app中实现如安卓那样的手势解锁的效果。
+ 控件的源码在KKGestureLockView/Source目录下,且自带了一个仿支付宝解锁界面的例子（例子的图片资源取自支付宝app解压缩后的资源图片）</p></li>
+<li><p><a href="https://github.com/kosyloa/PinPad">PinPad</a></p>
+
+<p> View like iOS7 Lock screen</p>
+
+<p> Dynamic count of input numbers and custom configuration.</p></li>
+<li><p><a href="https://github.com/croath/SecretSwitch">SecretSwitch</a></p>
+
+<p> cover apps with a blur screenshot to keep secret after double clicking iPhone&rsquo;s home</p></li>
+</ol>
+
+
+<h3>UITableViewCellCustom</h3>
+
+<ol>
+<li><p><a href="https://github.com/scheinem/MSCMoreOptionTableViewCell">MSCMoreOptionTableViewCell</a></p>
+
+<p> Drop-in solution to achieve the &ldquo;More&rdquo; button in an UITableView&rsquo;s &ldquo;swipe to delete&rdquo;-menu (as seen in the Mail.app) by extending Apple&rsquo;s own &ldquo;swipe to delete&rdquo;-implementation and not rewriting it, so UITableView&rsquo;s standard behaviour isn&rsquo;t changed.</p></li>
+<li><p><a href="https://gist.github.com/steipete/10541433">UITableViewMore</a></p>
+
+<p> Using the &ldquo;More&rdquo; button. Of course the simple way that Apple uses in Mail/iOS is not public. rdar://16600859</p></li>
+<li><p><a href="https://gist.github.com/scheinem/e36835db07486e9f7e64">tableViewEditActions</a></p>
+
+<p> iOS 8 beta 2: &lsquo;&#8217;tableView:editActionsForRowAtIndexPath:&#8221;</p></li>
+<li><p><a href="https://github.com/TeehanLax/UITableViewCell-Swipe-for-Options">UITableViewCell-Swipe-for-Options</a></p>
+
+<p> A reproduction of the iOS 7 Mail app&rsquo;s swipe-to-reveal options.
+ Most compact solution by Ash Furrow, uses a scroll view. Needs a few tweaks in scrollViewWillEndDragging: to better determine if the buttons should be displayed or hidden. Otherwise very simple and effective.</p></li>
+<li><p><a href="https://github.com/runmad/RMSwipeTableViewCell">RMSwipeTableViewCell</a></p>
+
+<p> RMSwipeTableViewCell is a drop-in UITableViewCell subclass that supports pan gestures as seen in apps such as Clear, Mailbox, Sparrow and many more.</p>
+
+<p> RMSwipeTableViewCell allows for easy subclassing to customize the cell to match your needs. The class exposes useful class methods and uses delegate callbacks to handle actions in your UITableViewController. RMSwipeTableViewCell is compatible with iOS 5 and higher!</p></li>
+</ol>
+
+
+<h3>Blur</h3>
+
+<ol>
+<li><p><a href="https://github.com/nicklockwood/FXBlurView">FXBlurView</a></p>
+
+<p> FXBlurView is a UIView subclass that replicates the iOS 7 realtime background blur effect, but works on iOS 5 and above. It is designed to be as fast and as simple to use as possible. FXBlurView offers two modes of operation: static, where the view is rendered only once when it is added to a superview (though it can be updated by calling setNeedsDisplay or updateAsynchronously:completion:) or dynamic, where it will automatically redraw itself on a background thread as often as possible.</p></li>
+<li><p><a href="https://github.com/ivoleko/ILTranslucentView">ILTranslucentView</a></p>
+
+<p> ILTranslucentView is a little subclass of UIView that provide native iOS 7+ blur (translucent) effect. It can be used on all iOS devices in real time without any performance problems. It also supports smooth UIView animation of color, frame, alpha etc.</p></li>
+<li><p><a href="https://github.com/cyndibaby905/TwitterCover">TwitterCover</a></p>
+
+<p> TwitterCover is a parallax top view with real time blur effect to any UIScrollView, inspired by Twitter for iOS.</p>
+
+<p> Completely created using UIKit framework.</p>
+
+<p> Easy to drop into your project.</p>
+
+<p> You can add this feature to your own project, TwitterCover is easy-to-use.</p></li>
+</ol>
+
+
+<h3>Calendar</h3>
+
+<ol>
+<li><p><a href="https://github.com/square/objc-TimesSquare">objc-TimesSquare</a></p>
+
+<p> TimesSquare is a library to display a calendar in a view in your iPhone or iPad app. We wrote it after searching high and low for a better way and finding none.</p></li>
+<li><p><a href="https://github.com/Mozharovsky/CVCalendar">CVCalendar</a></p>
+
+<p> A custom visual calendar for iOS 8 written in Swift.</p></li>
+<li><p><a href="https://github.com/nairteashop/NTMonthYearPicker">NTMonthYearPicker</a></p>
+
+<p> NTMonthYearPicker is a simple month / year picker component for use in iOS applications.</p>
+
+<p> I created this component because the standard iOS UIDatePicker component only allows you to specify full dates i.e. day, month and year, but I had a use case in which the user needed to specify only the month and the year, or only the year.</p>
+
+<p> I found a few other 3rd party iOS month/year picker implementations, but they either did not support many core properties of UIDatePicker such as <code>minimumDate</code> and <code>maximumDate</code>, or extended UIPickerView instead of UIControl, which meant that they would not emit UIControlEventValueChanged events like a UIDatePicker.</p>
+
+<p> NTMonthYearPicker extends UIControl, exactly like UIDatePicker does, and re-implements all relevant functionality. I would have liked to simply extend the UIDatePicker class, but I don&rsquo;t know if this is possible. If it is, please let me know so I can rework this component.</p></li>
+</ol>
+
+
+<h3>Welcome</h3>
+
+<ol>
+<li><p><a href="https://github.com/Dromaguirre/DRDynamicSlideShow">DRDynamicSlideShow</a></p>
+
+<p> Create beautiful, animated, paging UIScrollViews. Easily animate views as the UIScrollView gets paged. This is perfect for welcome screens and introduction views in iOS apps.</p></li>
+<li><p><a href="https://github.com/mamaral/Onboard">Onboard</a></p>
+
+<p> Onboard provides developers with a quick and easy means to create a beautiful, engaging, and useful onboarding experience with only a few lines of code.</p>
+
+<p> I currently have implementations written in both Objective-C and Swift, although currently due to time constraints the Swift implementation does not have all of the customization features available in the Objective-C version, namely the skipping feature, customizing different fonts for different components on the same page, etc. I will do my best to get the Swift version to match the Objective-C version as soon as possible, and any pull requests are welcomed in the meantime!</p></li>
+<li><p><a href="https://github.com/IFTTT/JazzHands">JazzHands</a></p>
+
+<p> Jazz Hands is a simple keyframe-based animation framework for UIKit. Animations can be controlled via gestures, scroll views, KVO, or ReactiveCocoa.</p>
+
+<p> Jazz Hands is used extensively in <a href="https://ifttt.com/mobile">IFTTT for iPhone and iPad</a>, most famously in the app intro</p></li>
+<li><p><a href="https://github.com/GnosisHub/GHWalkThrough">GHWalkThrough</a></p>
+
+<p> This is simple and customizable drop-in solution for showing app walkthroughs or intros.</p>
+
+<ul>
+<li>Configurable to walk through in horizontal and vertical directions</li>
+<li>Support for having custom floating header on all pages</li>
+<li>Supports fixed background image</li>
+</ul>
+</li>
+<li><p><a href="https://github.com/ealeksandrov/EAIntroView">EAIntroView</a></p>
+
+<p> This is highly customizable drop-in solution for introduction views. Some features (remember, most features are optional and can be turned off):</p>
+
+<ul>
+<li>beautiful demo project to look on some examples
+
+<ul>
+<li>customizability is unlimited, one can make complex introView with animations and interactive pages, so do not limit yourself with existing examples</li>
+</ul>
+</li>
+<li>for each basic page:
+
+<ul>
+<li>background (with cross-dissolve transition between pages)</li>
+<li>custom iOS7 motion effects (parallax) on background</li>
+<li>title view (+ Y position)</li>
+<li>title text (+ font, color and Y position)</li>
+<li>description text (+ font, color, width and Y position)</li>
+<li>subviews array (added to page after building default layout)</li>
+</ul>
+</li>
+<li>possibility to set your own custom view for page:
+
+<ul>
+<li>pageWithCustomView:</li>
+<li>pageWithCustomViewFromNibNamed:</li>
+</ul>
+</li>
+<li>possibility to set block action on page events:
+
+<ul>
+<li>pageDidLoad</li>
+<li>pageDidAppear</li>
+<li>pageDidDisappear</li>
+</ul>
+</li>
+<li>many options to customize parent view:
+
+<ul>
+<li>swipe from last page to close</li>
+<li>switching pages with one simple tap</li>
+<li>custom background image or color</li>
+<li>custom page control</li>
+<li>custom skip button</li>
+<li>pinned titleView (+ Y position, can be hidden on some pages)</li>
+</ul>
+</li>
+<li>delegate protocol to listen:
+
+<ul>
+<li>introDidFinish:</li>
+<li>intro:pageAppeared:withIndex:</li>
+</ul>
+</li>
+<li>actions on IntroView:
+
+<ul>
+<li>setPages:</li>
+<li>showInView:animateDuration:</li>
+<li>hideWithFadeOutDuration:</li>
+<li>setCurrentPageIndex:animated:</li>
+</ul>
+</li>
+<li>storyboard/IB support</li>
+</ul>
+</li>
+<li><p><a href="https://github.com/icepat/ICETutorial">ICETutorial</a></p>
+
+<p> This small project is an implementation of the newly tutorial introduced by the Path 3.X app. Very simple and efficient tutorial, composed with N full-screen pictures that you can swipe for switching to the next/previous page.</p>
+
+<p> Here are the features :</p>
+
+<ul>
+<li>Compose your own tutorial with N pictures</li>
+<li>Fixed incrusted title (can be easily replaced by an UIImageView, or just removed)</li>
+<li>Scrolling sub-titles for page, with associated descriptions (change the texts, font, color&hellip;)</li>
+<li>Auto-scrolling (enable/disable, loop, setup duration)</li>
+<li>Cross fade between next/previous background</li>
+<li>Easy to use block access to button&rsquo;s events.</li>
+</ul>
+</li>
+</ol>
+
+
+<h3>QRCode</h3>
+
+<ol>
+<li><p><a href="https://github.com/fukuchi/libqrencode">libqrencode</a></p>
+
+<p> QR Code encoding library <a href="http://fukuchi.org/works/qrencode/">http://fukuchi.org/works/qrencode/</a></p>
+
+<p> Libqrencode is a library for encoding data in a QR Code symbol, a 2D symbology that can be scanned by handy terminals such as a mobile phone with CCD. The capacity of QR Code is up to 7000 digits or 4000 characters and has high robustness.</p>
+
+<p> Libqrencode accepts a string or a list of data chunks then encodes in a QR Code symbol as a bitmap array. While other QR Code applications generate an image file, using libqrencode allows applications to render QR Code symbols from raw bitmap data directly. This library also contains a command-line utility outputs a QR Code symbol as a PNG image.</p>
+
+<p> Libqrencode supports QR Code model 2, described in JIS (Japanese Industrial Standards) X0510:2004 or ISO/IEC 18004. Most of features in the specification are implemented such as:</p>
+
+<ul>
+<li>Numeric, alphabet, Japanese kanji (Shift-JIS) or any 8 bit code can be embedded</li>
+<li>Optimized encoding of a string</li>
+<li>Structured-append of symbols</li>
+<li>Micro QR Code (experimental)</li>
+</ul>
+
+
+<p> Currently the following features are not supported:</p>
+
+<ul>
+<li>ECI and FNC1 mode</li>
+<li>QR Code model 1 (deprecated)</li>
+</ul>
+</li>
+</ol>
+
+
+<h3>Chart</h3>
+
+<ol>
+<li><p><a href="https://github.com/eternityz/RWBarChartView">RWBarChartView</a></p>
+
+<p> A scrollable, highly customizable and easy to use charting view for bar graphs. Introduced in <a href="http://air.fresh-ideas.cc/">China Air Quality Index</a>.</p>
+
+<p> Features</p>
+
+<ul>
+<li>Bars can be organized into sections. Section titles can be displayed stationarily while scrolling (like plain UITableView).</li>
+<li>Each bar can have one or more segments with different colors assigned.</li>
+<li>Each bar can have its description text. Label for description text can be used as scrolling indicator.</li>
+<li>Appearance tweeks. See RWBarChartView.h for more details.</li>
+<li>Optional vertical axis beneath the bars.</li>
+<li>UITableView like data source protocol.</li>
+</ul>
+</li>
+<li><p><a href="https://github.com/kevinzhow/PNChart">PNChart</a></p>
+
+<p> You can also find swift version at here <a href="https://github.com/kevinzhow/PNChart-Swift">https://github.com/kevinzhow/PNChart-Swift</a></p>
+
+<p> A simple and beautiful chart lib with animation used in <a href="https://itunes.apple.com/us/app/piner/id637706410">Piner</a> and <a href="https://itunes.apple.com/us/app/coinsman/id772163893">CoinsMan</a> for iOS</p></li>
+<li><p><a href="https://github.com/kevinzhow/PNChart-Swift">PNChart-Swift</a></p>
+
+<p> A simple and beautiful chart lib used in Piner and CoinsMan for iOS(<a href="https://github.com/kevinzhow/PNChart">https://github.com/kevinzhow/PNChart</a>) Swift Implementation</p></li>
+<li><p><a href="https://github.com/Boris-Em/BEMSimpleLineGraph">BEMSimpleLineGraph</a></p>
+
+<p> BEMSimpleLineGraph is a charting library that makes it easy to create beautiful line graphs for iOS. It is easy to set-up and to use in any iOS Project. It&rsquo;s focused on highly customizable and interactive line graphs. Plus, it is lightweight and can be integrated in minutes (maybe even seconds).</p>
+
+<p> BEMSimpleLineGraph&rsquo;s implementation, data source, and delegate are all modeled off of UITableView and UICollectionView. If you&rsquo;re familiar with using a UITableView, UITableViewController, or UICollectionView, using BEMSimpleLineGraph should be a breeze!</p></li>
+<li><p><a href="https://github.com/xyfeng/XYPieChart">XYPieChart</a></p>
+
+<p> XYPieChart is an simple and easy-to-use pie chart for iOS app. It started from a <a href="http://www.potiondesign.com/">Potion</a> Project which needs an animated pie graph without interaction. All animation was implemented in the drawRect: method. After played with <a href="https://github.com/briancoyner/Core-Animation-Pie-Chart">BTSPieChart</a>, really like its code structure, it’s clean, has well named functions, structure like a UITableView. XYPieChart rewrote the code, based on CALayers for the animation. Compared to BTSPieChart, XYPieChart is a prettier version, it has a simpler insert/delete slices algorithm, different design of slice selection, more flexible to customize.</p>
+
+<p> Features</p>
+
+<ul>
+<li>Customized color for slices (default color supported)</li>
+<li>animated insert/delete slice(s)</li>
+<li>slice selection animation</li>
+<li>text label option of showing percentage or actual value</li>
+<li>text label auto-hide when slice is too small</li>
+<li>customizable text label font and relative postion</li>
+<li>pie opening/closing animation</li>
+<li>pie starting angle support</li>
+<li>ARC support</li>
+<li>interface builder support</li>
+</ul>
+</li>
+<li><p><a href="https://github.com/AlexandrGraschenkov/MagicPie">MagicPie</a></p>
+
+<p> Powerful pie layer for creating your own pie view. PieLayer provide great animation with simple usage.</p>
+
+<p> The main advantage of that control that there is no worry about displaying of animation. Animation will display correctly even if you will add new elements during execution of another slice deleting animation. That&rsquo;s amazing! And here is no delegates. I like delegates, but in this case I think they are excess.</p></li>
+<li><p><a href="https://github.com/danielgindi/ios-charts">ios-charts</a></p>
+
+<p> An iOS port of the beautiful MPAndroidChart. &ndash; Beautiful charts for iOS apps!</p>
+
+<p> Okay so there&rsquo;s this beautiful library called <a href="https://github.com/PhilJay/MPAndroidChart">MPAndroidChart</a> by <a href="https://www.linkedin.com/in/philippjahoda">Philipp Jahoda</a> which has become very popular amongst Android developers, and in the meanwhile there&rsquo;s no decent charting solution for iOS.</p>
+
+<p> I&rsquo;ve chosen to write it in Swift as it can be highly optimized by the compiler, and can be used in both Swift and ObjC project. The demo project is written in ObjC to demonstrate how it works.</p>
+
+<p> An amazing feature of this library now, both Android and iOS, is the time it saves you when developing for both platforms, as the learning curve is singleton- it happens only once, and the code stays very similar so developers don&rsquo;t have to go around and re-invent the app to produce the same output with a different library. (And that&rsquo;s not even considering the fact that there&rsquo;s not really another good choice out there currently&hellip;)</p>
+
+<p> Core features:</p>
+
+<ul>
+<li>8 different chart types</li>
+<li>Scaling on both axes (with touch-gesture, axes separately or pinch-zoom)</li>
+<li>Dragging / Panning (with touch-gesture)</li>
+<li>Combined-Charts (line-, bar-, scatter-, candle-stick-, bubble-)</li>
+<li>Dual (separate) Y-Axis</li>
+<li>Finger drawing (draw values into the chart with touch-gesture)</li>
+<li>Highlighting values (with customizeable popup-views)</li>
+<li>Multiple / Separate Axes</li>
+<li>Save chart to camera-roll / export to PNG/JPEG</li>
+<li>Predefined color templates</li>
+<li>Legends (generated automatically, customizeable)</li>
+<li>Customizeable Axes (both x- and y-axis)</li>
+<li>Animations (build up animations, on both x- and y-axis)</li>
+<li>Limit lines (providing additional information, maximums, &hellip;)</li>
+<li>Fully customizeable (paints, typefaces, legends, colors, background, gestures, dashed lines, &hellip;)</li>
+</ul>
+</li>
+</ol>
+
+
+<h3>Keyboard</h3>
+
+<ol>
+<li><p><a href="https://github.com/venmo/VENCalculatorInputView">VENCalculatorInputView</a></p>
+
+<p> VENCalculatorInputView is the calculator keyboard that is used in the <a href="https://venmo.com/">Venmo</a> iOS app. Available for iOS 6 and beyond. Enjoy.</p>
+
+<p> You can choose to use just <code>VENCalculatorInputView</code> (only the keyboard) and define your own behavior or use <code>VENCalculatorInputTextField</code> (keyboard + text field with money calculation built in).</p></li>
+<li><p><a href="https://github.com/Brimizer/Slidden">Slidden</a></p>
+
+<p> Slidden is an open source, customizable, iOS 8 keyboard, written in Swift. iOS 8 brought us the ability to create fully customizable keyboards, but does not provide a strong foundation to start from. Slidden aims to remedy that by providing an easy way to get started making your own iOS keyboards.</p>
+
+<p> Slidden is in its early stages of life. Code will change dramatically between updates. Please consider contributing your ideas if you think something is missing!</p></li>
+<li><p><a href="https://github.com/ayushgoel/AGEmojiKeyboard">AGEmojiKeyboard</a></p>
+
+<p> An alternate keyboard for iOS that displays all the emojis supported by iOS.</p>
+
+<p> Additions that need to be done</p>
+
+<ul>
+<li>stickers</li>
+<li>custom emojis (different font)</li>
+</ul>
+</li>
+</ol>
+
+
+<h3>InputView</h3>
+
+<ol>
+<li><p><a href="https://github.com/slackhq/SlackTextViewController">SlackTextViewController</a></p>
+
+<p> A drop-in UIViewController subclass with a growing text input view and other useful messaging features. Meant to be a replacement for UITableViewController &amp; UICollectionViewController.</p>
+
+<p> This library is used in Slack&rsquo;s iOS app. It was built to fit our needs, but is flexible enough to be reused by others wanting to build great messaging apps for iOS.</p>
+
+<p> Features</p>
+
+<ul>
+<li><p>Core</p>
+
+<ul>
+<li>Works out of the box with <a href="https://github.com/slackhq/SlackTextViewController/tree/swift-example#subclassing">UITableView or UICollectionView or UIScrollView</a></li>
+<li><a href="https://github.com/slackhq/SlackTextViewController#growing-text-view">Growing Text View</a>, with line count limit support</li>
+<li>Flexible UI built with Auto Layout</li>
+<li>Customizable: provides left and right button, and toolbar outlets</li>
+<li>Tap Gesture for dismissing the keyboard</li>
+<li><a href="https://github.com/slackhq/SlackTextViewController#panning-gesture">Panning Gesture</a> for sliding down the keyboard</li>
+<li><a href="https://github.com/slackhq/SlackTextViewController#external-keyboard">External keyboard</a> commands support</li>
+<li>Undo/Redo (with keyboard commands and UIMenuController)</li>
+<li>Text Appending APIs</li>
+</ul>
+</li>
+<li><p>Optional</p>
+
+<ul>
+<li><a href="https://github.com/slackhq/SlackTextViewController#autocompletion">Autocomplete Mode</a> by registering any prefix key (@, #, /)</li>
+<li><a href="https://github.com/slackhq/SlackTextViewController#edit-mode">Edit Mode</a></li>
+<li><a href="https://github.com/slackhq/SlackTextViewController#typing-indicator">Typing Indicator</a> display</li>
+<li><a href="https://github.com/slackhq/SlackTextViewController#shake-gesture">Shake Gesture</a> for clearing text view</li>
+<li>Multimedia Pasting (png, gif, mov, etc.)</li>
+<li><a href="https://github.com/slackhq/SlackTextViewController#inverted-mode">Inverted Mode</a> for displaying cells upside-down (using CATransform) &mdash; a necessary hack for some messaging apps. YES by default, so beware, your entire cells might be flipped!</li>
+<li>Bouncy Animations</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><p><a href="https://github.com/bkook/BKMoneyKit">BKMoneyKit</a></p>
+
+<p> iOS UI controls and formatters for entering money, credit card number and expiry date.</p>
+
+<ul>
+<li><code>BKCardNumberField</code>    Subclass of UITextField that supports formatting card number. You can show card logo image by setting <code>showsCardLogo</code> to <code>YES</code>.</li>
+<li><code>BKCardNumberLabel</code>    Subclass of UILabel that displays formatted card number and card brand logo. You can mask card number by configuring <code>cardNumberFormatter</code>.</li>
+<li><code>BKCardNumberFormatter</code>   Subclass of NSFormatter. This class has card number pattern information inside and formats according to patterns. You can customize masking behavior, masking character and group separater character.</li>
+<li><code>BKCardExpiryField</code>   Subclass of UITextField that supports formatting card number expiry date.</li>
+<li><code>BKCurrencyTextField</code> Subclass of UITextField that supports formatting money amount. You can change currency by changing the <code>currencyCode</code> property of <code>numberFormatter</code>.</li>
+</ul>
+</li>
+<li><p><a href="https://github.com/zhanleewo/ZLMailComposerViewController">ZLMailComposerViewController</a></p>
+
+<p> A Customized Email Composer for iOS.</p></li>
+<li><p><a href="https://github.com/EddyBorja/MLPAutoCompleteTextField">MLPAutoCompleteTextField</a></p>
+
+<p> MLPAutoCompleteTextField is a subclass of UITextField that behaves like a typical UITextField with one notable exception: it manages a drop down table of autocomplete suggestions that update as the user types. Its behavior may remind you of Google&rsquo;s autocomplete search feature. As of version 1.3 there is also support for showing the autocomplete table as an accessory view of the keyboard.</p></li>
+<li><p><a href="https://github.com/TomSwift/TSCurrencyTextField">TSCurrencyTextField</a></p>
+
+<p> TSCurrencyTextField is a UITextField subclass that behaves like an ATM currency-amount entry field: the user can enter decimal digits only and the field formats that input into a currency amount, complete with currency symbol ($), decimal point (.), and group separators (,).</p></li>
+<li><p><a href="https://github.com/venmo/VENTokenField">VENTokenField</a></p>
+
+<p> <code>VENTokenField</code> is the recipients token field that is used in the Venmo compose screen.</p></li>
+</ol>
+
+
+<h3>WebView</h3>
+
+<ol>
+<li><p><a href="https://github.com/ninjinkun/NJKWebViewProgress">NJKWebViewProgress</a></p>
+
+<p> NJKWebViewProgress is a progress interface library for UIWebView. Currently, UIWebView doesn&rsquo;t have official progress interface. You can implement progress bar for your in-app browser using this module.
+ NJKWebViewProgress doesn&rsquo;t use CocoaTouch&rsquo;s private methods. It&rsquo;s AppStore safe.</p></li>
+<li><p><a href="https://github.com/TimOliver/TOWebViewController">TOWebViewController</a></p>
+
+<p> TOWebViewController is an open-source   <code>UIViewController</code> subclass designed to fulfill one goal: to be able to quickly present a web page to the user, without needing to leave the current app.</p>
+
+<p> TOWebViewController has been designed from the ground up to be easily integrated into existing projects, and to optionally be backwards compatible with earlier versions of iOS.</p>
+
+<p> Features</p>
+
+<ul>
+<li>Backwards compatible down to iOS 5.</li>
+<li>Full navigation buttons set, including back, forward, refresh and an optional &lsquo;action&rsquo; button.</li>
+<li>Detects whether being pushed modally via [UIViewController presentViewController] or being pushed onto a UINavigationController stack and adjusts the UI accordingly.</li>
+<li>A page load progress bar (using <a href="https://github.com/ninjinkun/NJKWebViewProgress">ninjinkun&rsquo;s amazing algorithm</a> )</li>
+<li>Plays a smooth, elegant rotation animation if/when the user rotates the device</li>
+<li>Icons are procedurally generated by CoreGraphics (ie, no un-necessary iOS 6 icons if you&rsquo;re only targeting iOS 7)</li>
+<li>(TODO) Implement a confirmation dialog when the web view tries to switch to another app.</li>
+<li>(TODO) Re-implement the popup that appears when users tap and hold a link for added flexibility.</li>
+<li>(TODO) An optional text field for which users may manually enter in a URL</li>
+<li>(TODO) A proper delegate system to allow external classes to interact with this controller.</li>
+<li>(TODO) A rudimentary bookmark system.</li>
+</ul>
+</li>
+</ol>
+
+
+<h3>TableView</h3>
+
+<ol>
+<li><p><a href="https://github.com/2359media/STXDynamicTableView">STXDynamicTableView</a></p>
+
+<p> Rebuilding of Instagram&rsquo;s dynamic table view. <a href="http://engineering.2359media.net/blog/2014/04/16/rebuilding-instagram-feed-table-view/">http://engineering.2359media.net/blog/2014/04/16/rebuilding-instagram-feed-table-view/</a></p>
+
+<p> STXDynamicTableView is designed to solve the common use case to display a feed of photos with their corresponding likes, caption, and comments. It&rsquo;s inspired by Instagram feed table view.</p></li>
+</ol>
+
+
+<h3>ImageView</h3>
+
+<ol>
+<li><p><a href="https://github.com/johnil/VVeboImageView">VVeboImageView</a></p>
+
+<p> A UIImageView to play gif with low memory.</p></li>
+<li></li>
+</ol>
+
+
+<h3>Clock</h3>
+
+<ol>
+<li><p><a href="https://github.com/Boris-Em/BEMAnalogClock">BEMAnalogClock</a></p>
+
+<p> BEMAnalogClock makes it easy to create and customize clocks for iOS.</p></li>
+<li></li>
+</ol>
+
+
+<h1>Tools</h1>
+
+<ol>
+<li><p><a href="https://github.com/blommegard/APNS-Pusher">APNS-Pusher</a></p>
+
+<p> A simple debug application for Apple Push Notification Service (APNS).</p>
+
+<p> Features</p>
+
+<ul>
+<li>Send push notifications to APNS (Apple Push Notification Service) very easily (no configuration needed at all)</li>
+<li>Grabs the certificate right from your keychain</li>
+<li>Get the device token automatically via Bonjour; forget about manually retrieving the device token through logging or similar techniques. Useful when not in sandbox mode</li>
+<li>Support for error response codes</li>
+<li>Detects Development/Production environment automatically</li>
+<li>Custom JSON payloads</li>
+<li>Identity export to PEM format (⌘ + E)</li>
+</ul>
+</li>
+<li><p><a href="https://github.com/swisspol/GCDWebServer">GCDWebServer</a></p>
+
+<p> GCDWebServer is a modern and lightweight GCD based HTTP 1.1 server designed to be embedded in OS X &amp; iOS apps. It was written from scratch with the following goals in mind:</p>
+
+<ul>
+<li>Elegant and easy to use architecture with only 4 core classes: server, connection, request and response (see &ldquo;Understanding GCDWebServer&rsquo;s Architecture&rdquo; below)</li>
+<li>Well designed API with fully documented headers for easy integration and customization</li>
+<li>Entirely built with an event-driven design using Grand Central Dispatch for best performance and concurrency</li>
+<li>No dependencies on third-party source code</li>
+<li>Available under a friendly New BSD License</li>
+</ul>
+
+
+<p> Extra built-in features:</p>
+
+<ul>
+<li>Allow implementation of fully asynchronous handlers of incoming HTTP requests</li>
+<li>Minimize memory usage with disk streaming of large HTTP request or response bodies</li>
+<li>Parser for web forms submitted using &ldquo;application/x-www-form-urlencoded&rdquo; or &ldquo;multipart/form-data&rdquo; encodings (including file uploads)</li>
+<li>JSON parsing and serialization for request and response HTTP bodies</li>
+<li>Chunked transfer encoding for request and response HTTP bodies</li>
+<li>HTTP compression with gzip for request and response HTTP bodies</li>
+<li>HTTP range support for requests of local files</li>
+<li>Basic and Digest Access authentications for password protection</li>
+<li>Automatically handle transitions between foreground, background and suspended modes in iOS apps</li>
+<li>Full support for both IPv4 and IPv6</li>
+</ul>
+
+
+<p> Included extensions:</p>
+
+<ul>
+<li>GCDWebUploader: subclass of GCDWebServer that implements an interface for uploading and downloading files using a web browser</li>
+<li>GCDWebDAVServer: subclass of GCDWebServer that implements a class 1 WebDAV server (with partial class 2 support for OS X Finder)</li>
+</ul>
+
+
+<p> What&rsquo;s not supported (but not really required from an embedded HTTP server):</p>
+
+<ul>
+<li>Keep-alive connections</li>
+<li>HTTPS</li>
+</ul>
+</li>
+<li><p><a href="https://github.com/krzysztofzablocki/crafter">crafter</a></p>
+
+<p> How do you setup your Cocoa projects? Do you always set same warnings, clone configurations and do bunch of other stuff? Or maybe you work in a big company and you are missing some standardised setup?</p>
+
+<p> Programmers tend to automatise boring and repetitive tasks, yet I often see people spending time and time again configuring their Xcode Projects, even thought they always set it up same way.</p>
+
+<p> We all know that Xcode templating system is far from perfect, beside we often use different templates, but same level of warnings, scripts etc.</p>
+
+<p> What if you could define your project setup once (even with optional stuff) then just apply that to all your projects?</p>
+
+<p> That&rsquo;s why I&rsquo;ve created crafter, a ruby gem that you can install, setup your configuration once and enjoy hours of time saved.</p></li>
+<li><p><a href="https://fastlane.tools">fastlane</a></p>
+
+<p> fastlane lets you define and run your deployment pipelines for different environments. It helps you unify your app’s release process and automate the whole process. fastlane connects all fastlane tools and third party tools, like CocoaPods and xctool.</p>
+
+<p> Fastlane can do a lot for you to automate tedious and time-consuming parts of your job.</p>
+
+<ul>
+<li>Connect all tools, part of the <code>fastlane</code> toolchain to work seamlessly together.</li>
+<li>Define different deployment lanes for App Store deployment, beta builds or testing.</li>
+<li>Deploy from any computer.</li>
+<li><a href="https://github.com/KrauseFx/fastlane/blob/master/docs/Jenkins.md">Jenkins Integration</a>: Show the output directly in the Jenkins test results.</li>
+<li>Write your <a href="https://github.com/KrauseFx/fastlane/blob/master/docs#extensions">own actions</a> (extensions) to extend the functionality of fastlane.</li>
+<li>Store data like the <code>Bundle Identifier</code> or your <code>Apple ID</code> once and use it across all tools.</li>
+<li>Never remember any difficult commands, just <code>fastlane</code>.</li>
+<li>Easy setup, which helps you getting up and running very fast.</li>
+<li><a href="https://github.com/KrauseFx/fastlane/blob/master/docs/Advanced.md#lane-context">Shared context</a>, which is used to let the different deployment steps communicate with each other.</li>
+<li>Store everything in git. Never lookup the used build commands in the Jenkins configs.</li>
+<li>Saves you hours of preparing app submission, uploading screenshots and deploying the app for each update.</li>
+<li>Very flexible configuration using a fully customizable <code>Fastfile</code>.</li>
+<li>Once up and running, you have a fully working Continuous Deployment process. Just trigger <code>fastlane</code> and you&rsquo;re good to go.</li>
+<li>Over 30 built-in integrations available.</li>
+</ul>
+</li>
+<li><p><a href="http://www.quickpicturetools.com/en/rounded_corners/">Rounded Corners</a></p>
+
+<p>  在线生成圆角图片</p></li>
+<li><p><a href="https://github.com/JamieMason/ImageOptim-CLI">ImageOptim-CLI</a></p>
+
+<p> Automates <a href="http://imageoptim.com/">ImageOptim</a>, <a href="http://pngmini.com/">ImageAlpha</a>, and <a href="http://jpegmini.com/mac">JPEGmini for Mac</a> to make batch optimisation of images part of your automated build process.</p>
+
+<p> While other image optimization tools are available from the command line, ImageOptim-CLI exists because the current benchmarks suggest that <a href="http://imageoptim.com/">ImageOptim</a>, <a href="http://pngmini.com/">ImageAlpha</a> and <a href="http://jpegmini.com/mac">JPEGmini</a> currently outperform those alternatives over lossless and lossy optimizations.</p></li>
+<li><p><a href="http://submit.icoicon.com">icoicon</a></p>
+
+<p> 通过 iOS App 的 iTunes url 获得全尺寸的 App icon</p></li>
+<li><p><a href="https://rollout.io">rollout.io</a></p>
+
+<p> React to your production issues in real time. Access your app&rsquo;s functions and patch them using pre-defined solutions with Rollout.io&rsquo;s SDK.</p>
+
+<p> Users can receive in-app alert messages on features that are currently inactive. Keeping them in the loop helps avoid bad reviews.</p>
+
+<p> Stop basing your reports on what you knew 2 weeks ago. Add or disable events on the fly (flux capacitor included). No more waiting for a release cycle just send a new event.</p>
+
+<p> A ground-breaking approach for root cause analysis. Add logs to your app in production, scan your stack trace for its&#8217; arguments when the crash happens and add breakpoints to a running session.</p></li>
+</ol>
+
+</div>
+
+
+  <footer>
+    <p class="meta">
+      
+  
+
+<span class="byline author vcard">Posted by <span class="fn">xuguoxing</span></span>
+
+      
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2015-04-23T11:00:21+08:00" pubdate data-updated="true">Apr 23<span>rd</span>, 2015</time>
+      
+
+
+    </p>
+    
+      <div class="sharing">
+  
+  <a href="//twitter.com/share" class="twitter-share-button" data-url="http://xuguoxing.github.io/blog/2015/04/23/build-ios-apps-from-scratch/" data-via="xuguoxing" data-counturl="http://xuguoxing.github.io/blog/2015/04/23/build-ios-apps-from-scratch/" >Tweet</a>
+  
+  
+  
+    <div class="fb-like" data-send="true" data-width="450" data-show-faces="false"></div>
+  
+</div>
+
+    
+    <p class="meta">
+      
+        <a class="basic-alignment left" href="/blog/2015/04/18/vocabulary/" title="Previous Post: vocabulary">&laquo; vocabulary</a>
+      
+      
+        <a class="basic-alignment right" href="/blog/2015/05/01/sentence/" title="Next Post: sentence">sentence &raquo;</a>
+      
+    </p>
+  </footer>
+</article>
+
+</div>
+
+<aside class="sidebar">
+  
+    <section>
+  <h1>Recent Posts</h1>
+  <ul id="recent_posts">
+    
+      <li class="post">
+        <a href="/blog/2015/05/01/sentence/">Sentence</a>
+      </li>
+    
+      <li class="post">
+        <a href="/blog/2015/04/23/build-ios-apps-from-scratch/">Build iOS Apps From Scratch</a>
+      </li>
+    
+      <li class="post">
+        <a href="/blog/2015/04/18/vocabulary/">Vocabulary</a>
+      </li>
+    
+      <li class="post">
+        <a href="/blog/2015/01/22/symbolicatecrash/">Symbolicatecrash</a>
+      </li>
+    
+      <li class="post">
+        <a href="/blog/2014/10/23/cocoapods/">CocoaPods</a>
+      </li>
+    
+      <li class="post">
+        <a href="/blog/2014/08/18/hosts/">Hosts</a>
+      </li>
+    
+      <li class="post">
+        <a href="/blog/2014/08/16/excluded-source-file-names/">EXCLUDED_SOURCE_FILE_NAMES</a>
+      </li>
+    
+      <li class="post">
+        <a href="/blog/2014/06/09/jenkins/">Jenkins</a>
+      </li>
+    
+      <li class="post">
+        <a href="/blog/2014/06/09/ocmock/">OCMock</a>
+      </li>
+    
+      <li class="post">
+        <a href="/blog/2014/05/23/xctest/">XCTest</a>
+      </li>
+    
+  </ul>
+</section>
+
+
+
+
+
+  
+</aside>
+
+
+    </div>
+  </div>
+  <footer role="contentinfo"><p>
+  Copyright &copy; 2015 - xuguoxing -
+  <span class="credit">Powered by <a href="http://octopress.org">Octopress</a></span>
+</p>
+
+</footer>
+  
+
+
+
+<div id="fb-root"></div>
+<script>(function(d, s, id) {
+  var js, fjs = d.getElementsByTagName(s)[0];
+  if (d.getElementById(id)) {return;}
+  js = d.createElement(s); js.id = id; js.async = true;
+  js.src = "//connect.facebook.net/en_US/all.js#appId=212934732101925&xfbml=1";
+  fjs.parentNode.insertBefore(js, fjs);
+}(document, 'script', 'facebook-jssdk'));</script>
+
+
+
+
+
+  <script type="text/javascript">
+    (function(){
+      var twitterWidgets = document.createElement('script');
+      twitterWidgets.type = 'text/javascript';
+      twitterWidgets.async = true;
+      twitterWidgets.src = '//platform.twitter.com/widgets.js';
+      document.getElementsByTagName('head')[0].appendChild(twitterWidgets);
+    })();
+  </script>
+
+
+
+
+
+</body>
+</html>
