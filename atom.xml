@@ -4,7 +4,7 @@
   <title><![CDATA[iOS App]]></title>
   <link href="http://xuguoxing.github.io/atom.xml" rel="self"/>
   <link href="http://xuguoxing.github.io/"/>
-  <updated>2015-05-08T21:34:52+08:00</updated>
+  <updated>2015-05-14T15:16:30+08:00</updated>
   <id>http://xuguoxing.github.io/</id>
   <author>
     <name><![CDATA[xuguoxing]]></name>
@@ -12,6 +12,211 @@
   </author>
   <generator uri="http://octopress.org/">Octopress</generator>
 
+  
+  <entry>
+    <title type="html"><![CDATA[iPhone &amp; iPad App Marketing Checklist]]></title>
+    <link href="http://xuguoxing.github.io/blog/2015/05/14/iphone-and-ipad-app-marketing-checklist/"/>
+    <updated>2015-05-14T11:40:25+08:00</updated>
+    <id>http://xuguoxing.github.io/blog/2015/05/14/iphone-and-ipad-app-marketing-checklist</id>
+    <content type="html"><![CDATA[<p><a href="https://sensortower.com/iphone-app-marketing">https://sensortower.com/iphone-app-marketing</a></p>
+
+<ol>
+<li><p>Icon and Icon and Screenshots</p>
+
+<p> Visuals that show off your App are vital for success</p>
+
+<ul>
+<li><p>Design a good meaningful icon</p>
+
+<p>  Great Icons dive up conversion</p>
+
+<p>  Having a great icon that explain the app&rsquo;s functionality can greatly increase App downloads. Icons that are too abstract or company logos do not perform as well. Here are some good best practices when <a href="http://www.pixelresort.com/blog/iphone-App-icon-design-best-practises/">designing icons</a>.</p></li>
+<li><p>Test App icon for conversion</p>
+
+<p>  A Well converting icon greatly increase downloads.</p>
+
+<p>  Having an interesting and pretty icon is great,but one that converts really well is even better. Try running some <a href="https://en.wikipedia.org/wiki/A/B_testing">A/B Tests</a> on your icon via banners or within other apps to measure conversion.</p></li>
+<li><p>Select good first screenshot</p>
+
+<p>  Most users decide based on the first screenshot.</p>
+
+<p>  The first thing every user sees when looking at your app is the icon and the screenshot. The initial screenshot is essential to convince users that your app delivers on the functinality they are looking for. Learn how to design a <a href="http://blog.sensortower.com/blog/2013/05/05/why-iphone-app-screenshots-matter-and-how-to-make-good-ones/">great first screenshot</a> for your app.</p></li>
+<li><p>separate screenshots for different devices.</p>
+
+<p>  Optimizing for multiple device is essencial.</p>
+
+<p>  While there are more iPhones then iPads, supporting all the different devices is still important. Having an iPad specific version can do wonders for app exposure. iOS8 is also right around the corner. Learn about supporting <a href="https://developer.apple.com/ios8/">iOS8</a> and <a href="http://www.raywenderlich.com/1111/how-to-port-an-iphone-application-to-the-ipad">universal apps</a>.</p></li>
+<li><p>Use all five screenshot slot</p>
+
+<p>  Show the user the depth of the App</p>
+
+<p>  You get five screenshots to show off your app &mdash; use all of them! Make sure your screenshots convery your app&rsquo;s strengths and are enticing for the users.There are great articles about <a href="http://www.designboost.net/how-to-design-iphone-screenshots-that-sell/">apps with great screenshots</a>, or you can learn from <a href="https://sensortower.com/ios/rankings/top/iphone/us/all-categories">top ranking apps</a> that do this well.</p></li>
+</ul>
+</li>
+<li><p>Conversion</p>
+
+<p> Your need to be able to convince users to install the app.</p>
+
+<ul>
+<li><p>Write a good description</p>
+
+<p>  Descriptions convince users to install.</p>
+
+<p>  Users that aren&rsquo;t convinced to install right away will read your description to make up their mind. Focus on the first few lines that are visible on the phone and don&rsquo;t be afraid to test similar to how <a href="http://futureperfectpublishing.com/2009/01/23/the-sticky-goodness-of-testing-book-titles-with-google-adwords/">book authors use Google Adwords</a>. A well converting description make your other effort easier.</p></li>
+<li><p>Create an app Website</p>
+
+<p>  You need one to support users, so might as well promote your app there.</p>
+
+<p>  Your will need an App Website to support your users &mdash; you might as well promote your app there too! <a href="http://www.apptamin.com/blog/app-landing-page-or-website/">A good app loading page</a> can drive traffic to your app.</p></li>
+<li><p>Give your app a boost with paid Ads</p>
+
+<p>  Ads are expensive,but they work.</p>
+
+<p>  If you have a budget to spend money on app Ads,there are a lot of options. <a href="http://www.mobileapptracking.com/">Mobile App Tracking</a> is an all-in-one SDK that&rsquo;s popular with games, and <a href="https://developers.facebook.com/blog/post/2012/08/07/introducing-new-mobile-ads-for-apps/">Facebook Ads</a> have recently taken off.</p></li>
+<li><p>Cross promote within your other apps</p>
+
+<p>  Your other apps can drive installs to your new app</p>
+
+<p>  Many successful publishers like Rovio,Halfbrick and SuperCell use app cross promotion, and their efforts can put an app to the top of the chars.While not every app might have the same kind of reach,any sort of boose your app can get is helpful.</p></li>
+<li><p>Record an App trailer and video</p>
+
+<p>  Video engages your user more.</p>
+
+<p>  A great video showcasing your app can entice users to try it out. You can place it on your app&rsquo;s landing page to give a quick overview of your app&rsquo;s functionality. Take a look at some <a href="http://www.appolicious.com/tech/articles/8746-guest-blog-great-resources-for-building-a-killer-app-trailer">trailer resouces</a> or get a service to <a href="http://apptamin.com/">make one</a> for you.</p></li>
+</ul>
+</li>
+<li><p>Search Visibility</p>
+
+<p> Apps that show up often in the App Store get many more download.</p>
+
+<ul>
+<li><p>Optimize keywords for Search Visibility</p>
+
+<p>  App Store Visibility can be difference between success and an app withering out of sight.</p>
+
+<p>  You can&rsquo;t rely on ads or Apple featureing your app as your distribution strategy. Being visibile in App Store Search is a critical step most app developers forget &mdash; avoid these <a href="http://blog.sensortower.com/blog/2012/09/25/most-common-itunes-connect-keyword-mistakes/">common iTunes Connect keyword mistakes</a> and you will stand above most app.</p></li>
+<li><p>Write a good App Title tagline</p>
+
+<p>  Your app&rsquo;s title helps with search visibility and conversion.</p>
+
+<p>  While short app titles are good lokking, for titles other than games having a tagline after the app name(ie.<a href="https://itunes.apple.com/us/app/notability-take-notes-annotate/id360593530?mt=8">Notablity &ndash; Take Notes &amp; Annotate PDFs</a>) both help with app store visibility and with explaing to your users what your app is about.</p></li>
+<li><p>Research competing Apps</p>
+
+<p>  Let your competitors do your research for you.</p>
+
+<p>  Knowing what your competitors do well and where they lack is often important for the way you position your own app. <a href="https://sensortower.com/node/discover-new-apps-for-iphone-and-ipad.html">Research</a> your competitor&rsquo;s apps and don&rsquo;t make the mistakes they do.</p></li>
+<li><p>Internationalize the App&rsquo;s metadata</p>
+
+<p>  There are a lot of users outside the US.</p>
+
+<p>  While the US market is the biggest,ignoring other markets is often a mistake. Most of the top charting apps are very <a href="https://sensortower.com/ios/us/teamlava/app/dragon_story/513474544">international</a> and over 75% of their users come outside the US. Plus there is less competition between international apps, so <a href="https://developer.apple.com/internationalization/">localize your meta-data</a>.</p></li>
+<li><p>Make your App Free!</p>
+
+<p>  Free apps make more profit.</p>
+
+<p>  The majority of top overall grossing apps are all <a href="https://sensortower.com/ios/rankings/top/iphone/us/all-categories">free with in-app-purchases</a>.Making your app free can drive exposure to your app, and typically free apps have more than one <a href="http://techcrunch.com/2012/08/26/how-free-apps-can-make-more-money-than-paid-apps/">monetization stratedy</a>.</p></li>
+</ul>
+</li>
+<li><p>Socail Outreach</p>
+
+<p> Engagind with users and social infuencers helps you maintain momentum.</p>
+
+<ul>
+<li><p>Get friends &amp; family to rate the app five stars</p>
+
+<p>  Fake it until you make it.</p>
+
+<p>  Initial reviews are really important and users are more likely to download an app with a five star rating and stellar reviews. This is especially essential whe you are just releasing a new version update &mdash; get it rated highly as quick as possible.</p></li>
+<li><p>Create and maintain Facebook &amp; Twitter page</p>
+
+<p>  Social Pages let your users interact with eachother.</p>
+
+<p>  While large apps need <a href="http://forum.supercell.net/forumdisplay.php/4-Clash-of-Clans">bulletin boards</a> so users can engage with eachother, most apps can get away with just a Facebook and Twitter page.</p></li>
+<li><p>Participate in social media</p>
+
+<p>  Social meida crates buzz.</p>
+
+<p>  Social influencers can be great, and engaging with them via something like <a href="https://hootsuite.com/">Hootsuite</a> or getting them to <a href="http://www.chasm.io/">cover you</a> can give your app a strong presence online. Having an active twitter and facebook page where you converse with fans and reach out to influencers can drive engagement.</p></li>
+<li><p>Get in touch with social influencers,blogs and journalists</p>
+
+<p>  Get influencial people to promote your app.</p>
+
+<p>  Bloggers and social influencers can bring a greate amount of traffic to your app. You can reach out to <a href="http://maniacdev.com/2012/05/ios-app-review-sites">App Review</a> sites or <a href="http://technorati.com/blogs/top100/">Tech Blogs</a> to get influencial writers to cover you(just make sure to have an interesting story about your app!)</p></li>
+<li><p>Post on forums, mailing lists,meetup groups</p>
+
+<p>  Utilizing social groups like forums and groups can bring your users.</p>
+
+<p>  About half of your time as an app developer should be spent marketing your app,and reaching out to already existing groups like nice forums,mailing lists or <a href="http://www.meetup.com/find/">Meetup</a> groups that have the established customer bases to help you reach more users.</p></li>
+</ul>
+</li>
+<li><p>Viral Growth</p>
+
+<p> If each of your users brings a friend your App grows virally.</p>
+
+<ul>
+<li><p>implement share-friendly SDKs</p>
+
+<p>  Sharing is caring.</p>
+
+<p>  SDK like <a href="http://kamcord.com/">Kamcord</a> let users record videos and engage with other users. Multipalyer turn based SDKs like <a href="http://www.makegameswith.us/sdk/">MGWU</a> let you develop games easier, and platforms like Gamecenter or Openfeint let you have easy scoreboards.</p></li>
+<li><p>prompt users to share via Facebook,Twitter &amp; email</p>
+
+<p>  Virality is best achieved by leveraging social networks.</p>
+
+<p>  Most users are using Facebook or Twitter, so having an easy way for them to tell their friends about a great app lowers the barrier for sharing. If you get each one of your users to bring an extra friend,your audience will grow. Giving your users a reason to share within the app works best.</p></li>
+<li><p>Ask engaged and happy users to review</p>
+
+<p>  Reviews give your app social proof.</p>
+
+<p>  Implement an SDK like [<a href="https://github.com/arashpayan/appirater">https://github.com/arashpayan/appirater</a>] and ask your engaged and happy users to leave a review. The common way to do this is prompt users after x hours or y opens to answer if they like the app, and send the ones who don&rsquo;t to yours support email while prompting happy users to leave a review.</p></li>
+<li><p>Figure out monetization</p>
+
+<p>  Free is best!</p>
+
+<p>  The top grossing apps are free apps with in-app-purchases. The barrier to download is almost non-exist when the app is free. If you must take your app paid, you&rsquo;d better have a good reason(like ethically avoding ads) and feel free to test different price points.</p></li>
+<li><p>Prepare an App update</p>
+
+<p>  You can only change some things with an app update.</p>
+
+<p>  Some things, like adding new keywords, screenshots or changing the title can only be done with an app update.Unless your app includes many change files,Apple is good about <a href="https://developer.apple.com/library/ios/#qa/qa1779/_index.html">keeping the file download size down</a>.Users perfer to download recently updated apps.</p></li>
+</ul>
+</li>
+<li><p>App Analytics</p>
+
+<p> Metrics and insight into how users use your App create success.</p>
+
+<ul>
+<li><p>Track Downloads</p>
+
+<p>  Apple&rsquo;s tools don&rsquo;t quite cut it.</p>
+
+<p>  Keeping track of downloads on a per app basis day to day and being able to sparate them by country or region is essencial. <a href="https://sensortower.com/">Sensor Tower</a> and many others like App Annie,Distimo,etc provide tools to track downloads.</p></li>
+<li><p>Control incoming web-links</p>
+
+<p>  It&rsquo;s like Bit.ly</p>
+
+<p>  At the very least every incoming link  should be going through a url shortener so you can track how many people clicked trought each source. Give your blog mentions and other web-links a specific url, or implement your own and direct users to a correct App Store.</p></li>
+<li><p>Implement in-App Analytics</p>
+
+<p>  Know what your users do within the app.</p>
+
+<p>  Things like <a href="http://apsalar.com/blog/2012/01/how-to-use-cohort-analysis-to-improve-revenue/">Cohort Analysis</a> help you understand how your users behave.Use SDKs like <a href="https://mixpanel.com/">Mixpanel</a> or <a href="https://amplitude.com/">Amplitude</a> to keep track of usage patterns so you can have a data-driven approach to improving your app.</p></li>
+<li><p>Crash Reporting</p>
+
+<p>  Catch crashed before they turn into bad reviews.</p>
+
+<p>  Crash reporting and performance analytics can help you catch and prevent dreadfully negative reviews. SDKs like <a href="https://crittercism.com/">Crittercism</a> can help you track crashes and performance problems.</p></li>
+<li><p>Keep track of Search Visibility</p>
+
+<p>  How do users download your apps?</p>
+
+<p>  Tracking search visility within the App Store is something every developer should do &mdash; whether you do it via manual entry into a spreadsheet or using tools like [Sensor Tower] you&rsquo;ll always be better off is you know and improve how users can find your app within the App Store.</p></li>
+</ul>
+</li>
+</ol>
+
+]]></content>
+  </entry>
   
   <entry>
     <title type="html"><![CDATA[Sentence]]></title>
@@ -34,6 +239,15 @@
 <li>He is messing up. 他陷入困境</li>
 <li>Our travel arrangements have been messed up by the ticket office. 我们的旅行安排被售票处搞乱了。</li>
 <li>The wind will mess my hair up. 这风要吹乱我的头发。</li>
+<li>The impact dented our car&rsquo;s fender. 碰撞把我们汽车的挡泥板给撞凹下去了。</li>
+<li>No sane person wished to see conflict or casualties. 理智的人都不希望看到冲突或伤亡.</li>
+<li>Appetite comes with eating. (尝到甜头)胃口越吃越大。</li>
+<li>Do not inconvenience yourself for my sake. 不要因我而太麻烦你自己。</li>
+<li>At times the arrogance of those in power is quite blatant. 有时那些当权者的傲慢很露骨。</li>
+<li>Call it what you like, but it was blatant idolatry. 随你喜欢怎么去说，但这仍然是公然的盲目崇拜。</li>
+<li>They cooked without skill and ate without discirmination. 他们做饭没除以，吃饭没品位。</li>
+<li>He loved gossip and scandal. 他喜欢闲话和流言蜚语。</li>
+<li>Correct me if I am wrong.</li>
 </ul>
 
 ]]></content>
@@ -80,13 +294,7 @@
 <li><p><a href="http://www.umeng.com/">友盟</a></p>
 
 <p> 友盟是中国最专业、最有数据凝聚力的移动开发者服务平台。友盟以移动应用统计分析为产品起点，发展成为综合性的移动开发者服务平台。推出“一站式“解决方案，为移动开发者提供了从开发到运营的系列服务,包含移动应用统计分析以及细分行业的移动游戏统计分析、社会化分享、消息推送等产品和服务。</p></li>
-</ol>
-
-
-<h2>Crash Analytics</h2>
-
-<ol>
-<li><a href="crashlytics.com">Crashlytics</a></li>
+<li><p><a href="crashlytics.com">Crashlytics</a></p></li>
 </ol>
 
 
@@ -748,6 +956,25 @@
 <p> An extensive Objective C wrapper for the Instagram API.</p>
 
 <p> This framework is built atop AFNetworking’s blocks-based architecture and additionally parses the JSON response asynchronously so there’s absolutely no parsing on the main thread. It’s neat, fast and works like a charm providing an easy interface to interacting with Instagram’s model objects.</p></li>
+</ol>
+
+
+<h2>Font</h2>
+
+<ol>
+<li><p><a href="https://github.com/PrideChung/FontAwesomeKit">FontAwesomeKit</a></p>
+
+<p> Icon font library for iOS. Currently supports Font-Awesome, Foundation icons, Zocial, and ionicons.</p>
+
+<p> Currently FontAwesomeKit supports 4 different icon fonts.</p>
+
+<ul>
+<li><a href="http://fortawesome.github.io/Font-Awesome/">FontAwesome 4.2</a> Our old friend, contains 479 icons</li>
+<li><a href="http://zurb.com/playground/foundation-icon-fonts-3">Foundation icons</a> Contains 283 icons.</li>
+<li><a href="http://zocial.smcllns.com/">Zocial</a> Contains 99 social icons.</li>
+<li><a href="http://ionicons.com/">ionicons 2.0.0</a> Contains 733 icons, lots of iOS 7 style outlined icons.</li>
+</ul>
+</li>
 </ol>
 
 
@@ -1517,6 +1744,28 @@
 <p> Stop basing your reports on what you knew 2 weeks ago. Add or disable events on the fly (flux capacitor included). No more waiting for a release cycle just send a new event.</p>
 
 <p> A ground-breaking approach for root cause analysis. Add logs to your app in production, scan your stack trace for its&#8217; arguments when the crash happens and add breakpoints to a running session.</p></li>
+<li><p><a href="http://cocoapods.org/">CocoaPods</a></p></li>
+<li><p><a href="https://github.com/Carthage/Carthage">Carthage</a></p>
+
+<p>Carthage is intended to be the simplest way to add frameworks to your Cocoa application.</p>
+
+<p>The basic workflow looks something like this:</p>
+
+<ul>
+<li>Create a Cartfile that lists the frameworks you’d like to use in your project.</li>
+<li>Run Carthage, which fetches and builds each framework you’ve listed.</li>
+<li>Drag the built .framework binaries into your application’s Xcode project.</li>
+</ul>
+
+
+<p>Carthage builds your dependencies and provides you with binary frameworks, but you retain full control over your project structure and setup. Carthage does not automatically modify your project files or your build settings.</p></li>
+</ol>
+
+
+<h1>Marketing</h1>
+
+<ol>
+<li><a href="https://sensortower.com">SensorTower</a></li>
 </ol>
 
 ]]></content>
@@ -1893,6 +2142,13 @@
 <li>brutal violence:暴力</li>
 </ul>
 </li>
+<li>relentless:毫不留情的、残酷的、不宽容的、残忍的；坚持不懈的、百折不挠的
+
+<ul>
+<li>relentless flow:流水无情</li>
+<li>relentless insane:很疯狂</li>
+</ul>
+</li>
 <li>steadfast:朝着一个方向的、方向固定的;固定不动的、固定不变的；坚定的、不动摇的
 
 <ul>
@@ -1901,6 +2157,15 @@
 </ul>
 </li>
 <li>pervert:使败坏、堕落、反常，滥用；堕落者、行为反常者、（尤指在性行为方面）变态的人</li>
+<li>sane:心智健全的、神智正常的；健康的、无疾患的；理智的、合乎情理的；聪明的、聪慧的</li>
+<li>insane:精神病的、精神失常的、精神错乱的；疯狂的、愚蠢的、荒唐的、不切实际的
+
+<ul>
+<li>insane asylum:精神病院</li>
+</ul>
+</li>
+<li>insatiable:无法满足的、贪得无厌的</li>
+<li>arrogant:自大的、傲慢的、妄自尊大的</li>
 </ul>
 
 
@@ -1913,6 +2178,7 @@
 <li>hallucination:幻觉（生病或者毒品引发）</li>
 <li>delusion:错觉，妄想 (self-delusion:自我欺骗，自欺，自欺欺人，自我错觉)</li>
 <li>trippy:被致幻剂引起幻觉的；头昏眼花的、恍惚的、迷茫的、迷离的；稀奇古怪的、超现实的</li>
+<li></li>
 </ul>
 
 
@@ -1933,10 +2199,19 @@
 <li>outrageous fortune: 不义之财； 非凡运气；（词根 outrage）</li>
 </ul>
 </li>
-<li><p>hairy:  多毛的；令人胆战心惊的；勇敢的人</p>
+<li>hairy:  多毛的；令人胆战心惊的；勇敢的人
 
 <ul>
 <li>BHAG(Big Hairy Audacious Goal)</li>
+</ul>
+</li>
+<li>appetite: 胃口、食欲;欲望;兴趣、趣味、嗜好、爱好
+
+<ul>
+<li>after(to) someone&rsquo;s appetite(tast): 合某人的胃口(或心意)</li>
+<li>Appetite comes with eating:(尝到甜头)胃口越吃越大.</li>
+<li>appetite for further knowledge:求知欲望</li>
+<li>appetite for 对&hellip;的欲望</li>
 </ul>
 </li>
 </ul>
@@ -1980,6 +2255,7 @@
 <ul>
 <li>intentional: 故意的、有目的的</li>
 <li>deliberate: 故意的、深思熟虑的、谨慎的</li>
+<li>blatant:吵嚷的、喧闹的、吼叫的、大喊大叫的；炫耀的、显眼的、引人注目的、刺眼的、俗丽的；非常明显的、露骨的、公然的、厚颜无耻的</li>
 </ul>
 
 
@@ -2033,6 +2309,7 @@
 <li>cynic:愤世嫉俗者；犬儒学派的人</li>
 </ul>
 </li>
+<li>idolatry:偶像崇拜、盲目崇拜、邪神崇拜</li>
 </ul>
 
 
@@ -2160,6 +2437,15 @@
 </li>
 <li>tragedy: 灾难;悲剧(戏剧的一种);</li>
 <li>devastate:</li>
+<li>casualty:意外事故、（尤指）重大伤亡事故、灾害；（事故中的）伤亡人员、受害者；（事故中）损失、毁坏的物品；急救室
+
+<ul>
+<li>accident casualty:事故伤亡</li>
+<li>mass casualty:集体事故</li>
+<li>maritime casualty:海上事故</li>
+<li>casualty insurance:灾难保险、不幸事故保险</li>
+</ul>
+</li>
 </ul>
 
 
@@ -2228,6 +2514,15 @@
 <ul>
 <li>safe haven: 安全港；容许幅度标准</li>
 <li>tax haven: 避税场所(税率很低的国家或地区)</li>
+</ul>
+</li>
+<li>asylum:避难所、庇护处、躲避处、保护设施；政治避难权、庇护权、（给予通常因政治原因不能回国的人的）避难许可；精神病院
+
+<ul>
+<li>soul asylum:灵魂庇护所</li>
+<li>diplomatic asylum:外交庇护</li>
+<li>political asylum:政治庇护</li>
+<li>insane asylum:精神病院</li>
 </ul>
 </li>
 </ul>
@@ -2311,6 +2606,7 @@
 </ul>
 </li>
 <li>mess up:把&hellip;搞糟、弄乱、弄脏；陷入困境；</li>
+<li>inconvenience:不方便、麻烦、打扰、困难；给&hellip;带来不便，使麻烦，打扰；</li>
 </ul>
 
 
@@ -2475,6 +2771,15 @@
 <li>brutal violence:暴力</li>
 </ul>
 </li>
+<li>scandal:丑闻、丑事、丑行；诋毁、诽谤、说(某人)的坏话；公然侮辱、使丢脸；流言蜚语
+
+<ul>
+<li>be the scandal of : 引起&hellip;的反感、激起&hellip;的愤慨</li>
+<li>weather a scandal:挺住因不当行为而引起的舆论压力</li>
+<li>sex scandal:性丑闻</li>
+<li>watergate scandal:水门事件、水门丑闻</li>
+</ul>
+</li>
 </ul>
 
 
@@ -2616,6 +2921,14 @@
 </li>
 <li>tackle:</li>
 <li>tinker:补锅匠、修补匠；做补锅匠、焊补；笨手笨脚做事；修补、粗修、小修改。</li>
+<li>discrimination:差别对待、差别待遇，（尤指对少数集团的）歧视、偏袒、偏爱，不公平待遇；鉴赏力；辨别力、识别力、判断力
+
+<ul>
+<li>racial discrimination:种族歧视</li>
+<li>sex discrimination:性别歧视</li>
+<li>price discrimination:价格歧视、差别取价</li>
+</ul>
+</li>
 </ul>
 
 
@@ -2705,14 +3018,6 @@
 <li>recieve a subpoena:接到传票</li>
 </ul>
 </li>
-</ul>
-
-
-<h3>计量单位</h3>
-
-<ul>
-<li>liter:公升（容量单位）</li>
-<li></li>
 </ul>
 
 
@@ -3092,6 +3397,43 @@
 <li>run（uopon）the foil:（猎物）奔回原路(以搅乱踪迹迷惑猎犬)；使迷惑、使产生错觉</li>
 </ul>
 </li>
+<li>fender:挡开物、防御物、防护板、防冲物，(尤指)(车辆的)挡泥板，（电车或机车的）缓冲装置、救护装置，火炉围栏，（壁炉的）炉围，（船的）碰垫、护舷材、缓冲材、护板
+
+<ul>
+<li>wood fender:护舷木</li>
+<li>rubber fender:橡胶防护垫</li>
+<li>fender bender:轻微交通事故；撞弯保险杠的车祸(等于小车祸)</li>
+</ul>
+</li>
+<li>grease:(熔化的)动物脂肪、油脂；油脂状物、润滑剂、润滑油、脂膏；（皮肤分泌的）油脂；涂抹油脂于&hellip;,给&hellip;上油，涂润滑油；向&hellip;行贿、贿赂，（用钱）收买，给（侍者）小费；使便利、加速&hellip;的进展
+
+<ul>
+<li>chafe(fret,fry,melt,stew) in one&rsquo;s own grease:自食其果、自作自受</li>
+<li>grease it in :使飞机顺利着陆</li>
+<li>grease gun:注油枪</li>
+<li>grease the wheels: 使顺利进行；贿赂</li>
+<li>oil and grease:油脂</li>
+</ul>
+</li>
+</ul>
+
+
+<h2>计量单位</h2>
+
+<ul>
+<li>liter:公升（容量单位）</li>
+<li>meter:仪表、用仪表测量；米、公尺;停车收费器
+
+<ul>
+<li>exposure meter:测光计</li>
+<li>flow meter:流量计</li>
+<li>cubic meter:立方米</li>
+<li>square meter:平方米</li>
+<li>parking meter:停车收费码表</li>
+<li>meter reading:仪表读数</li>
+</ul>
+</li>
+<li></li>
 </ul>
 
 
@@ -3191,6 +3533,14 @@
 <li>kite flying 放风筝，开空头支票，签发通融票据以资弥补</li>
 </ul>
 </li>
+<li>astronomical:天文学的；天文数字般的(数量，尤指话费)、极极大的
+
+<ul>
+<li>astronomical observatory:天文台</li>
+<li>astronomical telescope:天文望远镜(Kepler telescope)</li>
+<li>international astronomical union:国际天文联合会</li>
+</ul>
+</li>
 </ul>
 
 
@@ -3217,7 +3567,16 @@
 <h2>地理</h2>
 
 <ul>
-<li>arctic: 北极，北极的，引申为极冷的</li>
+<li>arctic: 北极，北极的，引申为极冷的;冷淡的、冷漠的
+
+<ul>
+<li>the Arctic:北极区</li>
+<li>Arctic Circle:北极圈</li>
+<li>arctic fox:北极狐</li>
+<li>arctic wolf:北极狼</li>
+<li>arctic ocean:北冰洋</li>
+</ul>
+</li>
 <li>polar: 极地的（北极，南极），引申为相反的，对立的</li>
 <li>nordic: 北欧的，北欧人</li>
 <li>boreal:北的，北方的，北风的</li>
