@@ -4,7 +4,7 @@ title: "MyMoney privacy policy"
 date: 2014-10-23 14:57:53 +0800
 comments: true
 categories:
-publisehd: false
+published: false
 ---
 
 欢迎使用资产管家，这是一款面向个人用户的投资理财管理应用。

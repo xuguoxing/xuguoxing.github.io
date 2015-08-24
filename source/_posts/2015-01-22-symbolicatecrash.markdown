@@ -7,7 +7,7 @@ published: true
 categories:
 ---
 
-`symbolicatecrash`是Xcode自带的分析工具，使用crash log文件和.dSYM文件划将crash log中的地址替换为代码位置。
+`symbolicatecrash`是Xcode自带的分析工具，使用crash log文件和.dSYM文件可将crash log中的地址替换为代码位置。
 
 ##查找`symbolicatecrash`
 
