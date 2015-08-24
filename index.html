@@ -9,7 +9,8 @@
   <meta name="author" content="xuguoxing">
 
   
-  <meta name="description" content="Team Geek &ndash; A software Developer&rsquo;s Guide to Working Well with Others 一.The Myth of Genius Programmer The critical idea in this chapter is &hellip;">
+  <meta name="description" content="一.手机越狱 使用越狱工具，如盘古将手机越狱
+安装Cydia Substrate,OpenSSH,AppSync等工具 二.下载Reveal 可在官网下载试用版或者直接购买. 三.拷贝相关内容到越狱手机 保证电脑和手机在同一Wifi下，查看手机IP,检查能够使用ssh进行连接. &hellip;">
   
 
   <!-- http://t.co/dKP3o1e -->
@@ -78,6 +79,106 @@
     <div id="content">
       <div class="blog-index">
   
+  
+  
+    <article>
+      
+  <header>
+    
+      <h1 class="entry-title"><a href="/blog/2015/08/24/shi-yong-revealfen-xi-di-san-fang-app/">使用Reveal分析第三方App</a></h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2015-08-24T10:28:53+08:00" pubdate data-updated="true">Aug 24<span>th</span>, 2015</time>
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><h2>一.手机越狱</h2>
+
+<ol>
+<li>使用越狱工具，如<a href="http://www.pangu.io/">盘古</a>将手机越狱</li>
+<li>安装Cydia Substrate,OpenSSH,AppSync等工具</li>
+</ol>
+
+
+<h2>二.下载Reveal</h2>
+
+<p>可在<a href="http://revealapp.com/">官网</a>下载试用版或者直接购买.</p>
+
+<h2>三.拷贝相关内容到越狱手机</h2>
+
+<p>保证电脑和手机在同一Wifi下，查看手机IP,检查能够使用ssh进行连接.具体可见手机上<code>Cybia</code>应用中的<code>OpenSSH访问教程</code>.</p>
+
+<pre><code> $ ssh root@10.232.136.144
+ The authenticity of host '10.232.136.144 (10.232.136.144)' can't be established.
+RSA key fingerprint is 37:3f:9a:32:73:42:f8:49:8e:eb:e8:63:c3:0b:09:d1.
+Are you sure you want to continue connecting (yes/no)? yes
+Warning: Permanently added '10.232.136.144' (RSA) to the list of known hosts.
+root@10.232.136.144's password: 
+xuguoxingmato-iPhone:~ root# 
+</code></pre>
+
+<p>默认密码为&#8221;alpine&#8221;,进入系统后可用<code>passwd</code>命令修改密码。</p>
+
+<p>在本机Reveal应用中找到<code>Reveal.framework</code>,<code>libReveal.dylib</code>文件，可通过Reveal的<code>Help-&gt;Show Reveal Library in Finder</code>菜单定位到。</p>
+
+<p>通过scp命令将这两个文件拷贝到越狱手机中,在本机命令行执行以下命令</p>
+
+<pre><code>$ scp -r /Applications/Reveal.app/Contents/SharedSupport/iOS-Libraries/Reveal.framework root@x.x.x.x:/System/Library/Frameworks
+$ scp /Applications/Reveal.app/Contents/SharedSupport/iOS-Libraries/libReveal.dylib root@x.x.x.x:/Library/MobileSubstrate/DynamicLibraries
+</code></pre>
+
+<p>在本地创建libReveal.plist文件，将需要分析App的BundleID加入其中，比如需要分享微信和短信应用;</p>
+
+<pre><code>{
+    Filter = {
+         Bundles = (
+         "com.apple.MobileSMS",
+         "com.tencent.xin");
+    };
+}
+</code></pre>
+
+<p>可双击用Xcode打开此文件，检查语法是否正确；</p>
+
+<p>将此文件拷贝到手机中，在本机执行命令</p>
+
+<pre><code>$ scp libReveal.plist root@x.x.x.x:/Library/MobileSubstrate/DynamicLibraries 
+</code></pre>
+
+<p>也可以在手机命令上使用编辑工具,如<code>nano</code>直接进行编辑。</p>
+
+<p>重启SpringBoard,在手机命令行执行</p>
+
+<pre><code>$ killall SpringBoard
+</code></pre>
+
+<h2>四.使用Reveal分析</h2>
+
+<p>手机SpringBoard重启后，打开微信应用，在本机上打开Reveal,就可以看到连接并进行分析了。</p>
+
+<p>注:若无法连接，则需要检查wifi的防火墙设置，Reveal使用苹果的<code>Bonjour</code>服务进行通信，有可能网络防火墙将此服务屏蔽了。</p>
+</div>
+  
+  
+
+
+    </article>
   
   
     <article>
@@ -1079,6 +1180,7 @@ Lastly, your company might <code>lack important things like focus, vision,or dir
 <li>It is said that blood is thicker than water. 常言道，血浓于水。</li>
 <li>Parliament has power to introduct and pass legislation,summon and impeach ministers or the president. 议会拥有提出和通过法律、召集弹劾内阁成员或总统的权利。</li>
 <li>Fire and water repel each other. 水火不相容。</li>
+<li>Honest men despise lies and liars. 诚实的人蔑视谎言和撒谎者。</li>
 </ul>
 
 </div>
@@ -1721,6 +1823,9 @@ Lastly, your company might <code>lack important things like focus, vision,or dir
 <p> Shimmer is an easy way to add a shimmering effect to any view in your app. It&rsquo;s useful as an unobtrusive loading indicator.</p>
 
 <p> Shimmer was originally developed to show loading status in <a href="http://facebook.com/paper">Paper</a>.</p></li>
+<li><p><a href="https://github.com/icanzilb/EasyAnimation/">EasyAnimation</a></p>
+
+<p> A Swift library to take the power of UIView.animateWithDuration(_:, animations:&hellip;) to a whole new level &ndash; layers, springs, chain-able animations and mixing view and layer animations together!</p></li>
 </ol>
 
 
@@ -3043,6 +3148,7 @@ Lastly, your company might <code>lack important things like focus, vision,or dir
 <li>indulge games:沉溺有限</li>
 </ul>
 </li>
+<li>ravish:(多被动语态)使(某人)欣喜若狂、陶醉、迷人；强奸；抢去、强夺、劫掠</li>
 </ul>
 
 
@@ -3192,6 +3298,7 @@ Lastly, your company might <code>lack important things like focus, vision,or dir
 <li>appetite for 对&hellip;的欲望</li>
 </ul>
 </li>
+<li>volition:自愿选择，自行决定；出于自愿；意志，决意，下决心；意志力；决断、取舍、抉择</li>
 </ul>
 
 
@@ -3404,8 +3511,14 @@ Lastly, your company might <code>lack important things like focus, vision,or dir
 <li>consolation prize:安慰奖</li>
 </ul>
 </li>
-<li>nostalgic:引起怀旧的；怀旧的、留恋过去的；想家的、思乡的、乡愁的；</li>
+<li>nostalgic:引起怀旧的；怀旧的、留恋过去的；想家的、思乡的、乡愁的；
+
+<ul>
 <li>nostalgic song:思乡曲，怀旧曲</li>
+</ul>
+</li>
+<li>condolence:哀悼，慰问，吊唁</li>
+<li>eulogy:颂词，颂文；悼词</li>
 </ul>
 
 
@@ -3522,11 +3635,28 @@ Lastly, your company might <code>lack important things like focus, vision,or dir
 <h3>轻视、蔑视</h3>
 
 <ul>
-<li>contempt:</li>
-<li>scorn:</li>
-<li>condescension:</li>
-<li>disdain:</li>
-<li>despise</li>
+<li>contempt:轻视，蔑视；（法律）藐视法庭（国会等）；耻辱，不名誉，不光彩
+
+<ul>
+<li>bring comtempt upon oneself:自取其辱，不讨没趣</li>
+<li>bring into contempt:使&hellip;受辱，使丢脸</li>
+<li>hold(have) someone in contempt:鄙视某人，看不起某人</li>
+<li>contempt of court:蔑视法庭，对法院的蔑视罪</li>
+<li>in comtempt of :不顾，不把&hellip;放在眼里；藐视</li>
+<li>beneath contempt: 卑鄙到极点的</li>
+</ul>
+</li>
+<li>scorn:轻蔑，藐视，不屑做；嘲笑，嘲弄
+
+<ul>
+<li>be a scorn to:成为&hellip;的嘲笑对象，为&hellip;所鄙视</li>
+<li>feel scorn for:对&hellip;藐视，看不起；嘲笑</li>
+<li>heap(pour) scorn on:嘲笑；挖苦，对&hellip;嗤之以鼻</li>
+</ul>
+</li>
+<li>condescension: 屈尊，俯就；纡尊降贵（表示不满）；恩赐态度，以恩人自居的态度；傲慢态度；自以为高人一等</li>
+<li>disdain:蔑视，鄙视，轻视，鄙夷；以傲慢的态度对待；不屑(做某事)，认为不值得或注意(某事)</li>
+<li>despise:轻视，藐视，鄙视，看不起，看不中；用厌恶的眼光看；</li>
 </ul>
 
 
@@ -3647,7 +3777,12 @@ Lastly, your company might <code>lack important things like focus, vision,or dir
 </ul>
 </li>
 <li>entice: 怂恿,唆使；利诱，引诱；</li>
-<li>tempt:</li>
+<li>tempt:引诱、吸引、诱惑、诱使；使发生兴趣，使很想；冒&hellip;的风险，触犯；
+
+<ul>
+<li>tempt fate(fates,fortune,god,providence):冒险，玩命</li>
+</ul>
+</li>
 </ul>
 
 
@@ -3828,6 +3963,12 @@ Lastly, your company might <code>lack important things like focus, vision,or dir
 <li>Maryland Campaign:马里兰会战</li>
 </ul>
 </li>
+<li>escort:护送、陪同、押送；护送者、陪同者(陪女子参加聚会)；护卫队，警卫队，护航部队，护航舰，护航飞机
+
+<ul>
+<li>escort vessel:护卫舰</li>
+</ul>
+</li>
 </ul>
 
 
@@ -4002,6 +4143,7 @@ Lastly, your company might <code>lack important things like focus, vision,or dir
 </li>
 <li>paraphrase:释义、改述；意译</li>
 <li>delineate:描述、叙述；刻画、描写；划定(边界)；画出（或勾画出）&hellip;的轮廓,描述出&hellip;的轮廓，描出&hellip;的外形</li>
+<li>eulogy:颂词，颂文；悼词</li>
 </ul>
 
 
@@ -4332,6 +4474,25 @@ Lastly, your company might <code>lack important things like focus, vision,or dir
 <li>Maryland Campaign:马里兰会战</li>
 </ul>
 </li>
+<li>commodity:商品，货物，日用品
+
+<ul>
+<li>commodity inspection:商品检验</li>
+<li>commodity economy:商品经济</li>
+<li>commodity price:商品价格</li>
+<li>commodity tax:商品税</li>
+<li>commodity market:商品市场</li>
+</ul>
+</li>
+<li>grocery:食品杂货；食品杂货店
+
+<ul>
+<li>green grocery:蔬菜水果店</li>
+<li>grocery paper:杂货包装纸</li>
+<li>grocery store:杂货店</li>
+<li>grocery bag:食品杂货袋</li>
+</ul>
+</li>
 </ul>
 
 
@@ -4354,6 +4515,13 @@ Lastly, your company might <code>lack important things like focus, vision,or dir
 <h3>遗产、继承</h3>
 
 <ul>
+<li>heir:(法律)继承人，法定继承人；后嗣，嗣子；（传统、才干、性格等的）继承者，后继者，承袭着；
+
+<ul>
+<li>fall heir to:继承，后继</li>
+<li>heir of one&rsquo;s(the) body:直系继承人</li>
+</ul>
+</li>
 <li>heritage: (国家)遗产(品质、传统、文化)等
 
 <ul>
@@ -4361,17 +4529,17 @@ Lastly, your company might <code>lack important things like focus, vision,or dir
 <li>nature heritage 自然遗产</li>
 </ul>
 </li>
-<li>legacy:（个人）遗产(财富)；遗留问题
-
-<ul>
-<li>legacy system:遗留系统；</li>
-</ul>
-</li>
 <li>inheritance:继承物(财富)；沿袭物(工作、问题、态度)；遗传特征
 
 <ul>
 <li>inheritance and innovation: 传承与创新</li>
 <li>inheritance tax:遗产税</li>
+</ul>
+</li>
+<li>legacy:（个人）遗产(财富)；遗留问题
+
+<ul>
+<li>legacy system:遗留系统；</li>
 </ul>
 </li>
 <li>entail: 牵涉、导致；需要、使必要；使承担；限定继承权；预</li>
@@ -4418,6 +4586,23 @@ Lastly, your company might <code>lack important things like focus, vision,or dir
 <li>bilateral talks:双边会谈</li>
 </ul>
 </li>
+<li>majesty:陛下，威严，最高权威，王权；雄伟，权威
+
+<ul>
+<li>your majesty:陛下</li>
+</ul>
+</li>
+<li>throne:王座，君主，王权；登上王位、王座
+
+<ul>
+<li>ascend(mount) the throne:即位，登基</li>
+<li>sit one one&rsquo;s(the) throne:执政，当权，称帝，为王</li>
+<li>take the throne:登基为王,加冕为王</li>
+<li>frozen throne:冰封王座(游戏)</li>
+</ul>
+</li>
+<li>abdication:(尤其被迫的)退位，辞职；（权力、权利、要求、职责、责任等的）放弃</li>
+<li></li>
 </ul>
 
 
@@ -5955,253 +6140,6 @@ host已经是ip地址了，不需要再次进行转换，会直接调用原方�
 
     </article>
   
-  
-    <article>
-      
-  <header>
-    
-      <h1 class="entry-title"><a href="/blog/2014/06/09/jenkins/">Jenkins</a></h1>
-    
-    
-      <p class="meta">
-        
-
-
-
-
-
-
-
-
-  
-
-
-<time datetime="2014-06-09T16:20:42+08:00" pubdate data-updated="true">Jun 9<span>th</span>, 2014</time>
-        
-      </p>
-    
-  </header>
-
-
-  <div class="entry-content"><h1>持续集成(CI)介绍</h1>
-
-<p>持续集成自动从代码服务器拉取代码，完成自动编译、测试、分发和部署等工作；出现错误时及时通知开发人员，使问题可以立即得到解决，降低项目风险。</p>
-
-<p><a href="http://jenkins-ci.org/">Jenkins</a>是一款很流行的持续集成工具，配置简单，结合一些插件和命令行工具可以完成很多工作。</p>
-
-<p>Mac系统同样有一款持续集成工具<code>OS X Server</code>，配置简单，但功能无法扩展，其只能自动完成编译构建、静态代码分享、运行单元测试和打包归档四个工作。</p>
-
-<h1>Jenkins安装与配置</h1>
-
-<h2>安装</h2>
-
-<ol>
-<li>从<a href="http://jenkins-ci.org/">官网</a>下载Mac OS X的安装包</li>
-<li>执行安装程序后会创建<code>jenkins</code>用户，主目录位于<code>/Users/Shared/Jenkins</code>；Jenkins以系统守护进程方式运行,可查看
-<code>/Library/LaunchDaemons/org.jenkins-ci.plist</code>配置文件了解详细信息。</li>
-<li><code>Jenkins</code>默认无密码，可使用“sudo passwd jenkins”命令设置密码</li>
-<li>打开Jenkins管理页面 <code>http://localhost:8080/</code>，端口默认为8080，可在管理页面修改。</li>
-</ol>
-
-
-<h2>安全设置</h2>
-
-<p><code>系统管理</code>&ndash;><code>Configure Global Security</code>，默认<code>启用安全</code>没有勾选。</p>
-
-<ol>
-<li>勾选<code>启用安全</code></li>
-<li><code>安全域</code>中选择<code>Jenkins专有项目数据库</code>，并勾选<code>允许用户注册</code>。</li>
-<li><code>授权策略</code>中选择<code>项目矩阵授权策略</code>; 设置<code>匿名用户</code>为<code>Read</code>权限;添加一个用户名，给予全部权限(该用户稍后创建)。</li>
-<li>重启Jenkins, <a href="http://localhost:8080/restart">http://localhost:8080/restart</a></li>
-<li>重启后使用<code>Login-&gt;create an account</code>使用之前输入的用户名创建账号。</li>
-</ol>
-
-
-<p><img src="images/2014/06/jenkins_security.png"></p>
-
-<p>在错误的设置安全域、授权策略时，会无法登录到Jenkins管理页面修改配置，可通过下面的方法修复。</p>
-
-<ol>
-<li>停止Jenkins(杀进程)</li>
-<li>在<code>$JENKINS_HOME</code>目录(通常为<code>/Users/Shared/Jenkins/Home</code>)中找到config.xml文件</li>
-<li>打开此文件，将<code>&lt;useSecurity&gt;true&lt;/useSecurity&gt;</code>的true修改为false</li>
-<li>删除<code>authorizationStrategy</code>、<code>securityRealm</code>节点</li>
-<li>重启Jenkins，这时会恢复到没有<code>启用安全</code>的情况。</li>
-</ol>
-
-
-<h2>安装插件</h2>
-
-<p>在<code>系统管理-&gt;管理插件</code>中可安装必要的插件。</p>
-
-<p>我们需要安装git插件<code>Git Client Plugin</code>、<code>Git Server Plugin</code>，
-Xcode插件<code>Xcode integration</code>。</p>
-
-<h2>启动、关闭与重启</h2>
-
-<p>对于登录用户，可以直接使用Jenkins的管理url。</p>
-
-<pre><code>http://localhost:8080/exit
-http://localhost:8080/restart
-http://localhost:8080/reload
-</code></pre>
-
-<p>杀掉jenkins进程</p>
-
-<pre><code>ps -e | grep jenkins
-  53 ?? 0:02.51 /usr/bin/java -jar /Applications/Jenkins/jenkins.war
-  392 ttys000 0:00.00 grep jenkins
-sudo kill 53
-</code></pre>
-
-<p>使用<code>launchctl</code></p>
-
-<pre><code>sudo launchctl load /Library/LaunchDaemons/org.jenkins-ci.plist
-sudo launchctl unload /Library/LaunchDaemons/org.jenkins-ci.plist
-</code></pre>
-
-<h1>自动化构建</h1>
-
-<p>在Jenkins中，任务是以<code>Job</code>为单位的，在管理页面点击<code>新建</code>，输入Item名称，
-并选择项目类型为<code>构建一个自由风格的软件项目</code>，点击OK后就进入了Job设置页面。</p>
-
-<h2>源码管理</h2>
-
-<p>可以根据需要设置从<code>svn</code>或者<code>git</code>获取源码。</p>
-
-<p>对于git需要设置</p>
-
-<ul>
-<li>Repository URL: 仓库URL</li>
-<li>Credentials: 用户名、密码</li>
-<li>Branches to build:需要构建的分支</li>
-<li>Additional Behaviours:其它需要执行的git操作,在必要的时候可以设置。</li>
-</ul>
-
-
-<p>对于svn需要设置</p>
-
-<ul>
-<li>Repository URL: 仓库URL</li>
-<li>Credentials: 用户名、密码</li>
-<li>Check-out Strategy: check-out的策略，可以直接<code>svn update</code>、在update之前执行<code>svn revert</code>或者获取一份全新的拷贝。</li>
-</ul>
-
-
-<h2>构建触发器</h2>
-
-<p>设置构建触发条件,其中<code>Build periodically</code>可以在指定的时间触发构建，在进行每日构建时可以设置，构建时间使用类cron的语法。</p>
-
-<p>也可以不设置触发器，手工触发构建任务。</p>
-
-<h2>构建</h2>
-
-<p>在构建步骤中可以使用<code>Exeute shell</code>执行任意构建任务，对于iOS项目，我们可以使用<code>Xcode</code>插件简化构建流程。</p>
-
-<h3>Xcode</h3>
-
-<h4>General build settings</h4>
-
-<p>指定需要构建的target，不指定会构建所有的targets；在<code>Setting</code>中还有一系列构建的设置。</p>
-
-<ul>
-<li><code>Clean before build?</code> 在build前是否先clean</li>
-<li><code>Generate Archive?</code> 是否生成<code>xcarchive</code>文件</li>
-<li><code>Configuration</code> 构建使用的配置</li>
-<li><p><code>Pack application and build .ipa?</code> 是否打包ipa文件.</p>
-
-<p>若选择打包ipa文件，则还需要设置ipa文件名pattern，在名称中可使用:</p>
-
-<ul>
-<li>版本号 <code>${SHORT_VERSION}</code>,</li>
-<li>build号 <code>${VERSION}</code></li>
-<li>构建日期 <code>${BUILD_DATE}</code>,日期格式为<code>yyyy.MM.dd</code></li>
-</ul>
-
-
-<p>  比如可设置为<code>MyApp_${SHORT_VERSION}_build${VERSION}_${BUILD_DATE}</code>，那么生成的文件名格式为<code>MyApp_v1.0_build10_2014.05.17.ipa</code>。</p></li>
-<li><p><code>Output directory</code> 相对于<code>build</code>目录的ipa文件生成目录。</p></li>
-</ul>
-
-
-<h4>Code signing &amp; OS X keychain options</h4>
-
-<p>代码签名及KeyChain设置</p>
-
-<ul>
-<li><p><code>Code Signing Identity</code> 用于签名的开发者标识，可以在keychain中查看,名称格式为&#8221;iPhone Developer: your_name (XXXXXXX)&#8221;</p></li>
-<li><p><code>Unlock Keychain?</code> 解锁keychain，设置<code>Keychain path</code>与<code>Keychain password</code>，<code>Keychain path</code>设置为
-<code>${HOME}/Library/Keychains/login.keychain</code>。</p></li>
-</ul>
-
-
-<p>注:Jenkins以<code>jenkins</code>用户运行，其用户目录在<code>/Users/Shared/Jenkins</code>，若Jenkins在开发电脑上安装，实际上Xcode编译所需要的
-keychain、Provisioning Profiles等信息都在原登录用户下，自动构建时就会报代码签名错误。可通过以下步骤解决:</p>
-
-<ol>
-<li><p>在&#8221;Keychain Access&#8221;应用中将开发者证书从&#8221;login&#8221;拷贝到&#8221;sysmtem&#8221;。</p>
-
-<p>在&#8221;Keychain Access&#8221;中的login tab中，右键点击证书“iPhone Developer: your_name (XXXXXXX)”,选择“拷贝xxxx”；然后在system tab中右键点击，选择&#8221;粘贴2项&#8221;。</p></li>
-<li><p>将主用户目录下的<code>KeyChains</code>目录拷贝到jenkins用户目录下</p></li>
-</ol>
-
-
-<p>  <code>/Users/YourName/Library/Keychains</code>&ndash;><code>/Users/Shared/Jenkins/Library/Keychains</code></p>
-
-<ol>
-<li>将主用户目录下的<code>MobileDevice</code>目录拷贝到jenkins用户目录下，<code>MobileDevice</code>中有<code>Devices</code>和<code>Provisioning Profiles</code>两个子目录。</li>
-</ol>
-
-
-<p>  <code>/Users/YourName/Library/MobileDevice</code>&ndash;><code>/Users/Shared/Jenkins/Library/MobileDevice</code></p>
-
-<h3>Execute shell</h3>
-
-<p>可以在构建步骤中的任意位置执行脚本，比如在Xcode插件之前执行脚本设置必要的编译环境，执行单元测试，在Xcode插件打包ipa文件后，
-将文件上传到后台服务部署分发等。</p>
-
-<p>比如，可增加&#8221;Execute shell&#8221;将打包文件上传后台服务器。</p>
-
-<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-<span class='line-number'>2</span>
-<span class='line-number'>3</span>
-<span class='line-number'>4</span>
-<span class='line-number'>5</span>
-<span class='line-number'>6</span>
-<span class='line-number'>7</span>
-<span class='line-number'>8</span>
-</pre></td><td class='code'><pre><code class=''><span class='line'>#!/bin/sh
-</span><span class='line'>
-</span><span class='line'>buildDate=`date +%Y.%m.%d`
-</span><span class='line'>version=`/usr/libexec/PlistBuddy -c "Print CFBundleVersion" ./MyApp-Info.plist`
-</span><span class='line'>shortVersion=`/usr/libexec/PlistBuddy -c "Print CFBundleShortVersionString" "./MyApp-Info.plist"`
-</span><span class='line'>ipaFileName="MyApp_v"${shortVersion}"_build"${version}"_"${buildDate}".ipa"
-</span><span class='line'>
-</span><span class='line'>curl --form "reporter=@./build/Release-iphoneos/"${ipaFileName} http://host/cgi-bin/up.cgi</span></code></pre></td></tr></table></div></figure>
-
-
-<h2>构建后操作</h2>
-
-<p>增加设置构建完成后进行的步骤，可发布测试报告、邮件通知等。</p>
-
-<h1>参考</h1>
-
-<ul>
-<li><a href="http://jenkins-ci.org/">Jenkins homepage</a></li>
-<li><a href="https://wiki.jenkins-ci.org/display/JENKINS/Standard+Security+Setup">Jenkins Standard Security Setup</a></li>
-<li><a href="https://wiki.jenkins-ci.org/display/JENKINS/Disable+security">Jenkins Disable security</a></li>
-<li><a href="http://damien.co/general/how-to-start-stop-restart-or-reload-jenkins-mac-osx-8022">HOW TO: Start, Stop, Restart or Reload Jenkins – Mac OSx</a></li>
-<li><a href="http://webfrogs.me/2013/12/31/jenkins-ios-ci/">使用Jenkins搭建iOS开发的CI服务器</a></li>
-<li><a href="http://code-dojo.blogspot.co.uk/2012/09/fix-ios-code-signing-issue-when-using.html">Fix the iOS code signing issue when using Jenkins</a></li>
-</ul>
-
-</div>
-  
-  
-
-
-    </article>
-  
   <div class="pagination">
     
       <a class="prev" href="/blog/page/2/">&larr; Older</a>
@@ -6215,6 +6153,10 @@ keychain、Provisioning Profiles等信息都在原登录用户下，自动构建
     <section>
   <h1>Recent Posts</h1>
   <ul id="recent_posts">
+    
+      <li class="post">
+        <a href="/blog/2015/08/24/shi-yong-revealfen-xi-di-san-fang-app/">使用Reveal分析第三方App</a>
+      </li>
     
       <li class="post">
         <a href="/blog/2015/05/28/team-geek/">Team Geek</a>
@@ -6250,10 +6192,6 @@ keychain、Provisioning Profiles等信息都在原登录用户下，自动构建
     
       <li class="post">
         <a href="/blog/2014/08/16/excluded-source-file-names/">EXCLUDED_SOURCE_FILE_NAMES</a>
-      </li>
-    
-      <li class="post">
-        <a href="/blog/2014/06/09/jenkins/">Jenkins</a>
       </li>
     
   </ul>

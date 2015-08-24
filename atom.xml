@@ -4,7 +4,7 @@
   <title><![CDATA[iOS App]]></title>
   <link href="http://xuguoxing.github.io/atom.xml" rel="self"/>
   <link href="http://xuguoxing.github.io/"/>
-  <updated>2015-06-04T11:33:01+08:00</updated>
+  <updated>2015-08-24T10:39:37+08:00</updated>
   <id>http://xuguoxing.github.io/</id>
   <author>
     <name><![CDATA[xuguoxing]]></name>
@@ -12,6 +12,79 @@
   </author>
   <generator uri="http://octopress.org/">Octopress</generator>
 
+  
+  <entry>
+    <title type="html"><![CDATA[使用Reveal分析第三方App]]></title>
+    <link href="http://xuguoxing.github.io/blog/2015/08/24/shi-yong-revealfen-xi-di-san-fang-app/"/>
+    <updated>2015-08-24T10:28:53+08:00</updated>
+    <id>http://xuguoxing.github.io/blog/2015/08/24/shi-yong-revealfen-xi-di-san-fang-app</id>
+    <content type="html"><![CDATA[<h2>一.手机越狱</h2>
+
+<ol>
+<li>使用越狱工具，如<a href="http://www.pangu.io/">盘古</a>将手机越狱</li>
+<li>安装Cydia Substrate,OpenSSH,AppSync等工具</li>
+</ol>
+
+
+<h2>二.下载Reveal</h2>
+
+<p>可在<a href="http://revealapp.com/">官网</a>下载试用版或者直接购买.</p>
+
+<h2>三.拷贝相关内容到越狱手机</h2>
+
+<p>保证电脑和手机在同一Wifi下，查看手机IP,检查能够使用ssh进行连接.具体可见手机上<code>Cybia</code>应用中的<code>OpenSSH访问教程</code>.</p>
+
+<pre><code> $ ssh root@10.232.136.144
+ The authenticity of host '10.232.136.144 (10.232.136.144)' can't be established.
+RSA key fingerprint is 37:3f:9a:32:73:42:f8:49:8e:eb:e8:63:c3:0b:09:d1.
+Are you sure you want to continue connecting (yes/no)? yes
+Warning: Permanently added '10.232.136.144' (RSA) to the list of known hosts.
+root@10.232.136.144's password: 
+xuguoxingmato-iPhone:~ root# 
+</code></pre>
+
+<p>默认密码为&#8221;alpine&#8221;,进入系统后可用<code>passwd</code>命令修改密码。</p>
+
+<p>在本机Reveal应用中找到<code>Reveal.framework</code>,<code>libReveal.dylib</code>文件，可通过Reveal的<code>Help-&gt;Show Reveal Library in Finder</code>菜单定位到。</p>
+
+<p>通过scp命令将这两个文件拷贝到越狱手机中,在本机命令行执行以下命令</p>
+
+<pre><code>$ scp -r /Applications/Reveal.app/Contents/SharedSupport/iOS-Libraries/Reveal.framework root@x.x.x.x:/System/Library/Frameworks
+$ scp /Applications/Reveal.app/Contents/SharedSupport/iOS-Libraries/libReveal.dylib root@x.x.x.x:/Library/MobileSubstrate/DynamicLibraries
+</code></pre>
+
+<p>在本地创建libReveal.plist文件，将需要分析App的BundleID加入其中，比如需要分享微信和短信应用;</p>
+
+<pre><code>{
+    Filter = {
+         Bundles = (
+         "com.apple.MobileSMS",
+         "com.tencent.xin");
+    };
+}
+</code></pre>
+
+<p>可双击用Xcode打开此文件，检查语法是否正确；</p>
+
+<p>将此文件拷贝到手机中，在本机执行命令</p>
+
+<pre><code>$ scp libReveal.plist root@x.x.x.x:/Library/MobileSubstrate/DynamicLibraries 
+</code></pre>
+
+<p>也可以在手机命令上使用编辑工具,如<code>nano</code>直接进行编辑。</p>
+
+<p>重启SpringBoard,在手机命令行执行</p>
+
+<pre><code>$ killall SpringBoard
+</code></pre>
+
+<h2>四.使用Reveal分析</h2>
+
+<p>手机SpringBoard重启后，打开微信应用，在本机上打开Reveal,就可以看到连接并进行分析了。</p>
+
+<p>注:若无法连接，则需要检查wifi的防火墙设置，Reveal使用苹果的<code>Bonjour</code>服务进行通信，有可能网络防火墙将此服务屏蔽了。</p>
+]]></content>
+  </entry>
   
   <entry>
     <title type="html"><![CDATA[Team Geek]]></title>
@@ -936,6 +1009,7 @@ Lastly, your company might <code>lack important things like focus, vision,or dir
 <li>It is said that blood is thicker than water. 常言道，血浓于水。</li>
 <li>Parliament has power to introduct and pass legislation,summon and impeach ministers or the president. 议会拥有提出和通过法律、召集弹劾内阁成员或总统的权利。</li>
 <li>Fire and water repel each other. 水火不相容。</li>
+<li>Honest men despise lies and liars. 诚实的人蔑视谎言和撒谎者。</li>
 </ul>
 
 ]]></content>
@@ -1551,6 +1625,9 @@ Lastly, your company might <code>lack important things like focus, vision,or dir
 <p> Shimmer is an easy way to add a shimmering effect to any view in your app. It&rsquo;s useful as an unobtrusive loading indicator.</p>
 
 <p> Shimmer was originally developed to show loading status in <a href="http://facebook.com/paper">Paper</a>.</p></li>
+<li><p><a href="https://github.com/icanzilb/EasyAnimation/">EasyAnimation</a></p>
+
+<p> A Swift library to take the power of UIView.animateWithDuration(_:, animations:&hellip;) to a whole new level &ndash; layers, springs, chain-able animations and mixing view and layer animations together!</p></li>
 </ol>
 
 
@@ -2846,6 +2923,7 @@ Lastly, your company might <code>lack important things like focus, vision,or dir
 <li>indulge games:沉溺有限</li>
 </ul>
 </li>
+<li>ravish:(多被动语态)使(某人)欣喜若狂、陶醉、迷人；强奸；抢去、强夺、劫掠</li>
 </ul>
 
 
@@ -2995,6 +3073,7 @@ Lastly, your company might <code>lack important things like focus, vision,or dir
 <li>appetite for 对&hellip;的欲望</li>
 </ul>
 </li>
+<li>volition:自愿选择，自行决定；出于自愿；意志，决意，下决心；意志力；决断、取舍、抉择</li>
 </ul>
 
 
@@ -3207,8 +3286,14 @@ Lastly, your company might <code>lack important things like focus, vision,or dir
 <li>consolation prize:安慰奖</li>
 </ul>
 </li>
-<li>nostalgic:引起怀旧的；怀旧的、留恋过去的；想家的、思乡的、乡愁的；</li>
+<li>nostalgic:引起怀旧的；怀旧的、留恋过去的；想家的、思乡的、乡愁的；
+
+<ul>
 <li>nostalgic song:思乡曲，怀旧曲</li>
+</ul>
+</li>
+<li>condolence:哀悼，慰问，吊唁</li>
+<li>eulogy:颂词，颂文；悼词</li>
 </ul>
 
 
@@ -3325,11 +3410,28 @@ Lastly, your company might <code>lack important things like focus, vision,or dir
 <h3>轻视、蔑视</h3>
 
 <ul>
-<li>contempt:</li>
-<li>scorn:</li>
-<li>condescension:</li>
-<li>disdain:</li>
-<li>despise</li>
+<li>contempt:轻视，蔑视；（法律）藐视法庭（国会等）；耻辱，不名誉，不光彩
+
+<ul>
+<li>bring comtempt upon oneself:自取其辱，不讨没趣</li>
+<li>bring into contempt:使&hellip;受辱，使丢脸</li>
+<li>hold(have) someone in contempt:鄙视某人，看不起某人</li>
+<li>contempt of court:蔑视法庭，对法院的蔑视罪</li>
+<li>in comtempt of :不顾，不把&hellip;放在眼里；藐视</li>
+<li>beneath contempt: 卑鄙到极点的</li>
+</ul>
+</li>
+<li>scorn:轻蔑，藐视，不屑做；嘲笑，嘲弄
+
+<ul>
+<li>be a scorn to:成为&hellip;的嘲笑对象，为&hellip;所鄙视</li>
+<li>feel scorn for:对&hellip;藐视，看不起；嘲笑</li>
+<li>heap(pour) scorn on:嘲笑；挖苦，对&hellip;嗤之以鼻</li>
+</ul>
+</li>
+<li>condescension: 屈尊，俯就；纡尊降贵（表示不满）；恩赐态度，以恩人自居的态度；傲慢态度；自以为高人一等</li>
+<li>disdain:蔑视，鄙视，轻视，鄙夷；以傲慢的态度对待；不屑(做某事)，认为不值得或注意(某事)</li>
+<li>despise:轻视，藐视，鄙视，看不起，看不中；用厌恶的眼光看；</li>
 </ul>
 
 
@@ -3450,7 +3552,12 @@ Lastly, your company might <code>lack important things like focus, vision,or dir
 </ul>
 </li>
 <li>entice: 怂恿,唆使；利诱，引诱；</li>
-<li>tempt:</li>
+<li>tempt:引诱、吸引、诱惑、诱使；使发生兴趣，使很想；冒&hellip;的风险，触犯；
+
+<ul>
+<li>tempt fate(fates,fortune,god,providence):冒险，玩命</li>
+</ul>
+</li>
 </ul>
 
 
@@ -3631,6 +3738,12 @@ Lastly, your company might <code>lack important things like focus, vision,or dir
 <li>Maryland Campaign:马里兰会战</li>
 </ul>
 </li>
+<li>escort:护送、陪同、押送；护送者、陪同者(陪女子参加聚会)；护卫队，警卫队，护航部队，护航舰，护航飞机
+
+<ul>
+<li>escort vessel:护卫舰</li>
+</ul>
+</li>
 </ul>
 
 
@@ -3805,6 +3918,7 @@ Lastly, your company might <code>lack important things like focus, vision,or dir
 </li>
 <li>paraphrase:释义、改述；意译</li>
 <li>delineate:描述、叙述；刻画、描写；划定(边界)；画出（或勾画出）&hellip;的轮廓,描述出&hellip;的轮廓，描出&hellip;的外形</li>
+<li>eulogy:颂词，颂文；悼词</li>
 </ul>
 
 
@@ -4135,6 +4249,25 @@ Lastly, your company might <code>lack important things like focus, vision,or dir
 <li>Maryland Campaign:马里兰会战</li>
 </ul>
 </li>
+<li>commodity:商品，货物，日用品
+
+<ul>
+<li>commodity inspection:商品检验</li>
+<li>commodity economy:商品经济</li>
+<li>commodity price:商品价格</li>
+<li>commodity tax:商品税</li>
+<li>commodity market:商品市场</li>
+</ul>
+</li>
+<li>grocery:食品杂货；食品杂货店
+
+<ul>
+<li>green grocery:蔬菜水果店</li>
+<li>grocery paper:杂货包装纸</li>
+<li>grocery store:杂货店</li>
+<li>grocery bag:食品杂货袋</li>
+</ul>
+</li>
 </ul>
 
 
@@ -4157,6 +4290,13 @@ Lastly, your company might <code>lack important things like focus, vision,or dir
 <h3>遗产、继承</h3>
 
 <ul>
+<li>heir:(法律)继承人，法定继承人；后嗣，嗣子；（传统、才干、性格等的）继承者，后继者，承袭着；
+
+<ul>
+<li>fall heir to:继承，后继</li>
+<li>heir of one&rsquo;s(the) body:直系继承人</li>
+</ul>
+</li>
 <li>heritage: (国家)遗产(品质、传统、文化)等
 
 <ul>
@@ -4164,17 +4304,17 @@ Lastly, your company might <code>lack important things like focus, vision,or dir
 <li>nature heritage 自然遗产</li>
 </ul>
 </li>
-<li>legacy:（个人）遗产(财富)；遗留问题
-
-<ul>
-<li>legacy system:遗留系统；</li>
-</ul>
-</li>
 <li>inheritance:继承物(财富)；沿袭物(工作、问题、态度)；遗传特征
 
 <ul>
 <li>inheritance and innovation: 传承与创新</li>
 <li>inheritance tax:遗产税</li>
+</ul>
+</li>
+<li>legacy:（个人）遗产(财富)；遗留问题
+
+<ul>
+<li>legacy system:遗留系统；</li>
 </ul>
 </li>
 <li>entail: 牵涉、导致；需要、使必要；使承担；限定继承权；预</li>
@@ -4221,6 +4361,23 @@ Lastly, your company might <code>lack important things like focus, vision,or dir
 <li>bilateral talks:双边会谈</li>
 </ul>
 </li>
+<li>majesty:陛下，威严，最高权威，王权；雄伟，权威
+
+<ul>
+<li>your majesty:陛下</li>
+</ul>
+</li>
+<li>throne:王座，君主，王权；登上王位、王座
+
+<ul>
+<li>ascend(mount) the throne:即位，登基</li>
+<li>sit one one&rsquo;s(the) throne:执政，当权，称帝，为王</li>
+<li>take the throne:登基为王,加冕为王</li>
+<li>frozen throne:冰封王座(游戏)</li>
+</ul>
+</li>
+<li>abdication:(尤其被迫的)退位，辞职；（权力、权利、要求、职责、责任等的）放弃</li>
+<li></li>
 </ul>
 
 

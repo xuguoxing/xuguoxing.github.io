@@ -5,13 +5,12 @@
 <!--[if (gt IE 8)|(gt IEMobile 7)|!(IEMobile)|!(IE)]><!--><html class="no-js" lang="en"><!--<![endif]-->
 <head>
   <meta charset="utf-8">
-  <title>Homebrew - iOS App</title>
+  <title>使用Reveal分析第三方App - iOS App</title>
   <meta name="author" content="xuguoxing">
 
   
-  <meta name="description" content="Homebrew是OS X上的包管理器 安装Homebrew 1
-ruby -e "$(curl -fsSL https://raw.github.com/Homebrew/homebrew/go/install)" 使用Homebrew安装包 1
-$ brew install wget &hellip;">
+  <meta name="description" content="一.手机越狱 使用越狱工具，如盘古将手机越狱
+安装Cydia Substrate,OpenSSH,AppSync等工具 二.下载Reveal 可在官网下载试用版或者直接购买. 三.拷贝相关内容到越狱手机 保证电脑和手机在同一Wifi下，查看手机IP,检查能够使用ssh进行连接. &hellip;">
   
 
   <!-- http://t.co/dKP3o1e -->
@@ -20,7 +19,7 @@ $ brew install wget &hellip;">
   <meta name="viewport" content="width=device-width, initial-scale=1">
 
   
-  <link rel="canonical" href="http://xuguoxing.github.io/blog/2014/03/27/homebrew">
+  <link rel="canonical" href="http://xuguoxing.github.io/blog/2015/08/24/shi-yong-revealfen-xi-di-san-fang-app">
   <link href="/favicon.png" rel="icon">
   <link href="/stylesheets/screen.css" media="screen, projection" rel="stylesheet" type="text/css">
   <link href="/atom.xml" rel="alternate" title="iOS App" type="application/atom+xml">
@@ -83,7 +82,7 @@ $ brew install wget &hellip;">
   
   <header>
     
-      <h1 class="entry-title">Homebrew</h1>
+      <h1 class="entry-title">使用Reveal分析第三方App</h1>
     
     
       <p class="meta">
@@ -99,83 +98,78 @@ $ brew install wget &hellip;">
   
 
 
-<time datetime="2014-03-27T17:13:23+08:00" pubdate data-updated="true">Mar 27<span>th</span>, 2014</time>
+<time datetime="2015-08-24T10:28:53+08:00" pubdate data-updated="true">Aug 24<span>th</span>, 2015</time>
         
       </p>
     
   </header>
 
 
-<div class="entry-content"><p><a href="http://brew.sh/index.html">Homebrew</a>是OS X上的包管理器</p>
+<div class="entry-content"><h2>一.手机越狱</h2>
 
-<p>安装Homebrew</p>
-
-<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-</pre></td><td class='code'><pre><code class=''><span class='line'>ruby -e "$(curl -fsSL https://raw.github.com/Homebrew/homebrew/go/install)"</span></code></pre></td></tr></table></div></figure>
-
-
-<p>使用Homebrew安装包</p>
-
-<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-</pre></td><td class='code'><pre><code class=''><span class='line'>$ brew install wget</span></code></pre></td></tr></table></div></figure>
+<ol>
+<li>使用越狱工具，如<a href="http://www.pangu.io/">盘古</a>将手机越狱</li>
+<li>安装Cydia Substrate,OpenSSH,AppSync等工具</li>
+</ol>
 
 
-<p>Homebrew会将包安装到/usr/local下自己的目录中，然后在/usr/local/bin中创建符号链接指向实际的执行文件</p>
+<h2>二.下载Reveal</h2>
 
-<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-<span class='line-number'>2</span>
-<span class='line-number'>3</span>
-<span class='line-number'>4</span>
-<span class='line-number'>5</span>
-<span class='line-number'>6</span>
-<span class='line-number'>7</span>
-<span class='line-number'>8</span>
-</pre></td><td class='code'><pre><code class=''><span class='line'>$ pwd
-</span><span class='line'>/usr/local/Cellar
-</span><span class='line'>$ ls
-</span><span class='line'>openssl   wget
-</span><span class='line'>$ pwd
-</span><span class='line'>/usr/local/bin
-</span><span class='line'>$ ls -l wget
-</span><span class='line'>wget -&gt; ../Cellar/wget/1.15/bin/wget</span></code></pre></td></tr></table></div></figure>
+<p>可在<a href="http://revealapp.com/">官网</a>下载试用版或者直接购买.</p>
 
+<h2>三.拷贝相关内容到越狱手机</h2>
 
-<p>卸载Homebrew</p>
+<p>保证电脑和手机在同一Wifi下，查看手机IP,检查能够使用ssh进行连接.具体可见手机上<code>Cybia</code>应用中的<code>OpenSSH访问教程</code>.</p>
 
-<p>使用以下脚本卸载</p>
+<pre><code> $ ssh root@10.232.136.144
+ The authenticity of host '10.232.136.144 (10.232.136.144)' can't be established.
+RSA key fingerprint is 37:3f:9a:32:73:42:f8:49:8e:eb:e8:63:c3:0b:09:d1.
+Are you sure you want to continue connecting (yes/no)? yes
+Warning: Permanently added '10.232.136.144' (RSA) to the list of known hosts.
+root@10.232.136.144's password: 
+xuguoxingmato-iPhone:~ root# 
+</code></pre>
 
-<div><script src='https://gist.github.com/1173223.js'></script>
-<noscript><pre><code>#!/bin/sh
-# Just copy and paste the lines below (all at once, it won't work line by line!)
-# MAKE SURE YOU ARE HAPPY WITH WHAT IT DOES FIRST! THERE IS NO WARRANTY!
+<p>默认密码为&#8221;alpine&#8221;,进入系统后可用<code>passwd</code>命令修改密码。</p>
 
-function abort {
-  echo &quot;$1&quot;
-  exit 1
+<p>在本机Reveal应用中找到<code>Reveal.framework</code>,<code>libReveal.dylib</code>文件，可通过Reveal的<code>Help-&gt;Show Reveal Library in Finder</code>菜单定位到。</p>
+
+<p>通过scp命令将这两个文件拷贝到越狱手机中,在本机命令行执行以下命令</p>
+
+<pre><code>$ scp -r /Applications/Reveal.app/Contents/SharedSupport/iOS-Libraries/Reveal.framework root@x.x.x.x:/System/Library/Frameworks
+$ scp /Applications/Reveal.app/Contents/SharedSupport/iOS-Libraries/libReveal.dylib root@x.x.x.x:/Library/MobileSubstrate/DynamicLibraries
+</code></pre>
+
+<p>在本地创建libReveal.plist文件，将需要分析App的BundleID加入其中，比如需要分享微信和短信应用;</p>
+
+<pre><code>{
+    Filter = {
+         Bundles = (
+         "com.apple.MobileSMS",
+         "com.tencent.xin");
+    };
 }
+</code></pre>
 
-set -e
+<p>可双击用Xcode打开此文件，检查语法是否正确；</p>
 
-/usr/bin/which -s git || abort &quot;brew install git first!&quot;
-test -d /usr/local/.git || abort &quot;brew update first!&quot;
+<p>将此文件拷贝到手机中，在本机执行命令</p>
 
-cd `brew --prefix`
-git checkout master
-git ls-files -z | pbcopy
-rm -rf Cellar
-bin/brew prune
-pbpaste | xargs -0 rm
-rm -r Library/Homebrew Library/Aliases Library/Formula Library/Contributions 
-test -d Library/LinkedKegs &amp;&amp; rm -r Library/LinkedKegs
-rmdir -p bin Library share/man/man1 2&gt; /dev/null
-rm -rf .git
-rm -rf ~/Library/Caches/Homebrew
-rm -rf ~/Library/Logs/Homebrew
-rm -rf /Library/Caches/Homebrew
-</code></pre></noscript></div>
+<pre><code>$ scp libReveal.plist root@x.x.x.x:/Library/MobileSubstrate/DynamicLibraries 
+</code></pre>
 
+<p>也可以在手机命令上使用编辑工具,如<code>nano</code>直接进行编辑。</p>
 
+<p>重启SpringBoard,在手机命令行执行</p>
 
+<pre><code>$ killall SpringBoard
+</code></pre>
+
+<h2>四.使用Reveal分析</h2>
+
+<p>手机SpringBoard重启后，打开微信应用，在本机上打开Reveal,就可以看到连接并进行分析了。</p>
+
+<p>注:若无法连接，则需要检查wifi的防火墙设置，Reveal使用苹果的<code>Bonjour</code>服务进行通信，有可能网络防火墙将此服务屏蔽了。</p>
 </div>
 
 
@@ -198,7 +192,7 @@ rm -rf /Library/Caches/Homebrew
   
 
 
-<time datetime="2014-03-27T17:13:23+08:00" pubdate data-updated="true">Mar 27<span>th</span>, 2014</time>
+<time datetime="2015-08-24T10:28:53+08:00" pubdate data-updated="true">Aug 24<span>th</span>, 2015</time>
       
 
 
@@ -206,7 +200,7 @@ rm -rf /Library/Caches/Homebrew
     
       <div class="sharing">
   
-  <a href="//twitter.com/share" class="twitter-share-button" data-url="http://xuguoxing.github.io/blog/2014/03/27/homebrew/" data-via="xuguoxing" data-counturl="http://xuguoxing.github.io/blog/2014/03/27/homebrew/" >Tweet</a>
+  <a href="//twitter.com/share" class="twitter-share-button" data-url="http://xuguoxing.github.io/blog/2015/08/24/shi-yong-revealfen-xi-di-san-fang-app/" data-via="xuguoxing" data-counturl="http://xuguoxing.github.io/blog/2015/08/24/shi-yong-revealfen-xi-di-san-fang-app/" >Tweet</a>
   
   
   
@@ -217,10 +211,8 @@ rm -rf /Library/Caches/Homebrew
     
     <p class="meta">
       
-        <a class="basic-alignment left" href="/blog/2014/03/27/imageoptim/" title="Previous Post: ImageOptim">&laquo; ImageOptim</a>
+        <a class="basic-alignment left" href="/blog/2015/05/28/team-geek/" title="Previous Post: Team Geek">&laquo; Team Geek</a>
       
-      
-        <a class="basic-alignment right" href="/blog/2014/03/27/rvm/" title="Next Post: rvm">rvm &raquo;</a>
       
     </p>
   </footer>
