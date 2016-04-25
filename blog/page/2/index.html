@@ -9,7 +9,8 @@
   <meta name="author" content="xuguoxing">
 
   
-  <meta name="description" content="持续集成(CI)介绍 持续集成自动从代码服务器拉取代码，完成自动编译、测试、分发和部署等工作；出现错误时及时通知开发人员，使问题可以立即得到解决，降低项目风险。 Jenkins是一款很流行的持续集成工具，配置简单，结合一些插件和命令行工具可以完成很多工作。 Mac系统同样有一款持续集成工具OS X &hellip;">
+  <meta name="description" content="在Xcode中可以通过名为EXCLUDED_SOURCE_FILE_NAMES的用户自定义(User-Defined) build setting来配置在某些Configurations下进行构建
+不包含的文件。 比如，在Debug环境下会包含用于测试的桩文件， &hellip;">
   
 
   <!-- http://t.co/dKP3o1e -->
@@ -78,6 +79,66 @@
     <div id="content">
       <div class="blog-index">
   
+  
+  
+    <article>
+      
+  <header>
+    
+      <h1 class="entry-title"><a href="/blog/2014/08/16/excluded-source-file-names/">EXCLUDED_SOURCE_FILE_NAMES</a></h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2014-08-16T14:03:01+08:00" pubdate data-updated="true">Aug 16<span>th</span>, 2014</time>
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><p>在Xcode中可以通过名为<code>EXCLUDED_SOURCE_FILE_NAMES</code>的用户自定义(User-Defined) build setting来配置在某些Configurations下进行构建
+不包含的文件。</p>
+
+<p>比如，在Debug环境下会包含用于测试的桩文件，而在发布版本Release环境中不应该包含。</p>
+
+<h2>设置方法</h2>
+
+<p>在Target的<code>Build Settings</code>中滑到最下面，可看到<code>User-Defined</code>区域。</p>
+
+<p><img src="/images/2014/08/User_Defined.png"></p>
+
+<p>在<code>Build Settings</code>顶部点击<code>+</code>号，选择&#8221;Add User-Defined Setting&#8221;
+<img src="/images/2014/08/Add_User_Defined.png"></p>
+
+<p>在&#8221;User-Defined&#8221;区域添加名为<code>EXCLUDED_SOURCE_FILE_NAMES</code>设置项，并在Release配置下，添加需要Exlclude的文件名，支持通配符，以空格分隔。</p>
+
+<p><img src="/images/2014/08/Add_User_Defined_OK.png"></p>
+
+<h2>参考</h2>
+
+<ul>
+<li><a href="http://lists.apple.com/archives/xcode-users/2009/Jun/msg00153.html">Re: Conditional include based on configuration</a></li>
+<li><a href="http://twobitlabs.com/2012/01/excluding-files-from-production-xcode-builds/">Slim down your iOS app by excluding files from production builds</a></li>
+</ul>
+
+</div>
+  
+  
+
+
+    </article>
   
   
     <article>
@@ -2358,6 +2419,10 @@ page_asides:        # Optional sidebar config for page layout
   <ul id="recent_posts">
     
       <li class="post">
+        <a href="/blog/2016/04/25/objective-clei-jie-gou-lei-yu-yuan-lei/">Objective-C类结构- 类与元类</a>
+      </li>
+    
+      <li class="post">
         <a href="/blog/2015/08/24/shi-yong-revealfen-xi-di-san-fang-app/">使用Reveal分析第三方App</a>
       </li>
     
@@ -2393,10 +2458,6 @@ page_asides:        # Optional sidebar config for page layout
         <a href="/blog/2014/08/18/hosts/">Hosts</a>
       </li>
     
-      <li class="post">
-        <a href="/blog/2014/08/16/excluded-source-file-names/">EXCLUDED_SOURCE_FILE_NAMES</a>
-      </li>
-    
   </ul>
 </section>
 
@@ -2410,7 +2471,7 @@ page_asides:        # Optional sidebar config for page layout
     </div>
   </div>
   <footer role="contentinfo"><p>
-  Copyright &copy; 2015 - xuguoxing -
+  Copyright &copy; 2016 - xuguoxing -
   <span class="credit">Powered by <a href="http://octopress.org">Octopress</a></span>
 </p>
 
