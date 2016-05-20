@@ -13,7 +13,7 @@ categories:
 安装RVM
 
 ```
-curl -L https://get.rvm.io | bash -s stable --ruby
+curl -sSL https://get.rvm.io | bash -s stable --ruby
 ```
 
 安装完成有提示:

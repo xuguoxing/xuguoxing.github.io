@@ -13,7 +13,7 @@ categories:
 确保Ruby环境为1.9.3,若不是，则下载RVM,安装1.9.3版本
 
 ```
-$ url -L https://get.rvm.io | bash -s stable --ruby
+$ curl -L https://get.rvm.io | bash -s stable --ruby
 $ rvm install 1.9.3
 $ rvm use 1.9.3
 $ rvm rubygems latest
@@ -176,6 +176,8 @@ rake new_page[super-awesome/page.html]
 	---
 
 和post很相似,但不包括`categories`, sharing和footer是做什么用的；如果不需要显示日期`date`可删除
+
+Pages在导航栏位置的配置在文件`source/_includes/custom/navigation.html`中。
 
 ##五.生成和预览
 

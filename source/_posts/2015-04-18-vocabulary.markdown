@@ -3,7 +3,7 @@ layout: post
 title: "vocabulary"
 date: 2015-04-18 14:48:43 +0800
 comments: true
-published: true
+published: false
 categories: 
 ---
 
