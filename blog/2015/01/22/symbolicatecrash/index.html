@@ -1,0 +1,304 @@
+
+<!DOCTYPE html>
+<!--[if IEMobile 7 ]><html class="no-js iem7"><![endif]-->
+<!--[if lt IE 9]><html class="no-js lte-ie8"><![endif]-->
+<!--[if (gt IE 8)|(gt IEMobile 7)|!(IEMobile)|!(IE)]><!--><html class="no-js" lang="en"><!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  <title>Symbolicatecrash - iOS App</title>
+  <meta name="author" content="xuguoxing">
+
+  
+  <meta name="description" content="symbolicatecrash是Xcode自带的分析工具，使用crash log文件和.dSYM文件可将crash log中的地址替换为代码位置。 查找symbolicatecrash 查找Xcode安装路径 $ xcode-select -p
+/Applications/Xcode.app/ &hellip;">
+  
+
+  <!-- http://t.co/dKP3o1e -->
+  <meta name="HandheldFriendly" content="True">
+  <meta name="MobileOptimized" content="320">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  
+  <link rel="canonical" href="http://xuguoxing.github.io/blog/2015/01/22/symbolicatecrash">
+  <link href="/favicon.png" rel="icon">
+  <link href="/stylesheets/screen.css" media="screen, projection" rel="stylesheet" type="text/css">
+  <link href="/atom.xml" rel="alternate" title="iOS App" type="application/atom+xml">
+  <script src="/javascripts/modernizr-2.0.js"></script>
+  <script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+  <script>!window.jQuery && document.write(unescape('%3Cscript src="./javascripts/libs/jquery.min.js"%3E%3C/script%3E'))</script>
+  <script src="/javascripts/octopress.js" type="text/javascript"></script>
+  <!--Fonts from Google"s Web font directory at http://google.com/webfonts -->
+<link href="//fonts.googleapis.com/css?family=PT+Serif:regular,italic,bold,bolditalic" rel="stylesheet" type="text/css">
+<link href="//fonts.googleapis.com/css?family=PT+Sans:regular,italic,bold,bolditalic" rel="stylesheet" type="text/css">
+
+  
+  <script type="text/javascript">
+    var _gaq = _gaq || [];
+    _gaq.push(['_setAccount', 'UA-36079321-1']);
+    _gaq.push(['_trackPageview']);
+
+    (function() {
+      var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+      ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+      var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+    })();
+  </script>
+
+
+</head>
+
+<body   >
+  <header role="banner"><hgroup>
+  <h1><a href="/">iOS App</a></h1>
+  
+    <h2>iOS App For Myself.</h2>
+  
+</hgroup>
+
+</header>
+  <nav role="navigation"><ul class="subscription" data-subscription="rss">
+  <li><a href="/atom.xml" rel="subscribe-rss" title="subscribe via RSS">RSS</a></li>
+  
+</ul>
+  
+<form action="https://www.google.com/search" method="get">
+  <fieldset role="search">
+    <input type="hidden" name="q" value="site:xuguoxing.github.io" />
+    <input class="search" type="text" name="q" results="0" placeholder="Search"/>
+  </fieldset>
+</form>
+  
+<ul class="main-navigation">
+  <li><a href="/">Blog</a></li>
+  <li><a href="/blog/archives">Archives</a></li>
+<!--  <li><a href="/mymoney">资产管家</a></li> -->
+</ul>
+
+</nav>
+  <div id="main">
+    <div id="content">
+      <div>
+<article class="hentry" role="article">
+  
+  <header>
+    
+      <h1 class="entry-title">Symbolicatecrash</h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2015-01-22T10:47:18+08:00" pubdate data-updated="true">Jan 22<span>nd</span>, 2015</time>
+        
+      </p>
+    
+  </header>
+
+
+<div class="entry-content"><p><code>symbolicatecrash</code>是Xcode自带的分析工具，使用crash log文件和.dSYM文件可将crash log中的地址替换为代码位置。</p>
+
+<h2>查找<code>symbolicatecrash</code></h2>
+
+<p>查找Xcode安装路径</p>
+
+<pre><code>$ xcode-select -p
+/Applications/Xcode.app/Contents/Developer
+</code></pre>
+
+<p>搜索<code>symbolicatecrash</code></p>
+
+<pre><code>$ find /Applications/Xcode.app -name "symbolicatecrash"
+/Applications/Xcode.app/Contents/SharedFrameworks/DTDeviceKitBase.framework/Versions/A/Resources/symbolicatecrash
+</code></pre>
+
+<h2>解析crash log</h2>
+
+<p>将symbolicatecrash、crash log、.dSYM文件拷贝到同一目录，命令行执行</p>
+
+<pre><code>./Symbolicatecrash aa.crash bb.dSYM &gt; cc.log
+</code></pre>
+
+<p>将解析后的crash log输出到cc.log文件中</p>
+
+<p>注:若有提示&#8221;Error: &ldquo;DEVELOPER_DIR&rdquo; is not defined&#8221;,则设置</p>
+
+<pre><code>$ export DEVELOPER_DIR=/Applications/Xcode.app/Contents/Developer
+</code></pre>
+
+<h2>检查.app文件、.dSYM文件和crash log是否对应的方法</h2>
+
+<pre><code>$ dwarfdump --uuid MyApp.app/MyApp
+UUID: CC67C4BF-16E7-3512-8E03-10FCFEB5AE5A (armv7) MyApp.app/MyApp
+$ dwarfdump --uuid MyApp.app.dSYM/
+UUID: CC67C4BF-16E7-3512-8E03-10FCFEB5AE5A (armv7) MyApp.app.dSYM/Contents/Resources/DWARF/MyApp
+</code></pre>
+
+<p>检查上述两个UUID与crash log中的&#8221;slice_uuid&#8221;字段是否一致。</p>
+
+<h2>参考</h2>
+
+<ul>
+<li><a href="http://www.cnblogs.com/ydhliphonedev/archive/2012/12/07/2806866.html">iphone崩溃日志分析工具symbolicatecrash用法</a></li>
+<li><a href="http://ios-iphone.diandian.com/post/2012-05-18/19440182">iOS系统Crash文件分析方法</a></li>
+</ul>
+
+</div>
+
+
+  <footer>
+    <p class="meta">
+      
+  
+
+<span class="byline author vcard">Posted by <span class="fn">xuguoxing</span></span>
+
+      
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2015-01-22T10:47:18+08:00" pubdate data-updated="true">Jan 22<span>nd</span>, 2015</time>
+      
+
+
+    </p>
+    
+      <div class="sharing">
+  
+  <a href="//twitter.com/share" class="twitter-share-button" data-url="http://xuguoxing.github.io/blog/2015/01/22/symbolicatecrash/" data-via="xuguoxing" data-counturl="http://xuguoxing.github.io/blog/2015/01/22/symbolicatecrash/" >Tweet</a>
+  
+  
+  
+    <div class="fb-like" data-send="true" data-width="450" data-show-faces="false"></div>
+  
+</div>
+
+    
+    <p class="meta">
+      
+        <a class="basic-alignment left" href="/blog/2014/10/23/cocoapods/" title="Previous Post: CocoaPods">&laquo; CocoaPods</a>
+      
+      
+        <a class="basic-alignment right" href="/blog/2015/05/14/iphone-and-ipad-app-marketing-checklist/" title="Next Post: iPhone &amp; iPad App Marketing Checklist">iPhone &amp; iPad App Marketing Checklist &raquo;</a>
+      
+    </p>
+  </footer>
+</article>
+
+</div>
+
+<aside class="sidebar">
+  
+    <section>
+  <h1>Recent Posts</h1>
+  <ul id="recent_posts">
+    
+      <li class="post">
+        <a href="/blog/2016/05/20/makers-schedule/">Maker's Schedule,Manager's Schedule</a>
+      </li>
+    
+      <li class="post">
+        <a href="/blog/2016/04/25/objective-clei-jie-gou-lei-yu-yuan-lei/">Objective-C类结构- 类与元类</a>
+      </li>
+    
+      <li class="post">
+        <a href="/blog/2015/08/24/shi-yong-revealfen-xi-di-san-fang-app/">使用Reveal分析第三方App</a>
+      </li>
+    
+      <li class="post">
+        <a href="/blog/2015/05/14/iphone-and-ipad-app-marketing-checklist/">iPhone &amp; iPad App Marketing Checklist</a>
+      </li>
+    
+      <li class="post">
+        <a href="/blog/2015/01/22/symbolicatecrash/">Symbolicatecrash</a>
+      </li>
+    
+      <li class="post">
+        <a href="/blog/2014/10/23/cocoapods/">CocoaPods</a>
+      </li>
+    
+      <li class="post">
+        <a href="/blog/2014/08/18/hosts/">Hosts</a>
+      </li>
+    
+      <li class="post">
+        <a href="/blog/2014/08/16/excluded-source-file-names/">EXCLUDED_SOURCE_FILE_NAMES</a>
+      </li>
+    
+      <li class="post">
+        <a href="/blog/2014/06/09/jenkins/">Jenkins</a>
+      </li>
+    
+      <li class="post">
+        <a href="/blog/2014/06/09/ocmock/">OCMock</a>
+      </li>
+    
+  </ul>
+</section>
+
+
+
+
+
+  
+</aside>
+
+
+    </div>
+  </div>
+  <footer role="contentinfo"><p>
+  Copyright &copy; 2016 - xuguoxing -
+  <span class="credit">Powered by <a href="http://octopress.org">Octopress</a></span>
+</p>
+
+</footer>
+  
+
+
+
+<div id="fb-root"></div>
+<script>(function(d, s, id) {
+  var js, fjs = d.getElementsByTagName(s)[0];
+  if (d.getElementById(id)) {return;}
+  js = d.createElement(s); js.id = id; js.async = true;
+  js.src = "//connect.facebook.net/en_US/all.js#appId=212934732101925&xfbml=1";
+  fjs.parentNode.insertBefore(js, fjs);
+}(document, 'script', 'facebook-jssdk'));</script>
+
+
+
+
+
+  <script type="text/javascript">
+    (function(){
+      var twitterWidgets = document.createElement('script');
+      twitterWidgets.type = 'text/javascript';
+      twitterWidgets.async = true;
+      twitterWidgets.src = '//platform.twitter.com/widgets.js';
+      document.getElementsByTagName('head')[0].appendChild(twitterWidgets);
+    })();
+  </script>
+
+
+
+
+
+</body>
+</html>

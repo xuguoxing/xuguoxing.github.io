@@ -1,0 +1,19 @@
+{
+    "content": {
+        "save_your_time": "Save Your Time",
+        "save_your_time_subtitle": "Ubee app is here to present you a new experience: location for indoor venues",
+        "interactive_maps": "Interactive Maps",
+        "acurate_indoor": "Accurate Indoor Positioning",
+        "routes": "Routes",
+        "never_stuck": "Never get stuck trying to find your way at airports, shopping malls and other large venues. With ubee you can find yourself and find whatever you need",
+        "download_now": "Download now!",
+        "venues_number": "More than 30 venues and counting...",
+        "image_cel": "images/img_cel_tutorial_en.png"
+    },
+
+    "language": {
+	"other_language_link": "?lang=pt",
+	"other_language_src": "images/language_br.png",
+	"other_language": "Português"
+    }
+}

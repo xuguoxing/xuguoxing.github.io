@@ -1,0 +1,389 @@
+
+<!DOCTYPE html>
+<!--[if IEMobile 7 ]><html class="no-js iem7"><![endif]-->
+<!--[if lt IE 9]><html class="no-js lte-ie8"><![endif]-->
+<!--[if (gt IE 8)|(gt IEMobile 7)|!(IEMobile)|!(IE)]><!--><html class="no-js" lang="en"><!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  <title>ImageOptim - iOS App</title>
+  <meta name="author" content="xuguoxing">
+
+  
+  <meta name="description" content="ImageOptim ImageOptim通过寻找最好的压缩参数和移除不必要的comments和color profiles来减少图片大小，提高加载速度。 ImageOptim可以处理PNG,JPEG和GIF动画。 ImageOptim无缝集成以下优化工具: PNGOUT
+Zopfli &hellip;">
+  
+
+  <!-- http://t.co/dKP3o1e -->
+  <meta name="HandheldFriendly" content="True">
+  <meta name="MobileOptimized" content="320">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  
+  <link rel="canonical" href="http://xuguoxing.github.io/blog/2014/03/27/imageoptim">
+  <link href="/favicon.png" rel="icon">
+  <link href="/stylesheets/screen.css" media="screen, projection" rel="stylesheet" type="text/css">
+  <link href="/atom.xml" rel="alternate" title="iOS App" type="application/atom+xml">
+  <script src="/javascripts/modernizr-2.0.js"></script>
+  <script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+  <script>!window.jQuery && document.write(unescape('%3Cscript src="./javascripts/libs/jquery.min.js"%3E%3C/script%3E'))</script>
+  <script src="/javascripts/octopress.js" type="text/javascript"></script>
+  <!--Fonts from Google"s Web font directory at http://google.com/webfonts -->
+<link href="//fonts.googleapis.com/css?family=PT+Serif:regular,italic,bold,bolditalic" rel="stylesheet" type="text/css">
+<link href="//fonts.googleapis.com/css?family=PT+Sans:regular,italic,bold,bolditalic" rel="stylesheet" type="text/css">
+
+  
+  <script type="text/javascript">
+    var _gaq = _gaq || [];
+    _gaq.push(['_setAccount', 'UA-36079321-1']);
+    _gaq.push(['_trackPageview']);
+
+    (function() {
+      var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+      ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+      var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+    })();
+  </script>
+
+
+</head>
+
+<body   >
+  <header role="banner"><hgroup>
+  <h1><a href="/">iOS App</a></h1>
+  
+    <h2>iOS App For Myself.</h2>
+  
+</hgroup>
+
+</header>
+  <nav role="navigation"><ul class="subscription" data-subscription="rss">
+  <li><a href="/atom.xml" rel="subscribe-rss" title="subscribe via RSS">RSS</a></li>
+  
+</ul>
+  
+<form action="https://www.google.com/search" method="get">
+  <fieldset role="search">
+    <input type="hidden" name="q" value="site:xuguoxing.github.io" />
+    <input class="search" type="text" name="q" results="0" placeholder="Search"/>
+  </fieldset>
+</form>
+  
+<ul class="main-navigation">
+  <li><a href="/">Blog</a></li>
+  <li><a href="/blog/archives">Archives</a></li>
+<!--  <li><a href="/mymoney">资产管家</a></li> -->
+</ul>
+
+</nav>
+  <div id="main">
+    <div id="content">
+      <div>
+<article class="hentry" role="article">
+  
+  <header>
+    
+      <h1 class="entry-title">ImageOptim</h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2014-03-27T09:40:59+08:00" pubdate data-updated="true">Mar 27<span>th</span>, 2014</time>
+        
+      </p>
+    
+  </header>
+
+
+<div class="entry-content"><h2><a href="http://imageoptim.com/">ImageOptim</a></h2>
+
+<p>ImageOptim通过寻找最好的压缩参数和移除不必要的<code>comments</code>和<code>color profiles</code>来减少图片大小，提高加载速度。</p>
+
+<p>ImageOptim可以处理PNG,JPEG和GIF动画。</p>
+
+<p>ImageOptim无缝集成以下优化工具:</p>
+
+<ul>
+<li><a href="http://www.advsys.net/ken/util/pngout.htm">PNGOUT</a></li>
+<li><a href="http://googledevelopers.blogspot.co.uk/2013/02/compress-data-more-densely-with-zopfli.html">Zopfli</a></li>
+<li><a href="http://pmt.sourceforge.net/pngcrush/">Pngcrush</a></li>
+<li><a href="http://advancemame.sourceforge.net/doc-advpng.html">AdvPNG</a></li>
+<li><a href="http://optipng.sourceforge.net/">OptiPNG</a></li>
+<li><a href="http://www.kokkonen.net/tjko/projects.html">JpegOptim</a></li>
+<li>jpegrescan</li>
+<li>jpegtran</li>
+<li><a href="http://www.lcdf.org/gifsicle/">Gifsicle</a></li>
+</ul>
+
+
+<p>ImageOptim代码是开源的，其<a href="https://github.com/pornel/ImageOptim">源代码</a>在GitHub上。</p>
+
+<p><a href="http://calendar.perfplanet.com/2010/png-that-works/">PNG that works</a>文章中解释了为什么ImageOptim移除gamma信息，和怎么在
+保留透明度的情况下获取更小的png图片。</p>
+
+<h2>Xcode内置的图片优化 <a href="http://pmt.sourceforge.net/pngcrush/index.html">pngcrush</a></h2>
+
+<p>Xcode默认会将所有的PNG图片转换成一个非标准的iOS特定的PNG格式<a href="http://iphonedevwiki.net/index.php/CgBI_file_format">CgBI file format</a>。</p>
+
+<p>这种格式使用<code>premultiplied BGRA</code>代替了<code>RGBA</code>颜色空间，会在<code>loading</code>阶段节省一点点转换时间，但完全不影响
+图片渲染(Rendering)速度。</p>
+
+<p>Xcode的这种转换有时会使图片增大，会抵消<code>ImageOptim</code>的优化。</p>
+
+<p>可以在<code>Build Settings</code>中将<code>Compress PNG Files</code>设为<code>NO</code>来禁止这种转换。</p>
+
+<p>Apple的PNG变体，在iOS外无法使用，也无法使用<code>Preview</code>工具查看，可以使用<code>pngcrush</code>工具进行逆向转换成正常的png图片。</p>
+
+<p><code>pngcrush</code>在Xcode的安装目录中存在，路径类似为<code>/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/usr/bin/pngcrush</code></p>
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>$ /Applications/Xcode.app/Contents/Developer\/Platforms/iPhoneOS.platform/Developer/usr/bin/pngcrush \-revert-iphone-optimizations -q Local.png Local-standard.png</span></code></pre></td></tr></table></div></figure>
+
+
+<p>可将Local.png 恢复成正常的Local-standard.png</p>
+
+<h2><a href="http://pngmini.com/">Image Alpha</a></h2>
+
+<p>ImageAlpha通过<a href="http://pngmini.com/lossypng.html">有损压缩</a>和转换为更有效率的<code>PNG8+alpha</code>格式，可以有效的减小24-bit
+PNG文件(包括alpha透明度)的大小。其生成的图片兼容iOS,所有的浏览器设置IE6。</p>
+
+<p>ImageAlpha通过使用最新的<a href="http://pngquant.org/">pngquant</a>,<a href="http://sourceforge.net/projects/pngnqs9/">pngnq-s9</a>和<code>alpha-channel-aware</code>的<a href="https://github.com/pornel/mediancut-posterizer">posterizer</a>
+能达到比Adobe Fireworks中类似功能更好的图片质量。</p>
+
+<p>ImageAlpha基于<a href="http://pngquant.org/">pngquant</a>,在<code>ImageAlpha.app/Contents/Resources</code>目录下会有<code>pngquant</code>执行文件，可以用于批量处理。<a href="http://jamiemason.github.io/ImageOptim-CLI/">ImageOptim-CLI</a>也会使用此文件。</p>
+
+<p>ImageAlpha是开源的，其代码是python的。<a href="https://github.com/pornel/ImageAlpha">source code</a>在github上。</p>
+
+<h2><a href="http://jpegmini.com/mac">JPEGmini for Mac</a></h2>
+
+<p>JPEGmini Mac版本可以对JPEG图片最高进行5倍的压缩，并保持原始的质量和JPEG格式。</p>
+
+<p>JPEGmini是收费软件,在appstore有一个免费版本<a href="http://itunes.apple.com/us/app/jpegmini-lite/id525742250?mt=12">JPEGmini Lite下载</a>，免费版本每天只能压缩20张图片。</p>
+
+<h2><a href="https://github.com/JamieMason/ImageOptim-CLI">ImageOptim-CLI</a></h2>
+
+<p>ImageOptim-CLI命令行工具使用<a href="http://imageoptim.com/">ImageOptim</a>,<a href="http://pngmini.com/">ImageAlpha</a>,<a href="http://jpegmini.com/mac">JPEGmini for Mac</a>
+对图片进行批量优化。</p>
+
+<p>从目前的<a href="http://jamiemason.github.io/ImageOptim-CLI/">benchmarks</a>可看出ImageOptim,ImageAlpha和JPEGmini的优化效果比其他替代品要好。</p>
+
+<p>下载最新的zip包，解压并将ImageOptim-CLI的路径添加到$PATH中。</p>
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>$ curl --output imageoptim-cli.zip https://codeload.github.com/JamieMason/ImageOptim-CLI/zip/1.7.11
+</span><span class='line'>$ unzip imageoptim-cli.zip
+</span><span class='line'>$ export PATH=$PATH:imageoptim-cli/bin</span></code></pre></td></tr></table></div></figure>
+
+
+<p>使用方法</p>
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+<span class='line-number'>8</span>
+<span class='line-number'>9</span>
+<span class='line-number'>10</span>
+<span class='line-number'>11</span>
+<span class='line-number'>12</span>
+<span class='line-number'>13</span>
+<span class='line-number'>14</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>  Usage: imageOptim [options]
+</span><span class='line'>
+</span><span class='line'>  Options:
+</span><span class='line'>
+</span><span class='line'>  -d, --directory     directory of images to process
+</span><span class='line'>  -a, --image-alpha   pre-process PNGs with ImageAlpha.app *
+</span><span class='line'>  -j, --jpeg-mini     pre-process JPGs with JPEGmini.app **
+</span><span class='line'>  -q, --quit          quit all apps when complete
+</span><span class='line'>  -h, --help          display this usage information
+</span><span class='line'>  -e, --examples      display some example commands and uses
+</span><span class='line'>  -v, --version       display the version number
+</span><span class='line'>
+</span><span class='line'>*  http://pngmini.com
+</span><span class='line'>** https://itunes.apple.com/us/app/jpegmini/id498944723</span></code></pre></td></tr></table></div></figure>
+
+
+<ul>
+<li><code>-d</code>指定要优化的图片文件目录;</li>
+<li><code>-a</code>,<code>-j</code>指定预先使用<code>ImageAlpha</code>优化PNG图片和使用<code>JPEGmini</code>优化JPEG图片，因为JPEGmini为收费的，如果没有
+安装，不指定<code>-j</code>即可;</li>
+</ul>
+
+
+<p>一些示例命令</p>
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>imageOptim --directory ~/Sites/Awesome # [options]
+</span><span class='line'>find ~/Sites/Awesome -name '*.jpg' | imageOptim # [options]
+</span><span class='line'>imageOptim --jpeg-mini --image-alpha --quit --directory path/to/images
+</span><span class='line'>imageOptim -j -a -q -d path/to/images</span></code></pre></td></tr></table></div></figure>
+
+</div>
+
+
+  <footer>
+    <p class="meta">
+      
+  
+
+<span class="byline author vcard">Posted by <span class="fn">xuguoxing</span></span>
+
+      
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2014-03-27T09:40:59+08:00" pubdate data-updated="true">Mar 27<span>th</span>, 2014</time>
+      
+
+
+    </p>
+    
+      <div class="sharing">
+  
+  <a href="//twitter.com/share" class="twitter-share-button" data-url="http://xuguoxing.github.io/blog/2014/03/27/imageoptim/" data-via="xuguoxing" data-counturl="http://xuguoxing.github.io/blog/2014/03/27/imageoptim/" >Tweet</a>
+  
+  
+  
+    <div class="fb-like" data-send="true" data-width="450" data-show-faces="false"></div>
+  
+</div>
+
+    
+    <p class="meta">
+      
+        <a class="basic-alignment left" href="/blog/2014/03/20/octopressjian-zhan-liu-cheng/" title="Previous Post: Octopress建站流程">&laquo; Octopress建站流程</a>
+      
+      
+        <a class="basic-alignment right" href="/blog/2014/03/27/homebrew/" title="Next Post: Homebrew">Homebrew &raquo;</a>
+      
+    </p>
+  </footer>
+</article>
+
+</div>
+
+<aside class="sidebar">
+  
+    <section>
+  <h1>Recent Posts</h1>
+  <ul id="recent_posts">
+    
+      <li class="post">
+        <a href="/blog/2016/05/20/makers-schedule/">Maker's Schedule,Manager's Schedule</a>
+      </li>
+    
+      <li class="post">
+        <a href="/blog/2016/04/25/objective-clei-jie-gou-lei-yu-yuan-lei/">Objective-C类结构- 类与元类</a>
+      </li>
+    
+      <li class="post">
+        <a href="/blog/2015/08/24/shi-yong-revealfen-xi-di-san-fang-app/">使用Reveal分析第三方App</a>
+      </li>
+    
+      <li class="post">
+        <a href="/blog/2015/05/14/iphone-and-ipad-app-marketing-checklist/">iPhone &amp; iPad App Marketing Checklist</a>
+      </li>
+    
+      <li class="post">
+        <a href="/blog/2015/01/22/symbolicatecrash/">Symbolicatecrash</a>
+      </li>
+    
+      <li class="post">
+        <a href="/blog/2014/10/23/cocoapods/">CocoaPods</a>
+      </li>
+    
+      <li class="post">
+        <a href="/blog/2014/08/18/hosts/">Hosts</a>
+      </li>
+    
+      <li class="post">
+        <a href="/blog/2014/08/16/excluded-source-file-names/">EXCLUDED_SOURCE_FILE_NAMES</a>
+      </li>
+    
+      <li class="post">
+        <a href="/blog/2014/06/09/jenkins/">Jenkins</a>
+      </li>
+    
+      <li class="post">
+        <a href="/blog/2014/06/09/ocmock/">OCMock</a>
+      </li>
+    
+  </ul>
+</section>
+
+
+
+
+
+  
+</aside>
+
+
+    </div>
+  </div>
+  <footer role="contentinfo"><p>
+  Copyright &copy; 2016 - xuguoxing -
+  <span class="credit">Powered by <a href="http://octopress.org">Octopress</a></span>
+</p>
+
+</footer>
+  
+
+
+
+<div id="fb-root"></div>
+<script>(function(d, s, id) {
+  var js, fjs = d.getElementsByTagName(s)[0];
+  if (d.getElementById(id)) {return;}
+  js = d.createElement(s); js.id = id; js.async = true;
+  js.src = "//connect.facebook.net/en_US/all.js#appId=212934732101925&xfbml=1";
+  fjs.parentNode.insertBefore(js, fjs);
+}(document, 'script', 'facebook-jssdk'));</script>
+
+
+
+
+
+  <script type="text/javascript">
+    (function(){
+      var twitterWidgets = document.createElement('script');
+      twitterWidgets.type = 'text/javascript';
+      twitterWidgets.async = true;
+      twitterWidgets.src = '//platform.twitter.com/widgets.js';
+      document.getElementsByTagName('head')[0].appendChild(twitterWidgets);
+    })();
+  </script>
+
+
+
+
+
+</body>
+</html>

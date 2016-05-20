@@ -1,0 +1,2870 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+
+  <title><![CDATA[iOS App]]></title>
+  <link href="http://xuguoxing.github.io/atom.xml" rel="self"/>
+  <link href="http://xuguoxing.github.io/"/>
+  <updated>2016-05-20T11:19:02+08:00</updated>
+  <id>http://xuguoxing.github.io/</id>
+  <author>
+    <name><![CDATA[xuguoxing]]></name>
+    
+  </author>
+  <generator uri="http://octopress.org/">Octopress</generator>
+
+  
+  <entry>
+    <title type="html"><![CDATA[Maker's Schedule,Manager's Schedule]]></title>
+    <link href="http://xuguoxing.github.io/blog/2016/05/20/makers-schedule/"/>
+    <updated>2016-05-20T10:25:11+08:00</updated>
+    <id>http://xuguoxing.github.io/blog/2016/05/20/makers-schedule</id>
+    <content type="html"><![CDATA[<p><a href="http://www.paulgraham.com/makersschedule.html">Maker&rsquo;s Scheudle ,Manager&rsquo;s Schedule</a></p>
+
+<p>One reason programmers dislike meetings so much is that they&rsquo;re on a different type of schedule from other people. Meetings cost them more.</p>
+
+<p>There are two types of schedule, which I&rsquo;ll call the manager&rsquo;s schedule and the maker&rsquo;s schedule. The manager&rsquo;s schedule is for bosses. It&rsquo;s embodied in the traditional appointment book, with each day cut into one hour intervals. You can block off several hours for a single task if you need to, but by default you change what you&rsquo;re doing every hour.</p>
+
+<p>When you use time that way, it&rsquo;s merely a practical problem to meet with someone. Find an open slot in your schedule, book them, and you&rsquo;re done.</p>
+
+<p>Most powerful people are on the manager&rsquo;s schedule. It&rsquo;s the schedule of command. But there&rsquo;s another way of using time that&rsquo;s common among people who make things, like programmers and writers. They generally prefer to use time in units of half a day at least. You can&rsquo;t write or program well in units of an hour. That&rsquo;s barely enough time to get started.</p>
+
+<p>When you&rsquo;re operating on the maker&rsquo;s schedule, meetings are a disaster. A single meeting can blow a whole afternoon, by breaking it into two pieces each too small to do anything hard in. Plus you have to remember to go to the meeting. That&rsquo;s no problem for someone on the manager&rsquo;s schedule. There&rsquo;s always something coming on the next hour; the only question is what. But when someone on the maker&rsquo;s schedule has a meeting, they have to think about it.</p>
+
+<p>For someone on the maker&rsquo;s schedule, having a meeting is like throwing an exception. It doesn&rsquo;t merely cause you to switch from one task to another; it changes the mode in which you work.</p>
+
+<p>I find one meeting can sometimes affect a whole day. A meeting commonly blows at least half a day, by breaking up a morning or afternoon. But in addition there&rsquo;s sometimes a cascading effect. If I know the afternoon is going to be broken up, I&rsquo;m slightly less likely to start something ambitious in the morning. I know this may sound oversensitive, but if you&rsquo;re a maker, think of your own case. Don&rsquo;t your spirits rise at the thought of having an entire day free to work, with no appointments at all? Well, that means your spirits are correspondingly depressed when you don&rsquo;t. And ambitious projects are by definition close to the limits of your capacity. A small decrease in morale is enough to kill them off.</p>
+
+<p>Each type of schedule works fine by itself. Problems arise when they meet. Since most powerful people operate on the manager&rsquo;s schedule, they&rsquo;re in a position to make everyone resonate at their frequency if they want to. But the smarter ones restrain themselves, if they know that some of the people working for them need long chunks of time to work in.</p>
+
+<p>Our case is an unusual one. Nearly all investors, including all VCs I know, operate on the manager&rsquo;s schedule. But Y Combinator runs on the maker&rsquo;s schedule. Rtm and Trevor and I do because we always have, and Jessica does too, mostly, because she&rsquo;s gotten into sync with us.</p>
+
+<p>I wouldn&rsquo;t be surprised if there start to be more companies like us. I suspect founders may increasingly be able to resist, or at least postpone, turning into managers, just as a few decades ago they started to be able to resist switching from jeans to suits.</p>
+
+<p>How do we manage to advise so many startups on the maker&rsquo;s schedule? By using the classic device for simulating the manager&rsquo;s schedule within the maker&rsquo;s: office hours. Several times a week I set aside a chunk of time to meet founders we&rsquo;ve funded. These chunks of time are at the end of my working day, and I wrote a signup program that ensures all the appointments within a given set of office hours are clustered at the end. Because they come at the end of my day these meetings are never an interruption. (Unless their working day ends at the same time as mine, the meeting presumably interrupts theirs, but since they made the appointment it must be worth it to them.) During busy periods, office hours sometimes get long enough that they compress the day, but they never interrupt it.</p>
+
+<p>When we were working on our own startup, back in the 90s, I evolved another trick for partitioning the day. I used to program from dinner till about 3 am every day, because at night no one could interrupt me. Then I&rsquo;d sleep till about 11 am, and come in and work until dinner on what I called &ldquo;business stuff.&rdquo; I never thought of it in these terms, but in effect I had two workdays each day, one on the manager&rsquo;s schedule and one on the maker&rsquo;s.</p>
+
+<p>When you&rsquo;re operating on the manager&rsquo;s schedule you can do something you&rsquo;d never want to do on the maker&rsquo;s: you can have speculative meetings. You can meet someone just to get to know one another. If you have an empty slot in your schedule, why not? Maybe it will turn out you can help one another in some way.</p>
+
+<p>Business people in Silicon Valley (and the whole world, for that matter) have speculative meetings all the time. They&rsquo;re effectively free if you&rsquo;re on the manager&rsquo;s schedule. They&rsquo;re so common that there&rsquo;s distinctive language for proposing them: saying that you want to &ldquo;grab coffee,&rdquo; for example.</p>
+
+<p>Speculative meetings are terribly costly if you&rsquo;re on the maker&rsquo;s schedule, though. Which puts us in something of a bind. Everyone assumes that, like other investors, we run on the manager&rsquo;s schedule. So they introduce us to someone they think we ought to meet, or send us an email proposing we grab coffee. At this point we have two options, neither of them good: we can meet with them, and lose half a day&rsquo;s work; or we can try to avoid meeting them, and probably offend them.</p>
+
+<p>Till recently we weren&rsquo;t clear in our own minds about the source of the problem. We just took it for granted that we had to either blow our schedules or offend people. But now that I&rsquo;ve realized what&rsquo;s going on, perhaps there&rsquo;s a third option: to write something explaining the two types of schedule. Maybe eventually, if the conflict between the manager&rsquo;s schedule and the maker&rsquo;s schedule starts to be more widely understood, it will become less of a problem.</p>
+
+<p>Those of us on the maker&rsquo;s schedule are willing to compromise. We know we have to have some number of meetings. All we ask from those on the manager&rsquo;s schedule is that they understand the cost.</p>
+]]></content>
+  </entry>
+  
+  <entry>
+    <title type="html"><![CDATA[Objective-C类结构- 类与元类]]></title>
+    <link href="http://xuguoxing.github.io/blog/2016/04/25/objective-clei-jie-gou-lei-yu-yuan-lei/"/>
+    <updated>2016-04-25T17:17:04+08:00</updated>
+    <id>http://xuguoxing.github.io/blog/2016/04/25/objective-clei-jie-gou-lei-yu-yuan-lei</id>
+    <content type="html"><![CDATA[<h2>一. 对象(Instance)</h2>
+
+<p>Objective-C中的每个对象都是某类(Class)的实例(instance)，对象数据结构中的isa字段即指向此类。
+如objc_object结构所示。</p>
+
+<pre><code>typedef struct objc_object {
+    Class isa;
+} *id;
+</code></pre>
+
+<p>类描述了对象的数据与行为，数据包括分配空间的大小，实例变量类型以及布局等，行为包括了对象可响应的selectors和方法实现(IMP)。</p>
+
+<p>类中的方法列表为对象可响应的的实例方法集，当向一个实例对象(instance)发送消息时，<a href="http://developer.apple.com/library/ios/documentation/Cocoa/Reference/ObjCRuntimeRef/Reference/reference.html#//apple_ref/c/func/objc_msgSend">objc_msgSend</a>会通过对象的isa指针定位到类，在类(以及super_class指向的父类)的方法列表中寻找可响应此消息的方法实现(IMP)。</p>
+
+<h2>二. 类(Class)</h2>
+
+<p>类本身也是一种对象，那么类也有isa指针和其他一些数据，也能响应selectors。当调用类方法(如[[NSObject alloc]])时，实际上就是向类对象发送消息。</p>
+
+<p>既然类也是一种对象，那么它一定也是另外一些类的实例，类对象的类称为元类(metaclass),元类是类对象的描述，就是类是普通实例对象的描述一样。元类中的方法类别实际就是类方法，当向一个类发送消息时，<a href="http://developer.apple.com/library/ios/documentation/Cocoa/Reference/ObjCRuntimeRef/Reference/reference.html#//apple_ref/c/func/objc_msgSend">objc_msgSend</a>会通过类对象的isa指针定位到元类，在元类(以及super_class指向的父类)的方法列表中寻找可响应此消息的方法实现(IMP)。</p>
+
+<p>元类中描述了类可响应的方法，就像类中描述了实例对象可响应的方法一样。</p>
+
+<p>类对象的结构在不同版本的runtime中有不同的实现，但基本结构都是如下所示，首字段为isa指针指向元类，super_class指向其父类。</p>
+
+<pre><code>typedef struct objc_class *Class;
+struct objc_class {
+    Class isa;
+    Class super_class;
+    /* followed by runtime specific details... */
+};
+</code></pre>
+
+<h2>三.元类(metaclass)</h2>
+
+<p>那么元类也是对象，应该也为其他类的实例，实际上元类是根元类(root class’s metaclass)的实例,而根元类是其自身的实例，即根元类的isa指针指向自身。</p>
+
+<p>类的super_class指向其父类，而元类的super_class则指向父类的元类。元类的super class链与类的super class链平行，所以类方法的继承与实例方法的继承也是并行的。而根元类(root class’s metaclass)的super_class指向根类(root class),所以和其他实例对象一样，类对象也都是根类(或其子类)的实例。</p>
+
+<p>对象，类，元类之间的关系如图所示:</p>
+
+<p><img src="http://xuguoxing.github.io/images/2016/04/objc_class_structure.png"></p>
+
+<h2>四.相关函数和方法</h2>
+
+<ul>
+<li><p><a href="http://developer.apple.com/library/ios/documentation/Cocoa/Reference/ObjCRuntimeRef/Reference/reference.html#//apple_ref/c/func/object_getClass">object_getClass</a>跟随实例的isa指针，返回此实例所属的类，对于实例对象(instance)返回的是类(class),对于类(class)则返回的是元类(metaclass),</p></li>
+<li><p><a href="http://developer.apple.com/library/ios/documentation/Cocoa/Reference/Foundation/Protocols/NSObject_Protocol/Reference/NSObject.html#//apple_ref/occ/intfm/NSObject/class">class</a>方法对于实例对象(instance)会返回类(class),但对于类(class)则不会返回元类(metaclass),而只会返回类本身，即[@&ldquo;instance&rdquo; class]返回的是__NSCFConstantString,而[NSString class]返回的是NSString。</p></li>
+<li><p><a href="http://developer.apple.com/library/ios/documentation/Cocoa/Reference/ObjCRuntimeRef/Reference/reference.html#//apple_ref/c/func/class_isMetaClass">class_isMetaClass</a>可判断某类是否为元类.</p></li>
+<li><p>使用<a href="http://developer.apple.com/library/ios/documentation/Cocoa/Reference/ObjCRuntimeRef/Reference/reference.html#//apple_ref/c/func/objc_allocateClassPair">objc_allocateClassPair</a>可在运行时创建新的类与元类对，使用<a href="http://developer.apple.com/library/ios/documentation/Cocoa/Reference/ObjCRuntimeRef/Reference/reference.html#//apple_ref/c/func/class_addMethod">class_addMethod</a>和<a href="http://developer.apple.com/library/ios/documentation/Cocoa/Reference/ObjCRuntimeRef/Reference/reference.html#//apple_ref/c/func/class_addIvar">class_addIvar</a>可向类中增加方法和实例变量，最后使用<a href="http://developer.apple.com/library/ios/documentation/Cocoa/Reference/ObjCRuntimeRef/Reference/reference.html#//apple_ref/c/func/objc_registerClassPair">objc_registerClassPair</a>注册后，就可以使用此类了。</p></li>
+</ul>
+
+
+<h2>五.演示例子</h2>
+
+<p>首先创建一个NSError的子类</p>
+
+<pre><code>Class newClass = objc_allocateClassPair([NSError class], "RuntimeErrorSubclass", 0); 
+class_addMethod(newClass, @selector(report), (IMP)ReportFunction, "v@:"); 
+objc_registerClassPair(newClass);
+</code></pre>
+
+<p>向新创建的类中添加了一个report方法，其IMP为ReportFunction函数,如下</p>
+
+<pre><code>void ReportFunction(id self, SEL _cmd) { 
+    NSLog(@"This object is %p.", self); 
+    NSLog(@"Class is %@, and super is %@.", [self class], [self superclass]); 
+    Class currentClass = [self class]; 
+    for (int i = 1; i &lt; 5; i++) { 
+        NSLog(@"Following the isa pointer %d times gives %p", i, currentClass); 
+        currentClass = object_getClass(currentClass); 
+    } 
+    NSLog(@"NSObject's class is %p", [NSObject class]); 
+    NSLog(@"NSObject's meta class is %p", object_getClass([NSObject class])); 
+}
+</code></pre>
+
+<p>在ReportFunction函数中打印了对象自身的地址，对象的类以及父类，以及跟随isa指针向上的类地址。
+然后创建一个此类的实例，并调用其report方法</p>
+
+<pre><code>id instanceOfNewClass = [[newClass alloc] initWithDomain:@"someDomain" code:0 userInfo:nil]; 
+[instanceOfNewClass performSelector:@selector(report)]; 
+</code></pre>
+
+<p>输出结果为:</p>
+
+<pre><code>This object is 0x87957c0. 
+Class is RuntimeErrorSubclass, and super is NSError. 
+Following the isa pointer 1 times gives 0x87412c0 
+Following the isa pointer 2 times gives 0x8796020 
+Following the isa pointer 3 times gives 0x2900f60 
+Following the isa pointer 4 times gives 0x2900f60 
+NSObject's class is 0x2900f4c 
+NSObject's meta class is 0x2900f60
+</code></pre>
+
+<p>查看输出地址可得:</p>
+
+<ul>
+<li>对象的地址是0x87957c0</li>
+<li>类的地址是0x87412c0</li>
+<li>元类的地址是0x8796020</li>
+<li>元类的类地址为0x2900f60,即NSObject的元类</li>
+<li>NSObject的元类的类地址仍为0x2900f60，即为自身。</li>
+</ul>
+
+
+<h2>参考:</h2>
+
+<ul>
+<li><a href="http://cocoawithlove.com/2010/01/what-is-meta-class-in-objective-c.html">What is a meta-class in Objective-C?</a></li>
+<li><a href="http://www.sealiesoftware.com/blog/archive/2009/04/14/objc_explain_Classes_and_metaclasses.html">Classes and metaclasses</a></li>
+<li><a href="http://petersteinberger.com/blog/2012/hacking-block-support-into-uimenuitem/">Hacking Block Support Into UIMenuItem</a></li>
+<li><a href="http://developer.apple.com/library/ios/#documentation/Cocoa/Reference/ObjCRuntimeRef/Reference/reference.html">Objective-C Runtime Reference</a></li>
+<li><a href="http://developer.apple.com/library/ios/#documentation/Cocoa/Reference/Foundation/Protocols/NSObject_Protocol/Reference/NSObject.html">NSObject Protocol Reference</a></li>
+</ul>
+
+]]></content>
+  </entry>
+  
+  <entry>
+    <title type="html"><![CDATA[使用Reveal分析第三方App]]></title>
+    <link href="http://xuguoxing.github.io/blog/2015/08/24/shi-yong-revealfen-xi-di-san-fang-app/"/>
+    <updated>2015-08-24T10:28:53+08:00</updated>
+    <id>http://xuguoxing.github.io/blog/2015/08/24/shi-yong-revealfen-xi-di-san-fang-app</id>
+    <content type="html"><![CDATA[<h2>一.手机越狱</h2>
+
+<ol>
+<li>使用越狱工具，如<a href="http://www.pangu.io/">盘古</a>将手机越狱</li>
+<li>安装Cydia Substrate,OpenSSH,AppSync等工具</li>
+</ol>
+
+
+<h2>二.下载Reveal</h2>
+
+<p>可在<a href="http://revealapp.com/">官网</a>下载试用版或者直接购买.</p>
+
+<h2>三.拷贝相关内容到越狱手机</h2>
+
+<p>保证电脑和手机在同一Wifi下，查看手机IP,检查能够使用ssh进行连接.具体可见手机上<code>Cybia</code>应用中的<code>OpenSSH访问教程</code>.</p>
+
+<pre><code> $ ssh root@10.232.136.144
+ The authenticity of host '10.232.136.144 (10.232.136.144)' can't be established.
+RSA key fingerprint is 37:3f:9a:32:73:42:f8:49:8e:eb:e8:63:c3:0b:09:d1.
+Are you sure you want to continue connecting (yes/no)? yes
+Warning: Permanently added '10.232.136.144' (RSA) to the list of known hosts.
+root@10.232.136.144's password: 
+xuguoxingmato-iPhone:~ root# 
+</code></pre>
+
+<p>默认密码为&#8221;alpine&#8221;,进入系统后可用<code>passwd</code>命令修改密码。</p>
+
+<p>在本机Reveal应用中找到<code>Reveal.framework</code>,<code>libReveal.dylib</code>文件，可通过Reveal的<code>Help-&gt;Show Reveal Library in Finder</code>菜单定位到。</p>
+
+<p>通过scp命令将这两个文件拷贝到越狱手机中,在本机命令行执行以下命令</p>
+
+<pre><code>$ scp -r /Applications/Reveal.app/Contents/SharedSupport/iOS-Libraries/Reveal.framework root@x.x.x.x:/System/Library/Frameworks
+$ scp /Applications/Reveal.app/Contents/SharedSupport/iOS-Libraries/libReveal.dylib root@x.x.x.x:/Library/MobileSubstrate/DynamicLibraries
+</code></pre>
+
+<p>在本地创建libReveal.plist文件，将需要分析App的BundleID加入其中，比如需要分享微信和短信应用;</p>
+
+<pre><code>{
+    Filter = {
+         Bundles = (
+         "com.apple.MobileSMS",
+         "com.tencent.xin");
+    };
+}
+</code></pre>
+
+<p>可双击用Xcode打开此文件，检查语法是否正确；</p>
+
+<p>将此文件拷贝到手机中，在本机执行命令</p>
+
+<pre><code>$ scp libReveal.plist root@x.x.x.x:/Library/MobileSubstrate/DynamicLibraries 
+</code></pre>
+
+<p>也可以在手机命令上使用编辑工具,如<code>nano</code>直接进行编辑。</p>
+
+<p>重启SpringBoard,在手机命令行执行</p>
+
+<pre><code>$ killall SpringBoard
+</code></pre>
+
+<h2>四.使用Reveal分析</h2>
+
+<p>手机SpringBoard重启后，打开微信应用，在本机上打开Reveal,就可以看到连接并进行分析了。</p>
+
+<p>注:若无法连接，则需要检查wifi的防火墙设置，Reveal使用苹果的<code>Bonjour</code>服务进行通信，有可能网络防火墙将此服务屏蔽了。</p>
+]]></content>
+  </entry>
+  
+  <entry>
+    <title type="html"><![CDATA[iPhone &amp; iPad App Marketing Checklist]]></title>
+    <link href="http://xuguoxing.github.io/blog/2015/05/14/iphone-and-ipad-app-marketing-checklist/"/>
+    <updated>2015-05-14T11:40:25+08:00</updated>
+    <id>http://xuguoxing.github.io/blog/2015/05/14/iphone-and-ipad-app-marketing-checklist</id>
+    <content type="html"><![CDATA[<p><a href="https://sensortower.com/iphone-app-marketing">https://sensortower.com/iphone-app-marketing</a></p>
+
+<ol>
+<li><p>Icon and Icon and Screenshots</p>
+
+<p> Visuals that show off your App are vital for success</p>
+
+<ul>
+<li><p>Design a good meaningful icon</p>
+
+<p>  Great Icons dive up conversion</p>
+
+<p>  Having a great icon that explain the app&rsquo;s functionality can greatly increase App downloads. Icons that are too abstract or company logos do not perform as well. Here are some good best practices when <a href="http://www.pixelresort.com/blog/iphone-App-icon-design-best-practises/">designing icons</a>.</p></li>
+<li><p>Test App icon for conversion</p>
+
+<p>  A Well converting icon greatly increase downloads.</p>
+
+<p>  Having an interesting and pretty icon is great,but one that converts really well is even better. Try running some <a href="https://en.wikipedia.org/wiki/A/B_testing">A/B Tests</a> on your icon via banners or within other apps to measure conversion.</p></li>
+<li><p>Select good first screenshot</p>
+
+<p>  Most users decide based on the first screenshot.</p>
+
+<p>  The first thing every user sees when looking at your app is the icon and the screenshot. The initial screenshot is essential to convince users that your app delivers on the functinality they are looking for. Learn how to design a <a href="http://blog.sensortower.com/blog/2013/05/05/why-iphone-app-screenshots-matter-and-how-to-make-good-ones/">great first screenshot</a> for your app.</p></li>
+<li><p>separate screenshots for different devices.</p>
+
+<p>  Optimizing for multiple device is essencial.</p>
+
+<p>  While there are more iPhones then iPads, supporting all the different devices is still important. Having an iPad specific version can do wonders for app exposure. iOS8 is also right around the corner. Learn about supporting <a href="https://developer.apple.com/ios8/">iOS8</a> and <a href="http://www.raywenderlich.com/1111/how-to-port-an-iphone-application-to-the-ipad">universal apps</a>.</p></li>
+<li><p>Use all five screenshot slot</p>
+
+<p>  Show the user the depth of the App</p>
+
+<p>  You get five screenshots to show off your app &mdash; use all of them! Make sure your screenshots convery your app&rsquo;s strengths and are enticing for the users.There are great articles about <a href="http://www.designboost.net/how-to-design-iphone-screenshots-that-sell/">apps with great screenshots</a>, or you can learn from <a href="https://sensortower.com/ios/rankings/top/iphone/us/all-categories">top ranking apps</a> that do this well.</p></li>
+</ul>
+</li>
+<li><p>Conversion</p>
+
+<p> Your need to be able to convince users to install the app.</p>
+
+<ul>
+<li><p>Write a good description</p>
+
+<p>  Descriptions convince users to install.</p>
+
+<p>  Users that aren&rsquo;t convinced to install right away will read your description to make up their mind. Focus on the first few lines that are visible on the phone and don&rsquo;t be afraid to test similar to how <a href="http://futureperfectpublishing.com/2009/01/23/the-sticky-goodness-of-testing-book-titles-with-google-adwords/">book authors use Google Adwords</a>. A well converting description make your other effort easier.</p></li>
+<li><p>Create an app Website</p>
+
+<p>  You need one to support users, so might as well promote your app there.</p>
+
+<p>  Your will need an App Website to support your users &mdash; you might as well promote your app there too! <a href="http://www.apptamin.com/blog/app-landing-page-or-website/">A good app loading page</a> can drive traffic to your app.</p></li>
+<li><p>Give your app a boost with paid Ads</p>
+
+<p>  Ads are expensive,but they work.</p>
+
+<p>  If you have a budget to spend money on app Ads,there are a lot of options. <a href="http://www.mobileapptracking.com/">Mobile App Tracking</a> is an all-in-one SDK that&rsquo;s popular with games, and <a href="https://developers.facebook.com/blog/post/2012/08/07/introducing-new-mobile-ads-for-apps/">Facebook Ads</a> have recently taken off.</p></li>
+<li><p>Cross promote within your other apps</p>
+
+<p>  Your other apps can drive installs to your new app</p>
+
+<p>  Many successful publishers like Rovio,Halfbrick and SuperCell use app cross promotion, and their efforts can put an app to the top of the chars.While not every app might have the same kind of reach,any sort of boose your app can get is helpful.</p></li>
+<li><p>Record an App trailer and video</p>
+
+<p>  Video engages your user more.</p>
+
+<p>  A great video showcasing your app can entice users to try it out. You can place it on your app&rsquo;s landing page to give a quick overview of your app&rsquo;s functionality. Take a look at some <a href="http://www.appolicious.com/tech/articles/8746-guest-blog-great-resources-for-building-a-killer-app-trailer">trailer resouces</a> or get a service to <a href="http://apptamin.com/">make one</a> for you.</p></li>
+</ul>
+</li>
+<li><p>Search Visibility</p>
+
+<p> Apps that show up often in the App Store get many more download.</p>
+
+<ul>
+<li><p>Optimize keywords for Search Visibility</p>
+
+<p>  App Store Visibility can be difference between success and an app withering out of sight.</p>
+
+<p>  You can&rsquo;t rely on ads or Apple featureing your app as your distribution strategy. Being visibile in App Store Search is a critical step most app developers forget &mdash; avoid these <a href="http://blog.sensortower.com/blog/2012/09/25/most-common-itunes-connect-keyword-mistakes/">common iTunes Connect keyword mistakes</a> and you will stand above most app.</p></li>
+<li><p>Write a good App Title tagline</p>
+
+<p>  Your app&rsquo;s title helps with search visibility and conversion.</p>
+
+<p>  While short app titles are good lokking, for titles other than games having a tagline after the app name(ie.<a href="https://itunes.apple.com/us/app/notability-take-notes-annotate/id360593530?mt=8">Notablity &ndash; Take Notes &amp; Annotate PDFs</a>) both help with app store visibility and with explaing to your users what your app is about.</p></li>
+<li><p>Research competing Apps</p>
+
+<p>  Let your competitors do your research for you.</p>
+
+<p>  Knowing what your competitors do well and where they lack is often important for the way you position your own app. <a href="https://sensortower.com/node/discover-new-apps-for-iphone-and-ipad.html">Research</a> your competitor&rsquo;s apps and don&rsquo;t make the mistakes they do.</p></li>
+<li><p>Internationalize the App&rsquo;s metadata</p>
+
+<p>  There are a lot of users outside the US.</p>
+
+<p>  While the US market is the biggest,ignoring other markets is often a mistake. Most of the top charting apps are very <a href="https://sensortower.com/ios/us/teamlava/app/dragon_story/513474544">international</a> and over 75% of their users come outside the US. Plus there is less competition between international apps, so <a href="https://developer.apple.com/internationalization/">localize your meta-data</a>.</p></li>
+<li><p>Make your App Free!</p>
+
+<p>  Free apps make more profit.</p>
+
+<p>  The majority of top overall grossing apps are all <a href="https://sensortower.com/ios/rankings/top/iphone/us/all-categories">free with in-app-purchases</a>.Making your app free can drive exposure to your app, and typically free apps have more than one <a href="http://techcrunch.com/2012/08/26/how-free-apps-can-make-more-money-than-paid-apps/">monetization stratedy</a>.</p></li>
+</ul>
+</li>
+<li><p>Socail Outreach</p>
+
+<p> Engagind with users and social infuencers helps you maintain momentum.</p>
+
+<ul>
+<li><p>Get friends &amp; family to rate the app five stars</p>
+
+<p>  Fake it until you make it.</p>
+
+<p>  Initial reviews are really important and users are more likely to download an app with a five star rating and stellar reviews. This is especially essential whe you are just releasing a new version update &mdash; get it rated highly as quick as possible.</p></li>
+<li><p>Create and maintain Facebook &amp; Twitter page</p>
+
+<p>  Social Pages let your users interact with eachother.</p>
+
+<p>  While large apps need <a href="http://forum.supercell.net/forumdisplay.php/4-Clash-of-Clans">bulletin boards</a> so users can engage with eachother, most apps can get away with just a Facebook and Twitter page.</p></li>
+<li><p>Participate in social media</p>
+
+<p>  Social meida crates buzz.</p>
+
+<p>  Social influencers can be great, and engaging with them via something like <a href="https://hootsuite.com/">Hootsuite</a> or getting them to <a href="http://www.chasm.io/">cover you</a> can give your app a strong presence online. Having an active twitter and facebook page where you converse with fans and reach out to influencers can drive engagement.</p></li>
+<li><p>Get in touch with social influencers,blogs and journalists</p>
+
+<p>  Get influencial people to promote your app.</p>
+
+<p>  Bloggers and social influencers can bring a greate amount of traffic to your app. You can reach out to <a href="http://maniacdev.com/2012/05/ios-app-review-sites">App Review</a> sites or <a href="http://technorati.com/blogs/top100/">Tech Blogs</a> to get influencial writers to cover you(just make sure to have an interesting story about your app!)</p></li>
+<li><p>Post on forums, mailing lists,meetup groups</p>
+
+<p>  Utilizing social groups like forums and groups can bring your users.</p>
+
+<p>  About half of your time as an app developer should be spent marketing your app,and reaching out to already existing groups like nice forums,mailing lists or <a href="http://www.meetup.com/find/">Meetup</a> groups that have the established customer bases to help you reach more users.</p></li>
+</ul>
+</li>
+<li><p>Viral Growth</p>
+
+<p> If each of your users brings a friend your App grows virally.</p>
+
+<ul>
+<li><p>implement share-friendly SDKs</p>
+
+<p>  Sharing is caring.</p>
+
+<p>  SDK like <a href="http://kamcord.com/">Kamcord</a> let users record videos and engage with other users. Multipalyer turn based SDKs like <a href="http://www.makegameswith.us/sdk/">MGWU</a> let you develop games easier, and platforms like Gamecenter or Openfeint let you have easy scoreboards.</p></li>
+<li><p>prompt users to share via Facebook,Twitter &amp; email</p>
+
+<p>  Virality is best achieved by leveraging social networks.</p>
+
+<p>  Most users are using Facebook or Twitter, so having an easy way for them to tell their friends about a great app lowers the barrier for sharing. If you get each one of your users to bring an extra friend,your audience will grow. Giving your users a reason to share within the app works best.</p></li>
+<li><p>Ask engaged and happy users to review</p>
+
+<p>  Reviews give your app social proof.</p>
+
+<p>  Implement an SDK like [<a href="https://github.com/arashpayan/appirater">https://github.com/arashpayan/appirater</a>] and ask your engaged and happy users to leave a review. The common way to do this is prompt users after x hours or y opens to answer if they like the app, and send the ones who don&rsquo;t to yours support email while prompting happy users to leave a review.</p></li>
+<li><p>Figure out monetization</p>
+
+<p>  Free is best!</p>
+
+<p>  The top grossing apps are free apps with in-app-purchases. The barrier to download is almost non-exist when the app is free. If you must take your app paid, you&rsquo;d better have a good reason(like ethically avoding ads) and feel free to test different price points.</p></li>
+<li><p>Prepare an App update</p>
+
+<p>  You can only change some things with an app update.</p>
+
+<p>  Some things, like adding new keywords, screenshots or changing the title can only be done with an app update.Unless your app includes many change files,Apple is good about <a href="https://developer.apple.com/library/ios/#qa/qa1779/_index.html">keeping the file download size down</a>.Users perfer to download recently updated apps.</p></li>
+</ul>
+</li>
+<li><p>App Analytics</p>
+
+<p> Metrics and insight into how users use your App create success.</p>
+
+<ul>
+<li><p>Track Downloads</p>
+
+<p>  Apple&rsquo;s tools don&rsquo;t quite cut it.</p>
+
+<p>  Keeping track of downloads on a per app basis day to day and being able to sparate them by country or region is essencial. <a href="https://sensortower.com/">Sensor Tower</a> and many others like App Annie,Distimo,etc provide tools to track downloads.</p></li>
+<li><p>Control incoming web-links</p>
+
+<p>  It&rsquo;s like Bit.ly</p>
+
+<p>  At the very least every incoming link  should be going through a url shortener so you can track how many people clicked trought each source. Give your blog mentions and other web-links a specific url, or implement your own and direct users to a correct App Store.</p></li>
+<li><p>Implement in-App Analytics</p>
+
+<p>  Know what your users do within the app.</p>
+
+<p>  Things like <a href="http://apsalar.com/blog/2012/01/how-to-use-cohort-analysis-to-improve-revenue/">Cohort Analysis</a> help you understand how your users behave.Use SDKs like <a href="https://mixpanel.com/">Mixpanel</a> or <a href="https://amplitude.com/">Amplitude</a> to keep track of usage patterns so you can have a data-driven approach to improving your app.</p></li>
+<li><p>Crash Reporting</p>
+
+<p>  Catch crashed before they turn into bad reviews.</p>
+
+<p>  Crash reporting and performance analytics can help you catch and prevent dreadfully negative reviews. SDKs like <a href="https://crittercism.com/">Crittercism</a> can help you track crashes and performance problems.</p></li>
+<li><p>Keep track of Search Visibility</p>
+
+<p>  How do users download your apps?</p>
+
+<p>  Tracking search visility within the App Store is something every developer should do &mdash; whether you do it via manual entry into a spreadsheet or using tools like [Sensor Tower] you&rsquo;ll always be better off is you know and improve how users can find your app within the App Store.</p></li>
+</ul>
+</li>
+</ol>
+
+]]></content>
+  </entry>
+  
+  <entry>
+    <title type="html"><![CDATA[Symbolicatecrash]]></title>
+    <link href="http://xuguoxing.github.io/blog/2015/01/22/symbolicatecrash/"/>
+    <updated>2015-01-22T10:47:18+08:00</updated>
+    <id>http://xuguoxing.github.io/blog/2015/01/22/symbolicatecrash</id>
+    <content type="html"><![CDATA[<p><code>symbolicatecrash</code>是Xcode自带的分析工具，使用crash log文件和.dSYM文件可将crash log中的地址替换为代码位置。</p>
+
+<h2>查找<code>symbolicatecrash</code></h2>
+
+<p>查找Xcode安装路径</p>
+
+<pre><code>$ xcode-select -p
+/Applications/Xcode.app/Contents/Developer
+</code></pre>
+
+<p>搜索<code>symbolicatecrash</code></p>
+
+<pre><code>$ find /Applications/Xcode.app -name "symbolicatecrash"
+/Applications/Xcode.app/Contents/SharedFrameworks/DTDeviceKitBase.framework/Versions/A/Resources/symbolicatecrash
+</code></pre>
+
+<h2>解析crash log</h2>
+
+<p>将symbolicatecrash、crash log、.dSYM文件拷贝到同一目录，命令行执行</p>
+
+<pre><code>./Symbolicatecrash aa.crash bb.dSYM &gt; cc.log
+</code></pre>
+
+<p>将解析后的crash log输出到cc.log文件中</p>
+
+<p>注:若有提示&#8221;Error: &ldquo;DEVELOPER_DIR&rdquo; is not defined&#8221;,则设置</p>
+
+<pre><code>$ export DEVELOPER_DIR=/Applications/Xcode.app/Contents/Developer
+</code></pre>
+
+<h2>检查.app文件、.dSYM文件和crash log是否对应的方法</h2>
+
+<pre><code>$ dwarfdump --uuid MyApp.app/MyApp
+UUID: CC67C4BF-16E7-3512-8E03-10FCFEB5AE5A (armv7) MyApp.app/MyApp
+$ dwarfdump --uuid MyApp.app.dSYM/
+UUID: CC67C4BF-16E7-3512-8E03-10FCFEB5AE5A (armv7) MyApp.app.dSYM/Contents/Resources/DWARF/MyApp
+</code></pre>
+
+<p>检查上述两个UUID与crash log中的&#8221;slice_uuid&#8221;字段是否一致。</p>
+
+<h2>参考</h2>
+
+<ul>
+<li><a href="http://www.cnblogs.com/ydhliphonedev/archive/2012/12/07/2806866.html">iphone崩溃日志分析工具symbolicatecrash用法</a></li>
+<li><a href="http://ios-iphone.diandian.com/post/2012-05-18/19440182">iOS系统Crash文件分析方法</a></li>
+</ul>
+
+]]></content>
+  </entry>
+  
+  <entry>
+    <title type="html"><![CDATA[CocoaPods]]></title>
+    <link href="http://xuguoxing.github.io/blog/2014/10/23/cocoapods/"/>
+    <updated>2014-10-23T10:58:20+08:00</updated>
+    <id>http://xuguoxing.github.io/blog/2014/10/23/cocoapods</id>
+    <content type="html"><![CDATA[<p>CocoaPods是个针对iOS和OS X应用的类库依赖管理工具。在CocoaPods架构中有三种角色: 类库(Pods), 类库描述仓库(Pod Repo),项目。</p>
+
+<h2>下载cocoapods命令行工具</h2>
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>gem install cocoapods //下载最新版
+</span><span class='line'>gem install cocoapods —version 0.33.1  //下载指定版本</span></code></pre></td></tr></table></div></figure>
+
+
+<p>如果ruby官方库下载不下来，可以切换成淘宝的源</p>
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>gem sources --remove https://rubygems.org/
+</span><span class='line'>gem sources -a http://ruby.taobao.org/
+</span><span class='line'>gem sources -l</span></code></pre></td></tr></table></div></figure>
+
+
+<h2>Pod Repo库</h2>
+
+<h2>参考</h2>
+
+<ul>
+<li><a href="http://www.objc.io/issue-6/cocoapods-under-the-hood.html">CocoaPods Under The Hood</a></li>
+<li><a href="http://nshipster.com/cocoapods/">Cocoa​Pods</a></li>
+</ul>
+
+]]></content>
+  </entry>
+  
+  <entry>
+    <title type="html"><![CDATA[Hosts]]></title>
+    <link href="http://xuguoxing.github.io/blog/2014/08/18/hosts/"/>
+    <updated>2014-08-18T16:08:24+08:00</updated>
+    <id>http://xuguoxing.github.io/blog/2014/08/18/hosts</id>
+    <content type="html"><![CDATA[<p>在开发过程中，经常需要修改Hosts访问测试环境，而对于非越狱iOS设备，无法修改设备Host文件<code>/etc/hosts</code>;如果在代码中直接将域名修改为ip地址，存在两个问题：</p>
+
+<ol>
+<li>破坏了网络代码的结构。</li>
+<li>HTTP Header中的&#8221;Host&#8221;字段也被修改为了ip地址，而后台对&#8221;Host&#8221;字段有校验,会导致请求出错。</li>
+</ol>
+
+
+<p>可以通过对<code>NSURLRequest</code>的<code>initWithURL:cachePolicy:timeoutInterval:</code>方法和<code>NSMutableURLRequest</code>的<code>setURL:</code>方法进行
+method swizzle来动态的将URL中的host修改为ip,并保持HTTP Header中的&#8221;Host&#8221;字段不变来解决。</p>
+
+<h2>使用NLHosts类来保存host到ip的转换</h2>
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>interface NLHosts : NSObject
+</span><span class='line'>
+</span><span class='line'>+(NSString*)ipByHost:(NSString*)host;
+</span><span class='line'>
+</span><span class='line'>@end
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p><code>+ipByHost:</code>方法接收host参数，如果对应host有匹配的ip地址,则返回ip地址，否则返回nil。</p>
+
+<h2><code>NSURLRequest</code>、<code>NSMutableURLRequest</code>的method swizzle处理</h2>
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+<span class='line-number'>8</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>@interface NSURLRequest (Swizzle)
+</span><span class='line'>
+</span><span class='line'>@end
+</span><span class='line'>
+</span><span class='line'>
+</span><span class='line'>@interface NSMutableURLRequest (Swizzle)
+</span><span class='line'>
+</span><span class='line'>@end</span></code></pre></td></tr></table></div></figure>
+
+
+
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+<span class='line-number'>8</span>
+<span class='line-number'>9</span>
+<span class='line-number'>10</span>
+<span class='line-number'>11</span>
+<span class='line-number'>12</span>
+<span class='line-number'>13</span>
+<span class='line-number'>14</span>
+<span class='line-number'>15</span>
+<span class='line-number'>16</span>
+<span class='line-number'>17</span>
+<span class='line-number'>18</span>
+<span class='line-number'>19</span>
+<span class='line-number'>20</span>
+<span class='line-number'>21</span>
+<span class='line-number'>22</span>
+<span class='line-number'>23</span>
+<span class='line-number'>24</span>
+<span class='line-number'>25</span>
+<span class='line-number'>26</span>
+<span class='line-number'>27</span>
+<span class='line-number'>28</span>
+<span class='line-number'>29</span>
+<span class='line-number'>30</span>
+<span class='line-number'>31</span>
+<span class='line-number'>32</span>
+<span class='line-number'>33</span>
+<span class='line-number'>34</span>
+<span class='line-number'>35</span>
+<span class='line-number'>36</span>
+<span class='line-number'>37</span>
+<span class='line-number'>38</span>
+<span class='line-number'>39</span>
+<span class='line-number'>40</span>
+<span class='line-number'>41</span>
+<span class='line-number'>42</span>
+<span class='line-number'>43</span>
+<span class='line-number'>44</span>
+<span class='line-number'>45</span>
+<span class='line-number'>46</span>
+<span class='line-number'>47</span>
+<span class='line-number'>48</span>
+<span class='line-number'>49</span>
+<span class='line-number'>50</span>
+<span class='line-number'>51</span>
+<span class='line-number'>52</span>
+<span class='line-number'>53</span>
+<span class='line-number'>54</span>
+<span class='line-number'>55</span>
+<span class='line-number'>56</span>
+<span class='line-number'>57</span>
+<span class='line-number'>58</span>
+<span class='line-number'>59</span>
+<span class='line-number'>60</span>
+<span class='line-number'>61</span>
+<span class='line-number'>62</span>
+<span class='line-number'>63</span>
+<span class='line-number'>64</span>
+<span class='line-number'>65</span>
+<span class='line-number'>66</span>
+<span class='line-number'>67</span>
+<span class='line-number'>68</span>
+<span class='line-number'>69</span>
+<span class='line-number'>70</span>
+<span class='line-number'>71</span>
+<span class='line-number'>72</span>
+<span class='line-number'>73</span>
+<span class='line-number'>74</span>
+<span class='line-number'>75</span>
+<span class='line-number'>76</span>
+<span class='line-number'>77</span>
+<span class='line-number'>78</span>
+<span class='line-number'>79</span>
+<span class='line-number'>80</span>
+<span class='line-number'>81</span>
+<span class='line-number'>82</span>
+<span class='line-number'>83</span>
+<span class='line-number'>84</span>
+<span class='line-number'>85</span>
+<span class='line-number'>86</span>
+<span class='line-number'>87</span>
+<span class='line-number'>88</span>
+<span class='line-number'>89</span>
+<span class='line-number'>90</span>
+<span class='line-number'>91</span>
+<span class='line-number'>92</span>
+<span class='line-number'>93</span>
+<span class='line-number'>94</span>
+<span class='line-number'>95</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>#import "NSURLRequest+Swizzle.h"
+</span><span class='line'>
+</span><span class='line'>#import &lt;objc/runtime.h&gt;
+</span><span class='line'>#import "NLHosts.h"
+</span><span class='line'>
+</span><span class='line'>@implementation NSURLRequest (Swizzle)
+</span><span class='line'>
+</span><span class='line'>+(void)load
+</span><span class='line'>{
+</span><span class='line'>    static dispatch_once_t onceToken;
+</span><span class='line'>    dispatch_once(&onceToken, ^{
+</span><span class='line'>        Class clazz = NSClassFromString(@"NSURLRequest");
+</span><span class='line'>        Method origMethod = class_getInstanceMethod(clazz, @selector(initWithURL:cachePolicy:timeoutInterval:));
+</span><span class='line'>        Method newMethod = class_getInstanceMethod(clazz, @selector(initWithNewURL:cachePolicy:timeoutInterval:));
+</span><span class='line'>
+</span><span class='line'>        if (origMethod && newMethod) {
+</span><span class='line'>            method_exchangeImplementations(origMethod, newMethod);
+</span><span class='line'>        }else{
+</span><span class='line'>            //NSLog(@"origMethod:%@ newMethod:%@",origMethod,newMethod);
+</span><span class='line'>        }
+</span><span class='line'>    });
+</span><span class='line'>}
+</span><span class='line'>
+</span><span class='line'>-(id)initWithNewURL:(NSURL *)URL cachePolicy:(NSURLRequestCachePolicy)cachePolicy timeoutInterval:(NSTimeInterval)timeoutInterval
+</span><span class='line'>{
+</span><span class='line'>    NSString *scheme = URL.scheme;
+</span><span class='line'>
+</span><span class='line'>    if ([scheme compare:@"http" options:NSCaseInsensitiveSearch] == NSOrderedSame || [scheme compare:@"https" options:NSCaseInsensitiveSearch] == NSOrderedSame) {
+</span><span class='line'>        NSString *host = URL.host;
+</span><span class='line'>        NSString *ip = [NLHosts ipByHost:host];
+</span><span class='line'>        if (ip) {
+</span><span class='line'>            //NSLog(@"NSURLRequest: host:%@-&gt;ip:%@",host,ip);
+</span><span class='line'>            NSString *absoluteString = [URL absoluteString];
+</span><span class='line'>            NSRange hostRange = [absoluteString rangeOfString:host];
+</span><span class='line'>            if (hostRange.location != NSNotFound) {
+</span><span class='line'>                absoluteString = [absoluteString stringByReplacingCharactersInRange:hostRange withString:ip];
+</span><span class='line'>                NSURL *newURL = [NSURL URLWithString:absoluteString];
+</span><span class='line'>                NSMutableURLRequest *newRequest = [[NSMutableURLRequest alloc]initWithURL:newURL cachePolicy:cachePolicy timeoutInterval:timeoutInterval];
+</span><span class='line'>                [newRequest setValue:host forHTTPHeaderField:@"Host"];
+</span><span class='line'>                self = newRequest;
+</span><span class='line'>                return self;
+</span><span class='line'>            }
+</span><span class='line'>        }
+</span><span class='line'>    }
+</span><span class='line'>    return [self initWithNewURL:URL cachePolicy:cachePolicy timeoutInterval:timeoutInterval];
+</span><span class='line'>}
+</span><span class='line'>
+</span><span class='line'>@end
+</span><span class='line'>
+</span><span class='line'>
+</span><span class='line'>@implementation NSMutableURLRequest (Swizzle)
+</span><span class='line'>
+</span><span class='line'>+(void)load
+</span><span class='line'>{
+</span><span class='line'>    static dispatch_once_t onceToken;
+</span><span class='line'>    dispatch_once(&onceToken, ^{
+</span><span class='line'>        Class clazz = NSClassFromString(@"NSMutableURLRequest");
+</span><span class='line'>        Method origMethod = class_getInstanceMethod(clazz, @selector(setURL:));
+</span><span class='line'>        Method newMethod = class_getInstanceMethod(clazz, @selector(setNewURL:));
+</span><span class='line'>
+</span><span class='line'>        if (origMethod && newMethod) {
+</span><span class='line'>            method_exchangeImplementations(origMethod, newMethod);
+</span><span class='line'>        }else{
+</span><span class='line'>            NSLog(@"origMethod:%@ newMethod:%@",origMethod,newMethod);
+</span><span class='line'>        }
+</span><span class='line'>    });
+</span><span class='line'>}
+</span><span class='line'>
+</span><span class='line'>-(void)setNewURL:(NSURL *)URL
+</span><span class='line'>{
+</span><span class='line'>    NSString *scheme = URL.scheme;
+</span><span class='line'>
+</span><span class='line'>    if ([scheme compare:@"http" options:NSCaseInsensitiveSearch] == NSOrderedSame || [scheme compare:@"https" options:NSCaseInsensitiveSearch] == NSOrderedSame) {
+</span><span class='line'>        NSString *host = URL.host;
+</span><span class='line'>        NSString *ip = [NLHosts ipByHost:host];
+</span><span class='line'>        if (ip) {
+</span><span class='line'>            //NSLog(@"NSMutableURLRequest setURL: host:%@-&gt;ip:%@",host,ip);
+</span><span class='line'>            NSString *absoluteString = [URL absoluteString];
+</span><span class='line'>            NSRange hostRange = [absoluteString rangeOfString:host];
+</span><span class='line'>            if (hostRange.location != NSNotFound) {
+</span><span class='line'>                absoluteString = [absoluteString stringByReplacingCharactersInRange:hostRange withString:ip];
+</span><span class='line'>                NSURL *newURL = [NSURL URLWithString:absoluteString];
+</span><span class='line'>                [self setNewURL:newURL];
+</span><span class='line'>                [self setValue:host forHTTPHeaderField:@"Host"];
+</span><span class='line'>                return;
+</span><span class='line'>            }
+</span><span class='line'>        }
+</span><span class='line'>    }
+</span><span class='line'>
+</span><span class='line'>    return [self setNewURL:URL];
+</span><span class='line'>
+</span><span class='line'>}
+</span><span class='line'>
+</span><span class='line'>
+</span><span class='line'>@end
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p>在<code>NSURLRequest</code>类的<code>+load</code>方法中将<code>-initWithURL:cachePolicy:timeoutInterval:</code>替换为<code>initWithNewURL:cachePolicy:timeoutInterval:</code>;</p>
+
+<p>在<code>initWithNewURL:cachePolicy:timeoutInterval:</code>方法中，如果初始化URL中的host需要转换为ip地址，则使用ip地址替换host生成新的URL,使用新URL生成新的
+<code>NSMutableURLRequest</code>,并设置其HTTP Header的&#8221;Host&#8221;字段为原始值，将此<code>NSMutableURLRequest</code>返回进行后续网络请求。</p>
+
+<p><code>NSMutableURLRequest</code>是<code>NSURLRequest</code>的子类，所以初始化方法在<code>NSURLRequest</code>中进行method swizzle替换后，同样可适用在<code>NSMutableURLRequest</code>。
+这样在<code>initWithNewURL:cachePolicy:timeoutInterval:</code>中生成新的<code>NSMutableURLRequest</code>时同样也会调用swizzle过的初始化方法，但此时的
+host已经是ip地址了，不需要再次进行转换，会直接调用原方法返回。</p>
+
+<p>对<code>NSMutableURLRequest</code>类的<code>-setURL:</code>方法也需要进行类似的处理,具体见代码。</p>
+]]></content>
+  </entry>
+  
+  <entry>
+    <title type="html"><![CDATA[EXCLUDED_SOURCE_FILE_NAMES]]></title>
+    <link href="http://xuguoxing.github.io/blog/2014/08/16/excluded-source-file-names/"/>
+    <updated>2014-08-16T14:03:01+08:00</updated>
+    <id>http://xuguoxing.github.io/blog/2014/08/16/excluded-source-file-names</id>
+    <content type="html"><![CDATA[<p>在Xcode中可以通过名为<code>EXCLUDED_SOURCE_FILE_NAMES</code>的用户自定义(User-Defined) build setting来配置在某些Configurations下进行构建
+不包含的文件。</p>
+
+<p>比如，在Debug环境下会包含用于测试的桩文件，而在发布版本Release环境中不应该包含。</p>
+
+<h2>设置方法</h2>
+
+<p>在Target的<code>Build Settings</code>中滑到最下面，可看到<code>User-Defined</code>区域。</p>
+
+<p><img src="http://xuguoxing.github.io/images/2014/08/User_Defined.png"></p>
+
+<p>在<code>Build Settings</code>顶部点击<code>+</code>号，选择&#8221;Add User-Defined Setting&#8221;
+<img src="http://xuguoxing.github.io/images/2014/08/Add_User_Defined.png"></p>
+
+<p>在&#8221;User-Defined&#8221;区域添加名为<code>EXCLUDED_SOURCE_FILE_NAMES</code>设置项，并在Release配置下，添加需要Exlclude的文件名，支持通配符，以空格分隔。</p>
+
+<p><img src="http://xuguoxing.github.io/images/2014/08/Add_User_Defined_OK.png"></p>
+
+<h2>参考</h2>
+
+<ul>
+<li><a href="http://lists.apple.com/archives/xcode-users/2009/Jun/msg00153.html">Re: Conditional include based on configuration</a></li>
+<li><a href="http://twobitlabs.com/2012/01/excluding-files-from-production-xcode-builds/">Slim down your iOS app by excluding files from production builds</a></li>
+</ul>
+
+]]></content>
+  </entry>
+  
+  <entry>
+    <title type="html"><![CDATA[Jenkins]]></title>
+    <link href="http://xuguoxing.github.io/blog/2014/06/09/jenkins/"/>
+    <updated>2014-06-09T16:20:42+08:00</updated>
+    <id>http://xuguoxing.github.io/blog/2014/06/09/jenkins</id>
+    <content type="html"><![CDATA[<h1>持续集成(CI)介绍</h1>
+
+<p>持续集成自动从代码服务器拉取代码，完成自动编译、测试、分发和部署等工作；出现错误时及时通知开发人员，使问题可以立即得到解决，降低项目风险。</p>
+
+<p><a href="http://jenkins-ci.org/">Jenkins</a>是一款很流行的持续集成工具，配置简单，结合一些插件和命令行工具可以完成很多工作。</p>
+
+<p>Mac系统同样有一款持续集成工具<code>OS X Server</code>，配置简单，但功能无法扩展，其只能自动完成编译构建、静态代码分享、运行单元测试和打包归档四个工作。</p>
+
+<h1>Jenkins安装与配置</h1>
+
+<h2>安装</h2>
+
+<ol>
+<li>从<a href="http://jenkins-ci.org/">官网</a>下载Mac OS X的安装包</li>
+<li>执行安装程序后会创建<code>jenkins</code>用户，主目录位于<code>/Users/Shared/Jenkins</code>；Jenkins以系统守护进程方式运行,可查看
+<code>/Library/LaunchDaemons/org.jenkins-ci.plist</code>配置文件了解详细信息。</li>
+<li><code>Jenkins</code>默认无密码，可使用“sudo passwd jenkins”命令设置密码</li>
+<li>打开Jenkins管理页面 <code>http://localhost:8080/</code>，端口默认为8080，可在管理页面修改。</li>
+</ol>
+
+
+<h2>安全设置</h2>
+
+<p><code>系统管理</code>&ndash;><code>Configure Global Security</code>，默认<code>启用安全</code>没有勾选。</p>
+
+<ol>
+<li>勾选<code>启用安全</code></li>
+<li><code>安全域</code>中选择<code>Jenkins专有项目数据库</code>，并勾选<code>允许用户注册</code>。</li>
+<li><code>授权策略</code>中选择<code>项目矩阵授权策略</code>; 设置<code>匿名用户</code>为<code>Read</code>权限;添加一个用户名，给予全部权限(该用户稍后创建)。</li>
+<li>重启Jenkins, <a href="http://localhost:8080/restart">http://localhost:8080/restart</a></li>
+<li>重启后使用<code>Login-&gt;create an account</code>使用之前输入的用户名创建账号。</li>
+</ol>
+
+
+<p><img src="images/2014/06/jenkins_security.png"></p>
+
+<p>在错误的设置安全域、授权策略时，会无法登录到Jenkins管理页面修改配置，可通过下面的方法修复。</p>
+
+<ol>
+<li>停止Jenkins(杀进程)</li>
+<li>在<code>$JENKINS_HOME</code>目录(通常为<code>/Users/Shared/Jenkins/Home</code>)中找到config.xml文件</li>
+<li>打开此文件，将<code>&lt;useSecurity&gt;true&lt;/useSecurity&gt;</code>的true修改为false</li>
+<li>删除<code>authorizationStrategy</code>、<code>securityRealm</code>节点</li>
+<li>重启Jenkins，这时会恢复到没有<code>启用安全</code>的情况。</li>
+</ol>
+
+
+<h2>安装插件</h2>
+
+<p>在<code>系统管理-&gt;管理插件</code>中可安装必要的插件。</p>
+
+<p>我们需要安装git插件<code>Git Client Plugin</code>、<code>Git Server Plugin</code>，
+Xcode插件<code>Xcode integration</code>。</p>
+
+<h2>启动、关闭与重启</h2>
+
+<p>对于登录用户，可以直接使用Jenkins的管理url。</p>
+
+<pre><code>http://localhost:8080/exit
+http://localhost:8080/restart
+http://localhost:8080/reload
+</code></pre>
+
+<p>杀掉jenkins进程</p>
+
+<pre><code>ps -e | grep jenkins
+  53 ?? 0:02.51 /usr/bin/java -jar /Applications/Jenkins/jenkins.war
+  392 ttys000 0:00.00 grep jenkins
+sudo kill 53
+</code></pre>
+
+<p>使用<code>launchctl</code></p>
+
+<pre><code>sudo launchctl load /Library/LaunchDaemons/org.jenkins-ci.plist
+sudo launchctl unload /Library/LaunchDaemons/org.jenkins-ci.plist
+</code></pre>
+
+<h1>自动化构建</h1>
+
+<p>在Jenkins中，任务是以<code>Job</code>为单位的，在管理页面点击<code>新建</code>，输入Item名称，
+并选择项目类型为<code>构建一个自由风格的软件项目</code>，点击OK后就进入了Job设置页面。</p>
+
+<h2>源码管理</h2>
+
+<p>可以根据需要设置从<code>svn</code>或者<code>git</code>获取源码。</p>
+
+<p>对于git需要设置</p>
+
+<ul>
+<li>Repository URL: 仓库URL</li>
+<li>Credentials: 用户名、密码</li>
+<li>Branches to build:需要构建的分支</li>
+<li>Additional Behaviours:其它需要执行的git操作,在必要的时候可以设置。</li>
+</ul>
+
+
+<p>对于svn需要设置</p>
+
+<ul>
+<li>Repository URL: 仓库URL</li>
+<li>Credentials: 用户名、密码</li>
+<li>Check-out Strategy: check-out的策略，可以直接<code>svn update</code>、在update之前执行<code>svn revert</code>或者获取一份全新的拷贝。</li>
+</ul>
+
+
+<h2>构建触发器</h2>
+
+<p>设置构建触发条件,其中<code>Build periodically</code>可以在指定的时间触发构建，在进行每日构建时可以设置，构建时间使用类cron的语法。</p>
+
+<p>也可以不设置触发器，手工触发构建任务。</p>
+
+<h2>构建</h2>
+
+<p>在构建步骤中可以使用<code>Exeute shell</code>执行任意构建任务，对于iOS项目，我们可以使用<code>Xcode</code>插件简化构建流程。</p>
+
+<h3>Xcode</h3>
+
+<h4>General build settings</h4>
+
+<p>指定需要构建的target，不指定会构建所有的targets；在<code>Setting</code>中还有一系列构建的设置。</p>
+
+<ul>
+<li><code>Clean before build?</code> 在build前是否先clean</li>
+<li><code>Generate Archive?</code> 是否生成<code>xcarchive</code>文件</li>
+<li><code>Configuration</code> 构建使用的配置</li>
+<li><p><code>Pack application and build .ipa?</code> 是否打包ipa文件.</p>
+
+<p>若选择打包ipa文件，则还需要设置ipa文件名pattern，在名称中可使用:</p>
+
+<ul>
+<li>版本号 <code>${SHORT_VERSION}</code>,</li>
+<li>build号 <code>${VERSION}</code></li>
+<li>构建日期 <code>${BUILD_DATE}</code>,日期格式为<code>yyyy.MM.dd</code></li>
+</ul>
+
+
+<p>  比如可设置为<code>MyApp_${SHORT_VERSION}_build${VERSION}_${BUILD_DATE}</code>，那么生成的文件名格式为<code>MyApp_v1.0_build10_2014.05.17.ipa</code>。</p></li>
+<li><p><code>Output directory</code> 相对于<code>build</code>目录的ipa文件生成目录。</p></li>
+</ul>
+
+
+<h4>Code signing &amp; OS X keychain options</h4>
+
+<p>代码签名及KeyChain设置</p>
+
+<ul>
+<li><p><code>Code Signing Identity</code> 用于签名的开发者标识，可以在keychain中查看,名称格式为&#8221;iPhone Developer: your_name (XXXXXXX)&#8221;</p></li>
+<li><p><code>Unlock Keychain?</code> 解锁keychain，设置<code>Keychain path</code>与<code>Keychain password</code>，<code>Keychain path</code>设置为
+<code>${HOME}/Library/Keychains/login.keychain</code>。</p></li>
+</ul>
+
+
+<p>注:Jenkins以<code>jenkins</code>用户运行，其用户目录在<code>/Users/Shared/Jenkins</code>，若Jenkins在开发电脑上安装，实际上Xcode编译所需要的
+keychain、Provisioning Profiles等信息都在原登录用户下，自动构建时就会报代码签名错误。可通过以下步骤解决:</p>
+
+<ol>
+<li><p>在&#8221;Keychain Access&#8221;应用中将开发者证书从&#8221;login&#8221;拷贝到&#8221;sysmtem&#8221;。</p>
+
+<p>在&#8221;Keychain Access&#8221;中的login tab中，右键点击证书“iPhone Developer: your_name (XXXXXXX)”,选择“拷贝xxxx”；然后在system tab中右键点击，选择&#8221;粘贴2项&#8221;。</p></li>
+<li><p>将主用户目录下的<code>KeyChains</code>目录拷贝到jenkins用户目录下</p></li>
+</ol>
+
+
+<p>  <code>/Users/YourName/Library/Keychains</code>&ndash;><code>/Users/Shared/Jenkins/Library/Keychains</code></p>
+
+<ol>
+<li>将主用户目录下的<code>MobileDevice</code>目录拷贝到jenkins用户目录下，<code>MobileDevice</code>中有<code>Devices</code>和<code>Provisioning Profiles</code>两个子目录。</li>
+</ol>
+
+
+<p>  <code>/Users/YourName/Library/MobileDevice</code>&ndash;><code>/Users/Shared/Jenkins/Library/MobileDevice</code></p>
+
+<h3>Execute shell</h3>
+
+<p>可以在构建步骤中的任意位置执行脚本，比如在Xcode插件之前执行脚本设置必要的编译环境，执行单元测试，在Xcode插件打包ipa文件后，
+将文件上传到后台服务部署分发等。</p>
+
+<p>比如，可增加&#8221;Execute shell&#8221;将打包文件上传后台服务器。</p>
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+<span class='line-number'>8</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>#!/bin/sh
+</span><span class='line'>
+</span><span class='line'>buildDate=`date +%Y.%m.%d`
+</span><span class='line'>version=`/usr/libexec/PlistBuddy -c "Print CFBundleVersion" ./MyApp-Info.plist`
+</span><span class='line'>shortVersion=`/usr/libexec/PlistBuddy -c "Print CFBundleShortVersionString" "./MyApp-Info.plist"`
+</span><span class='line'>ipaFileName="MyApp_v"${shortVersion}"_build"${version}"_"${buildDate}".ipa"
+</span><span class='line'>
+</span><span class='line'>curl --form "reporter=@./build/Release-iphoneos/"${ipaFileName} http://host/cgi-bin/up.cgi</span></code></pre></td></tr></table></div></figure>
+
+
+<h2>构建后操作</h2>
+
+<p>增加设置构建完成后进行的步骤，可发布测试报告、邮件通知等。</p>
+
+<h1>参考</h1>
+
+<ul>
+<li><a href="http://jenkins-ci.org/">Jenkins homepage</a></li>
+<li><a href="https://wiki.jenkins-ci.org/display/JENKINS/Standard+Security+Setup">Jenkins Standard Security Setup</a></li>
+<li><a href="https://wiki.jenkins-ci.org/display/JENKINS/Disable+security">Jenkins Disable security</a></li>
+<li><a href="http://damien.co/general/how-to-start-stop-restart-or-reload-jenkins-mac-osx-8022">HOW TO: Start, Stop, Restart or Reload Jenkins – Mac OSx</a></li>
+<li><a href="http://webfrogs.me/2013/12/31/jenkins-ios-ci/">使用Jenkins搭建iOS开发的CI服务器</a></li>
+<li><a href="http://code-dojo.blogspot.co.uk/2012/09/fix-ios-code-signing-issue-when-using.html">Fix the iOS code signing issue when using Jenkins</a></li>
+</ul>
+
+]]></content>
+  </entry>
+  
+  <entry>
+    <title type="html"><![CDATA[OCMock]]></title>
+    <link href="http://xuguoxing.github.io/blog/2014/06/09/ocmock/"/>
+    <updated>2014-06-09T09:47:57+08:00</updated>
+    <id>http://xuguoxing.github.io/blog/2014/06/09/ocmock</id>
+    <content type="html"><![CDATA[<p>在面向对象的系统中，所有的对象之间都有一定的联系。在单元测试中，当需要对某一个对象进行测试时，其可能依赖其他对象的返回值或者调用
+其他对象的某些方法。其依赖的对象有可能行为不确定或者很难触发(各种错误场景)或者该对象还不存在。这种情况下需要使用<code>Mock Object</code>来模拟
+依赖对象的行为，返回特定的值、实现特定的方法，来保证对测试对象的单元测试能有个可预期的结果来判断单元测试是否通过。</p>
+
+<h1>OCMock</h1>
+
+<p><code>OCMock</code>是个mock object的Objective-C实现，其使用Objective-C的动态特性可以快速创建mock object,并且使用Objective-C方法调用的语法来定义<code>expectations</code>和<code>stubs</code>。</p>
+
+<p><code>OCMock</code>提供了三种mock功能</p>
+
+<ul>
+<li><code>stub</code>(桩) :对特定的方法返回预定义的值。</li>
+<li><code>dynamic mock</code>(动态Mock):验证某个方法是否被调用。</li>
+<li><code>partial mock</code>(部分Mock):重写已存在对象的方法。</li>
+</ul>
+
+
+<h2>添加OCMock框架</h2>
+
+<ol>
+<li><p>在<a href="http://ocmock.org/download/">下载页面</a>下载预编译的dmg文件,在其中的iOS目录下包含静态库<code>libOCMock.a</code>和<code>OCMock</code>头文件目录。
+也可从GitHub <a href="https://github.com/erikdoe/ocmock">https://github.com/erikdoe/ocmock</a>下载源码自行编译。</p></li>
+<li><p>在单元测试目录下，建立如下目录结构，并添加到项目中。</p></li>
+</ol>
+
+
+<p>  <img src="http://xuguoxing.github.io/images/2014/06/ocmockfile.png" width="668" height="404"></p>
+
+<ul>
+<li><p>在测试Target的<code>Build Phases-&gt;Link Binary With Libraries</code>中应该会自动包含<code>libOCMock.a</code>库，若没有，需手动添加一下。</p></li>
+<li><p>头文件搜索路径设置,在测试Target的<code>Build Settings-&gt;Search Paths-&gt;Header Search Paths</code>中添加路径<code>$(PROJECT_DIR)/NeteaseLotteryTests/usr/include</code></p></li>
+<li><p>link设置,测试Target的<code>Build Settings-&gt;Linking-&gt;Other Linker Flags</code>设置<code>-Objc</code>,<code>-force_load $(PROJECT_DIR)/NeteaseLotteryTests/usr/lib/libOCMock.a</code></p></li>
+</ul>
+
+
+<h2>创建Mock对象</h2>
+
+<p><code>OCMockObject</code>类有几个工厂方法创建mock对象</p>
+
+<ul>
+<li><code>+mockForClass:</code>  基于给定类创建mock对象</li>
+<li><code>+mockForProtocol:</code> 基于给定协议创建mock对象</li>
+<li><code>+niceMockForClass:</code> 基于给定类创建&#8221;nice&#8221;mock对象</li>
+<li><code>+niceMockForProtocol:</code> 基于给定协议创建&#8221;nice&#8221;mock对象</li>
+<li><code>+partialMockForObject:</code> 基于给定对象创建&#8221;partical&#8221;mock对象</li>
+<li><code>+observerMock:</code> 创建通知观察者(notification observer)mock对象</li>
+</ul>
+
+
+<p>三种mock对象类型</p>
+
+<ol>
+<li><p>普通mock对象</p>
+
+<p>使用<code>+mockForClass:</code>、<code>+mockForProtocol:</code>创建的mock对象在接收到未定义的方法调用时产生<code>NSException</code>异常。</p></li>
+<li><p>nick mock对象</p>
+
+<p>使用<code>+niceMockForClass:</code>、<code>+niceMockForProtocol:</code>创建的mock对象在接收到未定义的方法调用时简单忽略。</p></li>
+<li><p>partical mock对象</p>
+
+<p>partical mock对象基于一个真实对象，而不是一个类或协议,其将一个已存在对象转换成mock,可重写其中的方法。</p></li>
+</ol>
+
+
+<h2>Mock使用方法</h2>
+
+<p><a href="http://ocmock.org/tutorials/">OCMock Tutorials</a></p>
+
+<h3>stub</h3>
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>id jalopy = [OCMock mockForClass[Car class]];
+</span><span class='line'>[[[jalopy stub] andReturn:@"75kph"] goFaster:[OCMArg any] units:@"kph"];
+</span><span class='line'>[[[[jalopy stub] classMethod] andReturn:@"expired"] checkWarrany];</span></code></pre></td></tr></table></div></figure>
+
+
+<h3>expect</h3>
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>id niceMockThing = [OCMock niceMockForClass[Thing class]];
+</span><span class='line'>[[niceMockThing expect] greeting:@"hello"];
+</span><span class='line'>
+</span><span class='line'>// verify the method was called as expected
+</span><span class='line'>[niceMocking verify];</span></code></pre></td></tr></table></div></figure>
+
+
+<h3>参数(<code>OCMArg</code>)</h3>
+
+<ul>
+<li><code>+any</code> 任意参数</li>
+<li><code>+anyPointer</code> 任意指针参数</li>
+<li><code>+isNil</code>  nil参数</li>
+<li><code>+isNotNil</code> 非nil参数</li>
+<li><code>+isNotEqual:</code> 不与某个对象相等的参数</li>
+<li><code>+checkWithSelector:onObject:</code>  使用指定的target/action对检查通过的参数</li>
+<li><code>+checkWithBlock:</code> 使用block检查通过的参数</li>
+</ul>
+
+
+<h3>返回值</h3>
+
+<p>使用<code>-expect</code>或<code>-stub</code>返回的对象可使用下列方法设置返回值或者执行某种行为</p>
+
+<ul>
+<li><code>-andReturn:</code> 返回指定对象</li>
+<li><code>-andReturnValue:</code> 返回指定值(NSValue)</li>
+<li><code>-andThrow:</code> 抛出指定异常</li>
+<li><code>-andPost:</code>  post指定通知</li>
+<li><code>-andCall:onObject:</code> 在指定object上调用指定selector</li>
+<li><code>-andDo:</code> 调用指定block</li>
+</ul>
+
+
+<p>可以指定<code>-andDo:</code>对block回调进行模拟,假设有这样的一个方法</p>
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>- (void)downloadWeatherDataForZip:(NSString *)zip
+</span><span class='line'>              callback:(void (^)(NSDictionary *response))callback;</span></code></pre></td></tr></table></div></figure>
+
+
+<p>则使用以下方法进行模拟</p>
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+<span class='line-number'>8</span>
+<span class='line-number'>9</span>
+<span class='line-number'>10</span>
+<span class='line-number'>11</span>
+<span class='line-number'>12</span>
+<span class='line-number'>13</span>
+<span class='line-number'>14</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>// 1. stub using OCMock andDo: operator.
+</span><span class='line'>
+</span><span class='line'>[[[groupModelMock stub] andDo:^(NSInvocation *invoke) {
+</span><span class='line'>        //2. declare a block with same signature
+</span><span class='line'>        void (^weatherStubResponse)(NSDictionary *dict);
+</span><span class='line'>
+</span><span class='line'>        //3. link argument 3 with with our block callback
+</span><span class='line'>        [invoke getArgument:&weatherStubResponse atIndex:3];
+</span><span class='line'>
+</span><span class='line'>        //4. invoke block with pre-defined input
+</span><span class='line'>        NSDictionary *testResponse = @{@"high": 43 , @"low": 12};
+</span><span class='line'>        weatherStubResponse(groupMemberMock);
+</span><span class='line'>
+</span><span class='line'>    }]downloadWeatherDataForZip@"80304" callback:[OCMArg any] ];</span></code></pre></td></tr></table></div></figure>
+
+
+<p>andDo中的<code>invoke</code>参数即模拟的方法调用本身，使用<code>getArgument:atIndex:</code>可读取方法调用的参数，
+对于本例，第四个参数((索引3))即为callback参数(前两个参数分别为<code>self</code>和<code>_cmd</code>),执行callback实参，传递预定义的参数即可。</p>
+
+<h1>依赖注入（Dependency Injection）</h1>
+
+<p>依赖注入是一种软件设计模式，使某一模块所依赖的其他模块或服务，在该模块创建时以注入的方式引入。</p>
+
+<p>在单元测试中需要使用此模式设计类，以方便使用Mock对象来替换待测试对象所依赖的其他对象。</p>
+
+<p>举例:</p>
+
+<p>某类内部需要使用<code>NSNotificationCenter</code>，原始做法是直接使用<code>NSNotificationCenter defaultCenter</code>。</p>
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>@implementation ExampleObject : NSObject
+</span><span class='line'>-(void)postNotification
+</span><span class='line'>{
+</span><span class='line'>    [[NSNotificationCenter defaultCenter] postNotificationName:@"SomethingCompletedNotification" object:self userInfo:userInfo];
+</span><span class='line'>}
+</span><span class='line'>@end</span></code></pre></td></tr></table></div></figure>
+
+
+<p>在做单元测试时，我们只需要知道<code>ExampleObject</code>对象的<code>-postNotification</code>方法确实调用了<code>NSNotificationCenter</code>的<code>postNotificationName:</code>方法，
+并不需要实际去发送通知，实际发送通知会引起其他模块的反应，不是此单元测试的目的。</p>
+
+<p>所以我们需要使用<code>NSNotificationCenter</code>的mock对象来代替真实的<code>NSNotificationCenter</code>对象；而上面的方法无法进行mock，需要进行重构。</p>
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+<span class='line-number'>8</span>
+<span class='line-number'>9</span>
+<span class='line-number'>10</span>
+<span class='line-number'>11</span>
+<span class='line-number'>12</span>
+<span class='line-number'>13</span>
+<span class='line-number'>14</span>
+<span class='line-number'>15</span>
+<span class='line-number'>16</span>
+<span class='line-number'>17</span>
+<span class='line-number'>18</span>
+<span class='line-number'>19</span>
+<span class='line-number'>20</span>
+<span class='line-number'>21</span>
+<span class='line-number'>22</span>
+<span class='line-number'>23</span>
+<span class='line-number'>24</span>
+<span class='line-number'>25</span>
+<span class='line-number'>26</span>
+<span class='line-number'>27</span>
+<span class='line-number'>28</span>
+<span class='line-number'>29</span>
+<span class='line-number'>30</span>
+<span class='line-number'>31</span>
+<span class='line-number'>32</span>
+<span class='line-number'>33</span>
+<span class='line-number'>34</span>
+<span class='line-number'>35</span>
+<span class='line-number'>36</span>
+<span class='line-number'>37</span>
+<span class='line-number'>38</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>
+</span><span class='line'>@interface ExampleObject : NSObject
+</span><span class='line'>
+</span><span class='line'>
+</span><span class='line'>@property (nonatomic, readonly) NSNotificationCenter *notificationCenter;
+</span><span class='line'>
+</span><span class='line'>- (instancetype)initWithNotificationCenter:(NSNotificationCenter *)center;
+</span><span class='line'>    //...
+</span><span class='line'>@end
+</span><span class='line'>
+</span><span class='line'>@interface BNRCodeHostFetcher ()
+</span><span class='line'>
+</span><span class='line'>@property (nonatomic, strong, readwrite) NSNotificationCenter *notificationCenter;
+</span><span class='line'>
+</span><span class='line'>@end
+</span><span class='line'>
+</span><span class='line'>@implementation ExampleObject : NSObject
+</span><span class='line'>
+</span><span class='line'>- (instancetype)initWithNotificationCenter:(NSNotificationCenter *)center
+</span><span class='line'>{
+</span><span class='line'>  self = [super init];
+</span><span class='line'>  if (self)
+</span><span class='line'>  {
+</span><span class='line'>      self.notificationCenter = center;
+</span><span class='line'>  }
+</span><span class='line'>  return self;
+</span><span class='line'>}
+</span><span class='line'>
+</span><span class='line'>- (instancetype)init
+</span><span class='line'>{
+</span><span class='line'>    return [self initWithNotificationCenter:[NSNotificationCenter defaultCenter]];
+</span><span class='line'>}
+</span><span class='line'>
+</span><span class='line'>-(void)postNotification
+</span><span class='line'>{
+</span><span class='line'>    [[self notificationCenter] postNotificationName:@"SomethingCompletedNotification" object:self userInfo:userInfo];
+</span><span class='line'>}
+</span><span class='line'>@end</span></code></pre></td></tr></table></div></figure>
+
+
+<p>这样，在正常使用时我们可以直接使用<code>-init</code>方法，会传递系统的<code>NSNotificationCenter</code>对象；在做单元测试时，可以使用<code>-initWithNotificationCenter:</code>
+方法传递mock的<code>NSNotificationCenter</code>对象作为参数。</p>
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>id notificationCenter = [OCMock mockForClass[NSNotificationCenter class]];
+</span><span class='line'>[[notificationCenter expect] postNotificationName:[OCMArg any] object:[OCMArg any] userInfo:[OCMArg any]];
+</span><span class='line'>
+</span><span class='line'>ExampleObject *exampleObject = [[ExampleObject alloc]initWithNotificationCenter:notificationCenter];
+</span><span class='line'>[exampleObject postNotification];
+</span><span class='line'>[notificationCenter verify];
+</span></code></pre></td></tr></table></div></figure>
+
+
+<h1>参考</h1>
+
+<ul>
+<li><a href="http://en.wikipedia.org/wiki/Mock_object">Mock object</a></li>
+<li><a href="http://ocmock.org/">OCMock</a></li>
+<li><a href="http://ocmock.org/tutorials/">OCMock Tutorials</a></li>
+<li><a href="http://www.bignerdranch.com/blog/making-mockery-mock-objects/">Making a Mockery with Mock Objects</a></li>
+<li><a href="http://hackazach.net/code/2014/03/03/effective-testing-with-ocmock/">OCMock Test Origami</a></li>
+<li><a href="http://alexvollmer.com/posts/2010/06/28/making-fun-of-things-with-ocmock/">Making Fun of Things with OCMock</a></li>
+<li><a href="http://en.wikipedia.org/wiki/Dependency_injection">Dependency injection</a></li>
+<li><a href="http://www.bignerdranch.com/blog/dependency-injection-ios/">Dependency Injection, iOS and You</a></li>
+</ul>
+
+]]></content>
+  </entry>
+  
+  <entry>
+    <title type="html"><![CDATA[XCTest]]></title>
+    <link href="http://xuguoxing.github.io/blog/2014/05/23/xctest/"/>
+    <updated>2014-05-23T10:19:20+08:00</updated>
+    <id>http://xuguoxing.github.io/blog/2014/05/23/xctest</id>
+    <content type="html"><![CDATA[<p><code>XCTest</code>是Xcode5引入的单元测试框架，替换了之前的<code>OCUnit</code>。<code>XCTest</code>中的测试用例类都继承自<code>XCTestCase</code>类，断言前缀为<code>XCT</code>。</p>
+
+<h1>项目中引入<code>XCTest</code>框架</h1>
+
+<h2>创建新项目</h2>
+
+<p>使用Xcode5新建项目，会自动创建名为<code>[ProjectName]Tests</code>的<code>Target</code>,
+自动生成<code>[ProjectName]Tests</code>目录，且包含一个测试失败的单元测试文件<code>[ProjectName]Tests.m</code>。</p>
+
+<h2>老项目中引入</h2>
+
+<p>在Xcode中选择菜单<code>File-&gt;New-&gt;Target...</code>,在弹出框中选择<code>iOS-&gt;Other-&gt;Cocoa Touch Unit Testing Bundle</code>,在弹出的设置页面中
+可根据需要修改，其中<code>Product Name</code>中的默认值为<code>[ProjectName] Tests</code>,中间包含一空格，推荐将空格去掉；其他项保持原状即可。</p>
+
+<p><img src="http://xuguoxing.github.io/images/2014/05/XCTest_newTarget.png"></p>
+
+<p>注:
+* XCTest框架在运行时自动注入(Inject) app的target，访问其中的符号信息(symbols),
+所以在XCTest Target的<code>Compile Sources</code>中只需要包含测试用例文件，不需要包含待测试的源文件。
+* 若运行单元测试时有找不到符号的提示，检查下app Target <code>Build Settings</code>中的<code>Symbols hidden by default</code>,应该设为<code>NO</code>。</p>
+
+<h1>运行单元测试</h1>
+
+<ol>
+<li>菜单<code>Product-&gt;Test</code>或者<code>Command+U</code>可运行全部测试用例。</li>
+<li>在Xcode5的导航区有<code>Test Navigator</code>,在其中可选择运行整个bundle的测试方法、运行某个测试类或运行某一个测试方法。</li>
+<li>使用<code>xcodebuild test</code>命令运行。</li>
+</ol>
+
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>xcodebuild test -scheme XCTestDemo -sdk iphonesimulator -destination 'platform=iOS Simulator,name=iPhone Retina (4-inch),OS=7.1'</span></code></pre></td></tr></table></div></figure>
+
+
+<p>注: <code>XCTest</code>只能在iOS7以上的模拟器或设备中运行,所以在使用方法1、2时，Xcode中的指定的运行设备需为7.0以上的；而使用<code>xcodebuild test</code>
+命令运行时需指定<code>destination</code>参数，选择7.0以上的模拟器或真实设备运行。否则会有错误提示:
+&ldquo;Library not loaded: /Developer/Library/Frameworks/XCTest.framework/XCTest&rdquo;</p>
+
+<p>执行完测试用例后，执行通过的测试用例左侧会有<code>绿色对勾</code>图标，执行失败的测试用例左侧会有<code>红色x图标</code>，且执行失败的行会红色高亮显示。</p>
+
+<p><img src="http://xuguoxing.github.io/images/2014/05/XCTest_Navigator.png"></p>
+
+<h1><code>XCTestCase</code>类结构</h1>
+
+<p>一个测试用例文件如下:</p>
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+<span class='line-number'>8</span>
+<span class='line-number'>9</span>
+<span class='line-number'>10</span>
+<span class='line-number'>11</span>
+<span class='line-number'>12</span>
+<span class='line-number'>13</span>
+<span class='line-number'>14</span>
+<span class='line-number'>15</span>
+<span class='line-number'>16</span>
+<span class='line-number'>17</span>
+<span class='line-number'>18</span>
+<span class='line-number'>19</span>
+<span class='line-number'>20</span>
+<span class='line-number'>21</span>
+<span class='line-number'>22</span>
+<span class='line-number'>23</span>
+<span class='line-number'>24</span>
+<span class='line-number'>25</span>
+<span class='line-number'>26</span>
+<span class='line-number'>27</span>
+<span class='line-number'>28</span>
+<span class='line-number'>29</span>
+<span class='line-number'>30</span>
+<span class='line-number'>31</span>
+<span class='line-number'>32</span>
+<span class='line-number'>33</span>
+<span class='line-number'>34</span>
+<span class='line-number'>35</span>
+<span class='line-number'>36</span>
+<span class='line-number'>37</span>
+<span class='line-number'>38</span>
+<span class='line-number'>39</span>
+<span class='line-number'>40</span>
+<span class='line-number'>41</span>
+<span class='line-number'>42</span>
+<span class='line-number'>43</span>
+<span class='line-number'>44</span>
+<span class='line-number'>45</span>
+<span class='line-number'>46</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>#import &lt;XCTest/XCTest.h&gt;
+</span><span class='line'>
+</span><span class='line'>@interface XCTestDemoTests : XCTestCase
+</span><span class='line'>
+</span><span class='line'>@end
+</span><span class='line'>
+</span><span class='line'>@implementation XCTestDemoTests
+</span><span class='line'>
+</span><span class='line'>+ (void)setUp
+</span><span class='line'>{
+</span><span class='line'>    NSLog(@"TestCase Class setUp");
+</span><span class='line'>}
+</span><span class='line'>
+</span><span class='line'>+ (void)tearDown
+</span><span class='line'>{
+</span><span class='line'>    NSLog(@"TestCase Class tearDown");
+</span><span class='line'>}
+</span><span class='line'>
+</span><span class='line'>- (void)setUp
+</span><span class='line'>{
+</span><span class='line'>    [super setUp];
+</span><span class='line'>
+</span><span class='line'>    NSLog(@"TestCase SetUp");
+</span><span class='line'>}
+</span><span class='line'>
+</span><span class='line'>- (void)tearDown
+</span><span class='line'>{
+</span><span class='line'>    [super tearDown];
+</span><span class='line'>    NSLog(@"TestCase tearDown");
+</span><span class='line'>}
+</span><span class='line'>
+</span><span class='line'>- (void)testExample1
+</span><span class='line'>{
+</span><span class='line'>    NSLog(@"testExample1");
+</span><span class='line'>    XCTAssertTrue(1, @"testExample1");
+</span><span class='line'>    //XCTFail(@"No implementation for \"%s\"", __PRETTY_FUNCTION__);
+</span><span class='line'>}
+</span><span class='line'>
+</span><span class='line'>- (void)testExample2
+</span><span class='line'>{
+</span><span class='line'>    NSLog(@"testExample2");
+</span><span class='line'>    XCTAssertTrue(1, @"testExample1");
+</span><span class='line'>    //XCTFail(@"No implementation for \"%s\"", __PRETTY_FUNCTION__);
+</span><span class='line'>}
+</span><span class='line'>
+</span><span class='line'>@end</span></code></pre></td></tr></table></div></figure>
+
+
+<p>在<code>XCTestCase</code>类中包含类方法<code>+ (void)setUp</code>、<code>+ (void)tearDown</code>,实例方法<code>- (void)setUp</code>、<code>- (void)tearDown</code>以及多个测试方法。
+这些方法的执行顺序为</p>
+
+<ol>
+<li><code>+ (void)setUp</code></li>
+<li><code>- (void)setUp</code></li>
+<li><code>- (void)testExample1</code></li>
+<li><code>- (void)tearDown</code></li>
+<li><code>- (void)setUp</code></li>
+<li><code>- (void)testExample2</code></li>
+<li><code>- (void)tearDown</code></li>
+<li><code>+ (void)tearDown</code></li>
+</ol>
+
+
+<p>即<code>setup</code>类方法会在类创建的调用一次，类销毁的时候调用<code>tearDown</code>类方法，在每个测试方法执行之前调用<code>setUp</code>实例方法,测试方法执行之后调用
+<code>tearDown</code>实例方法。</p>
+
+<h1>断言</h1>
+
+<p><code>XCTest</code>支持的断言有：</p>
+
+<ul>
+<li>XCTFail (format…)</li>
+<li>XCTAssertNil (a1, format…)</li>
+<li>XCTAssertNotNil (a1, format…)</li>
+<li>XCTAssert (a1, format…)</li>
+<li>XCTAssertTrue (a1, format…)</li>
+<li>XCTAssertFalse (a1, format…)</li>
+<li>XCTAssertEqualObjects (a1, a2, format…)</li>
+<li>XCTAssertEquals (a1, a2, format…)</li>
+<li>XCTAssertEqualsWithAccuracy (a1, a2, accuracy, format…)</li>
+<li>XCTAssertThrows (expression, format…)</li>
+<li>XCTAssertThrowsSpecific (expression, specificException, format…)</li>
+<li>XCTAssertThrowsSpecificNamed (expression, specificException, exceptionName, format…)</li>
+<li>XCTAssertNoThrow (expression, format…)</li>
+<li>XCTAssertNoThrowSpecific (expression, specificException, format…)</li>
+<li>XCTAssertNoThrowSpecificNamed (expression, specificExcepton, exceptionName, format…)</li>
+</ul>
+
+
+<p>具体可见<code>XCTestAssertions.h</code>文件</p>
+
+<h1>异步单元测试</h1>
+
+<p>正常情况下，单元测试方法执行完毕后立即返回，若测试的是异步任务，此时没有拿到异步任务的返回结果，测试就终止了。</p>
+
+<p>测试异步任务时，需要注意两个方法:</p>
+
+<ol>
+<li>单元测试方法在异步任务完成前不能返回。</li>
+<li>在Cocoa中需要使用<code>run loop</code>来处理网络和定时器，这样异步任务才能完成。</li>
+</ol>
+
+
+<p>解决方案:</p>
+
+<ol>
+<li>在调用异步任务后，使用<code>CFRunLoopRun()</code>启用<code>run loop</code>一直等待，且run loop去处理网络和定时器以完成异步任务。</li>
+<li>在异步任务完成后，使用<code>CFRunLoopStop(CFRunLoopGetCurrent())</code>终止当前的<code>run loop</code>,以结束单元测试方法。</li>
+</ol>
+
+
+<p><code>CFRunLoopRun</code></p>
+
+<blockquote><p>The current thread’s run loop runs in the default mode (see “Default Run Loop Mode”) until the run loop is stopped with CFRunLoopStop or all the sources and timers are removed from the default run loop mode.</p><p>Run loops can be run recursively. You can call CFRunLoopRun from within any run loop callout and create nested run loop activations on the current thread’s call stack.</p></blockquote>
+
+
+<p><code>CFRunLoopStop</code></p>
+
+<blockquote><p>This function forces rl to stop running and return control to the function that called CFRunLoopRun or CFRunLoopRunInMode for the current run loop activation. If the run loop is nested with a callout from one activation starting another activation running, only the innermost activation is exited.</p></blockquote>
+
+
+
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+<span class='line-number'>8</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>- (void)testAsyncTask
+</span><span class='line'>{
+</span><span class='line'>    [taskManager execAsyncTaskWithCompletion:^(NSError *error) {
+</span><span class='line'>        XCTAssertNil(error, @"Error should be nil");
+</span><span class='line'>         CFRunLoopStop(CFRunLoopGetCurrent());
+</span><span class='line'>    }];
+</span><span class='line'>    CFRunLoopRun();
+</span><span class='line'>}</span></code></pre></td></tr></table></div></figure>
+
+
+<p>github上有两个开源库使用<code>NSRunLoop</code>对此方法进行了扩展，增加了超时等机制。</p>
+
+<ul>
+<li><a href="https://github.com/premosystems/XCAsyncTestCase">XCAsyncTestCase</a></li>
+<li><a href="https://github.com/iheartradio/xctest-additions">xctest-additions</a></li>
+</ul>
+
+
+<h1>参考</h1>
+
+<ul>
+<li>iOS测试指南,作者:芈峮</li>
+<li><a href="http://hackazach.net/code/2014/02/24/slim-xctest-targets/">Slim XCTest Targets</a></li>
+<li><a href="http://mentalfaculty.tumblr.com/post/83814421929/unit-testing-asynchronous-cocoa">Unit Testing Asynchronous Cocoa</a></li>
+<li><a href="https://developer.apple.com/legacy/library/documentation/DeveloperTools/Conceptual/UnitTesting/00-About_Unit_Testing/about.html">Xcode Unit Testing Guide</a></li>
+</ul>
+
+]]></content>
+  </entry>
+  
+  <entry>
+    <title type="html"><![CDATA[App Info]]></title>
+    <link href="http://xuguoxing.github.io/blog/2014/04/24/app-info/"/>
+    <updated>2014-04-24T14:47:06+08:00</updated>
+    <id>http://xuguoxing.github.io/blog/2014/04/24/app-info</id>
+    <content type="html"><![CDATA[<h2>Device信息</h2>
+
+<h3>硬件设备类型</h3>
+
+<p>硬件类型字符串，格式为&#8221;iPhone5,1&#8221;、&#8221;iPod5,1&#8221;、&#8221;iPad3,2&#8221;、&#8221;x86_64&#8221;等</p>
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+<span class='line-number'>8</span>
+<span class='line-number'>9</span>
+<span class='line-number'>10</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>-(NSString *)platform
+</span><span class='line'>{
+</span><span class='line'>    size_t size;
+</span><span class='line'>    sysctlbyname("hw.machine", NULL, &size, NULL, 0);
+</span><span class='line'>    char *machine = malloc(size);
+</span><span class='line'>    sysctlbyname("hw.machine", machine, &size, NULL, 0);
+</span><span class='line'>    NSString *platform = [NSString stringWithUTF8String:machine];
+</span><span class='line'>    free(machine);
+</span><span class='line'>    return platform;
+</span><span class='line'>}</span></code></pre></td></tr></table></div></figure>
+
+
+<p>或者</p>
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>-(NSString *)platform{
+</span><span class='line'>    struct utsname systemInfo;
+</span><span class='line'>    uname(&systemInfo);
+</span><span class='line'>    NSString *machine =  [NSString stringWithCString:systemInfo.machine
+</span><span class='line'>                                            encoding:NSUTF8StringEncoding];
+</span><span class='line'>    return machine;
+</span><span class='line'>}</span></code></pre></td></tr></table></div></figure>
+
+
+<p>硬件类型和具体设备的对应关系见<a href="https://dl.dropboxusercontent.com/u/5927761/iOSDeviceModelMapping.plist">iOSDeviceModelMapping.plist</a>。</p>
+
+<h3>MAC地址</h3>
+
+<p>自<a href="https://developer.apple.com/library/prerelease/ios/releasenotes/General/WhatsNewIniOS/Articles/iOS7.html">iOS7</a>后，
+获取Mac地址总会返回&#8221;02:00:00:00:00:00&#8221;。</p>
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+<span class='line-number'>8</span>
+<span class='line-number'>9</span>
+<span class='line-number'>10</span>
+<span class='line-number'>11</span>
+<span class='line-number'>12</span>
+<span class='line-number'>13</span>
+<span class='line-number'>14</span>
+<span class='line-number'>15</span>
+<span class='line-number'>16</span>
+<span class='line-number'>17</span>
+<span class='line-number'>18</span>
+<span class='line-number'>19</span>
+<span class='line-number'>20</span>
+<span class='line-number'>21</span>
+<span class='line-number'>22</span>
+<span class='line-number'>23</span>
+<span class='line-number'>24</span>
+<span class='line-number'>25</span>
+<span class='line-number'>26</span>
+<span class='line-number'>27</span>
+<span class='line-number'>28</span>
+<span class='line-number'>29</span>
+<span class='line-number'>30</span>
+<span class='line-number'>31</span>
+<span class='line-number'>32</span>
+<span class='line-number'>33</span>
+<span class='line-number'>34</span>
+<span class='line-number'>35</span>
+<span class='line-number'>36</span>
+<span class='line-number'>37</span>
+<span class='line-number'>38</span>
+<span class='line-number'>39</span>
+<span class='line-number'>40</span>
+<span class='line-number'>41</span>
+<span class='line-number'>42</span>
+<span class='line-number'>43</span>
+<span class='line-number'>44</span>
+<span class='line-number'>45</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>- (NSString *) macaddress{
+</span><span class='line'>
+</span><span class='line'>    int                 mib[6];
+</span><span class='line'>    size_t              len;
+</span><span class='line'>    char                *buf;
+</span><span class='line'>    unsigned char       *ptr;
+</span><span class='line'>    struct if_msghdr    *ifm;
+</span><span class='line'>    struct sockaddr_dl  *sdl;
+</span><span class='line'>
+</span><span class='line'>    mib[0] = CTL_NET;
+</span><span class='line'>    mib[1] = AF_ROUTE;
+</span><span class='line'>    mib[2] = 0;
+</span><span class='line'>    mib[3] = AF_LINK;
+</span><span class='line'>    mib[4] = NET_RT_IFLIST;
+</span><span class='line'>
+</span><span class='line'>    if ((mib[5] = if_nametoindex("en0")) == 0) {
+</span><span class='line'>        printf("Error: if_nametoindex error\n");
+</span><span class='line'>        return NULL;
+</span><span class='line'>    }
+</span><span class='line'>
+</span><span class='line'>    if (sysctl(mib, 6, NULL, &len, NULL, 0) &lt; 0) {
+</span><span class='line'>        printf("Error: sysctl, take 1\n");
+</span><span class='line'>        return NULL;
+</span><span class='line'>    }
+</span><span class='line'>
+</span><span class='line'>    if ((buf = malloc(len)) == NULL) {
+</span><span class='line'>        printf("Could not allocate memory. error!\n");
+</span><span class='line'>        return NULL;
+</span><span class='line'>    }
+</span><span class='line'>
+</span><span class='line'>    if (sysctl(mib, 6, buf, &len, NULL, 0) &lt; 0) {
+</span><span class='line'>        printf("Error: sysctl, take 2");
+</span><span class='line'>        free(buf);
+</span><span class='line'>        return NULL;
+</span><span class='line'>    }
+</span><span class='line'>
+</span><span class='line'>    ifm = (struct if_msghdr *)buf;
+</span><span class='line'>    sdl = (struct sockaddr_dl *)(ifm + 1);
+</span><span class='line'>    ptr = (unsigned char *)LLADDR(sdl);
+</span><span class='line'>    NSString *outstring = [NSString stringWithFormat:@"%02X:%02X:%02X:%02X:%02X:%02X",
+</span><span class='line'>                           *ptr, *(ptr+1), *(ptr+2), *(ptr+3), *(ptr+4), *(ptr+5)];
+</span><span class='line'>    free(buf);
+</span><span class='line'>
+</span><span class='line'>    return outstring;
+</span><span class='line'>}</span></code></pre></td></tr></table></div></figure>
+
+
+<h3>操作系统名</h3>
+
+<p>如&#8221;iPhone OS&#8221;</p>
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>[[UIDevice currentDevice] systemName];</span></code></pre></td></tr></table></div></figure>
+
+
+<h3>操作系统版本号</h3>
+
+<p>例如：7.1.1</p>
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>[[UIDevice currentDevice] systemVersion];</span></code></pre></td></tr></table></div></figure>
+
+
+<h3>Model</h3>
+
+<p>例如&#8221;iPhone&#8221;,&ldquo;iPod touch&rdquo;,&ldquo;iPhone Simulator&rdquo;</p>
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>[[UIDevice currentDevice] model];</span></code></pre></td></tr></table></div></figure>
+
+
+<h3>IDFV(Vendor ID)</h3>
+
+<p>厂商ID,具体见<a href="http://iosapp.me/blog/2014/03/31/udid/">UDID</a></p>
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>[[[UIDevice currentDevice] identifierForVendor] UUIDString];</span></code></pre></td></tr></table></div></figure>
+
+
+<h3>设备方向(orientation)</h3>
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>UIDeviceOrientation orientation = [[UIDevice currentDevice] orientation];</span></code></pre></td></tr></table></div></figure>
+
+
+<p>注:<code>UIDeviceOrientation</code>与<code>UIInterfaceOrientation</code>定义有差别。</p>
+
+<h3>物理内存</h3>
+
+<p>获取设备物理内存大小,以字节为单位</p>
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+<span class='line-number'>8</span>
+<span class='line-number'>9</span>
+<span class='line-number'>10</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>#include &lt;sys/sysctl.h&gt;
+</span><span class='line'>
+</span><span class='line'>- (uint64_t)physicalMemory
+</span><span class='line'>{
+</span><span class='line'>    size_t size = sizeof(uint64_t);
+</span><span class='line'>    uint64_t physicalMemorySize;
+</span><span class='line'>    int mib[2] = {CTL_HW, HW_MEMSIZE};
+</span><span class='line'>    sysctl(mib, 2, &physicalMemorySize, &size, NULL, 0);
+</span><span class='line'>    return physicalMemorySize;
+</span><span class='line'>}</span></code></pre></td></tr></table></div></figure>
+
+
+<h3>用户空间内存大小</h3>
+
+<p>获取用户空间可用的内存大小(去除内核、Video等内存占用)，以字节为单位</p>
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+<span class='line-number'>8</span>
+<span class='line-number'>9</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>#include &lt;sys/sysctl.h&gt;
+</span><span class='line'>- (uint64_t)userMemory
+</span><span class='line'>{
+</span><span class='line'>    size_t size = sizeof(uint64_t);
+</span><span class='line'>    uint64_t userMemorySize;
+</span><span class='line'>    int mib[2] = {CTL_HW, HW_USERMEM};
+</span><span class='line'>    sysctl(mib, 2, &userMemorySize, &size, NULL, 0);
+</span><span class='line'>    return userMemorySize;
+</span><span class='line'>}</span></code></pre></td></tr></table></div></figure>
+
+
+<h3>当前应用所占内存</h3>
+
+<p>目前没有很好的方法获取App当前所占内存,有一种方法是使用<code>vm_statistics_data_t</code>获取虚拟内存信息，仅供参考
+<a href="http://landonf.bikemonkey.org/code/iphone/Determining_Available_Memory.20081203.html">Determining Available Memory</a></p>
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+<span class='line-number'>8</span>
+<span class='line-number'>9</span>
+<span class='line-number'>10</span>
+<span class='line-number'>11</span>
+<span class='line-number'>12</span>
+<span class='line-number'>13</span>
+<span class='line-number'>14</span>
+<span class='line-number'>15</span>
+<span class='line-number'>16</span>
+<span class='line-number'>17</span>
+<span class='line-number'>18</span>
+<span class='line-number'>19</span>
+<span class='line-number'>20</span>
+<span class='line-number'>21</span>
+<span class='line-number'>22</span>
+<span class='line-number'>23</span>
+<span class='line-number'>24</span>
+<span class='line-number'>25</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>#import &lt;mach/mach.h&gt;
+</span><span class='line'>#import &lt;mach/mach_host.h&gt;
+</span><span class='line'>
+</span><span class='line'>static void print_free_memory () {
+</span><span class='line'>    mach_port_t host_port;
+</span><span class='line'>    mach_msg_type_number_t host_size;
+</span><span class='line'>    vm_size_t pagesize;
+</span><span class='line'>
+</span><span class='line'>    host_port = mach_host_self();
+</span><span class='line'>    host_size = sizeof(vm_statistics_data_t) / sizeof(integer_t);
+</span><span class='line'>    host_page_size(host_port, &pagesize);
+</span><span class='line'>
+</span><span class='line'>    vm_statistics_data_t vm_stat;
+</span><span class='line'>
+</span><span class='line'>    if (host_statistics(host_port, HOST_VM_INFO, (host_info_t)&vm_stat, &host_size) != KERN_SUCCESS)
+</span><span class='line'>        NSLog(@"Failed to fetch vm statistics");
+</span><span class='line'>
+</span><span class='line'>    /* Stats in bytes */
+</span><span class='line'>    natural_t mem_used = (vm_stat.active_count +
+</span><span class='line'>                          vm_stat.inactive_count +
+</span><span class='line'>                          vm_stat.wire_count) * pagesize;
+</span><span class='line'>    natural_t mem_free = vm_stat.free_count * pagesize;
+</span><span class='line'>    natural_t mem_total = mem_used + mem_free;
+</span><span class='line'>    NSLog(@"used: %u free: %u total: %u", mem_used, mem_free, mem_total);
+</span><span class='line'>}</span></code></pre></td></tr></table></div></figure>
+
+
+<p><a href="https://github.com/Split82/iOSMemoryBudgetTest">iOSMemoryBudgetTest</a>通过不断alloc内存来记录应用crash时总的内存分配量，
+但记录的alloc的内存数量和使用上面方法获取的mem_used数据对不上。</p>
+
+<h2>进程信息(NSProcessInfo)</h2>
+
+<p><code>NSProcessInfo</code>中包含当前进程的信息,包括启动参数、环境变量、进程ID、进程名、操作系统名、操作系统版本、处理器个数、系统启动时间等。</p>
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>NSProcessInfo *processInfo = [NSProcessInfo processInfo];
+</span><span class='line'>NSDictionary *environment = [processInfo environment];
+</span><span class='line'>NSArray *arguments = [processInfo arguments];
+</span><span class='line'>NSUInteger numcore = [processInfo processorCount];</span></code></pre></td></tr></table></div></figure>
+
+
+<p>示例代码见<a href="https://github.com/markd2/SystemInfo">SystemInfo</a>。</p>
+
+<h2>Application信息</h2>
+
+<h3>当前应用状态(<code>UIApplicationState</code>)</h3>
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'> [[UIApplication sharedApplication] applicationState];</span></code></pre></td></tr></table></div></figure>
+
+
+<p><code>UIApplicationState</code>状态有:</p>
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>typedef enum : NSInteger {
+</span><span class='line'>   UIApplicationStateActive,
+</span><span class='line'>   UIApplicationStateInactive,
+</span><span class='line'>   UIApplicationStateBackground
+</span><span class='line'>} UIApplicationState;</span></code></pre></td></tr></table></div></figure>
+
+
+<h3>应用注册的推送类型(<code>UIRemoteNotificationType</code>)</h3>
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>[[UIApplication sharedApplication] enabledRemoteNotificationTypes];</span></code></pre></td></tr></table></div></figure>
+
+
+<p><code>UIRemoteNotificationType</code>定义的类型有</p>
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>typedef enum : NSUInteger {
+</span><span class='line'>   UIRemoteNotificationTypeNone    = 0,
+</span><span class='line'>   UIRemoteNotificationTypeBadge   = 1 &lt;&lt; 0,
+</span><span class='line'>   UIRemoteNotificationTypeSound   = 1 &lt;&lt; 1,
+</span><span class='line'>   UIRemoteNotificationTypeAlert   = 1 &lt;&lt; 2,
+</span><span class='line'>   UIRemoteNotificationTypeNewsstandContentAvailability = 1 &lt;&lt; 3
+</span><span class='line'>} UIRemoteNotificationType;</span></code></pre></td></tr></table></div></figure>
+
+
+<h2>Screen信息</h2>
+
+<h3>分辨率scale</h3>
+
+<p>1.0为普通分辨率，2.0为2倍分辨率，即为Retina屏幕</p>
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>[[UIScreen mainScreen] scale];</span></code></pre></td></tr></table></div></figure>
+
+
+<h2>Bundle信息</h2>
+
+<h3>发布版本号(Version/ Bundle versions string, short)</h3>
+
+<p>一般格式为三段.分隔的整数，如3.24.1等</p>
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>[[[NSBundle mainBundle] infoDictionary] objectForKey:@"CFBundleShortVersionString"];</span></code></pre></td></tr></table></div></figure>
+
+
+<p>使用NSString的<code>compare</code>方法，指定<code>NSNumbericSearch</code>选项，可比较版本号</p>
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>-(BOOL)version:(NSString*)_oldver lessthan:(NSString*)_newver
+</span><span class='line'>{
+</span><span class='line'>    if([_oldver compare:_newver options:NSNumericSearch] == NSOrderedAscending){
+</span><span class='line'>        return YES;
+</span><span class='line'>    }
+</span><span class='line'>    return NO;
+</span><span class='line'>}</span></code></pre></td></tr></table></div></figure>
+
+
+<h3>内部版本号(build/Bundle version)</h3>
+
+<p>内部构建版本号，格式也一般为三段.分隔的整数，也可以使用单一整数递增</p>
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>[[[NSBundle mainBundle] infoDictionary] objectForKey:(NSString *)kCFBundleVersionKey];</span></code></pre></td></tr></table></div></figure>
+
+
+<p><code>kCFBundleVersionKey</code>定义即为字符串&#8221;CFBundleVersion&#8221;</p>
+
+<h3>Bundle identifier</h3>
+
+<p>每个应用的唯一bundle id</p>
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>[[[NSBundle mainBundle] infoDictionary] objectForKey:(NSString *)kCFBundleIdentifierKey];</span></code></pre></td></tr></table></div></figure>
+
+
+<p><code>kCFBundleIdentifierKey</code>定义为&#8221;CFBundleIdentifier&#8221;</p>
+
+<h2>其他</h2>
+
+<h3>广告ID(IDFA)</h3>
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>[[[ASIdentifierManager sharedManager] advertisingIdentifier] UUIDString];</span></code></pre></td></tr></table></div></figure>
+
+
+<h2>参考</h2>
+
+<ul>
+<li><a href="https://github.com/erica/uidevice-extension/">uidevice-extension</a></li>
+<li><a href="http://iosapp.me/blog/2014/03/31/udid/">UDID</a></li>
+<li><a href="http://gamesfromwithin.com/whered-that-memory-go">Where’d That Memory Go?</a></li>
+<li><a href="http://landonf.bikemonkey.org/code/iphone/Determining_Available_Memory.20081203.html">iPhone: Determining Available Memory</a></li>
+<li><a href="https://forrst.com/posts/Get_current_Memory_usage-hzw">Get current Memory usage</a></li>
+<li><a href="https://github.com/Split82/iOSMemoryBudgetTest">iOSMemoryBudgetTest</a></li>
+<li><a href="https://developer.apple.com/library/ios/documentation/General/Reference/InfoPlistKeyReference/Articles/CoreFoundationKeys.html">Information Property List Key Reference</a></li>
+<li><a href="https://developer.apple.com/library/ios/documentation/CoreFoundation/Reference/CFBundleRef/Reference/reference.html">CFBundle Reference</a></li>
+<li><a href="http://www.bignerdranch.com/blog/we-want-information-information/">We want information&hellip; Information&hellip;</a></li>
+</ul>
+
+]]></content>
+  </entry>
+  
+  <entry>
+    <title type="html"><![CDATA[UDID]]></title>
+    <link href="http://xuguoxing.github.io/blog/2014/03/31/udid/"/>
+    <updated>2014-03-31T15:58:49+08:00</updated>
+    <id>http://xuguoxing.github.io/blog/2014/03/31/udid</id>
+    <content type="html"><![CDATA[<p>用于标识iOS设备的各种方法。</p>
+
+<h3>UDID(Unique Device Identifier)</h3>
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>[[UIDevice CurrentDevice] uniqueIdentifier];</span></code></pre></td></tr></table></div></figure>
+
+
+<ul>
+<li>UDID是可以唯一标识iOS设备的由40个16进制字符组成的序列。</li>
+<li>Available in iOS 2.0 &ndash; iOS 6.1；Deprecated in iOS 5.0.</li>
+<li>自<a href="https://developer.apple.com/news/?id=3212013a">2013.5.1</a>起，App Store不允许访问<code>UDID</code>的新应用提交。</li>
+</ul>
+
+
+<h3>IDFV(identifierForVendor) 开发商ID</h3>
+
+<p>用于应用的开发商(Vendor)唯一标识一台设备的ID。</p>
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>NSUUID *vendorId = [[UIDevice CurrentDevice] identifierForVendor];</span></code></pre></td></tr></table></div></figure>
+
+
+<blockquote><p>The value of this property is the same for apps that come from the same vendor running on the same device. A different value is returned for apps on the same device that come from different vendors, and for apps on different devices regardless of vendor. Normally, the vendor is determined by data provided by the App Store. If the app was not installed from the app store (such as when the app is still in development), the vendor is determined based on the app’s bundle ID. The bundle ID is assumed to be in reverse-DNS format, and the first two components are used to generate a vendor ID. For example, com.example.app1 and com.example.app2 would appear to have the same vendor ID.</p><p>If the value is nil, wait and get the value again later. This happens, for example, after the device has been restarted but before the user has unlocked the device.</p><p>The value in this property remains the same while the app (or another app from the same vendor) is installed on the iOS device. The value changes when the user deletes all of that vendor’s apps from the device and subsequently reinstalls one or more of them. The value can also when installing test builds using Xcode or when installing an app on a device using ad-hoc distribution. Therefore, if your app stores the value of this property anywhere, you should gracefully handle situations where the identifier changes.</p></blockquote>
+
+
+<ul>
+<li>Available in iOS 6.0 and later.</li>
+<li>对运行在同一台设备上的同一个开发商(Vendor)的所有App都返回同一个值。</li>
+<li>对运行在同一台设备上的不同开发商(Vendor)的App返回不同的值。</li>
+<li>对运行在不同设备上的App,不论开发商(Vendor)，都返回不同的值。</li>
+<li>从AppStore上下载的App,Vendor信息由AppStore中的数据决定。</li>
+<li>不是从AppStore上下载的应用(例如开发中的应用),Vendor信息由app的bundle ID决定;bundle ID的前两部分用于
+生成vendor ID，例如com.example.app1和com.example.app2会返回相同的vendor ID。</li>
+<li>设备重启后、解锁前,vendor ID可能返回nil。</li>
+<li>当同一个vendor的任意一个App在设备上存在时，vendor ID保持不变。当用户删除此vendor的所有App后，然后再次安装时vendor ID会
+发生变化。</li>
+</ul>
+
+
+<h3>IDFA(Identifier for Advertisers)</h3>
+
+<p>用于广告统计的设备标识符。</p>
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>NSUUID *adId = [[ASIdentifierManager sharedManager] advertisingIdentifier];</span></code></pre></td></tr></table></div></figure>
+
+
+<ul>
+<li>Available in iOS 6.0 and later.</li>
+<li><a href="https://developer.apple.com/library/ios/documentation/AdSupport/Reference/ASIdentifierManager_Ref/ASIdentifierManager.html#//apple_ref/occ/instp/ASIdentifierManager/advertisingIdentifier">advertisingIdentifier</a>
+是<code>AdSupport.framework</code>框架的一部分。</li>
+<li><p>几种情况下IDFA会变化</p>
+
+<ul>
+<li>系统Reset(iOS7:Settings.app &ndash;> General &ndash;> Reset &ndash;> Reset All Content and Settings)</li>
+<li><p>Reset Advertising Identifier(iOS7:Settings.app &ndash;> Privacy &ndash;> Advertising &ndash;> Reset Advertising Identifier)</p>
+
+<p>Reset Advertising Identifier后，如果应用已经运行在后台，则返回应用后调用<code>advertisingIdentifier</code>并不会返回新的值，只有应用终止再启动才会返回新的值。</p></li>
+</ul>
+</li>
+<li><p><code>Limit Ad Tracking</code>设为<code>ON</code>状态不影响<code>advertisingIdentifier</code>的访问.</p></li>
+<li>访问了<code>advertisingIdentifier</code>但没有显示任何广告的App会被拒掉,见<a href="http://blog.tapstream.com/post/75322632058/apple-rejecting-apps-for-not-showing-ads">tapstream的blog</a>。</li>
+</ul>
+
+
+<h4>Limit Ad Tracking</h4>
+
+<p>在<code>Settings.app -&gt; Privacy -&gt; Advertising</code>设置有一项<code>Limit Ad Tracking</code>,是否限制广告跟踪，目前这一选项没有实质性作用。
+在开发文档中对<code>advertisingTrackingEnabled</code>这样描述</p>
+
+<blockquote><p>Check the value of this property before performing any advertising tracking. If the value is NO, use the advertising identifier only for the following purposes: frequency capping, conversion events, estimating the number of unique users, security and fraud detection, and debugging.</p></blockquote>
+
+
+<p><code>advertisingTrackingEnabled</code>为NO,即<code>Limit Ad Tracking</code>为&#8217;ON&#8217;状态；这只是设置一个标识告诉广告商(advertisers)不要使用
+Advertising ID对用户进行针对性的广告匹配；但没有任何强制措施来保证这一点,对访问<code>advertisingIdentifier</code>也没有任何限制。</p>
+
+<h3>Mac Address</h3>
+
+<p>在iOS之前可以获取设备的Mac地址做个MD5作为设备的唯一标识，但自<a href="https://developer.apple.com/library/prerelease/ios/releasenotes/General/WhatsNewIniOS/Articles/iOS7.html">iOS7</a>起，获取Mac Address总是返回&#8221;02:00:00:00:00:00&#8221;</p>
+
+<blockquote><p>In iOS 7 and later, if you ask for the MAC address of an iOS device, the system returns the value02:00:00:00:00:00. If you need to identify the device, use the identifierForVendor property ofUIDevice instead. (Apps that need an identifier for their own advertising purposes should consider using the advertisingIdentifier property of ASIdentifierManager instead.)</p></blockquote>
+
+
+<h3>UUID(Universally Unique Identifiers)</h3>
+
+<p>UUID是可以在空间和时间范围内保证唯一性的128bit序列，由<a href="http://www.ietf.org/rfc/rfc4122.txt">RFC 4122</a>定义，微软的一个实现也叫做GUID(Globally Unique Identifier).</p>
+
+<blockquote><p>UUIDs (Universally Unique Identifiers), also known as GUIDs (Globally Unique Identifiers) or IIDs (Interface Identifiers), are 128-bit values A UUID is made unique over both space and time by combining a value unique to the computer on which it was generated and a value representing the number of 100-nanosecond intervals since October 15, 1582 at 00:00:00.</p></blockquote>
+
+
+<p>在iOS6中有<a href="https://developer.apple.com/library/ios/documentation/Foundation/Reference/NSUUID_Class/Reference/Reference.html">NSUUID</a>类来表示UUID,上面介绍的<code>identifierForVendor</code>和<code>advertisingIdentifier</code>返回值类型都是NSUUID。</p>
+
+<p>也可以直接使用<code>NSUUID</code>生成一个新的UUID,使用<code>UUIDString</code>方法获取其字符串表示;</p>
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>NSUUID *uuid = [NSUUID UUID];
+</span><span class='line'>NSString *uuidString = [uuid UUIDString];</span></code></pre></td></tr></table></div></figure>
+
+
+<p><code>NSUUID</code>与Core Fundation的<a href="https://developer.apple.com/library/ios/documentation/CoreFoundation/Reference/CFUUIDRef/Reference/reference.html#//apple_ref/c/tdef/CFUUIDRef">CFUUIDRef</a>不是toll-free bridged的，不能直接进行转换。
+需要使用UUID string在<code>NSUUID</code>与<code>CFUUID</code>间中转。</p>
+
+<p><code>CFUUID</code>可在iOS5及之前的版本使用</p>
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>CFUUIDRef uuid = CFUUIDCreate(NULL);
+</span><span class='line'>NSString *UUID = CFUUIDCreateString(NULL, uuid);</span></code></pre></td></tr></table></div></figure>
+
+
+<h3><a href="https://github.com/ylechelle/OpenUDID">OpenUDID</a></h3>
+
+<p>一个用于替换UDID的开源方案，<a href="http://blog.appsfire.com/udid-is-dead-openudid-is-deprecated-long-live-advertisingidentifier/">不推荐使用</a></p>
+
+<h3><a href="https://github.com/crashlytics/secureudid">SecureUDID Deprecated</a></h3>
+
+<p><a href="http://try.crashlytics.com/">Crashlytics</a>发布的开源沙盒UDID方案，现已<a href="http://www.secureudid.org/">废弃</a>。</p>
+
+<h3>参考</h3>
+
+<ul>
+<li><a href="http://nshipster.com/uuid-udid-unique-identifier/">NSUUID CFUUIDRef UIDevice -unique​Identifier -identifier​For​Vendor</a></li>
+<li><a href="http://oleb.net/blog/2012/09/udid-apis-in-ios-6/">UDID Replacement APIs in iOS 6</a></li>
+<li><a href="http://www.doubleencore.com/2013/04/unique-identifiers/">The Developer’s Guide to Unique Identifiers</a></li>
+<li><a href="http://oleb.net/blog/2011/09/how-to-replace-the-udid/">How to Replace the UDID</a></li>
+<li><a href="http://www.doubleencore.com/2013/04/what-apples-limit-ad-tracking-feature-actually-means-to-users/">What Apple’s ‘Limit Ad Tracking’ Means to Users</a></li>
+<li><a href="http://blog.tapstream.com/post/75322632058/apple-rejecting-apps-for-not-showing-ads">Apple Rejecting Apps For Not Showing Ads</a></li>
+<li><a href="https://developer.apple.com/library/ios/releasenotes/General/WhatsNewIniOS/Articles/iOS7.html">What&rsquo;s New in iOS7</a>
+*</li>
+</ul>
+
+]]></content>
+  </entry>
+  
+  <entry>
+    <title type="html"><![CDATA[Rvm]]></title>
+    <link href="http://xuguoxing.github.io/blog/2014/03/27/rvm/"/>
+    <updated>2014-03-27T17:27:57+08:00</updated>
+    <id>http://xuguoxing.github.io/blog/2014/03/27/rvm</id>
+    <content type="html"><![CDATA[<p><a href="https://rvm.io/">Ruby Version Manager(RVM)</a>是用于管理和切换多个版本ruby环境的命令行工具。</p>
+
+<p>安装RVM</p>
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>curl -sSL https://get.rvm.io | bash -s stable --ruby</span></code></pre></td></tr></table></div></figure>
+
+
+<p>安装完成有提示:</p>
+
+<pre><code>To start using RVM you need to run `source /Users/xuguoxing/.rvm/scripts/rvm`
+in all your open shell windows, in rare cases you need to reopen all shell windows.
+</code></pre>
+
+<p>安装Ruby 1.9.3(Octopress使用)</p>
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>rvm install 1.9.3
+</span><span class='line'>rvm use 1.9.3
+</span><span class='line'>rvm rubygems latest</span></code></pre></td></tr></table></div></figure>
+
+]]></content>
+  </entry>
+  
+  <entry>
+    <title type="html"><![CDATA[Homebrew]]></title>
+    <link href="http://xuguoxing.github.io/blog/2014/03/27/homebrew/"/>
+    <updated>2014-03-27T17:13:23+08:00</updated>
+    <id>http://xuguoxing.github.io/blog/2014/03/27/homebrew</id>
+    <content type="html"><![CDATA[<p><a href="http://brew.sh/index.html">Homebrew</a>是OS X上的包管理器</p>
+
+<p>安装Homebrew</p>
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>ruby -e "$(curl -fsSL https://raw.github.com/Homebrew/homebrew/go/install)"</span></code></pre></td></tr></table></div></figure>
+
+
+<p>使用Homebrew安装包</p>
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>$ brew install wget</span></code></pre></td></tr></table></div></figure>
+
+
+<p>Homebrew会将包安装到/usr/local下自己的目录中，然后在/usr/local/bin中创建符号链接指向实际的执行文件</p>
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+<span class='line-number'>8</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>$ pwd
+</span><span class='line'>/usr/local/Cellar
+</span><span class='line'>$ ls
+</span><span class='line'>openssl   wget
+</span><span class='line'>$ pwd
+</span><span class='line'>/usr/local/bin
+</span><span class='line'>$ ls -l wget
+</span><span class='line'>wget -&gt; ../Cellar/wget/1.15/bin/wget</span></code></pre></td></tr></table></div></figure>
+
+
+<p>卸载Homebrew</p>
+
+<p>使用以下脚本卸载</p>
+
+<div><script src='https://gist.github.com/1173223.js'></script>
+<noscript><pre><code>#!/bin/sh
+# Just copy and paste the lines below (all at once, it won't work line by line!)
+# MAKE SURE YOU ARE HAPPY WITH WHAT IT DOES FIRST! THERE IS NO WARRANTY!
+
+function abort {
+  echo &quot;$1&quot;
+  exit 1
+}
+
+set -e
+
+/usr/bin/which -s git || abort &quot;brew install git first!&quot;
+test -d /usr/local/.git || abort &quot;brew update first!&quot;
+
+cd `brew --prefix`
+git checkout master
+git ls-files -z | pbcopy
+rm -rf Cellar
+bin/brew prune
+pbpaste | xargs -0 rm
+rm -r Library/Homebrew Library/Aliases Library/Formula Library/Contributions 
+test -d Library/LinkedKegs &amp;&amp; rm -r Library/LinkedKegs
+rmdir -p bin Library share/man/man1 2&gt; /dev/null
+rm -rf .git
+rm -rf ~/Library/Caches/Homebrew
+rm -rf ~/Library/Logs/Homebrew
+rm -rf /Library/Caches/Homebrew
+</code></pre></noscript></div>
+
+
+
+]]></content>
+  </entry>
+  
+  <entry>
+    <title type="html"><![CDATA[ImageOptim]]></title>
+    <link href="http://xuguoxing.github.io/blog/2014/03/27/imageoptim/"/>
+    <updated>2014-03-27T09:40:59+08:00</updated>
+    <id>http://xuguoxing.github.io/blog/2014/03/27/imageoptim</id>
+    <content type="html"><![CDATA[<h2><a href="http://imageoptim.com/">ImageOptim</a></h2>
+
+<p>ImageOptim通过寻找最好的压缩参数和移除不必要的<code>comments</code>和<code>color profiles</code>来减少图片大小，提高加载速度。</p>
+
+<p>ImageOptim可以处理PNG,JPEG和GIF动画。</p>
+
+<p>ImageOptim无缝集成以下优化工具:</p>
+
+<ul>
+<li><a href="http://www.advsys.net/ken/util/pngout.htm">PNGOUT</a></li>
+<li><a href="http://googledevelopers.blogspot.co.uk/2013/02/compress-data-more-densely-with-zopfli.html">Zopfli</a></li>
+<li><a href="http://pmt.sourceforge.net/pngcrush/">Pngcrush</a></li>
+<li><a href="http://advancemame.sourceforge.net/doc-advpng.html">AdvPNG</a></li>
+<li><a href="http://optipng.sourceforge.net/">OptiPNG</a></li>
+<li><a href="http://www.kokkonen.net/tjko/projects.html">JpegOptim</a></li>
+<li>jpegrescan</li>
+<li>jpegtran</li>
+<li><a href="http://www.lcdf.org/gifsicle/">Gifsicle</a></li>
+</ul>
+
+
+<p>ImageOptim代码是开源的，其<a href="https://github.com/pornel/ImageOptim">源代码</a>在GitHub上。</p>
+
+<p><a href="http://calendar.perfplanet.com/2010/png-that-works/">PNG that works</a>文章中解释了为什么ImageOptim移除gamma信息，和怎么在
+保留透明度的情况下获取更小的png图片。</p>
+
+<h2>Xcode内置的图片优化 <a href="http://pmt.sourceforge.net/pngcrush/index.html">pngcrush</a></h2>
+
+<p>Xcode默认会将所有的PNG图片转换成一个非标准的iOS特定的PNG格式<a href="http://iphonedevwiki.net/index.php/CgBI_file_format">CgBI file format</a>。</p>
+
+<p>这种格式使用<code>premultiplied BGRA</code>代替了<code>RGBA</code>颜色空间，会在<code>loading</code>阶段节省一点点转换时间，但完全不影响
+图片渲染(Rendering)速度。</p>
+
+<p>Xcode的这种转换有时会使图片增大，会抵消<code>ImageOptim</code>的优化。</p>
+
+<p>可以在<code>Build Settings</code>中将<code>Compress PNG Files</code>设为<code>NO</code>来禁止这种转换。</p>
+
+<p>Apple的PNG变体，在iOS外无法使用，也无法使用<code>Preview</code>工具查看，可以使用<code>pngcrush</code>工具进行逆向转换成正常的png图片。</p>
+
+<p><code>pngcrush</code>在Xcode的安装目录中存在，路径类似为<code>/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/usr/bin/pngcrush</code></p>
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>$ /Applications/Xcode.app/Contents/Developer\/Platforms/iPhoneOS.platform/Developer/usr/bin/pngcrush \-revert-iphone-optimizations -q Local.png Local-standard.png</span></code></pre></td></tr></table></div></figure>
+
+
+<p>可将Local.png 恢复成正常的Local-standard.png</p>
+
+<h2><a href="http://pngmini.com/">Image Alpha</a></h2>
+
+<p>ImageAlpha通过<a href="http://pngmini.com/lossypng.html">有损压缩</a>和转换为更有效率的<code>PNG8+alpha</code>格式，可以有效的减小24-bit
+PNG文件(包括alpha透明度)的大小。其生成的图片兼容iOS,所有的浏览器设置IE6。</p>
+
+<p>ImageAlpha通过使用最新的<a href="http://pngquant.org/">pngquant</a>,<a href="http://sourceforge.net/projects/pngnqs9/">pngnq-s9</a>和<code>alpha-channel-aware</code>的<a href="https://github.com/pornel/mediancut-posterizer">posterizer</a>
+能达到比Adobe Fireworks中类似功能更好的图片质量。</p>
+
+<p>ImageAlpha基于<a href="http://pngquant.org/">pngquant</a>,在<code>ImageAlpha.app/Contents/Resources</code>目录下会有<code>pngquant</code>执行文件，可以用于批量处理。<a href="http://jamiemason.github.io/ImageOptim-CLI/">ImageOptim-CLI</a>也会使用此文件。</p>
+
+<p>ImageAlpha是开源的，其代码是python的。<a href="https://github.com/pornel/ImageAlpha">source code</a>在github上。</p>
+
+<h2><a href="http://jpegmini.com/mac">JPEGmini for Mac</a></h2>
+
+<p>JPEGmini Mac版本可以对JPEG图片最高进行5倍的压缩，并保持原始的质量和JPEG格式。</p>
+
+<p>JPEGmini是收费软件,在appstore有一个免费版本<a href="http://itunes.apple.com/us/app/jpegmini-lite/id525742250?mt=12">JPEGmini Lite下载</a>，免费版本每天只能压缩20张图片。</p>
+
+<h2><a href="https://github.com/JamieMason/ImageOptim-CLI">ImageOptim-CLI</a></h2>
+
+<p>ImageOptim-CLI命令行工具使用<a href="http://imageoptim.com/">ImageOptim</a>,<a href="http://pngmini.com/">ImageAlpha</a>,<a href="http://jpegmini.com/mac">JPEGmini for Mac</a>
+对图片进行批量优化。</p>
+
+<p>从目前的<a href="http://jamiemason.github.io/ImageOptim-CLI/">benchmarks</a>可看出ImageOptim,ImageAlpha和JPEGmini的优化效果比其他替代品要好。</p>
+
+<p>下载最新的zip包，解压并将ImageOptim-CLI的路径添加到$PATH中。</p>
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>$ curl --output imageoptim-cli.zip https://codeload.github.com/JamieMason/ImageOptim-CLI/zip/1.7.11
+</span><span class='line'>$ unzip imageoptim-cli.zip
+</span><span class='line'>$ export PATH=$PATH:imageoptim-cli/bin</span></code></pre></td></tr></table></div></figure>
+
+
+<p>使用方法</p>
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+<span class='line-number'>8</span>
+<span class='line-number'>9</span>
+<span class='line-number'>10</span>
+<span class='line-number'>11</span>
+<span class='line-number'>12</span>
+<span class='line-number'>13</span>
+<span class='line-number'>14</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>  Usage: imageOptim [options]
+</span><span class='line'>
+</span><span class='line'>  Options:
+</span><span class='line'>
+</span><span class='line'>  -d, --directory     directory of images to process
+</span><span class='line'>  -a, --image-alpha   pre-process PNGs with ImageAlpha.app *
+</span><span class='line'>  -j, --jpeg-mini     pre-process JPGs with JPEGmini.app **
+</span><span class='line'>  -q, --quit          quit all apps when complete
+</span><span class='line'>  -h, --help          display this usage information
+</span><span class='line'>  -e, --examples      display some example commands and uses
+</span><span class='line'>  -v, --version       display the version number
+</span><span class='line'>
+</span><span class='line'>*  http://pngmini.com
+</span><span class='line'>** https://itunes.apple.com/us/app/jpegmini/id498944723</span></code></pre></td></tr></table></div></figure>
+
+
+<ul>
+<li><code>-d</code>指定要优化的图片文件目录;</li>
+<li><code>-a</code>,<code>-j</code>指定预先使用<code>ImageAlpha</code>优化PNG图片和使用<code>JPEGmini</code>优化JPEG图片，因为JPEGmini为收费的，如果没有
+安装，不指定<code>-j</code>即可;</li>
+</ul>
+
+
+<p>一些示例命令</p>
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>imageOptim --directory ~/Sites/Awesome # [options]
+</span><span class='line'>find ~/Sites/Awesome -name '*.jpg' | imageOptim # [options]
+</span><span class='line'>imageOptim --jpeg-mini --image-alpha --quit --directory path/to/images
+</span><span class='line'>imageOptim -j -a -q -d path/to/images</span></code></pre></td></tr></table></div></figure>
+
+]]></content>
+  </entry>
+  
+  <entry>
+    <title type="html"><![CDATA[Octopress建站流程]]></title>
+    <link href="http://xuguoxing.github.io/blog/2014/03/20/octopressjian-zhan-liu-cheng/"/>
+    <updated>2014-03-20T21:20:35+08:00</updated>
+    <id>http://xuguoxing.github.io/blog/2014/03/20/octopressjian-zhan-liu-cheng</id>
+    <content type="html"><![CDATA[<h2>一.设置Octopress</h2>
+
+<h3>检查Ruby环境</h3>
+
+<p>确保Ruby环境为1.9.3,若不是，则下载RVM,安装1.9.3版本</p>
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>$ curl -L https://get.rvm.io | bash -s stable --ruby
+</span><span class='line'>$ rvm install 1.9.3
+</span><span class='line'>$ rvm use 1.9.3
+</span><span class='line'>$ rvm rubygems latest</span></code></pre></td></tr></table></div></figure>
+
+
+<p>Clone Octopress</p>
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>$ git clone git://github.com/imathis/octopress.git octopress
+</span><span class='line'>$ cd octopress</span></code></pre></td></tr></table></div></figure>
+
+
+<p>安装依赖(dependencies)</p>
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>$ sudo gem install bundler
+</span><span class='line'>$ sudo bundle install</span></code></pre></td></tr></table></div></figure>
+
+
+<p>安装默认主题</p>
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>rake install</span></code></pre></td></tr></table></div></figure>
+
+
+<h2>二.部署到Github Pages</h2>
+
+<h3>若本机无SSH Key,则生成Github SSH Key并上传</h3>
+
+<p>生成SSH key</p>
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>$ ssh-keygen -t rsa -C "your_email@example.com"
+</span><span class='line'>$ ssh-add id_rsa</span></code></pre></td></tr></table></div></figure>
+
+
+<p>添加SSH Key到GitHub</p>
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>$ pbcopy &lt; ~/.ssh/id_rsa.pub #拷贝到clipboard</span></code></pre></td></tr></table></div></figure>
+
+
+<p>在github的<a href="https://github.com/settings">Account Settings</a>添加SSH Key</p>
+
+<p>测试环境输出</p>
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>$ ssh -T git@github.com</span></code></pre></td></tr></table></div></figure>
+
+
+<h3><a href="https://github.com/repositories/new">创建Github Repository</a></h3>
+
+<ul>
+<li><p>创建名字格式为username.github.io,username必须为github的用户名。即xuguoxing.github.io</p></li>
+<li><p>Initialize this repository with a README 项不勾选</p></li>
+</ul>
+
+
+<h3>设置 github pages</h3>
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>$ rake setup_github_pages</span></code></pre></td></tr></table></div></figure>
+
+
+<p>该命令会询问repo地址，并在_deploy目录下设置master branch</p>
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>$ rake generate
+</span><span class='line'>$ rake deploy</span></code></pre></td></tr></table></div></figure>
+
+
+<p>生成blog,拷贝生成的文件到_deploy/,添加到git,commit并push到master branch.
+  等待大约10分钟</p>
+
+<h3>source上传到Github</h3>
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>$ git add .
+</span><span class='line'>$ git commit -m 'your message'
+</span><span class='line'>$ git push origin source</span></code></pre></td></tr></table></div></figure>
+
+
+<h2>三.新增Posts</h2>
+
+<p>Blog Post需用存储到<code>source/_posts</code>目录中，命名需符合Jekyll的命名规范:<code>YYYY-MM-DD-post-title.markdown</code></p>
+
+<p>Octopress提供rake task创建新的post，自动符合命名规范的文件，并包含yaml元数据</p>
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>rake new_post["title"]</span></code></pre></td></tr></table></div></figure>
+
+
+<p>示例：</p>
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>rake new_post["Zombie Ninjas Attack: A survivor's retrospective"]</span></code></pre></td></tr></table></div></figure>
+
+
+<p>会生成文件<code>source/_posts/2011-07-03-zombie-ninjas-attack-a-survivors-retrospective.markdown</code>;url访问地址为<code>http://site.com/blog/2011/07/03/zombie-ninjas-attack-a-survivors-retrospective/index.html</code></p>
+
+<p>生成的文件头部包含<a href="http://jekyllrb.com/docs/frontmatter/">yaml front matter</a>告诉Jekyll如何处理Posts和Pages</p>
+
+<pre><code>---
+layout: post
+title: "Zombie Ninjas Attack: A survivor's retrospective"
+date: 2011-07-03 5:59
+comments: true
+external-url:
+categories:
+---
+</code></pre>
+
+<p>可能存在的数据有</p>
+
+<ul>
+<li>layout:指定使用的layout文件(不带.Layout扩展名),Layout文件必须放置在_layouts目录下</li>
+<li>title:标题</li>
+<li>date: 发布日期</li>
+<li>comments: true或false,是否允许评论</li>
+<li>author: 对于多作者blog,可设置文章作者</li>
+<li>published: true或false,是否发布，如果在写草稿，可设为false</li>
+<li>external-url: 发布<a href="http://octopress.org/docs/blogging/linklog">linklog</a>样式post,填写指向的外部链接</li>
+<li><p>categories:可设置单个category或者多个category,格式件下面</p>
+
+<pre><code>  # One category
+  categories: Sass
+
+  # Multiple categories example 1
+  categories: [CSS3, Sass, Media Queries]
+
+  # Multiple categories example 2
+  categories:
+  - CSS3
+  - Sass
+  - Media Queries
+</code></pre></li>
+<li><p>permalink: 代替blog post中的<code>/year/month/day/title.html</code>作为最终url</p></li>
+<li>tags: 文字的tag标注，用法和categories相同</li>
+</ul>
+
+
+<h2>四.新增Pages</h2>
+
+<p>可以在blog source目录下的任意位置增加pages,对应的URL会指向对应路径，如<code>about.markdown</code>会生成链接<code>site.com/about.html</code>,<code>about/index.markdown</code>会生成链接<code>site.com/about/index.html</code></p>
+
+<p>生成新pages的rake task为:</p>
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>rake new_page[super-awesome]
+</span><span class='line'>rake new_page[super-awesome/page.html]</span></code></pre></td></tr></table></div></figure>
+
+
+<ul>
+<li>第一种方式生成markdown文件<code>/source/super-awesome/index.markdown</code></li>
+<li>第二种方式生成html文件<code>/source/super-awesome/page.html</code></li>
+</ul>
+
+
+<p>生成markdown文件的yaml头样式为:</p>
+
+<pre><code>---
+layout: page
+title: "Super Awesome"
+date: 2011-07-03 5:59
+comments: true
+sharing: true
+footer: true
+---
+</code></pre>
+
+<p>和post很相似,但不包括<code>categories</code>, sharing和footer是做什么用的；如果不需要显示日期<code>date</code>可删除</p>
+
+<p>Pages在导航栏位置的配置在文件<code>source/_includes/custom/navigation.html</code>中。</p>
+
+<h2>五.生成和预览</h2>
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>rake generate   # Generates posts and pages into the public directory
+</span><span class='line'>rake watch      # Watches source/ and sass/ for changes and regenerates
+</span><span class='line'>rake preview    # Watches, and mounts a webserver at http://localhost:4000</span></code></pre></td></tr></table></div></figure>
+
+
+<p>使用<code>rake preview</code>可在本地<code>http://localhost:4000</code>预览生成效果。</p>
+
+<h2>六.配置Octopress</h2>
+
+<p>配置文件包括</p>
+
+<pre><code>_config.yml       # Main config (Jekyll's settings)
+Rakefile          # Configs for deployment
+config.rb         # Compass config
+config.ru         # Rack config
+</code></pre>
+
+<p>一般情况下只需要配置<code>_config.yml</code>;<code>Rakefile</code>是关于部署的,如果需要使用rsync同步,则需要设置;另外两个文件一般不用。</p>
+
+<p>_config.yml配置包包括三部分</p>
+
+<h3>Main Configs</h3>
+
+<pre><code>url:                # For rewriting urls for RSS, etc
+title:              # Used in the header and title tags
+subtitle:           # A description used in the header
+author:             # Your name, for RSS, Copyright, Metadata
+simple_search:      # Search engine for simple site search
+description:        # A default meta description for your site
+date_format:        # Format dates using Ruby's date strftime syntax
+subscribe_rss:      # Url for your blog's feed, defauts to /atom.xml
+subscribe_email:    # Url to subscribe by email (service required)
+category_feeds:     # Enable per category RSS feeds (defaults to false in 2.1)
+email:              # Email address for the RSS feed if you want it.
+</code></pre>
+
+<h3>Jekyll &amp; Plugins</h3>
+
+<p>关于Jekyll和插件的配置，可参考<a href="https://github.com/mojombo/jekyll/wiki/Configuration">configuration docs</a></p>
+
+<pre><code>root:               # Mapping for relative urls (default: /)
+permalink:          # Permalink structure for blog posts
+source:             # Directory for site source files
+destination:        # Directory for generated site files
+plugins:            # Directory for Jekyll plugins
+code_dir:           # Directory for code snippets (for include_code plugin)
+category_dir:       # Directory for generated blog category pages
+
+pygments:           # Toggle python pygments syntax highlighting
+paginate:           # Posts per page on the blog index
+pagination_dir:     # Directory base for pagination URLs eg. /blog/page/2/
+recent_posts:       # Number of recent posts to appear in the sidebar
+
+default_asides:     # Configure what shows up in the sidebar and in what order
+blog_index_asides:  # Optional sidebar config for blog index page
+post_asides:        # Optional sidebar config for post layout
+page_asides:        # Optional sidebar config for page layout
+</code></pre>
+
+<h3>第三方设置</h3>
+
+<ul>
+<li>Github &ndash; 在侧边栏列出 github repositories</li>
+<li>Twitter &ndash; 设置twitter用户名(不带@),添加Twitter分享按钮</li>
+<li>Google Plus One &ndash; Setup sharing for posts and pages on Google&rsquo;s plus one network.</li>
+<li>Pinboard &ndash; Share your recent Pinboard bookmarks in the sidebar.</li>
+<li>Delicious &ndash; Share your recent Delicious bookmarks in the sidebar.</li>
+<li>Disqus Comments &ndash; Add your disqus short name to enable disqus comments on your site.</li>
+<li>Google Analytics &ndash; 添加Google Analytics的tracking id分析页面访问.</li>
+<li>Facebook &ndash; 添加Facebook like按钮</li>
+</ul>
+
+
+<p>Google Analytics的tracking id在Google Analytics页面的 管理->媒体资源->跟踪代码中可以找到</p>
+
+<h2>七.设置自定义域名</h2>
+
+<p>在<code>source</code>目录下，新建文件<code>CNAME</code>,将域名添加到此文件中。</p>
+
+<p>可设置顶级域名，如</p>
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>echo 'iosapp.me' &gt;&gt; source/CNAME</span></code></pre></td></tr></table></div></figure>
+
+
+<p>或者子域名</p>
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>echo 'www.iosapp.me' &gt;&gt; source/CNAME</span></code></pre></td></tr></table></div></figure>
+
+
+<p>只能设置一个定制域名,如果需要设置多个定制域名,则需要使用其他服务将域名重定向到github pages的域名</p>
+
+<p>部署发布至master</p>
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>$ rake generate
+</span><span class='line'>$ rake deploy</span></code></pre></td></tr></table></div></figure>
+
+
+<p>使用DNSPod管理域名</p>
+
+<p>新建<a href="https://www.dnspod.cn">DNSPod</a>账号，添加域名<code>iosapp.me</code>,在godaddy账号中将域名的DNS设置DNSPod的DNS， <code>f1g1ns1.dnspod.net</code>和<code>f1g1ns2.dnspod.net</code></p>
+
+<ul>
+<li><p>DNSPod DNS生效后,在其中添加A或者CNAME记录</p>
+
+<ul>
+<li><p>若第一步设置的顶级域名<code>iosapp.me</code>,则需要添加一条A记录，将<code>iosapp.me</code>指向固定IP地址，IP地址可通过dig命令获得</p>
+
+<pre><code>  $ dig xuguoxing.github.io +nostats +nocomments +nocmd
+  xuguoxing.github.io.    898 IN  CNAME           github.map.fastly.net.
+  github.map.fastly.net.  8   IN  A   199.27.79.133
+</code></pre></li>
+<li>若第一步设置的子域名<code>www.iosapp.me</code>,则需要添加一条CNAME域名,将<code>www.iosapp.me</code>指向<code>xuguoxing.github.io</code></li>
+</ul>
+</li>
+<li><p>待github设置域名和DNS解析都生效后，即可以通过<code>iosapp.me</code>或者<code>www.iosapp.me</code>访问blog;</p></li>
+</ul>
+
+
+<p>可通过dig命令查询解析流程:</p>
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>$ dig iosapp.me +nostats +nocomments +nocmd</span></code></pre></td></tr></table></div></figure>
+
+
+<h2>八.插件</h2>
+
+<h3><a href="http://octopress.org/docs/plugins/image-tag/">Image Tag</a>图片</h3>
+
+<p>增加图片的语法为</p>
+
+<pre><code>&lt;img class="[position]" src="http://xuguoxing.github.io/path/to/image" title="[width] [height] [title text [alt text]]" &gt;
+</code></pre>
+
+<p>其中<code>/path/to/image</code>可以为网上的图片URL,也可是是本站的图片；如果自己站点的图片，
+通常放在source/images目录下，可以按照年和月建立两层目录，如2014/03。<code>rake generate</code>命令会自动生成博客，
+放在<code>source/images</code>目录下的图片也会被复制过去。</p>
+
+<p>图片代码示例</p>
+
+<pre><code>&lt;img src="http://xuguoxing.github.io/images/2014/03/picture.jpg"&gt;
+&lt;img src="http://placekitten.com/890/280"&gt;
+&lt;img class="left" src="http://placekitten.com/320/250" title="Place Kitten #2" &gt;
+&lt;img class="right" src="http://placekitten.com/300/500" width="150" height="250" title="Place Kitten #3" &gt;
+&lt;img class="right" src="http://placekitten.com/300/500" width="150" height="250" title="Place Kitten #4" alt="An image of a very cute kitten"&gt;
+&lt;img src="http://placekitten.com/890/280"&gt;
+</code></pre>
+
+<p><img src="http://placekitten.com/890/280"></p>
+
+<h3><a href="http://octopress.org/docs/plugins/blockquote/">Blockquote</a>引用</h3>
+
+<blockquote><p>Last night I lay in bed looking up at the stars in the sky and I thought to myself, where the heck is the ceiling.</p></blockquote>
+
+
+<p>从Twitter引用</p>
+
+<blockquote><p>Over the past 24 hours I&#8217;ve been reflecting on my life & I&#8217;ve realized only one thing. I need a medieval battle axe.</p><footer><strong>@allanbranch</strong> <cite><a href='https://twitter.com/allanbranch/status/90766146063712256'>twitter.com/allanbranch/status/&hellip;</a></cite></footer></blockquote>
+
+
+<p>从Web引用</p>
+
+<blockquote><p>Every interaction is both precious and an opportunity to delight.</p><footer><strong>Seth Godin</strong> <cite><a href='http://sethgodin.typepad.com/seths_blog/2009/07/welcome-to-island-marketing.html'>Welcome to Island Marketing</a></cite></footer></blockquote>
+
+
+<h3>代码块</h3>
+
+<p>关于代码的引用参见</p>
+
+<ul>
+<li><a href="http://octopress.org/docs/plugins/codeblock/">Codeblock</a></li>
+<li><a href="http://octopress.org/docs/plugins/backtick-codeblock/">Backtick Code Blocks</a></li>
+<li><a href="http://octopress.org/docs/plugins/include-code/">Include Code</a></li>
+<li><a href="http://octopress.org/docs/plugins/gist-tag/">Gist Tag</a></li>
+</ul>
+
+
+<h2>参考:</h2>
+
+<ul>
+<li><a href="http://octopress.org/docs/setup/">Octopress Setup</a></li>
+<li><a href="http://octopress.org/docs/deploying/github/">Deploying to Github Pages</a></li>
+<li><a href="https://help.github.com/articles/generating-ssh-keys">GitHub Generating SSH Keys</a></li>
+<li><a href="http://octopress.org/docs/configuring/">Configuring Octopress</a></li>
+<li><a href="http://octopress.org/docs/blogging/">Start blogging with Octopress</a></li>
+<li><a href="https://help.github.com/articles/setting-up-a-custom-domain-with-pages">Setting up a custom domain with Pages</a></li>
+<li><a href="https://support.dnspod.cn/Kb/showarticle/tsid/42/">Godaddy注册商域名修改DNS地址</a></li>
+<li><a href="http://octopress.org/docs/blogging/plugins/">Plugins</a></li>
+<li><a href="http://octopress.org/docs/plugins/image-tag/">Image Tag</a></li>
+<li><a href="http://octopress.org/docs/plugins/blockquote/">Blockquote</a></li>
+<li><a href="http://octopress.org/docs/plugins/codeblock/">Codeblock</a></li>
+<li><a href="http://octopress.org/docs/plugins/backtick-codeblock/">Backtick Code Blocks</a></li>
+</ul>
+
+]]></content>
+  </entry>
+  
+</feed>

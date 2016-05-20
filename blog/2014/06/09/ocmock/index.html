@@ -1,0 +1,558 @@
+
+<!DOCTYPE html>
+<!--[if IEMobile 7 ]><html class="no-js iem7"><![endif]-->
+<!--[if lt IE 9]><html class="no-js lte-ie8"><![endif]-->
+<!--[if (gt IE 8)|(gt IEMobile 7)|!(IEMobile)|!(IE)]><!--><html class="no-js" lang="en"><!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  <title>OCMock - iOS App</title>
+  <meta name="author" content="xuguoxing">
+
+  
+  <meta name="description" content="在面向对象的系统中，所有的对象之间都有一定的联系。在单元测试中，当需要对某一个对象进行测试时，其可能依赖其他对象的返回值或者调用
+其他对象的某些方法。其依赖的对象有可能行为不确定或者很难触发(各种错误场景)或者该对象还不存在。这种情况下需要使用Mock Object来模拟
+依赖对象的行为， &hellip;">
+  
+
+  <!-- http://t.co/dKP3o1e -->
+  <meta name="HandheldFriendly" content="True">
+  <meta name="MobileOptimized" content="320">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  
+  <link rel="canonical" href="http://xuguoxing.github.io/blog/2014/06/09/ocmock">
+  <link href="/favicon.png" rel="icon">
+  <link href="/stylesheets/screen.css" media="screen, projection" rel="stylesheet" type="text/css">
+  <link href="/atom.xml" rel="alternate" title="iOS App" type="application/atom+xml">
+  <script src="/javascripts/modernizr-2.0.js"></script>
+  <script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+  <script>!window.jQuery && document.write(unescape('%3Cscript src="./javascripts/libs/jquery.min.js"%3E%3C/script%3E'))</script>
+  <script src="/javascripts/octopress.js" type="text/javascript"></script>
+  <!--Fonts from Google"s Web font directory at http://google.com/webfonts -->
+<link href="//fonts.googleapis.com/css?family=PT+Serif:regular,italic,bold,bolditalic" rel="stylesheet" type="text/css">
+<link href="//fonts.googleapis.com/css?family=PT+Sans:regular,italic,bold,bolditalic" rel="stylesheet" type="text/css">
+
+  
+  <script type="text/javascript">
+    var _gaq = _gaq || [];
+    _gaq.push(['_setAccount', 'UA-36079321-1']);
+    _gaq.push(['_trackPageview']);
+
+    (function() {
+      var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+      ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+      var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+    })();
+  </script>
+
+
+</head>
+
+<body   >
+  <header role="banner"><hgroup>
+  <h1><a href="/">iOS App</a></h1>
+  
+    <h2>iOS App For Myself.</h2>
+  
+</hgroup>
+
+</header>
+  <nav role="navigation"><ul class="subscription" data-subscription="rss">
+  <li><a href="/atom.xml" rel="subscribe-rss" title="subscribe via RSS">RSS</a></li>
+  
+</ul>
+  
+<form action="https://www.google.com/search" method="get">
+  <fieldset role="search">
+    <input type="hidden" name="q" value="site:xuguoxing.github.io" />
+    <input class="search" type="text" name="q" results="0" placeholder="Search"/>
+  </fieldset>
+</form>
+  
+<ul class="main-navigation">
+  <li><a href="/">Blog</a></li>
+  <li><a href="/blog/archives">Archives</a></li>
+<!--  <li><a href="/mymoney">资产管家</a></li> -->
+</ul>
+
+</nav>
+  <div id="main">
+    <div id="content">
+      <div>
+<article class="hentry" role="article">
+  
+  <header>
+    
+      <h1 class="entry-title">OCMock</h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2014-06-09T09:47:57+08:00" pubdate data-updated="true">Jun 9<span>th</span>, 2014</time>
+        
+      </p>
+    
+  </header>
+
+
+<div class="entry-content"><p>在面向对象的系统中，所有的对象之间都有一定的联系。在单元测试中，当需要对某一个对象进行测试时，其可能依赖其他对象的返回值或者调用
+其他对象的某些方法。其依赖的对象有可能行为不确定或者很难触发(各种错误场景)或者该对象还不存在。这种情况下需要使用<code>Mock Object</code>来模拟
+依赖对象的行为，返回特定的值、实现特定的方法，来保证对测试对象的单元测试能有个可预期的结果来判断单元测试是否通过。</p>
+
+<h1>OCMock</h1>
+
+<p><code>OCMock</code>是个mock object的Objective-C实现，其使用Objective-C的动态特性可以快速创建mock object,并且使用Objective-C方法调用的语法来定义<code>expectations</code>和<code>stubs</code>。</p>
+
+<p><code>OCMock</code>提供了三种mock功能</p>
+
+<ul>
+<li><code>stub</code>(桩) :对特定的方法返回预定义的值。</li>
+<li><code>dynamic mock</code>(动态Mock):验证某个方法是否被调用。</li>
+<li><code>partial mock</code>(部分Mock):重写已存在对象的方法。</li>
+</ul>
+
+
+<h2>添加OCMock框架</h2>
+
+<ol>
+<li><p>在<a href="http://ocmock.org/download/">下载页面</a>下载预编译的dmg文件,在其中的iOS目录下包含静态库<code>libOCMock.a</code>和<code>OCMock</code>头文件目录。
+也可从GitHub <a href="https://github.com/erikdoe/ocmock">https://github.com/erikdoe/ocmock</a>下载源码自行编译。</p></li>
+<li><p>在单元测试目录下，建立如下目录结构，并添加到项目中。</p></li>
+</ol>
+
+
+<p>  <img src="/images/2014/06/ocmockfile.png" width="668" height="404"></p>
+
+<ul>
+<li><p>在测试Target的<code>Build Phases-&gt;Link Binary With Libraries</code>中应该会自动包含<code>libOCMock.a</code>库，若没有，需手动添加一下。</p></li>
+<li><p>头文件搜索路径设置,在测试Target的<code>Build Settings-&gt;Search Paths-&gt;Header Search Paths</code>中添加路径<code>$(PROJECT_DIR)/NeteaseLotteryTests/usr/include</code></p></li>
+<li><p>link设置,测试Target的<code>Build Settings-&gt;Linking-&gt;Other Linker Flags</code>设置<code>-Objc</code>,<code>-force_load $(PROJECT_DIR)/NeteaseLotteryTests/usr/lib/libOCMock.a</code></p></li>
+</ul>
+
+
+<h2>创建Mock对象</h2>
+
+<p><code>OCMockObject</code>类有几个工厂方法创建mock对象</p>
+
+<ul>
+<li><code>+mockForClass:</code>  基于给定类创建mock对象</li>
+<li><code>+mockForProtocol:</code> 基于给定协议创建mock对象</li>
+<li><code>+niceMockForClass:</code> 基于给定类创建&#8221;nice&#8221;mock对象</li>
+<li><code>+niceMockForProtocol:</code> 基于给定协议创建&#8221;nice&#8221;mock对象</li>
+<li><code>+partialMockForObject:</code> 基于给定对象创建&#8221;partical&#8221;mock对象</li>
+<li><code>+observerMock:</code> 创建通知观察者(notification observer)mock对象</li>
+</ul>
+
+
+<p>三种mock对象类型</p>
+
+<ol>
+<li><p>普通mock对象</p>
+
+<p>使用<code>+mockForClass:</code>、<code>+mockForProtocol:</code>创建的mock对象在接收到未定义的方法调用时产生<code>NSException</code>异常。</p></li>
+<li><p>nick mock对象</p>
+
+<p>使用<code>+niceMockForClass:</code>、<code>+niceMockForProtocol:</code>创建的mock对象在接收到未定义的方法调用时简单忽略。</p></li>
+<li><p>partical mock对象</p>
+
+<p>partical mock对象基于一个真实对象，而不是一个类或协议,其将一个已存在对象转换成mock,可重写其中的方法。</p></li>
+</ol>
+
+
+<h2>Mock使用方法</h2>
+
+<p><a href="http://ocmock.org/tutorials/">OCMock Tutorials</a></p>
+
+<h3>stub</h3>
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>id jalopy = [OCMock mockForClass[Car class]];
+</span><span class='line'>[[[jalopy stub] andReturn:@"75kph"] goFaster:[OCMArg any] units:@"kph"];
+</span><span class='line'>[[[[jalopy stub] classMethod] andReturn:@"expired"] checkWarrany];</span></code></pre></td></tr></table></div></figure>
+
+
+<h3>expect</h3>
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>id niceMockThing = [OCMock niceMockForClass[Thing class]];
+</span><span class='line'>[[niceMockThing expect] greeting:@"hello"];
+</span><span class='line'>
+</span><span class='line'>// verify the method was called as expected
+</span><span class='line'>[niceMocking verify];</span></code></pre></td></tr></table></div></figure>
+
+
+<h3>参数(<code>OCMArg</code>)</h3>
+
+<ul>
+<li><code>+any</code> 任意参数</li>
+<li><code>+anyPointer</code> 任意指针参数</li>
+<li><code>+isNil</code>  nil参数</li>
+<li><code>+isNotNil</code> 非nil参数</li>
+<li><code>+isNotEqual:</code> 不与某个对象相等的参数</li>
+<li><code>+checkWithSelector:onObject:</code>  使用指定的target/action对检查通过的参数</li>
+<li><code>+checkWithBlock:</code> 使用block检查通过的参数</li>
+</ul>
+
+
+<h3>返回值</h3>
+
+<p>使用<code>-expect</code>或<code>-stub</code>返回的对象可使用下列方法设置返回值或者执行某种行为</p>
+
+<ul>
+<li><code>-andReturn:</code> 返回指定对象</li>
+<li><code>-andReturnValue:</code> 返回指定值(NSValue)</li>
+<li><code>-andThrow:</code> 抛出指定异常</li>
+<li><code>-andPost:</code>  post指定通知</li>
+<li><code>-andCall:onObject:</code> 在指定object上调用指定selector</li>
+<li><code>-andDo:</code> 调用指定block</li>
+</ul>
+
+
+<p>可以指定<code>-andDo:</code>对block回调进行模拟,假设有这样的一个方法</p>
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>- (void)downloadWeatherDataForZip:(NSString *)zip
+</span><span class='line'>              callback:(void (^)(NSDictionary *response))callback;</span></code></pre></td></tr></table></div></figure>
+
+
+<p>则使用以下方法进行模拟</p>
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+<span class='line-number'>8</span>
+<span class='line-number'>9</span>
+<span class='line-number'>10</span>
+<span class='line-number'>11</span>
+<span class='line-number'>12</span>
+<span class='line-number'>13</span>
+<span class='line-number'>14</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>// 1. stub using OCMock andDo: operator.
+</span><span class='line'>
+</span><span class='line'>[[[groupModelMock stub] andDo:^(NSInvocation *invoke) {
+</span><span class='line'>        //2. declare a block with same signature
+</span><span class='line'>        void (^weatherStubResponse)(NSDictionary *dict);
+</span><span class='line'>
+</span><span class='line'>        //3. link argument 3 with with our block callback
+</span><span class='line'>        [invoke getArgument:&weatherStubResponse atIndex:3];
+</span><span class='line'>
+</span><span class='line'>        //4. invoke block with pre-defined input
+</span><span class='line'>        NSDictionary *testResponse = @{@"high": 43 , @"low": 12};
+</span><span class='line'>        weatherStubResponse(groupMemberMock);
+</span><span class='line'>
+</span><span class='line'>    }]downloadWeatherDataForZip@"80304" callback:[OCMArg any] ];</span></code></pre></td></tr></table></div></figure>
+
+
+<p>andDo中的<code>invoke</code>参数即模拟的方法调用本身，使用<code>getArgument:atIndex:</code>可读取方法调用的参数，
+对于本例，第四个参数((索引3))即为callback参数(前两个参数分别为<code>self</code>和<code>_cmd</code>),执行callback实参，传递预定义的参数即可。</p>
+
+<h1>依赖注入（Dependency Injection）</h1>
+
+<p>依赖注入是一种软件设计模式，使某一模块所依赖的其他模块或服务，在该模块创建时以注入的方式引入。</p>
+
+<p>在单元测试中需要使用此模式设计类，以方便使用Mock对象来替换待测试对象所依赖的其他对象。</p>
+
+<p>举例:</p>
+
+<p>某类内部需要使用<code>NSNotificationCenter</code>，原始做法是直接使用<code>NSNotificationCenter defaultCenter</code>。</p>
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>@implementation ExampleObject : NSObject
+</span><span class='line'>-(void)postNotification
+</span><span class='line'>{
+</span><span class='line'>    [[NSNotificationCenter defaultCenter] postNotificationName:@"SomethingCompletedNotification" object:self userInfo:userInfo];
+</span><span class='line'>}
+</span><span class='line'>@end</span></code></pre></td></tr></table></div></figure>
+
+
+<p>在做单元测试时，我们只需要知道<code>ExampleObject</code>对象的<code>-postNotification</code>方法确实调用了<code>NSNotificationCenter</code>的<code>postNotificationName:</code>方法，
+并不需要实际去发送通知，实际发送通知会引起其他模块的反应，不是此单元测试的目的。</p>
+
+<p>所以我们需要使用<code>NSNotificationCenter</code>的mock对象来代替真实的<code>NSNotificationCenter</code>对象；而上面的方法无法进行mock，需要进行重构。</p>
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+<span class='line-number'>8</span>
+<span class='line-number'>9</span>
+<span class='line-number'>10</span>
+<span class='line-number'>11</span>
+<span class='line-number'>12</span>
+<span class='line-number'>13</span>
+<span class='line-number'>14</span>
+<span class='line-number'>15</span>
+<span class='line-number'>16</span>
+<span class='line-number'>17</span>
+<span class='line-number'>18</span>
+<span class='line-number'>19</span>
+<span class='line-number'>20</span>
+<span class='line-number'>21</span>
+<span class='line-number'>22</span>
+<span class='line-number'>23</span>
+<span class='line-number'>24</span>
+<span class='line-number'>25</span>
+<span class='line-number'>26</span>
+<span class='line-number'>27</span>
+<span class='line-number'>28</span>
+<span class='line-number'>29</span>
+<span class='line-number'>30</span>
+<span class='line-number'>31</span>
+<span class='line-number'>32</span>
+<span class='line-number'>33</span>
+<span class='line-number'>34</span>
+<span class='line-number'>35</span>
+<span class='line-number'>36</span>
+<span class='line-number'>37</span>
+<span class='line-number'>38</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>
+</span><span class='line'>@interface ExampleObject : NSObject
+</span><span class='line'>
+</span><span class='line'>
+</span><span class='line'>@property (nonatomic, readonly) NSNotificationCenter *notificationCenter;
+</span><span class='line'>
+</span><span class='line'>- (instancetype)initWithNotificationCenter:(NSNotificationCenter *)center;
+</span><span class='line'>    //...
+</span><span class='line'>@end
+</span><span class='line'>
+</span><span class='line'>@interface BNRCodeHostFetcher ()
+</span><span class='line'>
+</span><span class='line'>@property (nonatomic, strong, readwrite) NSNotificationCenter *notificationCenter;
+</span><span class='line'>
+</span><span class='line'>@end
+</span><span class='line'>
+</span><span class='line'>@implementation ExampleObject : NSObject
+</span><span class='line'>
+</span><span class='line'>- (instancetype)initWithNotificationCenter:(NSNotificationCenter *)center
+</span><span class='line'>{
+</span><span class='line'>  self = [super init];
+</span><span class='line'>  if (self)
+</span><span class='line'>  {
+</span><span class='line'>      self.notificationCenter = center;
+</span><span class='line'>  }
+</span><span class='line'>  return self;
+</span><span class='line'>}
+</span><span class='line'>
+</span><span class='line'>- (instancetype)init
+</span><span class='line'>{
+</span><span class='line'>    return [self initWithNotificationCenter:[NSNotificationCenter defaultCenter]];
+</span><span class='line'>}
+</span><span class='line'>
+</span><span class='line'>-(void)postNotification
+</span><span class='line'>{
+</span><span class='line'>    [[self notificationCenter] postNotificationName:@"SomethingCompletedNotification" object:self userInfo:userInfo];
+</span><span class='line'>}
+</span><span class='line'>@end</span></code></pre></td></tr></table></div></figure>
+
+
+<p>这样，在正常使用时我们可以直接使用<code>-init</code>方法，会传递系统的<code>NSNotificationCenter</code>对象；在做单元测试时，可以使用<code>-initWithNotificationCenter:</code>
+方法传递mock的<code>NSNotificationCenter</code>对象作为参数。</p>
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>id notificationCenter = [OCMock mockForClass[NSNotificationCenter class]];
+</span><span class='line'>[[notificationCenter expect] postNotificationName:[OCMArg any] object:[OCMArg any] userInfo:[OCMArg any]];
+</span><span class='line'>
+</span><span class='line'>ExampleObject *exampleObject = [[ExampleObject alloc]initWithNotificationCenter:notificationCenter];
+</span><span class='line'>[exampleObject postNotification];
+</span><span class='line'>[notificationCenter verify];
+</span></code></pre></td></tr></table></div></figure>
+
+
+<h1>参考</h1>
+
+<ul>
+<li><a href="http://en.wikipedia.org/wiki/Mock_object">Mock object</a></li>
+<li><a href="http://ocmock.org/">OCMock</a></li>
+<li><a href="http://ocmock.org/tutorials/">OCMock Tutorials</a></li>
+<li><a href="http://www.bignerdranch.com/blog/making-mockery-mock-objects/">Making a Mockery with Mock Objects</a></li>
+<li><a href="http://hackazach.net/code/2014/03/03/effective-testing-with-ocmock/">OCMock Test Origami</a></li>
+<li><a href="http://alexvollmer.com/posts/2010/06/28/making-fun-of-things-with-ocmock/">Making Fun of Things with OCMock</a></li>
+<li><a href="http://en.wikipedia.org/wiki/Dependency_injection">Dependency injection</a></li>
+<li><a href="http://www.bignerdranch.com/blog/dependency-injection-ios/">Dependency Injection, iOS and You</a></li>
+</ul>
+
+</div>
+
+
+  <footer>
+    <p class="meta">
+      
+  
+
+<span class="byline author vcard">Posted by <span class="fn">xuguoxing</span></span>
+
+      
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2014-06-09T09:47:57+08:00" pubdate data-updated="true">Jun 9<span>th</span>, 2014</time>
+      
+
+
+    </p>
+    
+      <div class="sharing">
+  
+  <a href="//twitter.com/share" class="twitter-share-button" data-url="http://xuguoxing.github.io/blog/2014/06/09/ocmock/" data-via="xuguoxing" data-counturl="http://xuguoxing.github.io/blog/2014/06/09/ocmock/" >Tweet</a>
+  
+  
+  
+    <div class="fb-like" data-send="true" data-width="450" data-show-faces="false"></div>
+  
+</div>
+
+    
+    <p class="meta">
+      
+        <a class="basic-alignment left" href="/blog/2014/05/23/xctest/" title="Previous Post: XCTest">&laquo; XCTest</a>
+      
+      
+        <a class="basic-alignment right" href="/blog/2014/06/09/jenkins/" title="Next Post: Jenkins">Jenkins &raquo;</a>
+      
+    </p>
+  </footer>
+</article>
+
+</div>
+
+<aside class="sidebar">
+  
+    <section>
+  <h1>Recent Posts</h1>
+  <ul id="recent_posts">
+    
+      <li class="post">
+        <a href="/blog/2016/05/20/makers-schedule/">Maker's Schedule,Manager's Schedule</a>
+      </li>
+    
+      <li class="post">
+        <a href="/blog/2016/04/25/objective-clei-jie-gou-lei-yu-yuan-lei/">Objective-C类结构- 类与元类</a>
+      </li>
+    
+      <li class="post">
+        <a href="/blog/2015/08/24/shi-yong-revealfen-xi-di-san-fang-app/">使用Reveal分析第三方App</a>
+      </li>
+    
+      <li class="post">
+        <a href="/blog/2015/05/14/iphone-and-ipad-app-marketing-checklist/">iPhone &amp; iPad App Marketing Checklist</a>
+      </li>
+    
+      <li class="post">
+        <a href="/blog/2015/01/22/symbolicatecrash/">Symbolicatecrash</a>
+      </li>
+    
+      <li class="post">
+        <a href="/blog/2014/10/23/cocoapods/">CocoaPods</a>
+      </li>
+    
+      <li class="post">
+        <a href="/blog/2014/08/18/hosts/">Hosts</a>
+      </li>
+    
+      <li class="post">
+        <a href="/blog/2014/08/16/excluded-source-file-names/">EXCLUDED_SOURCE_FILE_NAMES</a>
+      </li>
+    
+      <li class="post">
+        <a href="/blog/2014/06/09/jenkins/">Jenkins</a>
+      </li>
+    
+      <li class="post">
+        <a href="/blog/2014/06/09/ocmock/">OCMock</a>
+      </li>
+    
+  </ul>
+</section>
+
+
+
+
+
+  
+</aside>
+
+
+    </div>
+  </div>
+  <footer role="contentinfo"><p>
+  Copyright &copy; 2016 - xuguoxing -
+  <span class="credit">Powered by <a href="http://octopress.org">Octopress</a></span>
+</p>
+
+</footer>
+  
+
+
+
+<div id="fb-root"></div>
+<script>(function(d, s, id) {
+  var js, fjs = d.getElementsByTagName(s)[0];
+  if (d.getElementById(id)) {return;}
+  js = d.createElement(s); js.id = id; js.async = true;
+  js.src = "//connect.facebook.net/en_US/all.js#appId=212934732101925&xfbml=1";
+  fjs.parentNode.insertBefore(js, fjs);
+}(document, 'script', 'facebook-jssdk'));</script>
+
+
+
+
+
+  <script type="text/javascript">
+    (function(){
+      var twitterWidgets = document.createElement('script');
+      twitterWidgets.type = 'text/javascript';
+      twitterWidgets.async = true;
+      twitterWidgets.src = '//platform.twitter.com/widgets.js';
+      document.getElementsByTagName('head')[0].appendChild(twitterWidgets);
+    })();
+  </script>
+
+
+
+
+
+</body>
+</html>

@@ -1,0 +1,19 @@
+{
+    "content": {
+        "save_your_time": "Economize Seu Tempo",
+        "save_your_time_subtitle": "Localização em ambientes fechados",
+        "interactive_maps": "Mapas interativos",
+        "acurate_indoor": "Posicionamento preciso",
+        "routes": "Rotas",
+        "never_stuck": "Não perca mais tempo procurando onde você deve ir. Nunca mais se perca em aeroportos, shoppings, museus e outros grandes estabelecimentos",
+        "download_now": "Baixe agora!",
+        "venues_number": "Mais de 30 mapas e contando...",
+        "image_cel": "images/img_cel_tutorial_pt.png"
+    },
+
+    "language": {
+	"other_language_link": "?lang=en",
+	"other_language_src": "images/language_us.png",
+	"other_language": "English"
+    }
+}
